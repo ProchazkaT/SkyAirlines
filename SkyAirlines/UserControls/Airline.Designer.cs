@@ -53,7 +53,7 @@
             this.wiLBiTPanel1.Controls.Add(this.label2);
             this.wiLBiTPanel1.Controls.Add(this.label1);
             this.wiLBiTPanel1.ForeColor = System.Drawing.Color.White;
-            this.wiLBiTPanel1.Location = new System.Drawing.Point(15, 532);
+            this.wiLBiTPanel1.Location = new System.Drawing.Point(15, 540);
             this.wiLBiTPanel1.Name = "wiLBiTPanel1";
             this.wiLBiTPanel1.Size = new System.Drawing.Size(1019, 104);
             this.wiLBiTPanel1.TabIndex = 0;
@@ -66,7 +66,7 @@
             this.btnCreateOwnAirline.BorderSize = 0;
             this.btnCreateOwnAirline.FlatAppearance.BorderSize = 0;
             this.btnCreateOwnAirline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreateOwnAirline.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnCreateOwnAirline.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCreateOwnAirline.ForeColor = System.Drawing.Color.White;
             this.btnCreateOwnAirline.Location = new System.Drawing.Point(774, 10);
             this.btnCreateOwnAirline.Name = "btnCreateOwnAirline";

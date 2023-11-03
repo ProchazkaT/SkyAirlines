@@ -56,7 +56,6 @@ C:\Users\Proch\Desktop\SkyAirlines\SkyAirlines\bin\Debug\System.Data.SQLite.Linq
 C:\Users\Proch\Desktop\SkyAirlines\SkyAirlines\bin\Debug\System.Security.Principal.Windows.dll
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.csproj.AssemblyReference.cache
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.CreateOwnAirline.resources
-C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.Airline.resources
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.Dashboard.resources
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.FlightTracking.resources
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.Forms.LogInForm.resources
@@ -112,3 +111,4 @@ C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\bin\Debug\System.Memory.
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.csproj.CopyComplete
+C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.Airline.resources
