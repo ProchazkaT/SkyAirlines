@@ -16,5 +16,15 @@ namespace SkyAirlines
         {
             InitializeComponent();
         }
+
+        private void btnCreateOwnAirline_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCreateOwnAirline_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
     }
 }

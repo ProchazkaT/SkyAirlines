@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.wiLBiTPanel1 = new WiLBiT.WiLBiTPanel();
+            this.btnCreateOwnAirline = new WiLBiT.WiLBiTButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
@@ -38,7 +39,6 @@
             this.Members = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MoreInformation = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Join = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnSimbriefDispatch = new WiLBiT.WiLBiTButton();
             this.wiLBiTPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +49,7 @@
             this.wiLBiTPanel1.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.wiLBiTPanel1.BorderRadius = 20;
             this.wiLBiTPanel1.BorderSize = 0;
-            this.wiLBiTPanel1.Controls.Add(this.btnSimbriefDispatch);
+            this.wiLBiTPanel1.Controls.Add(this.btnCreateOwnAirline);
             this.wiLBiTPanel1.Controls.Add(this.label2);
             this.wiLBiTPanel1.Controls.Add(this.label1);
             this.wiLBiTPanel1.ForeColor = System.Drawing.Color.White;
@@ -57,6 +57,25 @@
             this.wiLBiTPanel1.Name = "wiLBiTPanel1";
             this.wiLBiTPanel1.Size = new System.Drawing.Size(1019, 104);
             this.wiLBiTPanel1.TabIndex = 0;
+            // 
+            // btnCreateOwnAirline
+            // 
+            this.btnCreateOwnAirline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnCreateOwnAirline.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnCreateOwnAirline.BorderRadius = 10;
+            this.btnCreateOwnAirline.BorderSize = 0;
+            this.btnCreateOwnAirline.FlatAppearance.BorderSize = 0;
+            this.btnCreateOwnAirline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateOwnAirline.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnCreateOwnAirline.ForeColor = System.Drawing.Color.White;
+            this.btnCreateOwnAirline.Location = new System.Drawing.Point(774, 10);
+            this.btnCreateOwnAirline.Name = "btnCreateOwnAirline";
+            this.btnCreateOwnAirline.Size = new System.Drawing.Size(198, 84);
+            this.btnCreateOwnAirline.TabIndex = 3;
+            this.btnCreateOwnAirline.Text = "Create your own airline";
+            this.btnCreateOwnAirline.UseVisualStyleBackColor = false;
+            this.btnCreateOwnAirline.MouseEnter += new System.EventHandler(this.btnCreateOwnAirline_MouseEnter);
+            this.btnCreateOwnAirline.MouseLeave += new System.EventHandler(this.btnCreateOwnAirline_MouseLeave);
             // 
             // label2
             // 
@@ -90,11 +109,11 @@
             this.Members,
             this.MoreInformation,
             this.Join});
-            this.dataGridView.Location = new System.Drawing.Point(15, 23);
+            this.dataGridView.Location = new System.Drawing.Point(15, 17);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(1019, 490);
+            this.dataGridView.Size = new System.Drawing.Size(1019, 509);
             this.dataGridView.TabIndex = 1;
             // 
             // Logo
@@ -139,23 +158,6 @@
             this.Join.Name = "Join";
             this.Join.Width = 125;
             // 
-            // btnSimbriefDispatch
-            // 
-            this.btnSimbriefDispatch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.btnSimbriefDispatch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.btnSimbriefDispatch.BorderRadius = 10;
-            this.btnSimbriefDispatch.BorderSize = 0;
-            this.btnSimbriefDispatch.FlatAppearance.BorderSize = 0;
-            this.btnSimbriefDispatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSimbriefDispatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnSimbriefDispatch.ForeColor = System.Drawing.Color.White;
-            this.btnSimbriefDispatch.Location = new System.Drawing.Point(774, 10);
-            this.btnSimbriefDispatch.Name = "btnSimbriefDispatch";
-            this.btnSimbriefDispatch.Size = new System.Drawing.Size(198, 84);
-            this.btnSimbriefDispatch.TabIndex = 3;
-            this.btnSimbriefDispatch.Text = "Create your own airline";
-            this.btnSimbriefDispatch.UseVisualStyleBackColor = false;
-            // 
             // Airline
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -176,6 +178,9 @@
         #endregion
 
         private WiLBiT.WiLBiTPanel wiLBiTPanel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private WiLBiT.WiLBiTButton btnCreateOwnAirline;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.DataGridViewImageColumn Logo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
@@ -183,8 +188,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Members;
         private System.Windows.Forms.DataGridViewButtonColumn MoreInformation;
         private System.Windows.Forms.DataGridViewButtonColumn Join;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private WiLBiT.WiLBiTButton btnSimbriefDispatch;
     }
 }
