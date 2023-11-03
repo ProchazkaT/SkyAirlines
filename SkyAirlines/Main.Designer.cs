@@ -49,8 +49,8 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.pbPicture = new WiLBiT.WiLBiTRoundedPictureBox();
             this.panel = new WiLBiT.WiLBiTPanel();
-            this.DragControl = new WiLBiT.WiLBiTDragControl();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.DragControl = new WiLBiT.WiLBiTDragControl();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wiLBiTRoundedPictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -173,6 +173,7 @@
             this.btnAirline.Text = "   Airline";
             this.btnAirline.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAirline.UseVisualStyleBackColor = true;
+            this.btnAirline.Click += new System.EventHandler(this.btnAirline_Click);
             this.btnAirline.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnAirline.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
@@ -357,10 +358,6 @@
             this.panel.Size = new System.Drawing.Size(1075, 682);
             this.panel.TabIndex = 2;
             // 
-            // DragControl
-            // 
-            this.DragControl.TargetControl = this.panelTop;
-            // 
             // panelMain
             // 
             this.panelMain.Location = new System.Drawing.Point(13, 14);
@@ -369,6 +366,10 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1050, 655);
             this.panelMain.TabIndex = 0;
+            // 
+            // DragControl
+            // 
+            this.DragControl.TargetControl = this.panelTop;
             // 
             // Main
             // 
