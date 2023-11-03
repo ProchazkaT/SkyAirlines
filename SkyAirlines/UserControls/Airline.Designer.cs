@@ -34,11 +34,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Logo = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AirlineName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Headquater = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Members = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MoreInformation = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Join = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.JoinButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.wiLBiTPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -74,6 +74,7 @@
             this.btnCreateOwnAirline.TabIndex = 3;
             this.btnCreateOwnAirline.Text = "Create your own airline";
             this.btnCreateOwnAirline.UseVisualStyleBackColor = false;
+            this.btnCreateOwnAirline.Click += new System.EventHandler(this.btnCreateOwnAirline_Click);
             this.btnCreateOwnAirline.MouseEnter += new System.EventHandler(this.btnCreateOwnAirline_MouseEnter);
             this.btnCreateOwnAirline.MouseLeave += new System.EventHandler(this.btnCreateOwnAirline_MouseLeave);
             // 
@@ -104,16 +105,16 @@
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Logo,
-            this.Name,
+            this.AirlineName,
             this.Headquater,
             this.Members,
             this.MoreInformation,
-            this.Join});
-            this.dataGridView.Location = new System.Drawing.Point(15, 17);
+            this.JoinButton});
+            this.dataGridView.Location = new System.Drawing.Point(15, 16);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(1019, 509);
+            this.dataGridView.Size = new System.Drawing.Size(1019, 510);
             this.dataGridView.TabIndex = 1;
             // 
             // Logo
@@ -123,12 +124,12 @@
             this.Logo.Name = "Logo";
             this.Logo.Width = 125;
             // 
-            // Name
+            // AirlineName
             // 
-            this.Name.HeaderText = "Name";
-            this.Name.MinimumWidth = 6;
-            this.Name.Name = "Name";
-            this.Name.Width = 125;
+            this.AirlineName.HeaderText = "Airline name";
+            this.AirlineName.MinimumWidth = 6;
+            this.AirlineName.Name = "AirlineName";
+            this.AirlineName.Width = 125;
             // 
             // Headquater
             // 
@@ -151,12 +152,12 @@
             this.MoreInformation.Name = "MoreInformation";
             this.MoreInformation.Width = 125;
             // 
-            // Join
+            // JoinButton
             // 
-            this.Join.HeaderText = "Join";
-            this.Join.MinimumWidth = 6;
-            this.Join.Name = "Join";
-            this.Join.Width = 125;
+            this.JoinButton.HeaderText = "Join";
+            this.JoinButton.MinimumWidth = 6;
+            this.JoinButton.Name = "JoinButton";
+            this.JoinButton.Width = 125;
             // 
             // Airline
             // 
@@ -183,10 +184,10 @@
         private WiLBiT.WiLBiTButton btnCreateOwnAirline;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.DataGridViewImageColumn Logo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AirlineName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Headquater;
         private System.Windows.Forms.DataGridViewTextBoxColumn Members;
         private System.Windows.Forms.DataGridViewButtonColumn MoreInformation;
-        private System.Windows.Forms.DataGridViewButtonColumn Join;
+        private System.Windows.Forms.DataGridViewButtonColumn JoinButton;
     }
 }

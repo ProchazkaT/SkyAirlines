@@ -1901,11 +1901,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Proch\\Desktop\\SkyAirlines\\SkyAirlines\\SkyAirlines.csproj",
+      "projectUniqueName": "C:\\Users\\Proch\\Documents\\GitHub\\SkyAirlines\\SkyAirlines\\SkyAirlines.csproj",
       "projectName": "SkyAirlines",
-      "projectPath": "C:\\Users\\Proch\\Desktop\\SkyAirlines\\SkyAirlines\\SkyAirlines.csproj",
+      "projectPath": "C:\\Users\\Proch\\Documents\\GitHub\\SkyAirlines\\SkyAirlines\\SkyAirlines.csproj",
       "packagesPath": "C:\\Users\\Proch\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Proch\\Desktop\\SkyAirlines\\SkyAirlines\\obj\\",
+      "outputPath": "C:\\Users\\Proch\\Documents\\GitHub\\SkyAirlines\\SkyAirlines\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

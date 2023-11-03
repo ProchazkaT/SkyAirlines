@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/MNS8wS4BNaV6tvXMcsZGO1CNwRawp00zhp7POyDMWz2y9mSWl4jJCWDHD+Mlk9OFao4V2gAIYTgzyrKGTlhWg==",
+  "dgSpecHash": "E9pKfWMZAJsVhkQmCaLidPHaYqCdQpWiuSYxl9dzUnwfKKcKRZzPEOqRpZQclHxxFq7t2m5qNkjAR8/Aavgaqw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Proch\\Desktop\\SkyAirlines\\SkyAirlines\\SkyAirlines.csproj",
+  "projectFilePath": "C:\\Users\\Proch\\Documents\\GitHub\\SkyAirlines\\SkyAirlines\\SkyAirlines.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Proch\\.nuget\\packages\\ajaxmin\\5.14.5506.26202\\ajaxmin.5.14.5506.26202.nupkg.sha512",
     "C:\\Users\\Proch\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",

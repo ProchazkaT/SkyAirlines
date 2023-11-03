@@ -54,7 +54,8 @@ namespace SkyAirlines
         }
         private void btnAirline_Click(object sender, EventArgs e)
         {
-
+            SetActiveButton((Button)sender);
+            ChangeMainPanel(new Airline(panel));
         }
 
         private void btnFlight_Click(object sender, EventArgs e)
