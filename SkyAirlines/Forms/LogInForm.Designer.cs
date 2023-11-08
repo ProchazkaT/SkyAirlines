@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogInForm));
             this.panelUdaje = new System.Windows.Forms.Panel();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.tbUsername = new System.Windows.Forms.TextBox();
             this.linkLblNewAcc = new System.Windows.Forms.LinkLabel();
             this.linkLblForgotPass = new System.Windows.Forms.LinkLabel();
             this.btnLogin = new WiLBiT.WiLBiTButton();
@@ -39,8 +42,6 @@
             this.btnMinimaze = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.DragControl = new WiLBiT.WiLBiTDragControl();
-            this.tbUsername = new System.Windows.Forms.TextBox();
-            this.tbPassword = new System.Windows.Forms.TextBox();
             this.panelUdaje.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -63,6 +64,23 @@
             this.panelUdaje.Name = "panelUdaje";
             this.panelUdaje.Size = new System.Drawing.Size(605, 530);
             this.panelUdaje.TabIndex = 0;
+            // 
+            // tbPassword
+            // 
+            this.tbPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbPassword.Location = new System.Drawing.Point(125, 347);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
+            this.tbPassword.Size = new System.Drawing.Size(357, 32);
+            this.tbPassword.TabIndex = 12;
+            // 
+            // tbUsername
+            // 
+            this.tbUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbUsername.Location = new System.Drawing.Point(125, 257);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(357, 32);
+            this.tbUsername.TabIndex = 11;
             // 
             // linkLblNewAcc
             // 
@@ -187,29 +205,13 @@
             // 
             this.DragControl.TargetControl = this.panel1;
             // 
-            // tbUsername
-            // 
-            this.tbUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbUsername.Location = new System.Drawing.Point(125, 257);
-            this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(357, 32);
-            this.tbUsername.TabIndex = 11;
-            // 
-            // tbPassword
-            // 
-            this.tbPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbPassword.Location = new System.Drawing.Point(125, 347);
-            this.tbPassword.Name = "tbPassword";
-            this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(357, 32);
-            this.tbPassword.TabIndex = 12;
-            // 
             // LogInForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(605, 530);
             this.Controls.Add(this.panelUdaje);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LogInForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
