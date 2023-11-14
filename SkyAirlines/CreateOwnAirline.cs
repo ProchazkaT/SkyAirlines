@@ -1,4 +1,5 @@
-﻿using GMap.NET.MapProviders;
+﻿using GMap.NET;
+using GMap.NET.MapProviders;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,6 +27,7 @@ namespace SkyAirlines
             gMapControl.MinZoom = 0;
             gMapControl.MaxZoom = 24;
             gMapControl.Zoom = 4;
+            gMapControl.Position = new PointLatLng(50.14, 14.26);
 
             Controls.Add(gMapControl);
         }
