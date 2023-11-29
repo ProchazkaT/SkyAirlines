@@ -159,10 +159,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateOwnAirline.cs">
+    <Compile Include="UserControls\CreateOwnAirline.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CreateOwnAirline.Designer.cs">
+    <Compile Include="UserControls\CreateOwnAirline.Designer.cs">
       <DependentUpon>CreateOwnAirline.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Airline.cs">
@@ -171,7 +171,7 @@
     <Compile Include="UserControls\Airline.Designer.cs">
       <DependentUpon>Airline.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\AircraftMarker.cs" />
+    <Compile Include="Classes\CustomMarker.cs" />
     <Compile Include="Classes\GetPilotSQLData.cs" />
     <Compile Include="Classes\Licences.cs" />
     <Compile Include="Classes\Login.cs" />
@@ -221,7 +221,7 @@
     <Compile Include="UserControls\AircraftShowroom.Designer.cs">
       <DependentUpon>AircraftShowroom.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CreateOwnAirline.resx">
+    <EmbeddedResource Include="UserControls\CreateOwnAirline.resx">
       <DependentUpon>CreateOwnAirline.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Airline.resx">
@@ -278,6 +278,8 @@
     <Content Include="Images\tshadowdownright.png" />
     <Content Include="Images\tshadowright.png" />
     <Content Include="Images\tshadowtopright.png" />
+    <None Include="Resources\AirplaneMarker.png" />
+    <None Include="Resources\AirportMarker.png" />
     <None Include="Resources\AircraftMarker.png" />
     <None Include="Resources\settings.png" />
     <None Include="Resources\logout.png" />

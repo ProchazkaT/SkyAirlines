@@ -143,9 +143,9 @@ namespace SkyAirlines.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap AircraftMarker {
+        internal static System.Drawing.Bitmap Airline {
             get {
-                object obj = ResourceManager.GetObject("AircraftMarker", resourceCulture);
+                object obj = ResourceManager.GetObject("Airline", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,19 @@ namespace SkyAirlines.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Airline {
+        internal static System.Drawing.Bitmap AirplaneMarker {
             get {
-                object obj = ResourceManager.GetObject("Airline", resourceCulture);
+                object obj = ResourceManager.GetObject("AirplaneMarker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AirportMarker {
+            get {
+                object obj = ResourceManager.GetObject("AirportMarker", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

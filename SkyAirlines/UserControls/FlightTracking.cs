@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
+using Gmap.net.Overlays;
 
 namespace SkyAirlines
 {
@@ -24,12 +25,14 @@ namespace SkyAirlines
         private Offset<int> speedOffset = new Offset<int>(0x02B8);
         private Offset<int> altitudeOffset = new Offset<int>(0x3324);
         private Offset<int> iasOffset = new Offset<int>(0x02BC);
+        private Offset<double> headingOffset = new Offset<double>(0x0580);
 
         long latitude = 0;
         long longitude = 0;
         int speed = 0;
         int altitudeFeet = 0;
         int ias = 0;
+        long heading = 0;
 
         public FlightTracking(Panel panelMain)
         {
@@ -45,19 +48,21 @@ namespace SkyAirlines
             gMapControl.MinZoom = 0;
             gMapControl.MaxZoom = 24;
             gMapControl.Zoom = 4;
+            gMapControl.CanDragMap = true;
 
             Controls.Add(gMapControl);
         }
 
-        private void UpdateAircraftPosition(double latitude, double longitude)
+        private void UpdateairplanePosition(double latitude, double longitude)
         {
             gMapControl.Overlays.Clear();
 
-            GMapOverlay aircraftOverlay = new GMapOverlay("AircraftOverlay");
-            AircraftMarker aircraftMarker = new AircraftMarker(new PointLatLng(latitude, longitude), Properties.Resources.AircraftMarker);
-            aircraftOverlay.Markers.Add(aircraftMarker);
+            GMapOverlay airplaneOverlay = new GMapOverlay("airplaneOverlay");
+            CustomMarker airplaneMarker = new CustomMarker(new PointLatLng(latitude, longitude), Properties.Resources.AirportMarker, "Your airplane");
+            airplaneMarker.Bearing = (int)heading;
+            airplaneOverlay.Markers.Add(airplaneMarker);
 
-            gMapControl.Overlays.Add(aircraftOverlay);
+            gMapControl.Overlays.Add(airplaneOverlay);
 
             gMapControl.Position = new PointLatLng(latitude, longitude);
         }
@@ -91,6 +96,12 @@ namespace SkyAirlines
                 altitudeFeet = altitudeOffset.Value;
                 int altitudeMeters = (int)(altitudeFeet * 0.3048);
                 ias = iasOffset.Value / 128;
+                unchecked
+                {
+                    double heading = (double)headingOffset.Value * 360 / (65536 * 65536);
+                    heading = this.heading;
+                }
+
 
                 double latitudeDeg = latitude * 90.0 / (10001750.0 * 65536.0 * 65536.0);
                 double longitudeDeg = longitude * 360.0 / (65536.0 * 65536.0 * 65536.0 * 65536.0);
@@ -102,14 +113,14 @@ namespace SkyAirlines
                 lblSpeed.Text = speed.ToString() + " kts";
                 lblIAS.Text = ias.ToString() + " kts";
 
-                UpdateAircraftPosition(latitudeDeg, longitudeDeg);
+                UpdateairplanePosition(latitudeDeg, longitudeDeg);
             }
             catch (Exception)
             {
                 lblDeparture.Text = "";
                 lblArrival.Text = "";
                 lblDistance.Text = "";
-                lblAircraft.Text = "";
+                lblAirplane.Text = "";
                 lblStatus.Text = "Error reading data from FSUIPC.";
 
                 gMapControl.Zoom = 4;
@@ -141,7 +152,7 @@ namespace SkyAirlines
                     lblDeparture.Text = "";
                     lblArrival.Text = "";
                     lblDistance.Text = "";
-                    lblAircraft.Text = "";
+                    lblAirplane.Text = "";
                     lblStatus.Text = "Not connected to FS.";
 
                     gMapControl.Zoom = 4;
@@ -158,7 +169,7 @@ namespace SkyAirlines
                 lblDeparture.Text = "";
                 lblArrival.Text = "";
                 lblDistance.Text = "";
-                lblAircraft.Text = "";
+                lblAirplane.Text = "";
                 lblStatus.Text = "Not connected to FS.";
 
                 gMapControl.Zoom = 4;

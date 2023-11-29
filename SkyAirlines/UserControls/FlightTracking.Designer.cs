@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelTop = new WiLBiT.WiLBiTPanel();
-            this.lblAircraft = new System.Windows.Forms.Label();
+            this.lblAirplane = new System.Windows.Forms.Label();
             this.lblDistance = new System.Windows.Forms.Label();
             this.lblArrival = new System.Windows.Forms.Label();
             this.lblDeparture = new System.Windows.Forms.Label();
@@ -73,7 +73,7 @@
             this.panelTop.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.panelTop.BorderRadius = 20;
             this.panelTop.BorderSize = 0;
-            this.panelTop.Controls.Add(this.lblAircraft);
+            this.panelTop.Controls.Add(this.lblAirplane);
             this.panelTop.Controls.Add(this.lblDistance);
             this.panelTop.Controls.Add(this.lblArrival);
             this.panelTop.Controls.Add(this.lblDeparture);
@@ -87,15 +87,15 @@
             this.panelTop.Size = new System.Drawing.Size(1038, 75);
             this.panelTop.TabIndex = 0;
             // 
-            // lblAircraft
+            // lblAirplane
             // 
-            this.lblAircraft.AutoSize = true;
-            this.lblAircraft.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblAircraft.Location = new System.Drawing.Point(826, 45);
-            this.lblAircraft.Name = "lblAircraft";
-            this.lblAircraft.Size = new System.Drawing.Size(47, 20);
-            this.lblAircraft.TabIndex = 6;
-            this.lblAircraft.Text = "A320";
+            this.lblAirplane.AutoSize = true;
+            this.lblAirplane.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblAirplane.Location = new System.Drawing.Point(826, 45);
+            this.lblAirplane.Name = "lblAirplane";
+            this.lblAirplane.Size = new System.Drawing.Size(47, 20);
+            this.lblAirplane.TabIndex = 6;
+            this.lblAirplane.Text = "A320";
             // 
             // lblDistance
             // 
@@ -523,7 +523,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblAircraft;
+        private System.Windows.Forms.Label lblAirplane;
         private System.Windows.Forms.Label lblDistance;
         private System.Windows.Forms.Label lblArrival;
         private System.Windows.Forms.Label lblDeparture;

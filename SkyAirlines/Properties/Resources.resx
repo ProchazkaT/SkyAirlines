@@ -259,7 +259,10 @@
   <data name="A340" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\A340.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AircraftMarker" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AircraftMarker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AirportMarker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AirportMarker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AirplaneMarker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AirplaneMarker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
