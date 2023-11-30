@@ -17,19 +17,4 @@ public class CustomMarker : GMapMarker
         tooltipText = tooltip;
         ToolTipText = tooltipText;
     }
-
-    public override void OnRender(Graphics g)
-    {
-        if (Bearing != 0)
-        {
-            g.TranslateTransform(LocalPosition.X, LocalPosition.Y);
-            g.RotateTransform(Bearing);
-            g.DrawImage(airportBitmap, new Rectangle(-Size.Width / 2, -Size.Height / 2, Size.Width, Size.Height));
-            g.ResetTransform();
-        }
-        else
-        {
-            g.DrawImageUnscaled(airportBitmap, LocalPosition.X, LocalPosition.Y);
-        }
-    }
 }
