@@ -47,7 +47,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panelInformation = new WiLBiT.WiLBiTPanel();
             this.lblAltitudeMetres = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.lblIAS = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.lblAltitude = new System.Windows.Forms.Label();
@@ -289,7 +288,6 @@
             this.panelInformation.BorderRadius = 20;
             this.panelInformation.BorderSize = 0;
             this.panelInformation.Controls.Add(this.lblAltitudeMetres);
-            this.panelInformation.Controls.Add(this.label10);
             this.panelInformation.Controls.Add(this.lblIAS);
             this.panelInformation.Controls.Add(this.label19);
             this.panelInformation.Controls.Add(this.lblAltitude);
@@ -315,20 +313,9 @@
             this.lblAltitudeMetres.ForeColor = System.Drawing.Color.Black;
             this.lblAltitudeMetres.Location = new System.Drawing.Point(705, 35);
             this.lblAltitudeMetres.Name = "lblAltitudeMetres";
-            this.lblAltitudeMetres.Size = new System.Drawing.Size(33, 20);
+            this.lblAltitudeMetres.Size = new System.Drawing.Size(37, 20);
             this.lblAltitudeMetres.TabIndex = 15;
-            this.lblAltitudeMetres.Text = "0 ft";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(626, 35);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(73, 20);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Altitude";
+            this.lblAltitudeMetres.Text = "0 m";
             // 
             // lblIAS
             // 
@@ -550,6 +537,5 @@
         private WiLBiT.WiLBiTButton btnSubmitFlight;
         private GMap.NET.WindowsForms.GMapControl gMapControl;
         private System.Windows.Forms.Label lblAltitudeMetres;
-        private System.Windows.Forms.Label label10;
     }
 }

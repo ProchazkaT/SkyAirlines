@@ -1,20 +1,10 @@
-﻿using FSUIPC;
-using GMap.NET;
+﻿using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
-using GMap.NET.WindowsForms.Markers;
-using GMap.NET.WindowsPresentation;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Forms;
 
 namespace SkyAirlines
@@ -78,7 +68,6 @@ namespace SkyAirlines
                 string description = data.Item3;
 
                 CustomMarker marker = new CustomMarker(new PointLatLng(latitude, longitude), Properties.Resources.AirportMarker, description);
-
                 markersOverlay.Markers.Add(marker);
             }
         }
@@ -96,7 +85,7 @@ namespace SkyAirlines
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = connection;
 
-                    cmd.CommandText = "SELECT icao, name, lat, lon FROM Airports WHERE icao IN ('LATI', 'LESU', 'UDYZ', 'LOWW', 'UBBB', 'UMMS', 'EBBR', 'LQSA', 'LBSF', 'LDZA', 'LCLK', 'LKPR', 'EKCH', 'EETN', 'EFHK', 'LFPG', 'UGTB', 'EDDB', 'LGAV', 'LHBP', 'BIKF', 'EIDW', 'LIRF', 'UACC', 'BKPR', 'EVRA', 'EYVI', 'ELLX', 'LWSK', 'LMML', 'LUKK', 'LFTW', 'LYPG', 'EHAM', 'ENGM', 'EPWA', 'LPPT', 'LROP', 'UUEE', 'LZIB', 'LJLJ', 'LEMD', 'ESSA', 'LSZB', 'LTAC', 'UKBB', 'EGLL', 'LYPG', 'EGPH')";
+                    cmd.CommandText = "SELECT icao, name, lat, lon FROM Airports WHERE icao IN ('LATI', 'UDYZ', 'LOWW', 'UBBB', 'UMMS', 'EBBR', 'LQSA', 'LBSF', 'LDZA', 'LCLK', 'LKPR', 'EKCH', 'EETN', 'EFHK', 'LFPG', 'UGTB', 'EDDB', 'LGAV', 'LHBP', 'BIKF', 'EIDW', 'LIRF', 'UACC', 'BKPR', 'EVRA', 'EYVI', 'ELLX', 'LWSK', 'LMML', 'LUKK', 'LFTW', 'LYPG', 'EHAM', 'ENGM', 'EPWA', 'LPPT', 'LROP', 'UUEE', 'LZIB', 'LJLJ', 'LEMD', 'ESSA', 'LSZB', 'LTAC', 'UKBB', 'EGLL', 'LYPG', 'EGPH')";
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
