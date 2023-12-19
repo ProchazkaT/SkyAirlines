@@ -30,18 +30,20 @@
         {
             this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
             this.wiLBiTPanel2 = new WiLBiT.WiLBiTPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblHeadquater = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnCreateOwnAirline = new WiLBiT.WiLBiTButton();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.wiLBiTPanel1 = new WiLBiT.WiLBiTPanel();
+            this.btnOpenLogoImg = new WiLBiT.WiLBiTButton();
             this.cbFleet = new System.Windows.Forms.ComboBox();
-            this.tbName = new WiLBiT.WiLBiTTextBox();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.tbName = new WiLBiT.WiLBiTTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.wiLBiTPanel2.SuspendLayout();
             this.wiLBiTPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
@@ -80,6 +82,7 @@
             this.wiLBiTPanel2.BorderRadius = 20;
             this.wiLBiTPanel2.BorderSize = 0;
             this.wiLBiTPanel2.Controls.Add(this.label7);
+            this.wiLBiTPanel2.Controls.Add(this.lblHeadquater);
             this.wiLBiTPanel2.Controls.Add(this.label6);
             this.wiLBiTPanel2.Controls.Add(this.btnCreateOwnAirline);
             this.wiLBiTPanel2.Controls.Add(this.label5);
@@ -89,6 +92,36 @@
             this.wiLBiTPanel2.Name = "wiLBiTPanel2";
             this.wiLBiTPanel2.Size = new System.Drawing.Size(1043, 136);
             this.wiLBiTPanel2.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(46, 62);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(145, 29);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Headquater:";
+            // 
+            // lblHeadquater
+            // 
+            this.lblHeadquater.AutoSize = true;
+            this.lblHeadquater.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblHeadquater.ForeColor = System.Drawing.Color.Black;
+            this.lblHeadquater.Location = new System.Drawing.Point(166, 62);
+            this.lblHeadquater.Name = "lblHeadquater";
+            this.lblHeadquater.Size = new System.Drawing.Size(0, 29);
+            this.lblHeadquater.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(463, 117);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 16);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "label6";
             // 
             // btnCreateOwnAirline
             // 
@@ -106,8 +139,7 @@
             this.btnCreateOwnAirline.TabIndex = 4;
             this.btnCreateOwnAirline.Text = "Create your own airline";
             this.btnCreateOwnAirline.UseVisualStyleBackColor = false;
-            this.btnCreateOwnAirline.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
-            this.btnCreateOwnAirline.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
+            this.btnCreateOwnAirline.Click += new System.EventHandler(this.btnCreateOwnAirline_Click);
             // 
             // label5
             // 
@@ -137,26 +169,57 @@
             this.wiLBiTPanel1.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.wiLBiTPanel1.BorderRadius = 20;
             this.wiLBiTPanel1.BorderSize = 0;
+            this.wiLBiTPanel1.Controls.Add(this.btnOpenLogoImg);
             this.wiLBiTPanel1.Controls.Add(this.cbFleet);
-            this.wiLBiTPanel1.Controls.Add(this.tbName);
-            this.wiLBiTPanel1.Controls.Add(this.pbLogo);
-            this.wiLBiTPanel1.Controls.Add(this.label4);
             this.wiLBiTPanel1.Controls.Add(this.label3);
+            this.wiLBiTPanel1.Controls.Add(this.tbName);
             this.wiLBiTPanel1.Controls.Add(this.label2);
+            this.wiLBiTPanel1.Controls.Add(this.label);
+            this.wiLBiTPanel1.Controls.Add(this.pbLogo);
             this.wiLBiTPanel1.ForeColor = System.Drawing.Color.White;
-            this.wiLBiTPanel1.Location = new System.Drawing.Point(4, 7);
+            this.wiLBiTPanel1.Location = new System.Drawing.Point(4, 4);
             this.wiLBiTPanel1.Name = "wiLBiTPanel1";
             this.wiLBiTPanel1.Size = new System.Drawing.Size(1043, 136);
-            this.wiLBiTPanel1.TabIndex = 5;
+            this.wiLBiTPanel1.TabIndex = 8;
+            // 
+            // btnOpenLogoImg
+            // 
+            this.btnOpenLogoImg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnOpenLogoImg.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnOpenLogoImg.BorderRadius = 10;
+            this.btnOpenLogoImg.BorderSize = 0;
+            this.btnOpenLogoImg.FlatAppearance.BorderSize = 0;
+            this.btnOpenLogoImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenLogoImg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnOpenLogoImg.ForeColor = System.Drawing.Color.White;
+            this.btnOpenLogoImg.Location = new System.Drawing.Point(68, 77);
+            this.btnOpenLogoImg.Name = "btnOpenLogoImg";
+            this.btnOpenLogoImg.Size = new System.Drawing.Size(72, 36);
+            this.btnOpenLogoImg.TabIndex = 6;
+            this.btnOpenLogoImg.Text = "Open";
+            this.btnOpenLogoImg.UseVisualStyleBackColor = false;
+            this.btnOpenLogoImg.Click += new System.EventHandler(this.btnOpenLogoImg_Click);
             // 
             // cbFleet
             // 
-            this.cbFleet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cbFleet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbFleet.FormattingEnabled = true;
-            this.cbFleet.Location = new System.Drawing.Point(802, 61);
+            this.cbFleet.Location = new System.Drawing.Point(728, 50);
             this.cbFleet.Name = "cbFleet";
-            this.cbFleet.Size = new System.Drawing.Size(206, 33);
+            this.cbFleet.Size = new System.Drawing.Size(169, 28);
             this.cbFleet.TabIndex = 5;
+            this.cbFleet.Text = "--Select--";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(724, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 29);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Fleet";
             // 
             // tbName
             // 
@@ -165,83 +228,52 @@
             this.tbName.BorderFocusColor = System.Drawing.Color.DeepSkyBlue;
             this.tbName.BorderRadius = 4;
             this.tbName.BorderSize = 2;
-            this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbName.ForeColor = System.Drawing.Color.Black;
-            this.tbName.Location = new System.Drawing.Point(437, 61);
+            this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbName.Location = new System.Drawing.Point(357, 50);
             this.tbName.Margin = new System.Windows.Forms.Padding(4);
             this.tbName.Multiline = false;
             this.tbName.Name = "tbName";
             this.tbName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.tbName.PasswordChar = false;
-            this.tbName.PlaceholderColor = System.Drawing.Color.DimGray;
+            this.tbName.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbName.PlaceholderText = "";
-            this.tbName.Size = new System.Drawing.Size(250, 37);
-            this.tbName.TabIndex = 4;
+            this.tbName.Size = new System.Drawing.Size(250, 32);
+            this.tbName.TabIndex = 3;
             this.tbName.Texts = "";
             this.tbName.UnderlinedStyle = false;
-            // 
-            // pbLogo
-            // 
-            this.pbLogo.Image = global::SkyAirlines.Properties.Resources.SkyAirlines2;
-            this.pbLogo.Location = new System.Drawing.Point(174, 13);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(89, 85);
-            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLogo.TabIndex = 3;
-            this.pbLogo.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(796, 13);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 32);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Fleet";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(431, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 32);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(45, 13);
+            this.label2.Location = new System.Drawing.Point(353, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 32);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Logo";
+            this.label2.Size = new System.Drawing.Size(82, 29);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Name";
             // 
-            // label6
+            // label
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(463, 117);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 16);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "label6";
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label.ForeColor = System.Drawing.Color.Black;
+            this.label.Location = new System.Drawing.Point(68, 22);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(72, 29);
+            this.label.TabIndex = 1;
+            this.label.Text = "Logo";
             // 
-            // label7
+            // pbLogo
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(46, 61);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(145, 29);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Headquater:";
+            this.pbLogo.Image = global::SkyAirlines.Properties.Resources.SkyAirlines2;
+            this.pbLogo.Location = new System.Drawing.Point(146, 22);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(102, 91);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogo.TabIndex = 0;
+            this.pbLogo.TabStop = false;
             // 
             // CreateOwnAirline
             // 
@@ -269,14 +301,16 @@
         private System.Windows.Forms.Label label1;
         private WiLBiT.WiLBiTButton btnCreateOwnAirline;
         private System.Windows.Forms.Label label5;
-        private WiLBiT.WiLBiTPanel wiLBiTPanel1;
-        private System.Windows.Forms.ComboBox cbFleet;
-        private WiLBiT.WiLBiTTextBox tbName;
-        private System.Windows.Forms.PictureBox pbLogo;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblHeadquater;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private WiLBiT.WiLBiTPanel wiLBiTPanel1;
+        private System.Windows.Forms.PictureBox pbLogo;
+        private System.Windows.Forms.Label label;
+        private WiLBiT.WiLBiTTextBox tbName;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbFleet;
+        private System.Windows.Forms.Label label3;
+        private WiLBiT.WiLBiTButton btnOpenLogoImg;
     }
 }

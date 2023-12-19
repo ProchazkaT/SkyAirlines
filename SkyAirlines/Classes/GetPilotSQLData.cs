@@ -52,6 +52,40 @@ namespace SkyAirlines.Classes
             return money;
         }
 
+        public int GetPilotID()
+        {
+            int id = 0;
+
+            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    cmd.CommandText = "SELECT ID FROM Pilot WHERE Username = @username";
+                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        id = int.Parse(reader["ID"].ToString().Trim());
+                    }
+                    reader.Close();
+
+                    connection.Close();
+                }
+                catch (Exception chyba)
+                {
+                    MessageBox.Show(chyba.ToString(), "Error:");
+                    connection.Close();
+                }
+            }
+            return id;
+        }
+
         public int GetPilotXP()
         {
             int xp = 0;

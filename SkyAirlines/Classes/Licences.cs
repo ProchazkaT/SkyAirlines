@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace SkyAirlines.Classes
@@ -9,7 +10,6 @@ namespace SkyAirlines.Classes
     internal class Licences
     {
         SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
-
         GetPilotSQLData pilotSQLData = new GetPilotSQLData();
         private Label lblMoney = GlobalData.lblMoney;
 
@@ -34,6 +34,7 @@ namespace SkyAirlines.Classes
 
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = connection;
+
                     if (!IsLicenceAlreadyOwned(aircraftShort))
                     {
                         if (money >= priceOfAircraftLicence)
@@ -41,11 +42,7 @@ namespace SkyAirlines.Classes
                             money -= priceOfAircraftLicence;
                             licences += aircraftShort + ",";
 
-                            cmd.CommandText = "UPDATE Pilot SET Licences = @licences, Money = @money WHERE Username = @username";
-                            cmd.Parameters.AddWithValue("@licences", licences);
-                            cmd.Parameters.AddWithValue("@money", money);
-                            cmd.Parameters.AddWithValue("@username", usernameOfPilot);
-                            cmd.ExecuteNonQuery();
+                            UpdatePilotLicencesAndMoney(cmd, licences, money, usernameOfPilot);
 
                             lblMoney.Text = pilotSQLData.GetPilotMoney().ToString() + "$";
                         }
@@ -54,48 +51,38 @@ namespace SkyAirlines.Classes
                     }
                     else
                         MessageBox.Show("You have already purchased this license", "Notification:");
-
-                    connection.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred while purchasing the license.\n" + ex.ToString(), "Error:");
+                    HandleError("An error occurred while purchasing the license.", ex);
                 }
             }
         }
 
-
-        public string GetPilotLicence()
+        private void UpdatePilotLicencesAndMoney(SqlCommand cmd, string licences, int money, string usernameOfPilot)
         {
-            string licences = null;
+            cmd.CommandText = "UPDATE Pilot SET Licences = @licences, Money = @money WHERE Username = @username";
+            cmd.Parameters.AddWithValue("@licences", licences);
+            cmd.Parameters.AddWithValue("@money", money);
+            cmd.Parameters.AddWithValue("@username", usernameOfPilot);
+            cmd.ExecuteNonQuery();
+        }
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+        public List<string> GetPilotLicencesAsList()
+        {
+            string licenceString = GetPilotLicence();
+            List<string> licences = new List<string>();
+
+            if (!string.IsNullOrEmpty(licenceString))
             {
-                try
+                string[] licenceArray = licenceString.Split(',');
+
+                foreach (string licence in licenceArray)
                 {
-                    connection.Open();
-
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = connection;
-
-                    cmd.CommandText = "SELECT Licences FROM Pilot WHERE Username = @username";
-                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        licences = reader["Licences"].ToString().Trim();
-                    }
-                    reader.Close();
-
-                    connection.Close();
-                }
-                catch (Exception chyba)
-                {
-                    MessageBox.Show(chyba.ToString(), "Error:");
-                    connection.Close();
+                    licences.Add(licence.Trim());
                 }
             }
+
             return licences;
         }
 
@@ -139,6 +126,45 @@ namespace SkyAirlines.Classes
                 }
             }
             return false;
+        }
+
+        public string GetPilotLicence()
+        {
+            string licences = null;
+
+            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    cmd.CommandText = "SELECT Licences FROM Pilot WHERE Username = @username";
+                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        licences = reader["Licences"].ToString().Trim();
+                    }
+                    reader.Close();
+
+                    connection.Close();
+                }
+                catch (Exception chyba)
+                {
+                    MessageBox.Show(chyba.ToString(), "Error:");
+                    connection.Close();
+                }
+            }
+            return licences;
+        }
+
+        private void HandleError(string message, Exception ex)
+        {
+            MessageBox.Show(message + "\n" + ex.ToString(), "Error:");
         }
     }
 }

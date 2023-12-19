@@ -39,7 +39,7 @@ namespace SkyAirlines
 
         private void btnCreateOwnAirline_Click(object sender, EventArgs e)
         {
-            ChangeMainPanel(new CreateOwnAirline());
+            ChangeMainPanel(new CreateOwnAirline(panel));
         }
 
         public void ChangeMainPanel(UserControl userControl)
