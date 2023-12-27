@@ -13,7 +13,7 @@ namespace SkyAirlines.UserControls
 {
     public partial class AircraftShowroom : UserControl
     {
-        Licences licences = new Licences();
+        private Licences licences = new Licences();
 
         private string username = GlobalData.Username;
 

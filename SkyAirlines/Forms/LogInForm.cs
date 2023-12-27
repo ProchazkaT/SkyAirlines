@@ -14,7 +14,7 @@ namespace SkyAirlines.Forms
 {
     public partial class LogInForm : Form
     {
-        Login login = new Login();
+        private Login login = new Login();
 
         public LogInForm()
         {

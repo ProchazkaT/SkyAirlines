@@ -147,16 +147,26 @@ namespace SkyAirlines
 
                             GlobalData.lblMoney.Text = pilot.GetPilotMoney().ToString() + "$";
 
-                            cmd.CommandText = "INSERT INTO Airline(Logo, Name, Boss, AirlineMoney, AirlineAirplanes, Headquarter) VALUES (@logo, @name, @boss, @airlineMoney, @airlineAirplanes, @headquater)";
+                            cmd.CommandText = "INSERT INTO Airline(Logo, Name, Boss, AirlineMoney, AirlineAirplanes, Headquarter) OUTPUT INSERTED.ID VALUES (@logo, @name, @boss, @airlineMoney, @airlineAirplanes, @headquater)";
                             cmd.Parameters.AddWithValue("@logo", LogoToByteArray(pbLogo));
                             cmd.Parameters.AddWithValue("@name", tbName.Texts);
                             cmd.Parameters.AddWithValue("@boss", pilot.GetPilotID());
                             cmd.Parameters.AddWithValue("@airlineMoney", 5000);
                             cmd.Parameters.AddWithValue("@airlineAirplanes", cbFleet.Text);
                             cmd.Parameters.AddWithValue("@headquater", lblHeadquater.Text);
-                            cmd.ExecuteNonQuery();
+
+                            // Získání nového ID letecké společnosti
+                            int airlineID = (int)cmd.ExecuteScalar();
 
                             MessageBox.Show("You have successfully created your own airline.", "Notification:");
+
+                            // Aktualizace tabulky Pilot s novým ID letecké společnosti
+                            cmd.CommandText = "UPDATE Pilot SET Airline = @airline WHERE Username = @username";
+                            cmd.Parameters.Clear();
+                            cmd.Parameters.AddWithValue("@airline", airlineID);
+                            cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                            cmd.ExecuteNonQuery();
+
                             ChangeMainPanel(new Airline(panel)); //--- Tu to změnit na ten UserControl
                         }
                         else
@@ -175,6 +185,7 @@ namespace SkyAirlines
                 MessageBox.Show("Please fill in all the required information.", "Notification:");
             }
         }
+
 
         private void btn_MouseEnter(object sender, EventArgs e)
         {
@@ -268,7 +279,7 @@ namespace SkyAirlines
             {
                 string selectedImagePath = openFileDialog.FileName;
 
-                System.IO.FileInfo fileInfo = new System.IO.FileInfo(selectedImagePath);
+                FileInfo fileInfo = new FileInfo(selectedImagePath);
                 long fileSizeInBytes = fileInfo.Length;
 
                 long fileSizeInKB = fileSizeInBytes / 1024;

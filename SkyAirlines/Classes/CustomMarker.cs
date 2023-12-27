@@ -7,7 +7,6 @@ public class CustomMarker : GMapMarker
 {
     private Bitmap airportBitmap;
     private string tooltipText;
-    public float Bearing { get; set; }
 
     public event EventHandler MarkerClicked;
 

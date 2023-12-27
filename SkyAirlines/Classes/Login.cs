@@ -10,7 +10,7 @@ namespace SkyAirlines.Classes
 {
     internal class Login
     {
-        SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
 
         public Login()
         {

@@ -14,7 +14,7 @@ namespace SkyAirlines.Forms
 {
     public partial class RegisterForm : Form
     {
-        Register register = new Register();
+        private Register register = new Register();
 
         public RegisterForm()
         {

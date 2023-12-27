@@ -73,7 +73,7 @@
             this.tbPassword.Location = new System.Drawing.Point(123, 429);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(357, 32);
+            this.tbPassword.Size = new System.Drawing.Size(357, 27);
             this.tbPassword.TabIndex = 12;
             // 
             // tbEmail
@@ -81,7 +81,7 @@
             this.tbEmail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbEmail.Location = new System.Drawing.Point(123, 342);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(357, 32);
+            this.tbEmail.Size = new System.Drawing.Size(357, 27);
             this.tbEmail.TabIndex = 11;
             // 
             // tbUsername
@@ -89,7 +89,7 @@
             this.tbUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbUsername.Location = new System.Drawing.Point(125, 257);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(357, 32);
+            this.tbUsername.Size = new System.Drawing.Size(357, 27);
             this.tbUsername.TabIndex = 10;
             // 
             // Email
@@ -99,7 +99,7 @@
             this.Email.ForeColor = System.Drawing.Color.White;
             this.Email.Location = new System.Drawing.Point(121, 316);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(62, 23);
+            this.Email.Size = new System.Drawing.Size(52, 19);
             this.Email.TabIndex = 9;
             this.Email.Text = "Email";
             // 
@@ -113,7 +113,7 @@
             this.linkLblHaveAcc.LinkColor = System.Drawing.Color.Silver;
             this.linkLblHaveAcc.Location = new System.Drawing.Point(223, 555);
             this.linkLblHaveAcc.Name = "linkLblHaveAcc";
-            this.linkLblHaveAcc.Size = new System.Drawing.Size(209, 22);
+            this.linkLblHaveAcc.Size = new System.Drawing.Size(174, 18);
             this.linkLblHaveAcc.TabIndex = 8;
             this.linkLblHaveAcc.TabStop = true;
             this.linkLblHaveAcc.Text = "Already have account";
@@ -144,7 +144,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(121, 403);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 23);
+            this.label2.Size = new System.Drawing.Size(80, 19);
             this.label2.TabIndex = 4;
             this.label2.Text = "Password";
             // 
@@ -155,7 +155,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(121, 231);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 23);
+            this.label1.Size = new System.Drawing.Size(87, 19);
             this.label1.TabIndex = 2;
             this.label1.Text = "Username";
             // 

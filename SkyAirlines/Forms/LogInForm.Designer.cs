@@ -71,7 +71,7 @@
             this.tbPassword.Location = new System.Drawing.Point(125, 347);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(357, 32);
+            this.tbPassword.Size = new System.Drawing.Size(357, 27);
             this.tbPassword.TabIndex = 12;
             // 
             // tbUsername
@@ -79,7 +79,7 @@
             this.tbUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbUsername.Location = new System.Drawing.Point(125, 257);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(357, 32);
+            this.tbUsername.Size = new System.Drawing.Size(357, 27);
             this.tbUsername.TabIndex = 11;
             // 
             // linkLblNewAcc
@@ -92,7 +92,7 @@
             this.linkLblNewAcc.LinkColor = System.Drawing.Color.Silver;
             this.linkLblNewAcc.Location = new System.Drawing.Point(225, 486);
             this.linkLblNewAcc.Name = "linkLblNewAcc";
-            this.linkLblNewAcc.Size = new System.Drawing.Size(193, 22);
+            this.linkLblNewAcc.Size = new System.Drawing.Size(160, 18);
             this.linkLblNewAcc.TabIndex = 8;
             this.linkLblNewAcc.TabStop = true;
             this.linkLblNewAcc.Text = "Create new account";
@@ -108,7 +108,7 @@
             this.linkLblForgotPass.LinkColor = System.Drawing.Color.Silver;
             this.linkLblForgotPass.Location = new System.Drawing.Point(237, 391);
             this.linkLblForgotPass.Name = "linkLblForgotPass";
-            this.linkLblForgotPass.Size = new System.Drawing.Size(155, 22);
+            this.linkLblForgotPass.Size = new System.Drawing.Size(127, 18);
             this.linkLblForgotPass.TabIndex = 7;
             this.linkLblForgotPass.TabStop = true;
             this.linkLblForgotPass.Text = "Forgot password";
@@ -140,7 +140,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(121, 321);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 23);
+            this.label2.Size = new System.Drawing.Size(80, 19);
             this.label2.TabIndex = 4;
             this.label2.Text = "Password";
             // 
@@ -151,7 +151,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(121, 231);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 23);
+            this.label1.Size = new System.Drawing.Size(87, 19);
             this.label1.TabIndex = 2;
             this.label1.Text = "Username";
             // 

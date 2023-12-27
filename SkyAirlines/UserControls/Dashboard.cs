@@ -16,7 +16,7 @@ namespace SkyAirlines
 {
     public partial class Dashboard : UserControl
     {
-        GetPilotSQLData pilotSQLData = new GetPilotSQLData();
+        private GetPilotSQLData pilotSQLData = new GetPilotSQLData();
 
         public Dashboard()
         {

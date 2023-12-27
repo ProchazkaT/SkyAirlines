@@ -9,8 +9,8 @@ namespace SkyAirlines.Classes
 {
     internal class Licences
     {
-        SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
-        GetPilotSQLData pilotSQLData = new GetPilotSQLData();
+        private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private GetPilotSQLData pilotSQLData = new GetPilotSQLData();
         private Label lblMoney = GlobalData.lblMoney;
 
         public Licences()

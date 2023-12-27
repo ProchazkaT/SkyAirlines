@@ -4,11 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.UI.Design;
 using System.Windows.Forms;
 
 namespace SkyAirlines
@@ -16,10 +18,16 @@ namespace SkyAirlines
     public partial class Main : Form
     {
         private GetPilotSQLData sqlData = new GetPilotSQLData();
+        private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
 
         public Main()
         {
             InitializeComponent();
+
+            sqlBuilder.DataSource = @"SkyAirlines.mssql.somee.com";
+            sqlBuilder.InitialCatalog = "SkyAirlines";
+            sqlBuilder.UserID = "TooM_SQLLogin_1";
+            sqlBuilder.Password = "li21a3sl6v";
 
             GlobalData.lblMoney = lblMoney;
 
@@ -55,7 +63,14 @@ namespace SkyAirlines
         private void btnAirline_Click(object sender, EventArgs e)
         {
             SetActiveButton((Button)sender);
-            ChangeMainPanel(new Airline(panelMain));
+            if (IsAirlineNull())
+            {
+                ChangeMainPanel(new Airlines(panel));
+            }
+            else
+            {
+                ChangeMainPanel(new Airline(panel));
+            }
         }
 
         private void btnFlight_Click(object sender, EventArgs e)
@@ -116,6 +131,34 @@ namespace SkyAirlines
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private bool IsAirlineNull()
+        {
+            bool isNull = false;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT Airline FROM Pilot WHERE Username = @username", connection);
+                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+
+                    object result = cmd.ExecuteScalar();
+                    if (result == null || result == DBNull.Value)
+                    {
+                        isNull = true;
+                    }
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while checking the Airline status.\n" + ex.ToString(), "Error:");
+                // Handle exception or error if needed
+            }
+            return isNull;
         }
     }
 }

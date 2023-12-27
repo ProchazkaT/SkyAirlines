@@ -8,7 +8,7 @@ namespace SkyAirlines.Classes
 {
     internal class GetPilotSQLData
     {
-        SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
 
         public GetPilotSQLData()
         {

@@ -11,7 +11,7 @@ namespace SkyAirlines.Classes
 {
     internal class Register
     {
-        SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
 
         public Register()
         {
