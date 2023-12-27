@@ -107,7 +107,7 @@
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(57, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(260, 21);
+            this.label2.Size = new System.Drawing.Size(219, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Manage airline and hire pilots!";
             // 
@@ -117,7 +117,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(57, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 22);
+            this.label1.Size = new System.Drawing.Size(87, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "SkyAirlines";
             // 
@@ -305,7 +305,7 @@
             this.lblRank.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblRank.Location = new System.Drawing.Point(12, 102);
             this.lblRank.Name = "lblRank";
-            this.lblRank.Size = new System.Drawing.Size(124, 25);
+            this.lblRank.Size = new System.Drawing.Size(104, 20);
             this.lblRank.TabIndex = 3;
             this.lblRank.Text = "First Officer";
             // 
@@ -315,7 +315,7 @@
             this.lblMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblMoney.Location = new System.Drawing.Point(84, 40);
             this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(34, 25);
+            this.lblMoney.Size = new System.Drawing.Size(27, 20);
             this.lblMoney.TabIndex = 2;
             this.lblMoney.Text = "0$";
             // 
@@ -325,7 +325,7 @@
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblUsername.Location = new System.Drawing.Point(84, 11);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(132, 29);
+            this.lblUsername.Size = new System.Drawing.Size(105, 24);
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Username";
             // 

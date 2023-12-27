@@ -167,7 +167,7 @@ namespace SkyAirlines
                             cmd.Parameters.AddWithValue("@username", GlobalData.Username);
                             cmd.ExecuteNonQuery();
 
-                            ChangeMainPanel(new Airline(panel)); //--- Tu to změnit na ten UserControl
+                            ChangeMainPanel(new AirlinePilot(panel)); //--- Tu to změnit na ten UserControl
                         }
                         else
                             MessageBox.Show("You do not have enough money to create an airline.", "Notification:");

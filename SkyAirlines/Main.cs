@@ -69,7 +69,7 @@ namespace SkyAirlines
             }
             else
             {
-                ChangeMainPanel(new Airline(panel));
+                ChangeMainPanel(new AirlinePilot(panel));
             }
         }
 
@@ -156,7 +156,6 @@ namespace SkyAirlines
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while checking the Airline status.\n" + ex.ToString(), "Error:");
-                // Handle exception or error if needed
             }
             return isNull;
         }

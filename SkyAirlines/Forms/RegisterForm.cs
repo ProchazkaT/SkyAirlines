@@ -64,5 +64,10 @@ namespace SkyAirlines.Forms
         {
             Application.Exit();
         }
+
+        private void RegisterForm_Leave(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

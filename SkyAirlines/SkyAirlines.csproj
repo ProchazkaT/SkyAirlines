@@ -165,11 +165,11 @@
     <Compile Include="UserControls\AirlineRow.Designer.cs">
       <DependentUpon>AirlineRow.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Airline.cs">
+    <Compile Include="UserControls\AirlinePilot.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\Airline.Designer.cs">
-      <DependentUpon>Airline.cs</DependentUpon>
+    <Compile Include="UserControls\AirlinePilot.Designer.cs">
+      <DependentUpon>AirlinePilot.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\CreateOwnAirline.cs">
       <SubType>UserControl</SubType>
@@ -236,8 +236,8 @@
     <EmbeddedResource Include="UserControls\AirlineRow.resx">
       <DependentUpon>AirlineRow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Airline.resx">
-      <DependentUpon>Airline.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\AirlinePilot.resx">
+      <DependentUpon>AirlinePilot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\CreateOwnAirline.resx">
       <DependentUpon>CreateOwnAirline.cs</DependentUpon>

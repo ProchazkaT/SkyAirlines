@@ -111,6 +111,6 @@ C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\bin\Debug\System.Memory.
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.csproj.CopyComplete
-C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.Airline.resources
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.AirlineRow.resources
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.Airlines.resources
+C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.AirlinePilot.resources

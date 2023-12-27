@@ -49,7 +49,7 @@ namespace SkyAirlines
 
         private void JoinAirline()
         {
-            if (lblMembers.Text != "50 / 50")
+            if (lblMembers.Text != "20 / 20")
             {
                 using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
                 {
@@ -66,7 +66,7 @@ namespace SkyAirlines
                         cmd.Parameters.AddWithValue("@username", GlobalData.Username);
                         cmd.ExecuteNonQuery();
 
-                        ChangeMainPanel(new Airline(panel));
+                        ChangeMainPanel(new AirlinePilot(panel));
 
                         connection.Close();
                     }

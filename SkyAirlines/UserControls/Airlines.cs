@@ -82,8 +82,8 @@ namespace SkyAirlines
 
                         int membersCount = GetAirlineMembersCount(airline);
 
-                        double members = membersCount / 50.0;
-                        string resultMembers = $"{membersCount} / 50";
+                        double members = membersCount;
+                        string resultMembers = $"{membersCount} / 20";
 
                         AirlineRow airlineRow = new AirlineRow(logo, name, headquarter, resultMembers, airlineID, panel);
                         FlowRow.Controls.Add(airlineRow);
@@ -131,7 +131,7 @@ namespace SkyAirlines
                         int membersCount = GetAirlineMembersCount(airline);
 
                         double members = membersCount;
-                        string resultMembers = $"{membersCount} / 50";
+                        string resultMembers = $"{membersCount} / 20";
 
                         AirlineRow airlineRow = new AirlineRow(logo, name, headquarter, resultMembers, airlineID, panel);
                         FlowRow.Controls.Add(airlineRow);
