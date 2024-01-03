@@ -13,5 +13,6 @@ namespace SkyAirlines
     {
         public static string Username { get; set; }
         public static System.Windows.Forms.Label lblMoney { get; set; }
+        public static string airlineID { get; set; }
     }
 }

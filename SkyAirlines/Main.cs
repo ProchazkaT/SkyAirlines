@@ -19,6 +19,7 @@ namespace SkyAirlines
     {
         private GetPilotSQLData sqlData = new GetPilotSQLData();
         private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private GetAirlineData getAirlineData = new GetAirlineData();
 
         public Main()
         {
@@ -30,6 +31,7 @@ namespace SkyAirlines
             sqlBuilder.Password = "li21a3sl6v";
 
             GlobalData.lblMoney = lblMoney;
+            GlobalData.airlineID = getAirlineData.GetAirlineID(lblUsername.Text);
 
             lblUsername.Text = GlobalData.Username;
             lblMoney.Text = sqlData.GetPilotMoney() + "$";
@@ -69,7 +71,10 @@ namespace SkyAirlines
             }
             else
             {
-                ChangeMainPanel(new AirlinePilot(panel));
+                if(sqlData.IsPilotAirlineBoss())
+                    ChangeMainPanel(new AirlineBoss(panel));
+                else
+                    ChangeMainPanel(new AirlinePilot(panel));
             }
         }
 

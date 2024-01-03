@@ -113,4 +113,6 @@ C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\bin\Debug\System.Runtime
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.csproj.CopyComplete
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.AirlineRow.resources
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.Airlines.resources
+C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.MemberRow.resources
+C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.AirlineBoss.resources
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.AirlinePilot.resources

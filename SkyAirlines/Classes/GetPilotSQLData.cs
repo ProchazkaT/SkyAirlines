@@ -9,6 +9,7 @@ namespace SkyAirlines.Classes
     internal class GetPilotSQLData
     {
         private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private GetAirlineData getAirlineData = new GetAirlineData();
 
         public GetPilotSQLData()
         {
@@ -249,6 +250,48 @@ namespace SkyAirlines.Classes
                 connection.Close();
             }
             return img;
+        }
+
+        public bool IsPilotAirlineBoss()
+        {
+            string id = "";
+            bool isBoss = false;
+
+            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    cmd.CommandText = "SELECT Boss FROM Pilot WHERE Username = @username";
+                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        id = reader["Boss"].ToString().Trim();
+                    }
+                    reader.Close();
+
+                    connection.Close();
+
+                    if(id == getAirlineData.GetAirlineID(GlobalData.Username))
+                    {
+                        isBoss = true;
+                    }
+                    else
+                        isBoss = false;
+                }
+                catch (Exception chyba)
+                {
+                    MessageBox.Show(chyba.ToString(), "Error:");
+                    connection.Close();
+                }
+            }
+            return isBoss;
         }
     }
 }

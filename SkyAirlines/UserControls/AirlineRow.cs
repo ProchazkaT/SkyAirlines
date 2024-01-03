@@ -66,7 +66,7 @@ namespace SkyAirlines
                         cmd.Parameters.AddWithValue("@username", GlobalData.Username);
                         cmd.ExecuteNonQuery();
 
-                        ChangeMainPanel(new AirlinePilot(panel));
+                        ChangeMainPanel(new AirlineBoss(panel));
 
                         connection.Close();
                     }
