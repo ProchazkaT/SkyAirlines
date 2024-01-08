@@ -64,7 +64,7 @@ namespace SkyAirlines.Classes
                                 cmd.Parameters.AddWithValue("@username", username);
                                 cmd.Parameters.AddWithValue("@password", result);
                                 cmd.Parameters.AddWithValue("@email", email);
-                                cmd.Parameters.AddWithValue("@money", 5000);
+                                cmd.Parameters.AddWithValue("@money", 8000);
                                 cmd.Parameters.AddWithValue("@picture", imageData);
                                 cmd.Parameters.AddWithValue("@xp", 0);
                                 cmd.Parameters.AddWithValue("@flights", 0);

@@ -58,7 +58,7 @@ namespace SkyAirlines
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT Name FROM Airline WHERE ID=@id";
-                    cmd.Parameters.AddWithValue("@id", GetAirlineID(GlobalData.Username));
+                    cmd.Parameters.AddWithValue("@id", GlobalData.airlineID);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -88,7 +88,7 @@ namespace SkyAirlines
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT COUNT(*) FROM Pilot WHERE Airline = @Airline";
-                    cmd.Parameters.AddWithValue("@Airline", GetAirlineID(GlobalData.Username));
+                    cmd.Parameters.AddWithValue("@Airline", GlobalData.airlineID);
 
                     count = (int)cmd.ExecuteScalar();
 
@@ -117,7 +117,7 @@ namespace SkyAirlines
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT AirlineMoney FROM Airline WHERE ID=@id";
-                    cmd.Parameters.AddWithValue("@id", GetAirlineID(GlobalData.Username));
+                    cmd.Parameters.AddWithValue("@id", GlobalData.airlineID);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -147,7 +147,7 @@ namespace SkyAirlines
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT AirlineAirplanes FROM Airline WHERE ID=@id";
-                    cmd.Parameters.AddWithValue("@id", GetAirlineID(GlobalData.Username));
+                    cmd.Parameters.AddWithValue("@id", GlobalData.airlineID);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -177,7 +177,7 @@ namespace SkyAirlines
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT Headquarter FROM Airline WHERE ID=@id";
-                    cmd.Parameters.AddWithValue("@id", GetAirlineID(GlobalData.Username));
+                    cmd.Parameters.AddWithValue("@id", GlobalData.airlineID);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 

@@ -76,7 +76,7 @@
             this.tbFlightUsername.PasswordChar = false;
             this.tbFlightUsername.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbFlightUsername.PlaceholderText = "Username";
-            this.tbFlightUsername.Size = new System.Drawing.Size(173, 38);
+            this.tbFlightUsername.Size = new System.Drawing.Size(173, 44);
             this.tbFlightUsername.TabIndex = 6;
             this.tbFlightUsername.Texts = "";
             this.tbFlightUsername.UnderlinedStyle = false;
@@ -105,7 +105,7 @@
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(11, 84);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(232, 24);
+            this.label7.Size = new System.Drawing.Size(288, 29);
             this.label7.TabIndex = 4;
             this.label7.Text = "Fly with your colleague:";
             // 
@@ -133,7 +133,7 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(11, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(152, 24);
+            this.label6.Size = new System.Drawing.Size(192, 29);
             this.label6.TabIndex = 0;
             this.label6.Text = "Generate flight:";
             // 
@@ -163,7 +163,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label5.Location = new System.Drawing.Point(90, 3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 25);
+            this.label5.Size = new System.Drawing.Size(133, 31);
             this.label5.TabIndex = 0;
             this.label5.Text = "Members";
             // 
@@ -215,7 +215,7 @@
             this.lblAirlineName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblAirlineName.Location = new System.Drawing.Point(290, 6);
             this.lblAirlineName.Name = "lblAirlineName";
-            this.lblAirlineName.Size = new System.Drawing.Size(72, 25);
+            this.lblAirlineName.Size = new System.Drawing.Size(90, 31);
             this.lblAirlineName.TabIndex = 0;
             this.lblAirlineName.Text = "Name";
             // 

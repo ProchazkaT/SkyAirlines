@@ -315,6 +315,8 @@
     <Content Include="Images\tshadowdownright.png" />
     <Content Include="Images\tshadowright.png" />
     <Content Include="Images\tshadowtopright.png" />
+    <None Include="Resources\leave.png" />
+    <None Include="Resources\chat.png" />
     <None Include="Resources\AirplaneMarker.png" />
     <None Include="Resources\AirportMarker.png" />
     <None Include="Resources\AircraftMarker.png" />

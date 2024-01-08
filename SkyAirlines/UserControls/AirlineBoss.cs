@@ -98,16 +98,16 @@ namespace SkyAirlines
 
         private void btn_MouseEnter(object sender, EventArgs e)
         {
-            Button btn;
-            btn = (Button)sender;
+            System.Windows.Forms.Button btn;
+            btn = (System.Windows.Forms.Button)sender;
             btn.FlatAppearance.BorderSize = 3;
             btn.FlatAppearance.BorderColor = Color.RoyalBlue;  
         }
 
         private void btn_MouseLeave(object sender, EventArgs e)
         {
-            Button btn;
-            btn = (Button)sender;
+            System.Windows.Forms.Button btn;
+            btn = (System.Windows.Forms.Button)sender;
             btn.FlatAppearance.BorderSize = 0;
             btn.FlatAppearance.BorderColor = Color.FromArgb(16, 47, 82);
         }

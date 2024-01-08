@@ -309,8 +309,8 @@
         private System.Windows.Forms.Label label;
         private WiLBiT.WiLBiTTextBox tbName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbFleet;
         private System.Windows.Forms.Label label3;
         private WiLBiT.WiLBiTButton btnOpenLogoImg;
+        private System.Windows.Forms.ComboBox cbFleet;
     }
 }

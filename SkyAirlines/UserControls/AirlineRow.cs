@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SkyAirlines.Classes;
+using System;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
@@ -8,6 +9,7 @@ namespace SkyAirlines
     public partial class AirlineRow : UserControl
     {
         private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private GetPilotSQLData sqlData = new GetPilotSQLData();
 
         private Panel panel;
         private Bitmap logo;
@@ -66,7 +68,18 @@ namespace SkyAirlines
                         cmd.Parameters.AddWithValue("@username", GlobalData.Username);
                         cmd.ExecuteNonQuery();
 
-                        ChangeMainPanel(new AirlineBoss(panel));
+                        GlobalData.airlineID = airlineID;
+                        MessageBox.Show("You have successfully joined the airline.", "Notification:");
+
+                        GlobalData.btnChat.Visible = true;
+                        GlobalData.btnChat.Enabled = true;
+                        GlobalData.btnLeaveAirline.Visible = true;
+                        GlobalData.btnLeaveAirline.Enabled = true;
+
+                        if (sqlData.IsPilotAirlineBoss())
+                            ChangeMainPanel(new AirlineBoss(panel));
+                        else
+                            ChangeMainPanel(new AirlinePilot(panel));
 
                         connection.Close();
                     }

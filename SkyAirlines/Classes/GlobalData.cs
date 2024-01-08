@@ -14,5 +14,8 @@ namespace SkyAirlines
         public static string Username { get; set; }
         public static System.Windows.Forms.Label lblMoney { get; set; }
         public static string airlineID { get; set; }
+
+        public static System.Windows.Forms.Button btnChat { get; set; }
+        public static System.Windows.Forms.Button btnLeaveAirline { get; set; }
     }
 }

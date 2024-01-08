@@ -133,8 +133,8 @@
   <data name="B767" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\B767.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ArrowLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ArrowLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BeechcraftKingAir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BeechcraftKingAir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Airline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Airline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,8 +145,8 @@
   <data name="B757" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\B757.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BeechcraftKingAir" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BeechcraftKingAir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ATRLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ATRLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -165,6 +165,9 @@
   </data>
   <data name="SpeedIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SpeedIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AirplaneMarker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AirplaneMarker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="B717" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\B717.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,11 +193,14 @@
   <data name="Cessna" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cessna.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CessnaCitationJet" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CessnaCitationJet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AirportMarker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AirportMarker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="A220" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\A220.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ArrowLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ArrowLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FirstOfficer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FirstOfficer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -216,6 +222,9 @@
   </data>
   <data name="CRJ" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CRJ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CessnaCitationJet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CessnaCitationJet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="B787" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\B787.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -253,16 +262,13 @@
   <data name="MD11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MD11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="chat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="A340" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\A340.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AirportMarker" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AirportMarker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AirplaneMarker" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AirplaneMarker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="leave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\leave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

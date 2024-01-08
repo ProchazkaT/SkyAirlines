@@ -36,6 +36,7 @@ namespace SkyAirlines
 
             this.panel = panel;
             cbFleet.DataSource = licences.GetPilotLicencesAsList();
+            cbFleet.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void InitializeMap()
@@ -77,6 +78,7 @@ namespace SkyAirlines
         {
             if (!string.IsNullOrWhiteSpace(tbName.Texts) &&
                 cbFleet.SelectedItem != null &&
+                cbFleet.Text != "--Select--" &&
                 !string.IsNullOrWhiteSpace(lblHeadquater.Text))
             {
                 return true;
@@ -147,10 +149,9 @@ namespace SkyAirlines
 
                             GlobalData.lblMoney.Text = pilot.GetPilotMoney().ToString() + "$";
 
-                            cmd.CommandText = "INSERT INTO Airline(Logo, Name, Boss, AirlineMoney, AirlineAirplanes, Headquarter) OUTPUT INSERTED.ID VALUES (@logo, @name, @boss, @airlineMoney, @airlineAirplanes, @headquater)";
+                            cmd.CommandText = "INSERT INTO Airline(Logo, Name, AirlineMoney, AirlineAirplanes, Headquarter) OUTPUT INSERTED.ID VALUES (@logo, @name, @airlineMoney, @airlineAirplanes, @headquater)";
                             cmd.Parameters.AddWithValue("@logo", LogoToByteArray(pbLogo));
                             cmd.Parameters.AddWithValue("@name", tbName.Texts);
-                            cmd.Parameters.AddWithValue("@boss", pilot.GetPilotID());
                             cmd.Parameters.AddWithValue("@airlineMoney", 5000);
                             cmd.Parameters.AddWithValue("@airlineAirplanes", cbFleet.Text);
                             cmd.Parameters.AddWithValue("@headquater", lblHeadquater.Text);
@@ -158,16 +159,20 @@ namespace SkyAirlines
                             // Získání nového ID letecké společnosti
                             int airlineID = (int)cmd.ExecuteScalar();
 
-                            MessageBox.Show("You have successfully created your own airline.", "Notification:");
 
-                            // Aktualizace tabulky Pilot s novým ID letecké společnosti
-                            cmd.CommandText = "UPDATE Pilot SET Airline = @airline WHERE Username = @username";
-                            cmd.Parameters.Clear();
+                            cmd.CommandText = "UPDATE Pilot SET Airline = @airline, Boss = @boss WHERE Username = @usernameUpdate";
                             cmd.Parameters.AddWithValue("@airline", airlineID);
-                            cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                            cmd.Parameters.AddWithValue("@boss", airlineID);
+                            cmd.Parameters.AddWithValue("@usernameUpdate", GlobalData.Username);
                             cmd.ExecuteNonQuery();
 
-                            ChangeMainPanel(new AirlineBoss(panel)); //--- Tu to změnit na ten UserControl
+                            GlobalData.airlineID = airlineID.ToString();
+                            MessageBox.Show("You have successfully created your own airline.", "Notification:");
+                            GlobalData.btnChat.Enabled = true;
+                            GlobalData.btnChat.Visible = true;
+                            GlobalData.btnLeaveAirline.Enabled = true;
+                            GlobalData.btnLeaveAirline.Visible = true;
+                            ChangeMainPanel(new AirlineBoss(panel));
                         }
                         else
                             MessageBox.Show("You do not have enough money to create an airline.", "Notification:");
@@ -189,16 +194,16 @@ namespace SkyAirlines
 
         private void btn_MouseEnter(object sender, EventArgs e)
         {
-            Button btn;
-            btn = (Button)sender;
+            System.Windows.Forms.Button btn;
+            btn = (System.Windows.Forms.Button)sender;
             btn.FlatAppearance.BorderSize = 3;
             btn.FlatAppearance.BorderColor = Color.RoyalBlue;
         }
 
         private void btn_MouseLeave(object sender, EventArgs e)
         {
-            Button btn;
-            btn = (Button)sender;
+            System.Windows.Forms.Button btn;
+            btn = (System.Windows.Forms.Button)sender;
             btn.FlatAppearance.BorderSize = 0;
             btn.FlatAppearance.BorderColor = Color.FromArgb(16, 47, 82);
         }
