@@ -111,47 +111,77 @@ namespace SkyAirlines
                     cmd.Parameters.AddWithValue("@usernameBoss", GlobalData.Username);
                     object isBoss = cmd.ExecuteScalar();
 
+                    cmd.CommandText = "SELECT COUNT(*) FROM Pilot WHERE Airline = @Airline";
+                    cmd.Parameters.AddWithValue("@Airline", GlobalData.airlineID);
+                    int memberCount = (int)cmd.ExecuteScalar();
+
                     if (isBoss != null && isBoss != DBNull.Value)
                     {
-                        // Nastavení hodnot Boss a Airline na NULL pro hráče, který opouští šéfovskou pozici
-                        cmd.CommandText = "UPDATE Pilot SET Boss=NULL, Airline=NULL WHERE Username=@username";
-                        cmd.Parameters.AddWithValue("@username", GlobalData.Username);
-                        cmd.ExecuteNonQuery();
+                        if (memberCount == 1)
+                        {
+                            cmd.CommandText = "UPDATE Pilot SET Boss=NULL, Airline=NULL WHERE Username=@username1";
+                            cmd.Parameters.AddWithValue("@username1", GlobalData.Username);
+                            cmd.ExecuteNonQuery();
 
-                        // Vybrání náhodného nového šéfa
-                        cmd.CommandText = "SELECT TOP 1 ID FROM Pilot WHERE Airline=@airlineValue AND Username != @username ORDER BY NEWID()";
-                        cmd.Parameters.AddWithValue("@airlineValue", GlobalData.airlineID);
-                        int newBossID = (int)cmd.ExecuteScalar();
+                            // The boss is the sole member - remove the airline
+                            cmd.CommandText = "DELETE FROM Airline WHERE ID=@airlineValueDelete1";
+                            cmd.Parameters.AddWithValue("@airlineValueDelete1", GlobalData.airlineID);
+                            cmd.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            // There are more than two members - proceed to find a new boss
+                            cmd.CommandText = "UPDATE Pilot SET Boss=NULL, Airline=NULL WHERE Username=@username2";
+                            cmd.Parameters.AddWithValue("@username2", GlobalData.Username);
+                            cmd.ExecuteNonQuery();
 
-                        // Aktualizace hodnoty Boss pro nového náhodného šéfa
-                        cmd.CommandText = "UPDATE Pilot SET Boss=@bossValue WHERE ID=@newBossID";
-                        cmd.Parameters.AddWithValue("@bossValue", GlobalData.airlineID);
-                        cmd.Parameters.AddWithValue("@newBossID", newBossID);
-                        cmd.ExecuteNonQuery();
+                            cmd.CommandText = "SELECT TOP 1 ID FROM Pilot WHERE Airline=@airlineValue AND Username != @username3 ORDER BY NEWID()";
+                            cmd.Parameters.AddWithValue("@airlineValue", GlobalData.airlineID);
+                            cmd.Parameters.AddWithValue("@username3", GlobalData.Username);
+                            int newBossID = (int)cmd.ExecuteScalar();
+
+                            cmd.CommandText = "UPDATE Pilot SET Boss=@bossValue WHERE ID=@newBossID";
+                            cmd.Parameters.AddWithValue("@bossValue", GlobalData.airlineID);
+                            cmd.Parameters.AddWithValue("@newBossID", newBossID);
+                            cmd.ExecuteNonQuery();
+                        }
                     }
                     else
                     {
-                        // Pokud hráč není šéf - nastavit Airline na NULL
+                        // Non-boss member leaving
                         cmd.CommandText = "UPDATE Pilot SET Airline=NULL WHERE Username = @usernameDelete";
                         cmd.Parameters.AddWithValue("@usernameDelete", GlobalData.Username);
                         cmd.ExecuteNonQuery();
                     }
 
-                    // Získání počtu členů letecké společnosti
-                    cmd.CommandText = "SELECT COUNT(*) FROM Pilot WHERE Airline = @Airline";
-                    cmd.Parameters.AddWithValue("@Airline", GlobalData.airlineID);
-                    int memberCount = (int)cmd.ExecuteScalar();
+                    cmd.CommandText = "SELECT COUNT(*) FROM Pilot WHERE Airline = @Airline2";
+                    cmd.Parameters.AddWithValue("@Airline2", GlobalData.airlineID);
+                    int memberCountAfter = (int)cmd.ExecuteScalar();
 
-                    if (memberCount == 0)
+                    if (memberCountAfter == 0)
                     {
-                        // Pokud je po odebrání člena počet členů 0, pak se odstraní letecká společnost
                         cmd.CommandText = "DELETE FROM Airline WHERE ID=@airlineValueDelete";
                         cmd.Parameters.AddWithValue("@airlineValueDelete", GlobalData.airlineID);
                         cmd.ExecuteNonQuery();
                     }
 
+                    //Remove arrival and departure
+                    cmd.CommandText = "UPDATE Pilot SET Departure=NULL, Arrival=NULL WHERE Username=@usernameDepArr";
+                    cmd.Parameters.AddWithValue("@usernameDepArr", GlobalData.Username);
+                    cmd.ExecuteNonQuery();
+
+                    //Remove Salary
+                    cmd.CommandText = "UPDATE Pilot SET Salary=NULL WHERE Username=@usernameSalary";
+                    cmd.Parameters.AddWithValue("@usernameSalary", GlobalData.Username);
+                    cmd.ExecuteNonQuery();
+
                     GlobalData.airlineID = DBNull.Value.ToString();
                     MessageBox.Show("You have successfully left the airline.", "Notification:");
+
+                    btnChat.Enabled = false;
+                    btnChat.Visible = false;
+                    btnLeaveAirline.Enabled = false;
+                    btnLeaveAirline.Visible = false;
                     ChangeMainPanel(new Airlines(panelMain));
                 }
                 catch (Exception ex)

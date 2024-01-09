@@ -181,6 +181,11 @@ namespace SkyAirlines
                             cmd.Parameters.AddWithValue("@usernameUpdate", GlobalData.Username);
                             cmd.ExecuteNonQuery();
 
+                            cmd.CommandText = "UPDATE Pilot SET Departure = @departure WHERE Username = @usernameDeparture";
+                            cmd.Parameters.AddWithValue("@departure", lblHeadquater.Text);
+                            cmd.Parameters.AddWithValue("@usernameDeparture", GlobalData.Username);
+                            cmd.ExecuteNonQuery();
+
                             GlobalData.airlineID = airlineID.ToString();
                             MessageBox.Show("You have successfully created your own airline.", "Notification:");
                             GlobalData.btnChat.Enabled = true;

@@ -68,6 +68,11 @@ namespace SkyAirlines
                         cmd.Parameters.AddWithValue("@username", GlobalData.Username);
                         cmd.ExecuteNonQuery();
 
+                        cmd.CommandText = "UPDATE Pilot SET Departure = @departure WHERE Username = @usernameDeparture";
+                        cmd.Parameters.AddWithValue("@departure", lblHeadquater.Text);
+                        cmd.Parameters.AddWithValue("@usernameDeparture", GlobalData.Username);
+                        cmd.ExecuteNonQuery();
+
                         GlobalData.airlineID = airlineID;
                         MessageBox.Show("You have successfully joined the airline.", "Notification:");
 
