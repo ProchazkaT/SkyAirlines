@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SkyAirlines
@@ -23,6 +24,14 @@ namespace SkyAirlines
 
         private GetPilotSQLData pilot = new GetPilotSQLData();
         private Licences licences = new Licences();
+
+        private List<string> airportIcaos = new List<string> {
+            "LATI", "UDYZ", "LOWW", "UBBB", "UMMS", "EBBR", "LQSA", "LBSF", "LDZA", "LCLK",
+            "LKPR", "EKCH", "EETN", "EFHK", "LFPG", "UGTB", "EDDB", "LGAV", "LHBP", "BIKF",
+            "EIDW", "LIRF", "UACC", "BKPR", "EVRA", "EYVI", "ELLX", "LWSK", "LMML", "LUKK",
+            "LFTW", "LYPG", "EHAM", "ENGM", "EPWA", "LPPT", "LROP", "UUEE", "LZIB", "LJLJ",
+            "LEMD", "ESSA", "LSZB", "LTAC", "UKBB", "EGLL", "LYPG", "EGPH"
+        };
 
         public CreateOwnAirline(Panel panel)
         {
@@ -127,6 +136,9 @@ namespace SkyAirlines
             int money = pilot.GetPilotMoney();
             string airlineName = tbName.Texts;
 
+            Random random = new Random();
+            List<string> randomIcaos = airportIcaos.OrderBy(code => random.Next()).Take(3).ToList();
+
             if (AllFieldsSelected())
             {
                 using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
@@ -149,12 +161,15 @@ namespace SkyAirlines
 
                             GlobalData.lblMoney.Text = pilot.GetPilotMoney().ToString() + "$";
 
-                            cmd.CommandText = "INSERT INTO Airline(Logo, Name, AirlineMoney, AirlineAirplanes, Headquarter) OUTPUT INSERTED.ID VALUES (@logo, @name, @airlineMoney, @airlineAirplanes, @headquater)";
+                            cmd.CommandText = "INSERT INTO Airline(Logo, Name, AirlineMoney, AirlineAirplanes, Headquarter, Destinations) OUTPUT INSERTED.ID VALUES (@logo, @name, @airlineMoney, @airlineAirplanes, @headquater, @destinations)";
                             cmd.Parameters.AddWithValue("@logo", LogoToByteArray(pbLogo));
                             cmd.Parameters.AddWithValue("@name", tbName.Texts);
                             cmd.Parameters.AddWithValue("@airlineMoney", 5000);
                             cmd.Parameters.AddWithValue("@airlineAirplanes", cbFleet.Text);
                             cmd.Parameters.AddWithValue("@headquater", lblHeadquater.Text);
+
+                            string icaosString = string.Join(",", randomIcaos);
+                            cmd.Parameters.AddWithValue("@destinations", icaosString);
 
                             // Získání nového ID letecké společnosti
                             int airlineID = (int)cmd.ExecuteScalar();
@@ -244,12 +259,16 @@ namespace SkyAirlines
                     while (reader.Read())
                     {
                         string description = reader["icao"].ToString().Trim() + " - " + reader["name"].ToString().Trim();
-                        double latitude = double.Parse(reader["lat"].ToString().Trim());
-                        double longitude = double.Parse(reader["lon"].ToString().Trim());
 
+                        double latitude;
+                        double longitude;
 
-                        Tuple<double, double, string> dataTuple = Tuple.Create(latitude, longitude, description);
-                        airportData.Add(dataTuple);
+                        if (double.TryParse(reader["lat"].ToString().Trim().Replace(',', '.'), out latitude) &&
+                            double.TryParse(reader["lon"].ToString().Trim().Replace(',', '.'), out longitude))
+                        {
+                            Tuple<double, double, string> dataTuple = Tuple.Create(latitude, longitude, description);
+                            airportData.Add(dataTuple);
+                        }
                     }
                     reader.Close();
 
@@ -263,6 +282,7 @@ namespace SkyAirlines
             }
             return airportData;
         }
+
 
         private void gMapControl_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {

@@ -93,7 +93,42 @@ namespace SkyAirlines
 
         private void btnKick_Click(object sender, EventArgs e)
         {
+            if(tbManageUsername.Texts != "")
+            {
+                if(tbManageUsername.Texts != GlobalData.Username)
+                {
+                    using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+                    {
+                        try
+                        {
+                            connection.Open();
 
+                            SqlCommand cmd = new SqlCommand();
+                            cmd.Connection = connection;
+
+                            cmd.CommandText = "UPDATE Pilot SET Airline=NULL WHERE Username=@username AND Airline=@airline";
+                            cmd.Parameters.AddWithValue("@username", tbManageUsername.Texts);
+                            cmd.Parameters.AddWithValue("@airline", GlobalData.airlineID);
+                            cmd.ExecuteNonQuery();
+
+                            MessageBox.Show("You fired the pilot - " + tbManageUsername.Texts, "Notification:");
+                        }
+                        catch
+                        {
+                            MessageBox.Show("You must enter an exact username.", "Notification:");
+                        }
+                        connection.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("You cannot enter your username.", "Notification:");
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must enter an exact username.", "Notification:");
+            }
         }
 
         private void btn_MouseEnter(object sender, EventArgs e)

@@ -457,6 +457,7 @@
             this.btnKick.TabIndex = 8;
             this.btnKick.Text = "Kick";
             this.btnKick.UseVisualStyleBackColor = false;
+            this.btnKick.Click += new System.EventHandler(this.btnKick_Click);
             this.btnKick.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnKick.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
