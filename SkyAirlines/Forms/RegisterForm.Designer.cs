@@ -73,24 +73,27 @@
             this.tbPassword.Location = new System.Drawing.Point(123, 429);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(357, 27);
+            this.tbPassword.Size = new System.Drawing.Size(357, 32);
             this.tbPassword.TabIndex = 12;
+            this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDownTextBox);
             // 
             // tbEmail
             // 
             this.tbEmail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbEmail.Location = new System.Drawing.Point(123, 342);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(357, 27);
+            this.tbEmail.Size = new System.Drawing.Size(357, 32);
             this.tbEmail.TabIndex = 11;
+            this.tbEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDownTextBox);
             // 
             // tbUsername
             // 
             this.tbUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbUsername.Location = new System.Drawing.Point(125, 257);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(357, 27);
+            this.tbUsername.Size = new System.Drawing.Size(357, 32);
             this.tbUsername.TabIndex = 10;
+            this.tbUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDownTextBox);
             // 
             // Email
             // 
@@ -99,13 +102,15 @@
             this.Email.ForeColor = System.Drawing.Color.White;
             this.Email.Location = new System.Drawing.Point(121, 316);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(52, 19);
+            this.Email.Size = new System.Drawing.Size(62, 23);
             this.Email.TabIndex = 9;
             this.Email.Text = "Email";
             // 
             // linkLblHaveAcc
             // 
             this.linkLblHaveAcc.ActiveLinkColor = System.Drawing.Color.DimGray;
+            this.linkLblHaveAcc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLblHaveAcc.AutoSize = true;
             this.linkLblHaveAcc.DisabledLinkColor = System.Drawing.Color.DimGray;
             this.linkLblHaveAcc.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -113,10 +118,11 @@
             this.linkLblHaveAcc.LinkColor = System.Drawing.Color.Silver;
             this.linkLblHaveAcc.Location = new System.Drawing.Point(223, 555);
             this.linkLblHaveAcc.Name = "linkLblHaveAcc";
-            this.linkLblHaveAcc.Size = new System.Drawing.Size(174, 18);
+            this.linkLblHaveAcc.Size = new System.Drawing.Size(209, 22);
             this.linkLblHaveAcc.TabIndex = 8;
             this.linkLblHaveAcc.TabStop = true;
             this.linkLblHaveAcc.Text = "Already have account";
+            this.linkLblHaveAcc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linkLblHaveAcc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblHaveAcc_LinkClicked);
             // 
             // btnRegister
@@ -144,7 +150,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(121, 403);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 19);
+            this.label2.Size = new System.Drawing.Size(100, 23);
             this.label2.TabIndex = 4;
             this.label2.Text = "Password";
             // 
@@ -155,7 +161,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(121, 231);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 19);
+            this.label1.Size = new System.Drawing.Size(108, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "Username";
             // 
@@ -190,6 +196,7 @@
             this.btnMinimaze.Size = new System.Drawing.Size(50, 50);
             this.btnMinimaze.TabIndex = 6;
             this.btnMinimaze.UseVisualStyleBackColor = true;
+            this.btnMinimaze.Click += new System.EventHandler(this.btnMinimaze_Click);
             // 
             // btnExit
             // 
@@ -202,6 +209,7 @@
             this.btnExit.Size = new System.Drawing.Size(50, 50);
             this.btnExit.TabIndex = 5;
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // DragControl
             // 

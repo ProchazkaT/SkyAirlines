@@ -53,6 +53,108 @@ namespace SkyAirlines.Classes
             return money;
         }
 
+        public string GetPilotDeparture()
+        {
+            string departure = "";
+
+            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    cmd.CommandText = "SELECT Departure FROM Pilot WHERE Username = @username";
+                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        departure = reader["Departure"].ToString().Trim();
+                    }
+                    reader.Close();
+
+                    connection.Close();
+                }
+                catch (Exception chyba)
+                {
+                    MessageBox.Show(chyba.ToString(), "Error:");
+                    connection.Close();
+                }
+            }
+            return departure;
+        }
+
+        public string GetPilotArrival()
+        {
+            string arrival = "";
+
+            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    cmd.CommandText = "SELECT Arrival FROM Pilot WHERE Username = @username";
+                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        arrival = reader["Arrival"].ToString().Trim();
+                    }
+                    reader.Close();
+
+                    connection.Close();
+                }
+                catch (Exception chyba)
+                {
+                    MessageBox.Show(chyba.ToString(), "Error:");
+                    connection.Close();
+                }
+            }
+            return arrival;
+        }
+
+        public string GetPilotAirplaneForFlight()
+        {
+            string airplaneForFlight = "";
+
+            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    cmd.CommandText = "SELECT AirplaneForFlight FROM Pilot WHERE Username = @username";
+                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        airplaneForFlight = reader["AirplaneForFlight"].ToString().Trim();
+                    }
+                    reader.Close();
+
+                    connection.Close();
+                }
+                catch (Exception chyba)
+                {
+                    MessageBox.Show(chyba.ToString(), "Error:");
+                    connection.Close();
+                }
+            }
+            return airplaneForFlight;
+        }
+
         public int GetPilotID()
         {
             int id = 0;

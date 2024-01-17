@@ -33,7 +33,6 @@
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.linkLblNewAcc = new System.Windows.Forms.LinkLabel();
-            this.linkLblForgotPass = new System.Windows.Forms.LinkLabel();
             this.btnLogin = new WiLBiT.WiLBiTButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,7 +52,6 @@
             this.panelUdaje.Controls.Add(this.tbPassword);
             this.panelUdaje.Controls.Add(this.tbUsername);
             this.panelUdaje.Controls.Add(this.linkLblNewAcc);
-            this.panelUdaje.Controls.Add(this.linkLblForgotPass);
             this.panelUdaje.Controls.Add(this.btnLogin);
             this.panelUdaje.Controls.Add(this.label2);
             this.panelUdaje.Controls.Add(this.label1);
@@ -71,16 +69,18 @@
             this.tbPassword.Location = new System.Drawing.Point(125, 347);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(357, 27);
+            this.tbPassword.Size = new System.Drawing.Size(357, 32);
             this.tbPassword.TabIndex = 12;
+            this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDownTextBox);
             // 
             // tbUsername
             // 
             this.tbUsername.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbUsername.Location = new System.Drawing.Point(125, 257);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(357, 27);
+            this.tbUsername.Size = new System.Drawing.Size(357, 32);
             this.tbUsername.TabIndex = 11;
+            this.tbUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDownTextBox);
             // 
             // linkLblNewAcc
             // 
@@ -92,26 +92,11 @@
             this.linkLblNewAcc.LinkColor = System.Drawing.Color.Silver;
             this.linkLblNewAcc.Location = new System.Drawing.Point(225, 486);
             this.linkLblNewAcc.Name = "linkLblNewAcc";
-            this.linkLblNewAcc.Size = new System.Drawing.Size(160, 18);
+            this.linkLblNewAcc.Size = new System.Drawing.Size(193, 22);
             this.linkLblNewAcc.TabIndex = 8;
             this.linkLblNewAcc.TabStop = true;
             this.linkLblNewAcc.Text = "Create new account";
             this.linkLblNewAcc.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblNewAcc_LinkClicked);
-            // 
-            // linkLblForgotPass
-            // 
-            this.linkLblForgotPass.ActiveLinkColor = System.Drawing.Color.DimGray;
-            this.linkLblForgotPass.AutoSize = true;
-            this.linkLblForgotPass.DisabledLinkColor = System.Drawing.Color.DimGray;
-            this.linkLblForgotPass.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.linkLblForgotPass.ForeColor = System.Drawing.Color.DimGray;
-            this.linkLblForgotPass.LinkColor = System.Drawing.Color.Silver;
-            this.linkLblForgotPass.Location = new System.Drawing.Point(237, 391);
-            this.linkLblForgotPass.Name = "linkLblForgotPass";
-            this.linkLblForgotPass.Size = new System.Drawing.Size(127, 18);
-            this.linkLblForgotPass.TabIndex = 7;
-            this.linkLblForgotPass.TabStop = true;
-            this.linkLblForgotPass.Text = "Forgot password";
             // 
             // btnLogin
             // 
@@ -140,7 +125,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(121, 321);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 19);
+            this.label2.Size = new System.Drawing.Size(100, 23);
             this.label2.TabIndex = 4;
             this.label2.Text = "Password";
             // 
@@ -151,7 +136,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(121, 231);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 19);
+            this.label1.Size = new System.Drawing.Size(108, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "Username";
             // 
@@ -235,7 +220,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private WiLBiT.WiLBiTButton btnLogin;
-        private System.Windows.Forms.LinkLabel linkLblForgotPass;
         private WiLBiT.WiLBiTDragControl DragControl;
         private System.Windows.Forms.LinkLabel linkLblNewAcc;
         private System.Windows.Forms.TextBox tbPassword;

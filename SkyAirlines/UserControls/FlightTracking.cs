@@ -2,14 +2,21 @@
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
+using SkyAirlines.Classes;
 using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace SkyAirlines
 {
     public partial class FlightTracking : UserControl
     {
+        private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private GetPilotSQLData sqlData = new GetPilotSQLData();
+
         private Panel panel = new Panel();
 
         private Offset<long> latitudeOffset = new Offset<long>(0x560);
@@ -17,6 +24,9 @@ namespace SkyAirlines
         private Offset<int> speedOffset = new Offset<int>(0x02B8);
         private Offset<int> altitudeOffset = new Offset<int>(0x3324);
         private Offset<int> iasOffset = new Offset<int>(0x02BC);
+
+        private GMapOverlay markersOverlay = new GMapOverlay("AirportMarkers");
+        private GMapOverlay routesOverlay = new GMapOverlay("routesOverlay");
 
         long latitude = 0;
         long longitude = 0;
@@ -28,6 +38,12 @@ namespace SkyAirlines
         {
             InitializeComponent();
             panel = panelMain;
+
+            sqlBuilder.DataSource = @"SkyAirlines.mssql.somee.com";
+            sqlBuilder.InitialCatalog = "SkyAirlines";
+            sqlBuilder.UserID = "TooM_SQLLogin_1";
+            sqlBuilder.Password = "li21a3sl6v";
+
             InitializeMap();
         }
 
@@ -39,11 +55,133 @@ namespace SkyAirlines
             gMapControl.MaxZoom = 24;
             gMapControl.Zoom = 4;
             gMapControl.CanDragMap = true;
-
             Controls.Add(gMapControl);
+
+            gMapControl.Overlays.Add(markersOverlay);
+            gMapControl.Overlays.Add(routesOverlay);
+
+            SetDepartureAndArrivalMarkers();
         }
 
-        private void UpdateairplanePosition(double latitude, double longitude)
+        public void SetDepartureAndArrivalMarkers()
+        {
+            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Departure Airport
+                    SqlCommand departureCmd = new SqlCommand();
+                    departureCmd.Connection = connection;
+                    departureCmd.CommandText = "SELECT icao, name, lat, lon FROM Airports WHERE icao=@departureIcao";
+                    departureCmd.Parameters.AddWithValue("@departureIcao", GlobalData.Departure);
+
+                    SqlDataReader departureReader = departureCmd.ExecuteReader();
+                    while (departureReader.Read())
+                    {
+                        string description = departureReader["icao"].ToString().Trim() + " - " + departureReader["name"].ToString().Trim();
+
+                        double latitude;
+                        double longitude;
+
+                        if (double.TryParse(departureReader["lat"].ToString().Trim().Replace(',', '.'), out latitude) &&
+                            double.TryParse(departureReader["lon"].ToString().Trim().Replace(',', '.'), out longitude))
+                        {
+                            CustomMarker marker = new CustomMarker(new PointLatLng(latitude, longitude), Properties.Resources.Departure, description);
+                            markersOverlay.Markers.Add(marker);
+                        }
+                    }
+                    departureReader.Close();
+
+                    // Arrival Airport
+                    SqlCommand arrivalCmd = new SqlCommand();
+                    arrivalCmd.Connection = connection;
+                    arrivalCmd.CommandText = "SELECT icao, name, lat, lon FROM Airports WHERE icao=@arrivalIcao";
+                    arrivalCmd.Parameters.AddWithValue("@arrivalIcao", GlobalData.Arrival);
+
+                    SqlDataReader arrivalReader = arrivalCmd.ExecuteReader();
+                    while (arrivalReader.Read())
+                    {
+                        string description = arrivalReader["icao"].ToString().Trim() + " - " + arrivalReader["name"].ToString().Trim();
+
+                        double latitude;
+                        double longitude;
+
+                        if (double.TryParse(arrivalReader["lat"].ToString().Trim().Replace(',', '.'), out latitude) &&
+                            double.TryParse(arrivalReader["lon"].ToString().Trim().Replace(',', '.'), out longitude))
+                        {
+                            CustomMarker marker = new CustomMarker(new PointLatLng(latitude, longitude), Properties.Resources.Arrival, description);
+                            markersOverlay.Markers.Add(marker);
+                        }
+                    }
+                    arrivalReader.Close();
+
+                    if (markersOverlay.Markers.Count == 2)
+                    {
+                        List<PointLatLng> points = new List<PointLatLng>
+                        {
+                            markersOverlay.Markers[0].Position,
+                            markersOverlay.Markers[1].Position
+                        };
+
+                        GMap.NET.WindowsForms.GMapRoute route = new GMap.NET.WindowsForms.GMapRoute(points, "Route");
+                        route.Stroke = new Pen(Color.Purple)
+                        {
+                            DashStyle = DashStyle.Dash
+                        };
+
+                        routesOverlay.Routes.Add(route);
+
+                        CustomMarker departureMarker = (CustomMarker)markersOverlay.Markers[0];
+                        CustomMarker arrivalMarker = (CustomMarker)markersOverlay.Markers[1];
+
+                        int distanceNM = (int)Math.Round(CalculateDistanceNM(departureMarker.Position, arrivalMarker.Position));
+                        lblDistance.Text = distanceNM.ToString() + " nm";
+                        lblDeparture.Text = departureMarker.ToolTipText;
+                        lblArrival.Text = arrivalMarker.ToolTipText;
+                        lblAirplane.Text = GlobalData.AirplaneForFlight;
+                    }
+
+                    connection.Close();
+                }
+                catch (Exception)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public void ChangeMainPanel(UserControl userControl)
+        {
+            panel.Controls.Clear();
+            panel.Controls.Add(userControl);
+            userControl.Dock = DockStyle.Fill;
+            userControl.Anchor = AnchorStyles.None;
+        }
+
+        private double CalculateDistanceNM(PointLatLng point1, PointLatLng point2)
+        {
+            const double EarthRadiusNM = 3440.065;
+
+            double lat1 = point1.Lat * Math.PI / 180.0;
+            double lon1 = point1.Lng * Math.PI / 180.0;
+            double lat2 = point2.Lat * Math.PI / 180.0;
+            double lon2 = point2.Lng * Math.PI / 180.0;
+
+            double dlat = lat2 - lat1;
+            double dlon = lon2 - lon1;
+
+            double a = Math.Sin(dlat / 2) * Math.Sin(dlat / 2) +
+                       Math.Cos(lat1) * Math.Cos(lat2) *
+                       Math.Sin(dlon / 2) * Math.Sin(dlon / 2);
+
+            double c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+
+            return EarthRadiusNM * c;
+        }
+
+        private void UpdateAirplanePosition(double latitude, double longitude)
         {
             gMapControl.Overlays.Clear();
             GMapOverlay airplaneOverlay = new GMapOverlay("airplaneOverlay");
@@ -96,14 +234,10 @@ namespace SkyAirlines
                 lblSpeed.Text = speed.ToString() + " kts";
                 lblIAS.Text = ias.ToString() + " kts";
 
-                UpdateairplanePosition(latitudeDeg, longitudeDeg);
+                UpdateAirplanePosition(latitudeDeg, longitudeDeg);
             }
             catch (Exception)
             {
-                lblDeparture.Text = "";
-                lblArrival.Text = "";
-                lblDistance.Text = "";
-                lblAirplane.Text = "";
                 lblStatus.Text = "Error reading data from FSUIPC.";
 
                 gMapControl.Zoom = 4;
@@ -132,10 +266,6 @@ namespace SkyAirlines
                 }
                 else
                 {
-                    lblDeparture.Text = "";
-                    lblArrival.Text = "";
-                    lblDistance.Text = "";
-                    lblAirplane.Text = "";
                     lblStatus.Text = "Not connected to FS.";
 
                     gMapControl.Zoom = 4;
@@ -143,16 +273,18 @@ namespace SkyAirlines
 
                     FSUIPCConnection.Close();
                     timer1.Stop();
+
+                    if (markersOverlay.Markers.Count < 2)
+                    {
+                        markersOverlay.Clear();
+                        MessageBox.Show("You have to generate flight in your Airline.", "Notification:");
+                    }
                 }
 
                 timer1.Start();
             }
             catch (Exception)
             {
-                lblDeparture.Text = "";
-                lblArrival.Text = "";
-                lblDistance.Text = "";
-                lblAirplane.Text = "";
                 lblStatus.Text = "Not connected to FS.";
 
                 gMapControl.Zoom = 4;
@@ -160,6 +292,12 @@ namespace SkyAirlines
 
                 FSUIPCConnection.Close();
                 timer1.Stop();
+
+                if (markersOverlay.Markers.Count < 2)
+                {
+                    markersOverlay.Clear();
+                    MessageBox.Show("You have to generate flight in your Airline.", "Notification:");
+                }
             }
         }
 

@@ -137,80 +137,78 @@ namespace SkyAirlines
             string airlineName = tbName.Texts;
 
             Random random = new Random();
-            List<string> randomIcaos = airportIcaos.OrderBy(code => random.Next()).Take(3).ToList();
 
-            if (AllFieldsSelected())
+            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
             {
-                using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+                try
                 {
-                    try
+                    connection.Open();
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    if (money >= 5000 && AllFieldsSelected())
                     {
-                        connection.Open();
+                        // Deduct money for creating the airline
+                        money -= 5000;
 
-                        SqlCommand cmd = new SqlCommand();
-                        cmd.Connection = connection;
+                        cmd.CommandText = "UPDATE Pilot SET Money = @money WHERE Username = @username";
+                        cmd.Parameters.AddWithValue("@money", money);
+                        cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                        cmd.ExecuteNonQuery();
 
-                        if (money >= 5000)
-                        {
-                            money -= 5000;
+                        GlobalData.lblMoney.Text = pilot.GetPilotMoney().ToString() + "$";
 
-                            cmd.CommandText = "UPDATE Pilot SET Money = @money WHERE Username = @username";
-                            cmd.Parameters.AddWithValue("@money", money);
-                            cmd.Parameters.AddWithValue("@username", GlobalData.Username);
-                            cmd.ExecuteNonQuery();
+                        // Randomly select destinations excluding the headquarter
+                        List<string> possibleDestinations = airportIcaos.Where(code => code != lblHeadquater.Text).ToList();
+                        List<string> randomIcaos = possibleDestinations.OrderBy(code => random.Next()).Take(3).ToList();
 
-                            GlobalData.lblMoney.Text = pilot.GetPilotMoney().ToString() + "$";
+                        cmd.CommandText = "INSERT INTO Airline(Logo, Name, AirlineMoney, AirlineAirplanes, Headquarter, Destinations) OUTPUT INSERTED.ID VALUES (@logo, @name, @airlineMoney, @airlineAirplanes, @headquater, @destinations)";
+                        cmd.Parameters.AddWithValue("@logo", LogoToByteArray(pbLogo));
+                        cmd.Parameters.AddWithValue("@name", tbName.Texts);
+                        cmd.Parameters.AddWithValue("@airlineMoney", 5000);
+                        cmd.Parameters.AddWithValue("@airlineAirplanes", cbFleet.Text);
+                        cmd.Parameters.AddWithValue("@headquater", lblHeadquater.Text);
 
-                            cmd.CommandText = "INSERT INTO Airline(Logo, Name, AirlineMoney, AirlineAirplanes, Headquarter, Destinations) OUTPUT INSERTED.ID VALUES (@logo, @name, @airlineMoney, @airlineAirplanes, @headquater, @destinations)";
-                            cmd.Parameters.AddWithValue("@logo", LogoToByteArray(pbLogo));
-                            cmd.Parameters.AddWithValue("@name", tbName.Texts);
-                            cmd.Parameters.AddWithValue("@airlineMoney", 5000);
-                            cmd.Parameters.AddWithValue("@airlineAirplanes", cbFleet.Text);
-                            cmd.Parameters.AddWithValue("@headquater", lblHeadquater.Text);
+                        string icaosString = string.Join(",", randomIcaos);
+                        cmd.Parameters.AddWithValue("@destinations", icaosString);
 
-                            string icaosString = string.Join(",", randomIcaos);
-                            cmd.Parameters.AddWithValue("@destinations", icaosString);
+                        // Get the new ID of the airline
+                        int airlineID = (int)cmd.ExecuteScalar();
 
-                            // Získání nového ID letecké společnosti
-                            int airlineID = (int)cmd.ExecuteScalar();
+                        // Update pilot information
+                        cmd.CommandText = "UPDATE Pilot SET Airline = @airline, Boss = @boss WHERE Username = @usernameUpdate";
+                        cmd.Parameters.AddWithValue("@airline", airlineID);
+                        cmd.Parameters.AddWithValue("@boss", airlineID);
+                        cmd.Parameters.AddWithValue("@usernameUpdate", GlobalData.Username);
+                        cmd.ExecuteNonQuery();
 
+                        cmd.CommandText = "UPDATE Pilot SET Departure = @departure WHERE Username = @usernameDeparture";
+                        cmd.Parameters.AddWithValue("@departure", lblHeadquater.Text);
+                        cmd.Parameters.AddWithValue("@usernameDeparture", GlobalData.Username);
+                        cmd.ExecuteNonQuery();
 
-                            cmd.CommandText = "UPDATE Pilot SET Airline = @airline, Boss = @boss WHERE Username = @usernameUpdate";
-                            cmd.Parameters.AddWithValue("@airline", airlineID);
-                            cmd.Parameters.AddWithValue("@boss", airlineID);
-                            cmd.Parameters.AddWithValue("@usernameUpdate", GlobalData.Username);
-                            cmd.ExecuteNonQuery();
-
-                            cmd.CommandText = "UPDATE Pilot SET Departure = @departure WHERE Username = @usernameDeparture";
-                            cmd.Parameters.AddWithValue("@departure", lblHeadquater.Text);
-                            cmd.Parameters.AddWithValue("@usernameDeparture", GlobalData.Username);
-                            cmd.ExecuteNonQuery();
-
-                            GlobalData.airlineID = airlineID.ToString();
-                            MessageBox.Show("You have successfully created your own airline.", "Notification:");
-                            GlobalData.btnChat.Enabled = true;
-                            GlobalData.btnChat.Visible = true;
-                            GlobalData.btnLeaveAirline.Enabled = true;
-                            GlobalData.btnLeaveAirline.Visible = true;
-                            ChangeMainPanel(new AirlineBoss(panel));
-                        }
-                        else
-                            MessageBox.Show("You do not have enough money to create an airline.", "Notification:");
-
-                        connection.Close();
+                        GlobalData.airlineID = airlineID.ToString();
+                        MessageBox.Show("You have successfully created your own airline.", "Notification:");
+                        GlobalData.btnChat.Enabled = true;
+                        GlobalData.btnChat.Visible = true;
+                        GlobalData.btnLeaveAirline.Enabled = true;
+                        GlobalData.btnLeaveAirline.Visible = true;
+                        ChangeMainPanel(new AirlineBoss(panel));
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show("An error occurred while creating the airline.\n" + ex.ToString(), "Error:");
+                        MessageBox.Show("You do not have enough money to create an airline or fill in all the required information.", "Notification:");
                     }
+
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while creating the airline.\n" + ex.ToString(), "Error:");
                 }
             }
-            else
-            {
-                MessageBox.Show("Please fill in all the required information.", "Notification:");
-            }
         }
-
 
         private void btn_MouseEnter(object sender, EventArgs e)
         {

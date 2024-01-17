@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbFlightUsername = new WiLBiT.WiLBiTTextBox();
-            this.btnCopyFlight = new WiLBiT.WiLBiTButton();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnGenerateFlight = new WiLBiT.WiLBiTButton();
-            this.label6 = new System.Windows.Forms.Label();
-            this.wiLBiTPanel4 = new WiLBiT.WiLBiTPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.wiLBiTPanel5 = new WiLBiT.WiLBiTPanel();
             this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
@@ -51,108 +45,21 @@
             this.wiLBiTPanel1 = new WiLBiT.WiLBiTPanel();
             this.panelMembers = new WiLBiT.WiLBiTPanel();
             this.FlowRow = new System.Windows.Forms.FlowLayoutPanel();
-            this.wiLBiTPanel4.SuspendLayout();
+            this.wiLBiTPanel4 = new WiLBiT.WiLBiTPanel();
+            this.cbFleet = new System.Windows.Forms.ComboBox();
+            this.lblDestination = new System.Windows.Forms.Label();
+            this.tbFlightUsername = new WiLBiT.WiLBiTTextBox();
+            this.btnCopyFlight = new WiLBiT.WiLBiTButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnGenerateFlight = new WiLBiT.WiLBiTButton();
+            this.lblGenerateFlight = new System.Windows.Forms.Label();
             this.wiLBiTPanel5.SuspendLayout();
             this.wiLBiTPanel2.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
             this.wiLBiTPanel1.SuspendLayout();
             this.panelMembers.SuspendLayout();
+            this.wiLBiTPanel4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tbFlightUsername
-            // 
-            this.tbFlightUsername.BackColor = System.Drawing.SystemColors.Window;
-            this.tbFlightUsername.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.tbFlightUsername.BorderFocusColor = System.Drawing.Color.DeepSkyBlue;
-            this.tbFlightUsername.BorderRadius = 4;
-            this.tbFlightUsername.BorderSize = 2;
-            this.tbFlightUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbFlightUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbFlightUsername.Location = new System.Drawing.Point(246, 80);
-            this.tbFlightUsername.Margin = new System.Windows.Forms.Padding(4);
-            this.tbFlightUsername.Multiline = false;
-            this.tbFlightUsername.Name = "tbFlightUsername";
-            this.tbFlightUsername.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.tbFlightUsername.PasswordChar = false;
-            this.tbFlightUsername.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.tbFlightUsername.PlaceholderText = "Username";
-            this.tbFlightUsername.Size = new System.Drawing.Size(173, 44);
-            this.tbFlightUsername.TabIndex = 6;
-            this.tbFlightUsername.Texts = "";
-            this.tbFlightUsername.UnderlinedStyle = false;
-            // 
-            // btnCopyFlight
-            // 
-            this.btnCopyFlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.btnCopyFlight.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.btnCopyFlight.BorderRadius = 10;
-            this.btnCopyFlight.BorderSize = 0;
-            this.btnCopyFlight.FlatAppearance.BorderSize = 0;
-            this.btnCopyFlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCopyFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnCopyFlight.ForeColor = System.Drawing.Color.White;
-            this.btnCopyFlight.Location = new System.Drawing.Point(426, 72);
-            this.btnCopyFlight.Name = "btnCopyFlight";
-            this.btnCopyFlight.Size = new System.Drawing.Size(164, 50);
-            this.btnCopyFlight.TabIndex = 5;
-            this.btnCopyFlight.Text = "Copy flight";
-            this.btnCopyFlight.UseVisualStyleBackColor = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(11, 84);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(288, 29);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Fly with your colleague:";
-            // 
-            // btnGenerateFlight
-            // 
-            this.btnGenerateFlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.btnGenerateFlight.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.btnGenerateFlight.BorderRadius = 10;
-            this.btnGenerateFlight.BorderSize = 0;
-            this.btnGenerateFlight.FlatAppearance.BorderSize = 0;
-            this.btnGenerateFlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerateFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnGenerateFlight.ForeColor = System.Drawing.Color.White;
-            this.btnGenerateFlight.Location = new System.Drawing.Point(169, 7);
-            this.btnGenerateFlight.Name = "btnGenerateFlight";
-            this.btnGenerateFlight.Size = new System.Drawing.Size(164, 50);
-            this.btnGenerateFlight.TabIndex = 3;
-            this.btnGenerateFlight.Text = "Generate flight";
-            this.btnGenerateFlight.UseVisualStyleBackColor = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(11, 19);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(192, 29);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Generate flight:";
-            // 
-            // wiLBiTPanel4
-            // 
-            this.wiLBiTPanel4.BackColor = System.Drawing.Color.White;
-            this.wiLBiTPanel4.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.wiLBiTPanel4.BorderRadius = 20;
-            this.wiLBiTPanel4.BorderSize = 0;
-            this.wiLBiTPanel4.Controls.Add(this.tbFlightUsername);
-            this.wiLBiTPanel4.Controls.Add(this.btnCopyFlight);
-            this.wiLBiTPanel4.Controls.Add(this.label7);
-            this.wiLBiTPanel4.Controls.Add(this.btnGenerateFlight);
-            this.wiLBiTPanel4.Controls.Add(this.label6);
-            this.wiLBiTPanel4.ForeColor = System.Drawing.Color.White;
-            this.wiLBiTPanel4.Location = new System.Drawing.Point(337, 505);
-            this.wiLBiTPanel4.Name = "wiLBiTPanel4";
-            this.wiLBiTPanel4.Size = new System.Drawing.Size(709, 147);
-            this.wiLBiTPanel4.TabIndex = 6;
             // 
             // label5
             // 
@@ -401,6 +308,125 @@
             this.FlowRow.Size = new System.Drawing.Size(322, 491);
             this.FlowRow.TabIndex = 4;
             // 
+            // wiLBiTPanel4
+            // 
+            this.wiLBiTPanel4.BackColor = System.Drawing.Color.White;
+            this.wiLBiTPanel4.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.wiLBiTPanel4.BorderRadius = 20;
+            this.wiLBiTPanel4.BorderSize = 0;
+            this.wiLBiTPanel4.Controls.Add(this.cbFleet);
+            this.wiLBiTPanel4.Controls.Add(this.lblDestination);
+            this.wiLBiTPanel4.Controls.Add(this.tbFlightUsername);
+            this.wiLBiTPanel4.Controls.Add(this.btnCopyFlight);
+            this.wiLBiTPanel4.Controls.Add(this.label7);
+            this.wiLBiTPanel4.Controls.Add(this.btnGenerateFlight);
+            this.wiLBiTPanel4.Controls.Add(this.lblGenerateFlight);
+            this.wiLBiTPanel4.ForeColor = System.Drawing.Color.White;
+            this.wiLBiTPanel4.Location = new System.Drawing.Point(337, 505);
+            this.wiLBiTPanel4.Name = "wiLBiTPanel4";
+            this.wiLBiTPanel4.Size = new System.Drawing.Size(709, 147);
+            this.wiLBiTPanel4.TabIndex = 6;
+            // 
+            // cbFleet
+            // 
+            this.cbFleet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cbFleet.FormattingEnabled = true;
+            this.cbFleet.Location = new System.Drawing.Point(313, 25);
+            this.cbFleet.Name = "cbFleet";
+            this.cbFleet.Size = new System.Drawing.Size(169, 28);
+            this.cbFleet.TabIndex = 15;
+            this.cbFleet.Text = "--Select airplane--";
+            // 
+            // lblDestination
+            // 
+            this.lblDestination.AutoSize = true;
+            this.lblDestination.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblDestination.ForeColor = System.Drawing.Color.Black;
+            this.lblDestination.Location = new System.Drawing.Point(228, 24);
+            this.lblDestination.Name = "lblDestination";
+            this.lblDestination.Size = new System.Drawing.Size(0, 29);
+            this.lblDestination.TabIndex = 14;
+            // 
+            // tbFlightUsername
+            // 
+            this.tbFlightUsername.BackColor = System.Drawing.SystemColors.Window;
+            this.tbFlightUsername.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.tbFlightUsername.BorderFocusColor = System.Drawing.Color.DeepSkyBlue;
+            this.tbFlightUsername.BorderRadius = 4;
+            this.tbFlightUsername.BorderSize = 2;
+            this.tbFlightUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbFlightUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbFlightUsername.Location = new System.Drawing.Point(309, 87);
+            this.tbFlightUsername.Margin = new System.Windows.Forms.Padding(4);
+            this.tbFlightUsername.Multiline = false;
+            this.tbFlightUsername.Name = "tbFlightUsername";
+            this.tbFlightUsername.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbFlightUsername.PasswordChar = false;
+            this.tbFlightUsername.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbFlightUsername.PlaceholderText = "Username";
+            this.tbFlightUsername.Size = new System.Drawing.Size(173, 44);
+            this.tbFlightUsername.TabIndex = 13;
+            this.tbFlightUsername.Texts = "";
+            this.tbFlightUsername.UnderlinedStyle = false;
+            // 
+            // btnCopyFlight
+            // 
+            this.btnCopyFlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnCopyFlight.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnCopyFlight.BorderRadius = 10;
+            this.btnCopyFlight.BorderSize = 0;
+            this.btnCopyFlight.FlatAppearance.BorderSize = 0;
+            this.btnCopyFlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCopyFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnCopyFlight.ForeColor = System.Drawing.Color.White;
+            this.btnCopyFlight.Location = new System.Drawing.Point(531, 81);
+            this.btnCopyFlight.Name = "btnCopyFlight";
+            this.btnCopyFlight.Size = new System.Drawing.Size(164, 50);
+            this.btnCopyFlight.TabIndex = 12;
+            this.btnCopyFlight.Text = "Copy flight";
+            this.btnCopyFlight.UseVisualStyleBackColor = false;
+            this.btnCopyFlight.Click += new System.EventHandler(this.btnCopyFlight_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(14, 89);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(288, 29);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Fly with your colleague:";
+            // 
+            // btnGenerateFlight
+            // 
+            this.btnGenerateFlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnGenerateFlight.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnGenerateFlight.BorderRadius = 10;
+            this.btnGenerateFlight.BorderSize = 0;
+            this.btnGenerateFlight.FlatAppearance.BorderSize = 0;
+            this.btnGenerateFlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerateFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnGenerateFlight.ForeColor = System.Drawing.Color.White;
+            this.btnGenerateFlight.Location = new System.Drawing.Point(531, 16);
+            this.btnGenerateFlight.Name = "btnGenerateFlight";
+            this.btnGenerateFlight.Size = new System.Drawing.Size(164, 50);
+            this.btnGenerateFlight.TabIndex = 10;
+            this.btnGenerateFlight.Text = "Generate flight";
+            this.btnGenerateFlight.UseVisualStyleBackColor = false;
+            this.btnGenerateFlight.Click += new System.EventHandler(this.btnGenerateFlight_Click);
+            // 
+            // lblGenerateFlight
+            // 
+            this.lblGenerateFlight.AutoSize = true;
+            this.lblGenerateFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblGenerateFlight.ForeColor = System.Drawing.Color.Black;
+            this.lblGenerateFlight.Location = new System.Drawing.Point(14, 24);
+            this.lblGenerateFlight.Name = "lblGenerateFlight";
+            this.lblGenerateFlight.Size = new System.Drawing.Size(228, 29);
+            this.lblGenerateFlight.TabIndex = 9;
+            this.lblGenerateFlight.Text = "Generate flight to: ";
+            // 
             // AirlinePilot
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -414,8 +440,6 @@
             this.Name = "AirlinePilot";
             this.Size = new System.Drawing.Size(1050, 655);
             this.Load += new System.EventHandler(this.AirlinePilot_Load);
-            this.wiLBiTPanel4.ResumeLayout(false);
-            this.wiLBiTPanel4.PerformLayout();
             this.wiLBiTPanel5.ResumeLayout(false);
             this.wiLBiTPanel5.PerformLayout();
             this.wiLBiTPanel2.ResumeLayout(false);
@@ -424,18 +448,13 @@
             this.tableLayoutPanel.PerformLayout();
             this.wiLBiTPanel1.ResumeLayout(false);
             this.panelMembers.ResumeLayout(false);
+            this.wiLBiTPanel4.ResumeLayout(false);
+            this.wiLBiTPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private WiLBiT.WiLBiTTextBox tbFlightUsername;
-        private WiLBiT.WiLBiTButton btnCopyFlight;
-        private System.Windows.Forms.Label label7;
-        private WiLBiT.WiLBiTButton btnGenerateFlight;
-        private System.Windows.Forms.Label label6;
-        private WiLBiT.WiLBiTPanel wiLBiTPanel4;
         private System.Windows.Forms.Label label5;
         private WiLBiT.WiLBiTPanel wiLBiTPanel5;
         private GMap.NET.WindowsForms.GMapControl gMapControl;
@@ -453,5 +472,13 @@
         private WiLBiT.WiLBiTPanel wiLBiTPanel1;
         private WiLBiT.WiLBiTPanel panelMembers;
         private System.Windows.Forms.FlowLayoutPanel FlowRow;
+        private WiLBiT.WiLBiTPanel wiLBiTPanel4;
+        private System.Windows.Forms.ComboBox cbFleet;
+        private System.Windows.Forms.Label lblDestination;
+        private WiLBiT.WiLBiTTextBox tbFlightUsername;
+        private WiLBiT.WiLBiTButton btnCopyFlight;
+        private System.Windows.Forms.Label label7;
+        private WiLBiT.WiLBiTButton btnGenerateFlight;
+        private System.Windows.Forms.Label lblGenerateFlight;
     }
 }

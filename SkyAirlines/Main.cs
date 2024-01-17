@@ -15,6 +15,7 @@ namespace SkyAirlines
         private GetPilotSQLData sqlData = new GetPilotSQLData();
         private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
         private GetAirlineData getAirlineData = new GetAirlineData();
+        private GetPilotSQLData getPilotData = new GetPilotSQLData();
 
         public Main()
         {
@@ -27,6 +28,9 @@ namespace SkyAirlines
 
             GlobalData.lblMoney = lblMoney;
             GlobalData.airlineID = getAirlineData.GetAirlineID(lblUsername.Text);
+            GlobalData.Departure = getPilotData.GetPilotDeparture();
+            GlobalData.Arrival = getPilotData.GetPilotArrival();
+            GlobalData.AirplaneForFlight = getPilotData.GetPilotAirplaneForFlight();
 
             lblUsername.Text = GlobalData.Username;
             lblMoney.Text = sqlData.GetPilotMoney() + "$";
@@ -165,8 +169,8 @@ namespace SkyAirlines
                         cmd.ExecuteNonQuery();
                     }
 
-                    //Remove arrival and departure
-                    cmd.CommandText = "UPDATE Pilot SET Departure=NULL, Arrival=NULL WHERE Username=@usernameDepArr";
+                    //Remove arrival, departure and ariplane for flight
+                    cmd.CommandText = "UPDATE Pilot SET Departure=NULL, Arrival=NULL, AirplaneForFlight=NULL WHERE Username=@usernameDepArr";
                     cmd.Parameters.AddWithValue("@usernameDepArr", GlobalData.Username);
                     cmd.ExecuteNonQuery();
 

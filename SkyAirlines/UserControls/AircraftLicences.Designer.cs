@@ -57,7 +57,9 @@
             this.btnBeechcraft = new WiLBiT.WiLBiTButton();
             this.wiLBiTPanel1 = new WiLBiT.WiLBiTPanel();
             this.wiLBiTPanel2 = new WiLBiT.WiLBiTPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblLicences = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelBoeing.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,6 +80,8 @@
             this.wiLBiTPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.wiLBiTPanel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBoeing
@@ -466,9 +470,9 @@
             this.wiLBiTPanel1.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.wiLBiTPanel1.BorderRadius = 20;
             this.wiLBiTPanel1.BorderSize = 0;
+            this.wiLBiTPanel1.Controls.Add(this.tableLayoutPanel2);
+            this.wiLBiTPanel1.Controls.Add(this.tableLayoutPanel1);
             this.wiLBiTPanel1.Controls.Add(this.wiLBiTPanel2);
-            this.wiLBiTPanel1.Controls.Add(this.lblLicences);
-            this.wiLBiTPanel1.Controls.Add(this.label1);
             this.wiLBiTPanel1.ForeColor = System.Drawing.Color.White;
             this.wiLBiTPanel1.Location = new System.Drawing.Point(30, 504);
             this.wiLBiTPanel1.Name = "wiLBiTPanel1";
@@ -482,36 +486,67 @@
             this.wiLBiTPanel2.BorderRadius = 0;
             this.wiLBiTPanel2.BorderSize = 0;
             this.wiLBiTPanel2.ForeColor = System.Drawing.Color.White;
-            this.wiLBiTPanel2.Location = new System.Drawing.Point(190, 38);
+            this.wiLBiTPanel2.Location = new System.Drawing.Point(191, 41);
             this.wiLBiTPanel2.Name = "wiLBiTPanel2";
             this.wiLBiTPanel2.Size = new System.Drawing.Size(622, 5);
             this.wiLBiTPanel2.TabIndex = 2;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.lblLicences, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 49);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(978, 76);
+            this.tableLayoutPanel1.TabIndex = 3;
+            // 
             // lblLicences
             // 
+            this.lblLicences.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLicences.AutoSize = true;
-            this.lblLicences.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblLicences.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblLicences.ForeColor = System.Drawing.Color.Black;
-            this.lblLicences.Location = new System.Drawing.Point(263, 55);
-            this.lblLicences.MaximumSize = new System.Drawing.Size(500, 90);
-            this.lblLicences.MinimumSize = new System.Drawing.Size(500, 90);
+            this.lblLicences.Location = new System.Drawing.Point(3, 0);
             this.lblLicences.Name = "lblLicences";
-            this.lblLicences.Size = new System.Drawing.Size(500, 90);
-            this.lblLicences.TabIndex = 1;
-            this.lblLicences.Text = "B717, B737, B747, B757, B767, B777, B787, A310, A320, A330, A340, A350, A380,ATR," +
-    " CRJ, Embraer, Cessna, Beechcraft, DC, AN 225\r\n";
-            this.lblLicences.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblLicences.Size = new System.Drawing.Size(972, 76);
+            this.lblLicences.TabIndex = 0;
+            this.lblLicences.Text = "B737, B787, B777, A350, A380";
+            this.lblLicences.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(23, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(943, 40);
+            this.tableLayoutPanel2.TabIndex = 4;
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(420, 1);
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(237, 34);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Owned licences";
+            this.label1.Size = new System.Drawing.Size(937, 40);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Your owned licenses";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AircraftLicences
             // 
@@ -550,7 +585,10 @@
             this.wiLBiTPanel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.wiLBiTPanel1.ResumeLayout(false);
-            this.wiLBiTPanel1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -586,7 +624,9 @@
         private WiLBiT.WiLBiTButton btnBeechcraft;
         private WiLBiT.WiLBiTPanel wiLBiTPanel1;
         private WiLBiT.WiLBiTPanel wiLBiTPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblLicences;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label1;
     }
 }

@@ -80,6 +80,7 @@ namespace SkyAirlines
                         GlobalData.btnChat.Enabled = true;
                         GlobalData.btnLeaveAirline.Visible = true;
                         GlobalData.btnLeaveAirline.Enabled = true;
+                        GlobalData.Departure = lblHeadquater.Text;
 
                         if (sqlData.IsPilotAirlineBoss())
                             ChangeMainPanel(new AirlineBoss(panel));

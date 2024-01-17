@@ -69,5 +69,21 @@ namespace SkyAirlines.Forms
         {
             Application.Exit();
         }
+
+        private void KeyDownTextBox(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter) 
+            {
+                if(tbUsername.Text != "" && tbEmail.Text != "" && tbPassword.Text != "")
+                {
+                    register.RegisterPilot(tbUsername.Text, tbPassword.Text, tbEmail.Text);
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Please fill in all the required information.", "Notification:");
+                }
+            }
+        }
     }
 }

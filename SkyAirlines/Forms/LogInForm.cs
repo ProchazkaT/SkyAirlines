@@ -23,8 +23,11 @@ namespace SkyAirlines.Forms
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            login.LogInPilot(tbUsername.Text, tbPassword.Text);
-            this.Hide();
+            if(tbUsername.Text != "" && tbPassword.Text != "")
+            {
+                login.LogInPilot(tbUsername.Text, tbPassword.Text);
+                this.Hide();
+            }
         }
 
         private void btnMinimaze_Click(object sender, EventArgs e)
@@ -63,6 +66,22 @@ namespace SkyAirlines.Forms
         private void LogInForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void KeyDownTextBox(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                if (tbUsername.Text != "" && tbPassword.Text != "")
+                {
+                    login.LogInPilot(tbUsername.Text, tbPassword.Text);
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Please fill in all the required information.", "Notification:");
+                }
+            }
         }
     }
 }

@@ -37,10 +37,12 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wiLBiTPanel1 = new WiLBiT.WiLBiTPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblName = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblPassengers = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblAltitude = new System.Windows.Forms.Label();
@@ -53,6 +55,8 @@
             this.btnBuyLicence = new WiLBiT.WiLBiTButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.wiLBiTPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -132,10 +136,9 @@
             this.wiLBiTPanel1.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.wiLBiTPanel1.BorderRadius = 20;
             this.wiLBiTPanel1.BorderSize = 0;
-            this.wiLBiTPanel1.Controls.Add(this.label2);
+            this.wiLBiTPanel1.Controls.Add(this.tableLayoutPanel2);
+            this.wiLBiTPanel1.Controls.Add(this.tableLayoutPanel1);
             this.wiLBiTPanel1.Controls.Add(this.label1);
-            this.wiLBiTPanel1.Controls.Add(this.lblPrice);
-            this.wiLBiTPanel1.Controls.Add(this.lblName);
             this.wiLBiTPanel1.Controls.Add(this.lblPassengers);
             this.wiLBiTPanel1.Controls.Add(this.pictureBox3);
             this.wiLBiTPanel1.Controls.Add(this.lblAltitude);
@@ -148,15 +151,75 @@
             this.wiLBiTPanel1.Size = new System.Drawing.Size(862, 175);
             this.wiLBiTPanel1.TabIndex = 1;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.44828F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.55172F));
+            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblPrice, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(28, 126);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(812, 46);
+            this.tableLayoutPanel2.TabIndex = 11;
+            // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F);
-            this.label2.Location = new System.Drawing.Point(528, 127);
+            this.label2.Location = new System.Drawing.Point(437, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 32);
-            this.label2.TabIndex = 9;
+            this.label2.Size = new System.Drawing.Size(372, 46);
+            this.label2.TabIndex = 8;
             this.label2.Text = "$";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F);
+            this.lblPrice.Location = new System.Drawing.Point(3, 0);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(428, 46);
+            this.lblPrice.TabIndex = 7;
+            this.lblPrice.Text = "5000";
+            this.lblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.lblName, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(28, 4);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(812, 45);
+            this.tableLayoutPanel1.TabIndex = 10;
+            // 
+            // lblName
+            // 
+            this.lblName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lblName.Location = new System.Drawing.Point(3, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(806, 45);
+            this.lblName.TabIndex = 6;
+            this.lblName.Text = "Boeing 787";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -168,31 +231,11 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Price:";
             // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F);
-            this.lblPrice.Location = new System.Drawing.Point(455, 127);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(78, 32);
-            this.lblPrice.TabIndex = 7;
-            this.lblPrice.Text = "5000";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
-            this.lblName.Location = new System.Drawing.Point(374, 10);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(169, 32);
-            this.lblName.TabIndex = 6;
-            this.lblName.Text = "Boeing 787";
-            // 
             // lblPassengers
             // 
             this.lblPassengers.AutoSize = true;
             this.lblPassengers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblPassengers.Location = new System.Drawing.Point(711, 67);
+            this.lblPassengers.Location = new System.Drawing.Point(701, 69);
             this.lblPassengers.Name = "lblPassengers";
             this.lblPassengers.Size = new System.Drawing.Size(48, 25);
             this.lblPassengers.TabIndex = 5;
@@ -201,7 +244,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::SkyAirlines.Properties.Resources.Passenger;
-            this.pictureBox3.Location = new System.Drawing.Point(655, 55);
+            this.pictureBox3.Location = new System.Drawing.Point(645, 57);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(50, 50);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -212,7 +255,7 @@
             // 
             this.lblAltitude.AutoSize = true;
             this.lblAltitude.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblAltitude.Location = new System.Drawing.Point(436, 67);
+            this.lblAltitude.Location = new System.Drawing.Point(426, 69);
             this.lblAltitude.Name = "lblAltitude";
             this.lblAltitude.Size = new System.Drawing.Size(96, 25);
             this.lblAltitude.TabIndex = 3;
@@ -221,7 +264,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::SkyAirlines.Properties.Resources.Altitude;
-            this.pictureBox2.Location = new System.Drawing.Point(380, 55);
+            this.pictureBox2.Location = new System.Drawing.Point(370, 57);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(50, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -232,7 +275,7 @@
             // 
             this.lblSpeed.AutoSize = true;
             this.lblSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblSpeed.Location = new System.Drawing.Point(154, 67);
+            this.lblSpeed.Location = new System.Drawing.Point(144, 69);
             this.lblSpeed.Name = "lblSpeed";
             this.lblSpeed.Size = new System.Drawing.Size(77, 25);
             this.lblSpeed.TabIndex = 1;
@@ -241,7 +284,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SkyAirlines.Properties.Resources.SpeedIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(98, 55);
+            this.pictureBox1.Location = new System.Drawing.Point(88, 57);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(50, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -327,6 +370,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.wiLBiTPanel1.ResumeLayout(false);
             this.wiLBiTPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -352,7 +399,6 @@
         private WiLBiT.WiLBiTButton btnBuyLicence;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewImageColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -360,5 +406,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label2;
     }
 }

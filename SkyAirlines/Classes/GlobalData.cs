@@ -17,5 +17,9 @@ namespace SkyAirlines
 
         public static System.Windows.Forms.Button btnChat { get; set; }
         public static System.Windows.Forms.Button btnLeaveAirline { get; set; }
+
+        public static string Departure { get; set; }
+        public static string Arrival { get; set; }
+        public static string AirplaneForFlight { get; set; }
     }
 }

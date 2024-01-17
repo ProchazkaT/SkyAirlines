@@ -315,6 +315,10 @@
     <Content Include="Images\tshadowdownright.png" />
     <Content Include="Images\tshadowright.png" />
     <Content Include="Images\tshadowtopright.png" />
+    <None Include="Resources\Departure.png" />
+    <None Include="Resources\Arrival.png" />
+    <None Include="Resources\HomeMarker.png" />
+    <None Include="Resources\LastArrivalMarker.png" />
     <None Include="Resources\leave.png" />
     <None Include="Resources\chat.png" />
     <None Include="Resources\AirplaneMarker.png" />

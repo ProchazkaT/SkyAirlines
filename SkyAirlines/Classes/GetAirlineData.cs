@@ -1,6 +1,9 @@
 ﻿using System.Data;
 using System;
 using System.Data.SqlClient;
+using SkyAirlines.Classes;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SkyAirlines
 {
@@ -38,6 +41,7 @@ namespace SkyAirlines
                         airlineID = reader["Airline"].ToString();
                     }
                     reader.Close();
+                    connection.Close();
                 }
                 catch { }
             }
@@ -67,6 +71,7 @@ namespace SkyAirlines
                         name = reader["Name"].ToString();
                     }
                     reader.Close();
+                    connection.Close();
                 }
                 catch { }
                 connection.Close();
@@ -91,13 +96,13 @@ namespace SkyAirlines
                     cmd.Parameters.AddWithValue("@Airline", GlobalData.airlineID);
 
                     count = (int)cmd.ExecuteScalar();
-
+                    connection.Close();
                 }
                 catch
                 {
                    
+                    connection.Close();
                 }
-                connection.Close();
             }
 
             return count;
@@ -126,6 +131,7 @@ namespace SkyAirlines
                         money = reader["AirlineMoney"].ToString();
                     }
                     reader.Close();
+                    connection.Close();
                 }
                 catch { }
                 connection.Close();
@@ -156,6 +162,7 @@ namespace SkyAirlines
                         fleet = reader["AirlineAirplanes"].ToString();
                     }
                     reader.Close();
+                    connection.Close();
                 }
                 catch { }
                 connection.Close();
@@ -186,11 +193,43 @@ namespace SkyAirlines
                         headquarter = reader["Headquarter"].ToString();
                     }
                     reader.Close();
+                    connection.Close();
                 }
                 catch { }
                 connection.Close();
             }
             return headquarter;
+        }
+
+        public string GetAirlineDestinations()
+        {
+            string destinatios = "";
+
+            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    cmd.CommandText = "SELECT Destinations FROM Airline WHERE ID=@id";
+                    cmd.Parameters.AddWithValue("@id", GlobalData.airlineID);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        destinatios = reader["Destinations"].ToString();
+                    }
+                    reader.Close();
+                    connection.Close();
+                }
+                catch { }
+                connection.Close();
+            }
+            return destinatios;
         }
     }
 }

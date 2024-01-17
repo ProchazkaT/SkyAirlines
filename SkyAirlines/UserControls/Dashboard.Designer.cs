@@ -42,11 +42,13 @@
             this.lblFlightHours = new System.Windows.Forms.Label();
             this.lblLandingRate = new System.Windows.Forms.Label();
             this.panelTop = new WiLBiT.WiLBiTPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
             this.panelRank.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTop.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelRank
@@ -143,63 +145,87 @@
             // 
             // label7
             // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(202, 9);
+            this.label7.Location = new System.Drawing.Point(3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 29);
+            this.label7.Size = new System.Drawing.Size(316, 38);
             this.label7.TabIndex = 0;
             this.label7.Text = "Flights";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(732, 9);
+            this.label6.Location = new System.Drawing.Point(647, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(151, 29);
+            this.label6.Size = new System.Drawing.Size(317, 38);
             this.label6.TabIndex = 1;
             this.label6.Text = "Flight hours";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(404, 9);
+            this.label5.Location = new System.Drawing.Point(325, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(254, 29);
+            this.label5.Size = new System.Drawing.Size(316, 38);
             this.label5.TabIndex = 2;
             this.label5.Text = "Average landing rate";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblFlights
             // 
+            this.lblFlights.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFlights.AutoSize = true;
             this.lblFlights.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblFlights.Location = new System.Drawing.Point(234, 47);
+            this.lblFlights.Location = new System.Drawing.Point(3, 38);
             this.lblFlights.Name = "lblFlights";
-            this.lblFlights.Size = new System.Drawing.Size(20, 22);
+            this.lblFlights.Size = new System.Drawing.Size(316, 38);
             this.lblFlights.TabIndex = 2;
             this.lblFlights.Text = "0";
+            this.lblFlights.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblFlightHours
             // 
+            this.lblFlightHours.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFlightHours.AutoSize = true;
             this.lblFlightHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblFlightHours.Location = new System.Drawing.Point(767, 47);
+            this.lblFlightHours.Location = new System.Drawing.Point(647, 38);
             this.lblFlightHours.Name = "lblFlightHours";
-            this.lblFlightHours.Size = new System.Drawing.Size(70, 22);
+            this.lblFlightHours.Size = new System.Drawing.Size(317, 38);
             this.lblFlightHours.TabIndex = 4;
             this.lblFlightHours.Text = "0 hours";
+            this.lblFlightHours.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblLandingRate
             // 
+            this.lblLandingRate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLandingRate.AutoSize = true;
             this.lblLandingRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblLandingRate.Location = new System.Drawing.Point(482, 47);
+            this.lblLandingRate.Location = new System.Drawing.Point(325, 38);
             this.lblLandingRate.Name = "lblLandingRate";
-            this.lblLandingRate.Size = new System.Drawing.Size(62, 22);
+            this.lblLandingRate.Size = new System.Drawing.Size(316, 38);
             this.lblLandingRate.TabIndex = 5;
             this.lblLandingRate.Text = "0 FPM";
+            this.lblLandingRate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelTop
             // 
@@ -207,17 +233,32 @@
             this.panelTop.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.panelTop.BorderRadius = 20;
             this.panelTop.BorderSize = 0;
-            this.panelTop.Controls.Add(this.lblLandingRate);
-            this.panelTop.Controls.Add(this.lblFlightHours);
-            this.panelTop.Controls.Add(this.lblFlights);
-            this.panelTop.Controls.Add(this.label5);
-            this.panelTop.Controls.Add(this.label6);
-            this.panelTop.Controls.Add(this.label7);
+            this.panelTop.Controls.Add(this.tableLayoutPanel1);
             this.panelTop.ForeColor = System.Drawing.Color.White;
             this.panelTop.Location = new System.Drawing.Point(5, 17);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(1038, 82);
             this.panelTop.TabIndex = 2;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.Controls.Add(this.lblLandingRate, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblFlightHours, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblFlights, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 2, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(39, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(967, 76);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // gMapControl
             // 
@@ -261,7 +302,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelTop.ResumeLayout(false);
-            this.panelTop.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -283,5 +325,6 @@
         private System.Windows.Forms.Label lblLandingRate;
         private WiLBiT.WiLBiTPanel panelTop;
         private GMap.NET.WindowsForms.GMapControl gMapControl;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
