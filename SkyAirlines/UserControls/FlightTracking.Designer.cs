@@ -31,10 +31,14 @@
             this.components = new System.ComponentModel.Container();
             this.panelTop = new WiLBiT.WiLBiTPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblAirplane = new System.Windows.Forms.Label();
+            this.lblDistance = new System.Windows.Forms.Label();
+            this.lblArrival = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblDeparture = new System.Windows.Forms.Label();
             this.panelFlightplan = new WiLBiT.WiLBiTPanel();
             this.btnSubmitFlight = new WiLBiT.WiLBiTButton();
             this.btnRestartFlight = new WiLBiT.WiLBiTButton();
@@ -58,10 +62,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
-            this.lblDeparture = new System.Windows.Forms.Label();
-            this.lblArrival = new System.Windows.Forms.Label();
-            this.lblDistance = new System.Windows.Forms.Label();
-            this.lblAirplane = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelFlightplan.SuspendLayout();
@@ -103,6 +103,45 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(995, 72);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // lblAirplane
+            // 
+            this.lblAirplane.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblAirplane.AutoSize = true;
+            this.lblAirplane.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblAirplane.Location = new System.Drawing.Point(747, 36);
+            this.lblAirplane.Name = "lblAirplane";
+            this.lblAirplane.Size = new System.Drawing.Size(245, 36);
+            this.lblAirplane.TabIndex = 7;
+            this.lblAirplane.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDistance
+            // 
+            this.lblDistance.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDistance.AutoSize = true;
+            this.lblDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblDistance.Location = new System.Drawing.Point(499, 36);
+            this.lblDistance.Name = "lblDistance";
+            this.lblDistance.Size = new System.Drawing.Size(242, 36);
+            this.lblDistance.TabIndex = 6;
+            this.lblDistance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblArrival
+            // 
+            this.lblArrival.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblArrival.AutoSize = true;
+            this.lblArrival.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblArrival.Location = new System.Drawing.Point(251, 36);
+            this.lblArrival.Name = "lblArrival";
+            this.lblArrival.Size = new System.Drawing.Size(242, 36);
+            this.lblArrival.TabIndex = 5;
+            this.lblArrival.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -163,6 +202,19 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Airplane";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDeparture
+            // 
+            this.lblDeparture.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDeparture.AutoSize = true;
+            this.lblDeparture.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblDeparture.Location = new System.Drawing.Point(3, 36);
+            this.lblDeparture.Name = "lblDeparture";
+            this.lblDeparture.Size = new System.Drawing.Size(242, 36);
+            this.lblDeparture.TabIndex = 4;
+            this.lblDeparture.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelFlightplan
             // 
@@ -235,6 +287,7 @@
             this.btnSimbriefOFP.TabIndex = 3;
             this.btnSimbriefOFP.Text = "Simbrief OFP";
             this.btnSimbriefOFP.UseVisualStyleBackColor = false;
+            this.btnSimbriefOFP.Click += new System.EventHandler(this.btnSimbriefOFP_Click);
             this.btnSimbriefOFP.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnSimbriefOFP.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
@@ -254,6 +307,7 @@
             this.btnSimbriefDispatch.TabIndex = 2;
             this.btnSimbriefDispatch.Text = "Simbrief dispatch";
             this.btnSimbriefDispatch.UseVisualStyleBackColor = false;
+            this.btnSimbriefDispatch.Click += new System.EventHandler(this.btnSimbriefDispatch_Click);
             this.btnSimbriefDispatch.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnSimbriefDispatch.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
@@ -476,58 +530,6 @@
             this.gMapControl.Size = new System.Drawing.Size(994, 413);
             this.gMapControl.TabIndex = 4;
             this.gMapControl.Zoom = 0D;
-            // 
-            // lblDeparture
-            // 
-            this.lblDeparture.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDeparture.AutoSize = true;
-            this.lblDeparture.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDeparture.Location = new System.Drawing.Point(3, 36);
-            this.lblDeparture.Name = "lblDeparture";
-            this.lblDeparture.Size = new System.Drawing.Size(242, 36);
-            this.lblDeparture.TabIndex = 4;
-            this.lblDeparture.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblArrival
-            // 
-            this.lblArrival.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblArrival.AutoSize = true;
-            this.lblArrival.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblArrival.Location = new System.Drawing.Point(251, 36);
-            this.lblArrival.Name = "lblArrival";
-            this.lblArrival.Size = new System.Drawing.Size(242, 36);
-            this.lblArrival.TabIndex = 5;
-            this.lblArrival.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblDistance
-            // 
-            this.lblDistance.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDistance.AutoSize = true;
-            this.lblDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDistance.Location = new System.Drawing.Point(499, 36);
-            this.lblDistance.Name = "lblDistance";
-            this.lblDistance.Size = new System.Drawing.Size(242, 36);
-            this.lblDistance.TabIndex = 6;
-            this.lblDistance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblAirplane
-            // 
-            this.lblAirplane.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblAirplane.AutoSize = true;
-            this.lblAirplane.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblAirplane.Location = new System.Drawing.Point(747, 36);
-            this.lblAirplane.Name = "lblAirplane";
-            this.lblAirplane.Size = new System.Drawing.Size(245, 36);
-            this.lblAirplane.TabIndex = 7;
-            this.lblAirplane.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FlightTracking
             // 

@@ -6,8 +6,10 @@ using SkyAirlines.Classes;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Security.Policy;
 using System.Windows.Forms;
 
 namespace SkyAirlines
@@ -305,6 +307,54 @@ namespace SkyAirlines
         {
             FSUIPCConnection.Close();
             timer1.Stop();
+        }
+
+        private void btnSimbriefDispatch_Click(object sender, EventArgs e)
+        {
+            if(lblArrival.Text != "" && lblDeparture.Text != "")
+            {
+                string[] departure = lblDeparture.Text.Split('-');
+                string[] arrival = lblArrival.Text.Split('-');
+
+                string origValue = departure[0].Trim();
+                string destValue = arrival[0].Trim();
+
+                string url = $"https://dispatch.simbrief.com/options/custom?orig={origValue}&dest={destValue}&pax=AUTO&cargo=AUTO&fl=AUTO";
+
+                try
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = url,
+                        UseShellExecute = true
+                    });
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Error opening web page.", "Notification:");
+                }
+            }
+        }
+
+        private void btnSimbriefOFP_Click(object sender, EventArgs e)
+        {
+            if (lblArrival.Text != "" && lblDeparture.Text != "")
+            {
+                string url = "https://dispatch.simbrief.com/briefing/latest";
+
+                try
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = url,
+                        UseShellExecute = true
+                    });
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Error opening web page.", "Notification:");
+                }
+            }
         }
     }
 }
