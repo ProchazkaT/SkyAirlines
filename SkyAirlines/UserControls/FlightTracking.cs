@@ -9,7 +9,6 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Security.Policy;
 using System.Windows.Forms;
 
 namespace SkyAirlines
@@ -29,6 +28,9 @@ namespace SkyAirlines
 
         private GMapOverlay markersOverlay = new GMapOverlay("AirportMarkers");
         private GMapOverlay routesOverlay = new GMapOverlay("routesOverlay");
+        private GMapOverlay airplaneOverlay = new GMapOverlay("airplaneOverlay");
+        private GMapOverlay routeOverlay = new GMapOverlay("RouteOverlay");
+        private GMapRoute airplaneRoute;
 
         long latitude = 0;
         long longitude = 0;
@@ -61,6 +63,7 @@ namespace SkyAirlines
 
             gMapControl.Overlays.Add(markersOverlay);
             gMapControl.Overlays.Add(routesOverlay);
+            gMapControl.Overlays.Add(routeOverlay);
 
             SetDepartureAndArrivalMarkers();
         }
@@ -73,7 +76,6 @@ namespace SkyAirlines
                 {
                     connection.Open();
 
-                    // Departure Airport
                     SqlCommand departureCmd = new SqlCommand();
                     departureCmd.Connection = connection;
                     departureCmd.CommandText = "SELECT icao, name, lat, lon FROM Airports WHERE icao=@departureIcao";
@@ -96,7 +98,6 @@ namespace SkyAirlines
                     }
                     departureReader.Close();
 
-                    // Arrival Airport
                     SqlCommand arrivalCmd = new SqlCommand();
                     arrivalCmd.Connection = connection;
                     arrivalCmd.CommandText = "SELECT icao, name, lat, lon FROM Airports WHERE icao=@arrivalIcao";
@@ -127,7 +128,7 @@ namespace SkyAirlines
                             markersOverlay.Markers[1].Position
                         };
 
-                        GMap.NET.WindowsForms.GMapRoute route = new GMap.NET.WindowsForms.GMapRoute(points, "Route");
+                        GMapRoute route = new GMapRoute(points, "Route");
                         route.Stroke = new Pen(Color.Purple)
                         {
                             DashStyle = DashStyle.Dash
@@ -185,8 +186,7 @@ namespace SkyAirlines
 
         private void UpdateAirplanePosition(double latitude, double longitude)
         {
-            gMapControl.Overlays.Clear();
-            GMapOverlay airplaneOverlay = new GMapOverlay("airplaneOverlay");
+            airplaneOverlay.Clear();
 
             CustomMarker marker = new CustomMarker(new PointLatLng(latitude, longitude), Properties.Resources.AirplaneMarker, "Your plane");
             airplaneOverlay.Markers.Add(marker);
@@ -199,16 +199,16 @@ namespace SkyAirlines
 
         private void btn_MouseEnter(object sender, EventArgs e)
         {
-            System.Windows.Forms.Button btn;
-            btn = (System.Windows.Forms.Button)sender;
+            Button btn;
+            btn = (Button)sender;
             btn.FlatAppearance.BorderSize = 3;
             btn.FlatAppearance.BorderColor = Color.RoyalBlue;
         }
 
         private void btn_MouseLeave(object sender, EventArgs e)
         {
-            System.Windows.Forms.Button btn;
-            btn = (System.Windows.Forms.Button)sender;
+            Button btn;
+            btn = (Button)sender;
             btn.FlatAppearance.BorderSize = 0;
             btn.FlatAppearance.BorderColor = Color.FromArgb(16, 47, 82);
         }
@@ -237,6 +237,25 @@ namespace SkyAirlines
                 lblIAS.Text = ias.ToString() + " kts";
 
                 UpdateAirplanePosition(latitudeDeg, longitudeDeg);
+
+                CustomMarker arrivalMarker = (CustomMarker)markersOverlay.Markers[1];
+                CustomMarker airplaneMarker = (CustomMarker)airplaneOverlay.Markers[0];
+
+                int distanceNM = (int)Math.Round(CalculateDistanceNM(airplaneMarker.Position, arrivalMarker.Position));
+                lblDistance.Text = distanceNM.ToString() + " nm";
+
+                if (airplaneRoute == null)
+                {
+                    List<PointLatLng> points = new List<PointLatLng>();
+                    points.Add(airplaneMarker.Position);
+                    airplaneRoute = new GMapRoute(points, "AirplaneRoute");
+                    routeOverlay.Routes.Add(airplaneRoute);
+                }
+                else
+                {
+                    airplaneRoute.Points.Add(airplaneMarker.Position);
+                    gMapControl.Refresh();
+                }
             }
             catch (Exception)
             {
@@ -311,7 +330,7 @@ namespace SkyAirlines
 
         private void btnSimbriefDispatch_Click(object sender, EventArgs e)
         {
-            if(lblArrival.Text != "" && lblDeparture.Text != "")
+            if (lblArrival.Text != "" && lblDeparture.Text != "")
             {
                 string[] departure = lblDeparture.Text.Split('-');
                 string[] arrival = lblArrival.Text.Split('-');
