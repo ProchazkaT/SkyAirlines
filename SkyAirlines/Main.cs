@@ -31,6 +31,7 @@ namespace SkyAirlines
             GlobalData.Departure = getPilotData.GetPilotDeparture();
             GlobalData.Arrival = getPilotData.GetPilotArrival();
             GlobalData.AirplaneForFlight = getPilotData.GetPilotAirplaneForFlight();
+            GlobalData.isFlown = false;
 
             lblUsername.Text = GlobalData.Username;
             lblMoney.Text = sqlData.GetPilotMoney() + "$";
@@ -127,14 +128,12 @@ namespace SkyAirlines
                             cmd.Parameters.AddWithValue("@username1", GlobalData.Username);
                             cmd.ExecuteNonQuery();
 
-                            // The boss is the sole member - remove the airline
                             cmd.CommandText = "DELETE FROM Airline WHERE ID=@airlineValueDelete1";
                             cmd.Parameters.AddWithValue("@airlineValueDelete1", GlobalData.airlineID);
                             cmd.ExecuteNonQuery();
                         }
                         else
                         {
-                            // There are more than two members - proceed to find a new boss
                             cmd.CommandText = "UPDATE Pilot SET Boss=NULL, Airline=NULL WHERE Username=@username2";
                             cmd.Parameters.AddWithValue("@username2", GlobalData.Username);
                             cmd.ExecuteNonQuery();
@@ -152,7 +151,6 @@ namespace SkyAirlines
                     }
                     else
                     {
-                        // Non-boss member leaving
                         cmd.CommandText = "UPDATE Pilot SET Airline=NULL WHERE Username = @usernameDelete";
                         cmd.Parameters.AddWithValue("@usernameDelete", GlobalData.Username);
                         cmd.ExecuteNonQuery();
@@ -169,12 +167,10 @@ namespace SkyAirlines
                         cmd.ExecuteNonQuery();
                     }
 
-                    //Remove arrival, departure and ariplane for flight
                     cmd.CommandText = "UPDATE Pilot SET Departure=NULL, Arrival=NULL, AirplaneForFlight=NULL WHERE Username=@usernameDepArr";
                     cmd.Parameters.AddWithValue("@usernameDepArr", GlobalData.Username);
                     cmd.ExecuteNonQuery();
 
-                    //Remove Salary
                     cmd.CommandText = "UPDATE Pilot SET Salary=NULL WHERE Username=@usernameSalary";
                     cmd.Parameters.AddWithValue("@usernameSalary", GlobalData.Username);
                     cmd.ExecuteNonQuery();

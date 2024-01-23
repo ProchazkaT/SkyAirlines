@@ -32,11 +32,12 @@ namespace SkyAirlines
         private GMapOverlay routeOverlay = new GMapOverlay("RouteOverlay");
         private GMapRoute airplaneRoute;
 
-        long latitude = 0;
-        long longitude = 0;
-        int speed = 0;
-        int altitudeFeet = 0;
-        int ias = 0;
+        private long latitude = 0;
+        private long longitude = 0;
+        private int speed = 0;
+        private int altitudeFeet = 0;
+        private int ias = 0;
+        private int distanceNM = 0;
 
         public FlightTracking(Panel panelMain)
         {
@@ -139,8 +140,8 @@ namespace SkyAirlines
                         CustomMarker departureMarker = (CustomMarker)markersOverlay.Markers[0];
                         CustomMarker arrivalMarker = (CustomMarker)markersOverlay.Markers[1];
 
-                        int distanceNM = (int)Math.Round(CalculateDistanceNM(departureMarker.Position, arrivalMarker.Position));
-                        lblDistance.Text = distanceNM.ToString() + " nm";
+                        int distanceNM1 = (int)Math.Round(CalculateDistanceNM(departureMarker.Position, arrivalMarker.Position));
+                        lblDistance.Text = distanceNM1.ToString() + " nm";
                         lblDeparture.Text = departureMarker.ToolTipText;
                         lblArrival.Text = arrivalMarker.ToolTipText;
                         lblAirplane.Text = GlobalData.AirplaneForFlight;
@@ -241,8 +242,13 @@ namespace SkyAirlines
                 CustomMarker arrivalMarker = (CustomMarker)markersOverlay.Markers[1];
                 CustomMarker airplaneMarker = (CustomMarker)airplaneOverlay.Markers[0];
 
-                int distanceNM = (int)Math.Round(CalculateDistanceNM(airplaneMarker.Position, arrivalMarker.Position));
+                distanceNM = (int)Math.Round(CalculateDistanceNM(airplaneMarker.Position, arrivalMarker.Position));
                 lblDistance.Text = distanceNM.ToString() + " nm";
+
+                if (lblSpeed.Text == "350")
+                {
+                    GlobalData.isFlown = true;
+                }
 
                 if (airplaneRoute == null)
                 {
@@ -271,8 +277,17 @@ namespace SkyAirlines
 
         private void btnSubmitFlight_Click(object sender, EventArgs e)
         {
-            FSUIPCConnection.Close();
-            timer1.Stop();
+            if (GlobalData.isFlown == true && distanceNM <= 3)
+            {
+                MessageBox.Show("You have successfully flown your flight!", "Notification:");
+
+                FSUIPCConnection.Close();
+                timer1.Stop();
+            }
+            else
+            {
+                MessageBox.Show("You did not fly the generated flight!", "Notification:");
+            }
         }
 
         private void FlightTracking_Load(object sender, EventArgs e)
