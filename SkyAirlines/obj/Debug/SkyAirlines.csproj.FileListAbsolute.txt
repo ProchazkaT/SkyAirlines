@@ -68,9 +68,7 @@ C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.cs
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.csproj.CoreCompileInputs.cache
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.exe
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.pdb
-C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\bin\Debug\runtimes\win-x86\native\WebView2Loader.dll
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\bin\Debug\runtimes\win-x64\native\WebView2Loader.dll
-C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\bin\Debug\runtimes\win-arm64\native\WebView2Loader.dll
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\bin\Debug\SkyAirlines.exe.config
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\bin\Debug\SkyAirlines.exe
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\bin\Debug\SkyAirlines.pdb

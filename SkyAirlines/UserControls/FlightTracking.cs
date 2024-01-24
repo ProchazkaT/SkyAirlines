@@ -24,6 +24,7 @@ namespace SkyAirlines
         private Offset<int> speedOffset = new Offset<int>(0x02B8);
         private Offset<int> altitudeOffset = new Offset<int>(0x3324);
         private Offset<int> iasOffset = new Offset<int>(0x02BC);
+        private Offset<int> landingRateOffset = new Offset<int>(0x030C);
 
         private GMapOverlay markersOverlay = new GMapOverlay("AirportMarkers");
         private GMapOverlay routesOverlay = new GMapOverlay("routesOverlay");
@@ -35,7 +36,8 @@ namespace SkyAirlines
 
         private long latitude = 0;
         private long longitude = 0;
-        private int speed = 0;
+        private int speedGS = 0;
+        private int speedTAS = 0;
         private int altitudeFeet = 0;
         private int ias = 0;
         private int distanceNM = 0;
@@ -51,9 +53,6 @@ namespace SkyAirlines
             sqlBuilder.Password = "li21a3sl6v";
 
             InitializeMap();
-
-            backgroundThread = new Thread(FlightTrackingThread);
-            backgroundThread.Start();
         }
 
         private void InitializeMap()
@@ -201,16 +200,6 @@ namespace SkyAirlines
             gMapControl.Position = new PointLatLng(latitude, longitude);
         }
 
-        private void FlightTrackingThread()
-        {
-            while (true)
-            {
-                timer1_Tick(null, EventArgs.Empty);
-
-                Thread.Sleep(1000);
-            }
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             try
@@ -219,20 +208,26 @@ namespace SkyAirlines
 
                 latitude = latitudeOffset.Value;
                 longitude = longitudeOffset.Value;
-                speed = speedOffset.Value / 128;
+                speedGS = speedOffset.Value * 3600 / 65536 / 1852;
+                speedTAS = speedOffset.Value / 128;
                 altitudeFeet = altitudeOffset.Value;
                 int altitudeMeters = (int)(altitudeFeet * 0.3048);
-                ias = iasOffset.Value / 128;
 
                 double latitudeDeg = latitude * 90.0 / (10001750.0 * 65536.0 * 65536.0);
                 double longitudeDeg = longitude * 360.0 / (65536.0 * 65536.0 * 65536.0 * 65536.0);
+                double landingRate = (double)landingRateOffset.Value;
 
                 lblLatitude.Text = latitudeDeg.ToString() + "°";
                 lblLongitude.Text = longitudeDeg.ToString() + "°";
                 lblAltitude.Text = altitudeFeet.ToString() + " ft";
                 lblAltitudeMetres.Text = altitudeMeters.ToString() + " m";
-                lblSpeed.Text = speed.ToString() + " kts";
-                lblIAS.Text = ias.ToString() + " kts";
+                lblSpeed.Text = speedGS.ToString() + " kts";
+                lblIAS.Text = speedTAS.ToString() + " kts";
+
+                if (landingRate > 0)
+                {
+                    MessageBox.Show("Your landing rate: " + landingRate.ToString() + " FPM", "Landing rate:");
+                }
 
                 UpdateAirplanePosition(latitudeDeg, longitudeDeg);
 
@@ -337,7 +332,6 @@ namespace SkyAirlines
 
         private void FlightTracking_Leave(object sender, EventArgs e)
         {
-            backgroundThread.Abort();
             FSUIPCConnection.Close();
             timer1.Stop();
         }
