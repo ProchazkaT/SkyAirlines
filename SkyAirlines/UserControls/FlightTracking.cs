@@ -2,13 +2,13 @@
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
-using SkyAirlines.Classes;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace SkyAirlines
@@ -16,7 +16,6 @@ namespace SkyAirlines
     public partial class FlightTracking : UserControl
     {
         private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
-        private GetPilotSQLData sqlData = new GetPilotSQLData();
 
         private Panel panel = new Panel();
 
@@ -39,6 +38,8 @@ namespace SkyAirlines
         private int ias = 0;
         private int distanceNM = 0;
 
+        private Thread backgroundThread;
+
         public FlightTracking(Panel panelMain)
         {
             InitializeComponent();
@@ -50,6 +51,9 @@ namespace SkyAirlines
             sqlBuilder.Password = "li21a3sl6v";
 
             InitializeMap();
+
+            backgroundThread = new Thread(BackgroundThreadMethod);
+            backgroundThread.Start();
         }
 
         private void InitializeMap()
@@ -214,6 +218,15 @@ namespace SkyAirlines
             btn.FlatAppearance.BorderColor = Color.FromArgb(16, 47, 82);
         }
 
+        private void BackgroundThreadMethod()
+        {
+            while (true)
+            {
+                timer1_Tick(null, EventArgs.Empty);
+
+                Thread.Sleep(1000);
+            }
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             try
@@ -283,6 +296,7 @@ namespace SkyAirlines
 
                 FSUIPCConnection.Close();
                 timer1.Stop();
+                GlobalData.isFlown = false;
             }
             else
             {
@@ -339,6 +353,7 @@ namespace SkyAirlines
 
         private void FlightTracking_Leave(object sender, EventArgs e)
         {
+            backgroundThread.Abort();
             FSUIPCConnection.Close();
             timer1.Stop();
         }
