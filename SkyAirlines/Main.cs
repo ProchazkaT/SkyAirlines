@@ -65,18 +65,18 @@ namespace SkyAirlines
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            SetActiveButton((System.Windows.Forms.Button)sender);
+            SetActiveButton((Button)sender);
             ChangeMainPanel(new Dashboard());
         }
 
         private void btnLicences_Click(object sender, EventArgs e)
         {
-            SetActiveButton((System.Windows.Forms.Button)sender);
+            SetActiveButton((Button)sender);
             ChangeMainPanel(new AircraftLicences(panelMain));
         }
         private void btnAirline_Click(object sender, EventArgs e)
         {
-            SetActiveButton((System.Windows.Forms.Button)sender);
+            SetActiveButton((Button)sender);
             if (IsAirlineNull())
             {
                 ChangeMainPanel(new Airlines(panelMain));
@@ -92,7 +92,7 @@ namespace SkyAirlines
 
         private void btnFlight_Click(object sender, EventArgs e)
         {
-            SetActiveButton((System.Windows.Forms.Button)sender);
+            SetActiveButton((Button)sender);
             ChangeMainPanel(new FlightTracking(panelMain));
         }
 
@@ -193,7 +193,8 @@ namespace SkyAirlines
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-
+            SetActiveButton((Button)sender);
+            ChangeMainPanel(new Settings());
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -205,25 +206,25 @@ namespace SkyAirlines
 
         private void btn_MouseEnter(object sender, EventArgs e)
         {
-            System.Windows.Forms.Button btn;
-            btn = (System.Windows.Forms.Button)sender;
+            Button btn;
+            btn = (Button)sender;
             btn.FlatAppearance.BorderSize = 3;
             btn.FlatAppearance.BorderColor = Color.RoyalBlue;
         }
 
         private void btn_MouseLeave(object sender, EventArgs e)
         {
-            System.Windows.Forms.Button btn;
-            btn = (System.Windows.Forms.Button)sender;
+            Button btn;
+            btn = (Button)sender;
             btn.FlatAppearance.BorderSize = 0;
             btn.FlatAppearance.BorderColor = Color.FromArgb(16, 47, 82);
         }
 
-        private void SetActiveButton(System.Windows.Forms.Button btn)
+        private void SetActiveButton(Button btn)
         {
             foreach (Control control in panelMenu.Controls)
             {
-                if (control is System.Windows.Forms.Button button)
+                if (control is Button button)
                 {
                     button.BackColor = Color.FromArgb(16, 47, 82);
                 }

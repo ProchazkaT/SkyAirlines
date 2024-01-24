@@ -31,14 +31,14 @@ namespace SkyAirlines
         private GMapOverlay routeOverlay = new GMapOverlay("RouteOverlay");
         private GMapRoute airplaneRoute;
 
+        private Thread backgroundThread;
+
         private long latitude = 0;
         private long longitude = 0;
         private int speed = 0;
         private int altitudeFeet = 0;
         private int ias = 0;
         private int distanceNM = 0;
-
-        private Thread backgroundThread;
 
         public FlightTracking(Panel panelMain)
         {
@@ -52,7 +52,7 @@ namespace SkyAirlines
 
             InitializeMap();
 
-            backgroundThread = new Thread(BackgroundThreadMethod);
+            backgroundThread = new Thread(FlightTrackingThread);
             backgroundThread.Start();
         }
 
@@ -201,24 +201,7 @@ namespace SkyAirlines
             gMapControl.Position = new PointLatLng(latitude, longitude);
         }
 
-
-        private void btn_MouseEnter(object sender, EventArgs e)
-        {
-            Button btn;
-            btn = (Button)sender;
-            btn.FlatAppearance.BorderSize = 3;
-            btn.FlatAppearance.BorderColor = Color.RoyalBlue;
-        }
-
-        private void btn_MouseLeave(object sender, EventArgs e)
-        {
-            Button btn;
-            btn = (Button)sender;
-            btn.FlatAppearance.BorderSize = 0;
-            btn.FlatAppearance.BorderColor = Color.FromArgb(16, 47, 82);
-        }
-
-        private void BackgroundThreadMethod()
+        private void FlightTrackingThread()
         {
             while (true)
             {
@@ -227,6 +210,7 @@ namespace SkyAirlines
                 Thread.Sleep(1000);
             }
         }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             try
@@ -404,6 +388,22 @@ namespace SkyAirlines
                     Console.WriteLine("Error opening web page.", "Notification:");
                 }
             }
+        }
+
+        private void btn_MouseEnter(object sender, EventArgs e)
+        {
+            Button btn;
+            btn = (Button)sender;
+            btn.FlatAppearance.BorderSize = 3;
+            btn.FlatAppearance.BorderColor = Color.RoyalBlue;
+        }
+
+        private void btn_MouseLeave(object sender, EventArgs e)
+        {
+            Button btn;
+            btn = (Button)sender;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.FlatAppearance.BorderColor = Color.FromArgb(16, 47, 82);
         }
     }
 }

@@ -159,6 +159,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UserControls\Settings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AirlinePilot.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -246,6 +252,9 @@
     <Compile Include="UserControls\AircraftShowroom.Designer.cs">
       <DependentUpon>AircraftShowroom.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MemberRow.resx">
       <DependentUpon>MemberRow.cs</DependentUpon>
     </EmbeddedResource>
