@@ -149,43 +149,34 @@ namespace SkyAirlines
 
                     if (money >= 5000 && AllFieldsSelected())
                     {
-                        // Deduct money for creating the airline
                         money -= 5000;
-
-                        cmd.CommandText = "UPDATE Pilot SET Money = @money WHERE Username = @username";
-                        cmd.Parameters.AddWithValue("@money", money);
-                        cmd.Parameters.AddWithValue("@username", GlobalData.Username);
-                        cmd.ExecuteNonQuery();
 
                         GlobalData.lblMoney.Text = pilot.GetPilotMoney().ToString() + "$";
 
-                        // Randomly select destinations excluding the headquarter
                         List<string> possibleDestinations = airportIcaos.Where(code => code != lblHeadquater.Text).ToList();
                         List<string> randomIcaos = possibleDestinations.OrderBy(code => random.Next()).Take(3).ToList();
 
-                        cmd.CommandText = "INSERT INTO Airline(Logo, Name, AirlineMoney, AirlineAirplanes, Headquarter, Destinations) OUTPUT INSERTED.ID VALUES (@logo, @name, @airlineMoney, @airlineAirplanes, @headquater, @destinations)";
+                        cmd.CommandText = "INSERT INTO Airline(Logo, Name, AirlineMoney, AirlineAirplanes, Headquarter, Destinations, AirlineSalary, CostPerMile) OUTPUT INSERTED.ID VALUES (@logo, @name, @airlineMoney, @airlineAirplanes, @headquater, @destinations, @airlineSalary, @costPerMile)";
                         cmd.Parameters.AddWithValue("@logo", LogoToByteArray(pbLogo));
                         cmd.Parameters.AddWithValue("@name", tbName.Texts);
                         cmd.Parameters.AddWithValue("@airlineMoney", 5000);
                         cmd.Parameters.AddWithValue("@airlineAirplanes", cbFleet.Text);
                         cmd.Parameters.AddWithValue("@headquater", lblHeadquater.Text);
+                        cmd.Parameters.AddWithValue("@airlineSalary", "0.8");
+                        cmd.Parameters.AddWithValue("@costPerMile", "0.5");
 
                         string icaosString = string.Join(",", randomIcaos);
                         cmd.Parameters.AddWithValue("@destinations", icaosString);
 
-                        // Get the new ID of the airline
                         int airlineID = (int)cmd.ExecuteScalar();
 
-                        // Update pilot information
-                        cmd.CommandText = "UPDATE Pilot SET Airline = @airline, Boss = @boss WHERE Username = @usernameUpdate";
+                        cmd.CommandText = "UPDATE Pilot SET Airline = @airline, Boss = @boss, Money = @money, Departure = @departure, Salary = @salary WHERE Username = @usernameUpdate";
                         cmd.Parameters.AddWithValue("@airline", airlineID);
                         cmd.Parameters.AddWithValue("@boss", airlineID);
-                        cmd.Parameters.AddWithValue("@usernameUpdate", GlobalData.Username);
-                        cmd.ExecuteNonQuery();
-
-                        cmd.CommandText = "UPDATE Pilot SET Departure = @departure WHERE Username = @usernameDeparture";
+                        cmd.Parameters.AddWithValue("@money", money);
                         cmd.Parameters.AddWithValue("@departure", lblHeadquater.Text);
-                        cmd.Parameters.AddWithValue("@usernameDeparture", GlobalData.Username);
+                        cmd.Parameters.AddWithValue("@salary", "0.2");
+                        cmd.Parameters.AddWithValue("@usernameUpdate", GlobalData.Username);
                         cmd.ExecuteNonQuery();
 
                         GlobalData.airlineID = airlineID.ToString();

@@ -231,5 +231,67 @@ namespace SkyAirlines
             }
             return destinatios;
         }
+
+        public string GetAirlineSalary()
+        {
+            string salary = "";
+
+            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    cmd.CommandText = "SELECT AirlineSalary FROM Airline WHERE ID=@id";
+                    cmd.Parameters.AddWithValue("@id", GlobalData.airlineID);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        salary = reader["AirlineSalary"].ToString();
+                    }
+                    reader.Close();
+                    connection.Close();
+                }
+                catch { }
+                connection.Close();
+            }
+            return salary;
+        }
+
+        public string GetAirlineCostPerMile()
+        {
+            string costPerMile = "";
+
+            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    cmd.CommandText = "SELECT CostPerMile FROM Airline WHERE ID=@id";
+                    cmd.Parameters.AddWithValue("@id", GlobalData.airlineID);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        costPerMile = reader["CostPerMile"].ToString();
+                    }
+                    reader.Close();
+                    connection.Close();
+                }
+                catch { }
+                connection.Close();
+            }
+            return costPerMile;
+        }
     }
 }

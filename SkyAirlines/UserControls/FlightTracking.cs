@@ -2,6 +2,7 @@
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
+using SkyAirlines.Classes;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -17,13 +18,15 @@ namespace SkyAirlines
     {
         private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
 
+        private GetPilotSQLData pilotSqlData = new GetPilotSQLData();
+        private GetAirlineData AirlineSqlData = new GetAirlineData();
+
         private Panel panel = new Panel();
 
         private Offset<long> latitudeOffset = new Offset<long>(0x560);
         private Offset<long> longitudeOffset = new Offset<long>(0x568);
         private Offset<int> speedOffset = new Offset<int>(0x02B8);
         private Offset<int> altitudeOffset = new Offset<int>(0x3324);
-        private Offset<int> iasOffset = new Offset<int>(0x02BC);
         private Offset<int> landingRateOffset = new Offset<int>(0x030C);
 
         private GMapOverlay markersOverlay = new GMapOverlay("AirportMarkers");
@@ -32,14 +35,13 @@ namespace SkyAirlines
         private GMapOverlay routeOverlay = new GMapOverlay("RouteOverlay");
         private GMapRoute airplaneRoute;
 
-        private Thread backgroundThread;
-
         private long latitude = 0;
         private long longitude = 0;
         private int speedGS = 0;
         private int speedTAS = 0;
         private int altitudeFeet = 0;
         private int ias = 0;
+        private int distanceNmFromAircraft = 0;
         private int distanceNM = 0;
 
         public FlightTracking(Panel panelMain)
@@ -139,15 +141,6 @@ namespace SkyAirlines
                         };
 
                         routesOverlay.Routes.Add(route);
-
-                        CustomMarker departureMarker = (CustomMarker)markersOverlay.Markers[0];
-                        CustomMarker arrivalMarker = (CustomMarker)markersOverlay.Markers[1];
-
-                        int distanceNM1 = (int)Math.Round(CalculateDistanceNM(departureMarker.Position, arrivalMarker.Position));
-                        lblDistance.Text = distanceNM1.ToString() + " nm";
-                        lblDeparture.Text = departureMarker.ToolTipText;
-                        lblArrival.Text = arrivalMarker.ToolTipText;
-                        lblAirplane.Text = GlobalData.AirplaneForFlight;
                     }
 
                     connection.Close();
@@ -234,8 +227,8 @@ namespace SkyAirlines
                 CustomMarker arrivalMarker = (CustomMarker)markersOverlay.Markers[1];
                 CustomMarker airplaneMarker = (CustomMarker)airplaneOverlay.Markers[0];
 
-                distanceNM = (int)Math.Round(CalculateDistanceNM(airplaneMarker.Position, arrivalMarker.Position));
-                lblDistance.Text = distanceNM.ToString() + " nm";
+                distanceNmFromAircraft = (int)Math.Round(CalculateDistanceNM(airplaneMarker.Position, arrivalMarker.Position));
+                lblDistance.Text = distanceNmFromAircraft.ToString() + " nm";
 
                 if (lblSpeed.Text == "350")
                 {
@@ -269,13 +262,52 @@ namespace SkyAirlines
 
         private void btnSubmitFlight_Click(object sender, EventArgs e)
         {
-            if (GlobalData.isFlown == true && distanceNM <= 3)
+            if (GlobalData.isFlown == true && distanceNmFromAircraft <= 3)
             {
-                MessageBox.Show("You have successfully flown your flight!", "Notification:");
 
                 FSUIPCConnection.Close();
                 timer1.Stop();
                 GlobalData.isFlown = false;
+
+                double salaryPilot = double.Parse(pilotSqlData.GetPilotSalary());
+                double salaryAirline = double.Parse(AirlineSqlData.GetAirlineSalary());
+                double costPerMile = double.Parse(AirlineSqlData.GetAirlineCostPerMile());
+
+                double moneyPilotDouble = distanceNM * costPerMile * salaryPilot + pilotSqlData.GetPilotMoney();
+                double moneyAirlineDouble = distanceNM * costPerMile * salaryAirline + int.Parse(AirlineSqlData.GetAirlineMoney());
+
+                int moneyPilot = int.Parse(moneyPilotDouble.ToString());
+                int moneyAirline = int.Parse(moneyAirlineDouble.ToString());
+
+                using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = connection;
+
+
+                        cmd.CommandText = "UPDATE Pilot SET Money = @money WHERE Username = @username";
+                        cmd.Parameters.AddWithValue("@money", moneyPilot);
+                        cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                        cmd.ExecuteNonQuery();
+
+                        cmd.CommandText = "UPDATE Airline SET AirlineMoney = @moneyAirline WHERE ID = @id";
+                        cmd.Parameters.AddWithValue("@moneyAirline", moneyAirline);
+                        cmd.Parameters.AddWithValue("@id", GlobalData.airlineID);
+                        cmd.ExecuteNonQuery();
+
+                        connection.Close();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("An error occurred while submitting the flight.", "Error:");
+                    }
+                }
+
+                MessageBox.Show("You have successfully flown your flight!\n\nYou earned: " + moneyPilot + "\nYou earned for the airline: " + moneyAirline, "Notification:");
             }
             else
             {
@@ -285,6 +317,16 @@ namespace SkyAirlines
 
         private void FlightTracking_Load(object sender, EventArgs e)
         {
+            CustomMarker departureMarker = (CustomMarker)markersOverlay.Markers[0];
+            CustomMarker arrivalMarker = (CustomMarker)markersOverlay.Markers[1];
+
+            int FlightDistanceNM = (int)Math.Round(CalculateDistanceNM(departureMarker.Position, arrivalMarker.Position));
+            distanceNM = FlightDistanceNM;
+            lblDistance.Text = FlightDistanceNM.ToString() + " nm";
+            lblDeparture.Text = departureMarker.ToolTipText;
+            lblArrival.Text = arrivalMarker.ToolTipText;
+            lblAirplane.Text = GlobalData.AirplaneForFlight;
+
             try
             {
                 FSUIPCConnection.Open();

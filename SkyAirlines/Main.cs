@@ -167,12 +167,8 @@ namespace SkyAirlines
                         cmd.ExecuteNonQuery();
                     }
 
-                    cmd.CommandText = "UPDATE Pilot SET Departure=NULL, Arrival=NULL, AirplaneForFlight=NULL WHERE Username=@usernameDepArr";
+                    cmd.CommandText = "UPDATE Pilot SET Departure=NULL, Arrival=NULL, AirplaneForFlight=NULL, Salary=NULL WHERE Username=@usernameDepArr";
                     cmd.Parameters.AddWithValue("@usernameDepArr", GlobalData.Username);
-                    cmd.ExecuteNonQuery();
-
-                    cmd.CommandText = "UPDATE Pilot SET Salary=NULL WHERE Username=@usernameSalary";
-                    cmd.Parameters.AddWithValue("@usernameSalary", GlobalData.Username);
                     cmd.ExecuteNonQuery();
 
                     GlobalData.airlineID = DBNull.Value.ToString();

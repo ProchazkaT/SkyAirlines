@@ -291,6 +291,40 @@ namespace SkyAirlines.Classes
             return hours;
         }
 
+        public string GetPilotSalary()
+        {
+            string salary = "";
+
+            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    cmd.CommandText = "SELECT Salary FROM Pilot WHERE Username = @username";
+                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        salary = reader["Salary"].ToString().Trim();
+                    }
+                    reader.Close();
+
+                    connection.Close();
+                }
+                catch (Exception chyba)
+                {
+                    MessageBox.Show(chyba.ToString(), "Error:");
+                    connection.Close();
+                }
+            }
+            return salary;
+        }
+
         public int GetPilotAverageLandingRate()
         {
             int avgLandingRate = 0;
