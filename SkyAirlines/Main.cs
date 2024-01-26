@@ -190,7 +190,7 @@ namespace SkyAirlines
         private void btnSettings_Click(object sender, EventArgs e)
         {
             SetActiveButton((Button)sender);
-            ChangeMainPanel(new Settings());
+            ChangeMainPanel(new Settings(pbPicture, lblUsername, this));
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)

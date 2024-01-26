@@ -37,9 +37,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.wiLBiTPanel2 = new WiLBiT.WiLBiTPanel();
             this.btnBrowseNewImage = new WiLBiT.WiLBiTButton();
-            this.wiLBiTRoundedPictureBox1 = new WiLBiT.WiLBiTRoundedPictureBox();
+            this.pbPicture = new WiLBiT.WiLBiTRoundedPictureBox();
             this.wiLBiTPanel3 = new WiLBiT.WiLBiTPanel();
-            this.wiLBiTButton1 = new WiLBiT.WiLBiTButton();
+            this.btnChangeEmail = new WiLBiT.WiLBiTButton();
             this.tbConfirmationPasswordEmail = new WiLBiT.WiLBiTTextBox();
             this.tbNewEmail = new WiLBiT.WiLBiTTextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -61,12 +61,12 @@
             this.wiLBiTPanel5 = new WiLBiT.WiLBiTPanel();
             this.tbNewUsername = new WiLBiT.WiLBiTTextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.wiLBiTButton2 = new WiLBiT.WiLBiTButton();
+            this.btnChangeUsername = new WiLBiT.WiLBiTButton();
             this.wiLBiTPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.wiLBiTPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.wiLBiTRoundedPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.wiLBiTPanel3.SuspendLayout();
             this.wiLBiTPanel4.SuspendLayout();
             this.wiLBiTPanel6.SuspendLayout();
@@ -142,7 +142,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(325, 48);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Logo";
+            this.label2.Text = "Picture";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1
@@ -180,7 +180,7 @@
             this.wiLBiTPanel2.BorderRadius = 20;
             this.wiLBiTPanel2.BorderSize = 0;
             this.wiLBiTPanel2.Controls.Add(this.btnBrowseNewImage);
-            this.wiLBiTPanel2.Controls.Add(this.wiLBiTRoundedPictureBox1);
+            this.wiLBiTPanel2.Controls.Add(this.pbPicture);
             this.wiLBiTPanel2.ForeColor = System.Drawing.Color.White;
             this.wiLBiTPanel2.Location = new System.Drawing.Point(31, 104);
             this.wiLBiTPanel2.Name = "wiLBiTPanel2";
@@ -197,27 +197,31 @@
             this.btnBrowseNewImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBrowseNewImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnBrowseNewImage.ForeColor = System.Drawing.Color.White;
-            this.btnBrowseNewImage.Location = new System.Drawing.Point(103, 277);
+            this.btnBrowseNewImage.Location = new System.Drawing.Point(31, 277);
             this.btnBrowseNewImage.Name = "btnBrowseNewImage";
-            this.btnBrowseNewImage.Size = new System.Drawing.Size(116, 53);
+            this.btnBrowseNewImage.Size = new System.Drawing.Size(261, 53);
             this.btnBrowseNewImage.TabIndex = 7;
-            this.btnBrowseNewImage.Text = "Browse";
+            this.btnBrowseNewImage.Text = "Browse and change picture";
             this.btnBrowseNewImage.UseVisualStyleBackColor = false;
+            this.btnBrowseNewImage.Click += new System.EventHandler(this.btnBrowseNewImage_Click);
+            this.btnBrowseNewImage.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnBrowseNewImage.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
-            // wiLBiTRoundedPictureBox1
+            // pbPicture
             // 
-            this.wiLBiTRoundedPictureBox1.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.wiLBiTRoundedPictureBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.wiLBiTRoundedPictureBox1.BorderColor2 = System.Drawing.Color.RoyalBlue;
-            this.wiLBiTRoundedPictureBox1.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.wiLBiTRoundedPictureBox1.BorderSize = 2;
-            this.wiLBiTRoundedPictureBox1.GradientAngle = 50F;
-            this.wiLBiTRoundedPictureBox1.Location = new System.Drawing.Point(47, 13);
-            this.wiLBiTRoundedPictureBox1.Name = "wiLBiTRoundedPictureBox1";
-            this.wiLBiTRoundedPictureBox1.Size = new System.Drawing.Size(231, 231);
-            this.wiLBiTRoundedPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.wiLBiTRoundedPictureBox1.TabIndex = 0;
-            this.wiLBiTRoundedPictureBox1.TabStop = false;
+            this.pbPicture.BackColor = System.Drawing.Color.DarkGray;
+            this.pbPicture.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.pbPicture.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.pbPicture.BorderColor2 = System.Drawing.Color.RoyalBlue;
+            this.pbPicture.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.pbPicture.BorderSize = 2;
+            this.pbPicture.GradientAngle = 50F;
+            this.pbPicture.Location = new System.Drawing.Point(47, 13);
+            this.pbPicture.Name = "pbPicture";
+            this.pbPicture.Size = new System.Drawing.Size(231, 231);
+            this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPicture.TabIndex = 0;
+            this.pbPicture.TabStop = false;
             // 
             // wiLBiTPanel3
             // 
@@ -225,7 +229,7 @@
             this.wiLBiTPanel3.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.wiLBiTPanel3.BorderRadius = 20;
             this.wiLBiTPanel3.BorderSize = 0;
-            this.wiLBiTPanel3.Controls.Add(this.wiLBiTButton1);
+            this.wiLBiTPanel3.Controls.Add(this.btnChangeEmail);
             this.wiLBiTPanel3.Controls.Add(this.tbConfirmationPasswordEmail);
             this.wiLBiTPanel3.Controls.Add(this.tbNewEmail);
             this.wiLBiTPanel3.Controls.Add(this.label8);
@@ -237,28 +241,31 @@
             this.wiLBiTPanel3.Size = new System.Drawing.Size(325, 345);
             this.wiLBiTPanel3.TabIndex = 2;
             // 
-            // wiLBiTButton1
+            // btnChangeEmail
             // 
-            this.wiLBiTButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.wiLBiTButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.wiLBiTButton1.BorderRadius = 10;
-            this.wiLBiTButton1.BorderSize = 0;
-            this.wiLBiTButton1.FlatAppearance.BorderSize = 0;
-            this.wiLBiTButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.wiLBiTButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.wiLBiTButton1.ForeColor = System.Drawing.Color.White;
-            this.wiLBiTButton1.Location = new System.Drawing.Point(81, 277);
-            this.wiLBiTButton1.Name = "wiLBiTButton1";
-            this.wiLBiTButton1.Size = new System.Drawing.Size(159, 53);
-            this.wiLBiTButton1.TabIndex = 15;
-            this.wiLBiTButton1.Text = "Change email";
-            this.wiLBiTButton1.UseVisualStyleBackColor = false;
+            this.btnChangeEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnChangeEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnChangeEmail.BorderRadius = 10;
+            this.btnChangeEmail.BorderSize = 0;
+            this.btnChangeEmail.FlatAppearance.BorderSize = 0;
+            this.btnChangeEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnChangeEmail.ForeColor = System.Drawing.Color.White;
+            this.btnChangeEmail.Location = new System.Drawing.Point(81, 277);
+            this.btnChangeEmail.Name = "btnChangeEmail";
+            this.btnChangeEmail.Size = new System.Drawing.Size(159, 53);
+            this.btnChangeEmail.TabIndex = 15;
+            this.btnChangeEmail.Text = "Change email";
+            this.btnChangeEmail.UseVisualStyleBackColor = false;
+            this.btnChangeEmail.Click += new System.EventHandler(this.btnChangeEmail_Click);
+            this.btnChangeEmail.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnChangeEmail.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // tbConfirmationPasswordEmail
             // 
             this.tbConfirmationPasswordEmail.BackColor = System.Drawing.SystemColors.Window;
             this.tbConfirmationPasswordEmail.BorderColor = System.Drawing.Color.Gray;
-            this.tbConfirmationPasswordEmail.BorderFocusColor = System.Drawing.Color.DeepSkyBlue;
+            this.tbConfirmationPasswordEmail.BorderFocusColor = System.Drawing.Color.Gray;
             this.tbConfirmationPasswordEmail.BorderRadius = 4;
             this.tbConfirmationPasswordEmail.BorderSize = 2;
             this.tbConfirmationPasswordEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -280,7 +287,7 @@
             // 
             this.tbNewEmail.BackColor = System.Drawing.SystemColors.Window;
             this.tbNewEmail.BorderColor = System.Drawing.Color.Gray;
-            this.tbNewEmail.BorderFocusColor = System.Drawing.Color.DeepSkyBlue;
+            this.tbNewEmail.BorderFocusColor = System.Drawing.Color.Gray;
             this.tbNewEmail.BorderRadius = 4;
             this.tbNewEmail.BorderSize = 2;
             this.tbNewEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -314,9 +321,10 @@
             // 
             this.tbCurrentEmail.BackColor = System.Drawing.SystemColors.Window;
             this.tbCurrentEmail.BorderColor = System.Drawing.Color.Gray;
-            this.tbCurrentEmail.BorderFocusColor = System.Drawing.Color.DeepSkyBlue;
+            this.tbCurrentEmail.BorderFocusColor = System.Drawing.Color.Gray;
             this.tbCurrentEmail.BorderRadius = 4;
             this.tbCurrentEmail.BorderSize = 2;
+            this.tbCurrentEmail.Enabled = false;
             this.tbCurrentEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbCurrentEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbCurrentEmail.Location = new System.Drawing.Point(38, 47);
@@ -379,12 +387,15 @@
             this.btnChangePassword.TabIndex = 20;
             this.btnChangePassword.Text = "Change password";
             this.btnChangePassword.UseVisualStyleBackColor = false;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            this.btnChangePassword.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnChangePassword.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // tbNewPasswordAgain
             // 
             this.tbNewPasswordAgain.BackColor = System.Drawing.SystemColors.Window;
             this.tbNewPasswordAgain.BorderColor = System.Drawing.Color.Gray;
-            this.tbNewPasswordAgain.BorderFocusColor = System.Drawing.Color.DeepSkyBlue;
+            this.tbNewPasswordAgain.BorderFocusColor = System.Drawing.Color.Gray;
             this.tbNewPasswordAgain.BorderRadius = 4;
             this.tbNewPasswordAgain.BorderSize = 2;
             this.tbNewPasswordAgain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -394,7 +405,7 @@
             this.tbNewPasswordAgain.Multiline = false;
             this.tbNewPasswordAgain.Name = "tbNewPasswordAgain";
             this.tbNewPasswordAgain.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.tbNewPasswordAgain.PasswordChar = false;
+            this.tbNewPasswordAgain.PasswordChar = true;
             this.tbNewPasswordAgain.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbNewPasswordAgain.PlaceholderText = "Type your new password";
             this.tbNewPasswordAgain.Size = new System.Drawing.Size(250, 37);
@@ -418,7 +429,7 @@
             // 
             this.tbNewPassword.BackColor = System.Drawing.SystemColors.Window;
             this.tbNewPassword.BorderColor = System.Drawing.Color.Gray;
-            this.tbNewPassword.BorderFocusColor = System.Drawing.Color.DeepSkyBlue;
+            this.tbNewPassword.BorderFocusColor = System.Drawing.Color.Gray;
             this.tbNewPassword.BorderRadius = 4;
             this.tbNewPassword.BorderSize = 2;
             this.tbNewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -428,7 +439,7 @@
             this.tbNewPassword.Multiline = false;
             this.tbNewPassword.Name = "tbNewPassword";
             this.tbNewPassword.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.tbNewPassword.PasswordChar = false;
+            this.tbNewPassword.PasswordChar = true;
             this.tbNewPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbNewPassword.PlaceholderText = "Type your new password";
             this.tbNewPassword.Size = new System.Drawing.Size(250, 37);
@@ -452,7 +463,7 @@
             // 
             this.tbCurrentPassword.BackColor = System.Drawing.SystemColors.Window;
             this.tbCurrentPassword.BorderColor = System.Drawing.Color.Gray;
-            this.tbCurrentPassword.BorderFocusColor = System.Drawing.Color.DeepSkyBlue;
+            this.tbCurrentPassword.BorderFocusColor = System.Drawing.Color.Gray;
             this.tbCurrentPassword.BorderRadius = 4;
             this.tbCurrentPassword.BorderSize = 2;
             this.tbCurrentPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -462,7 +473,7 @@
             this.tbCurrentPassword.Multiline = false;
             this.tbCurrentPassword.Name = "tbCurrentPassword";
             this.tbCurrentPassword.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.tbCurrentPassword.PasswordChar = false;
+            this.tbCurrentPassword.PasswordChar = true;
             this.tbCurrentPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbCurrentPassword.PlaceholderText = "Type password";
             this.tbCurrentPassword.Size = new System.Drawing.Size(250, 37);
@@ -501,7 +512,7 @@
             // 
             this.tbDeleteAccPassword.BackColor = System.Drawing.SystemColors.Window;
             this.tbDeleteAccPassword.BorderColor = System.Drawing.Color.Gray;
-            this.tbDeleteAccPassword.BorderFocusColor = System.Drawing.Color.DeepSkyBlue;
+            this.tbDeleteAccPassword.BorderFocusColor = System.Drawing.Color.Gray;
             this.tbDeleteAccPassword.BorderRadius = 4;
             this.tbDeleteAccPassword.BorderSize = 2;
             this.tbDeleteAccPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -547,6 +558,9 @@
             this.btnDeleteAccount.TabIndex = 8;
             this.btnDeleteAccount.Text = "Delete account";
             this.btnDeleteAccount.UseVisualStyleBackColor = false;
+            this.btnDeleteAccount.Click += new System.EventHandler(this.btnDeleteAccount_Click);
+            this.btnDeleteAccount.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnDeleteAccount.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // wiLBiTPanel5
             // 
@@ -556,7 +570,7 @@
             this.wiLBiTPanel5.BorderSize = 0;
             this.wiLBiTPanel5.Controls.Add(this.tbNewUsername);
             this.wiLBiTPanel5.Controls.Add(this.label5);
-            this.wiLBiTPanel5.Controls.Add(this.wiLBiTButton2);
+            this.wiLBiTPanel5.Controls.Add(this.btnChangeUsername);
             this.wiLBiTPanel5.ForeColor = System.Drawing.Color.White;
             this.wiLBiTPanel5.Location = new System.Drawing.Point(3, 455);
             this.wiLBiTPanel5.Name = "wiLBiTPanel5";
@@ -567,7 +581,7 @@
             // 
             this.tbNewUsername.BackColor = System.Drawing.SystemColors.Window;
             this.tbNewUsername.BorderColor = System.Drawing.Color.Gray;
-            this.tbNewUsername.BorderFocusColor = System.Drawing.Color.DeepSkyBlue;
+            this.tbNewUsername.BorderFocusColor = System.Drawing.Color.Gray;
             this.tbNewUsername.BorderRadius = 4;
             this.tbNewUsername.BorderSize = 2;
             this.tbNewUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -577,7 +591,7 @@
             this.tbNewUsername.Multiline = false;
             this.tbNewUsername.Name = "tbNewUsername";
             this.tbNewUsername.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.tbNewUsername.PasswordChar = true;
+            this.tbNewUsername.PasswordChar = false;
             this.tbNewUsername.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbNewUsername.PlaceholderText = "Type new username";
             this.tbNewUsername.Size = new System.Drawing.Size(250, 37);
@@ -597,22 +611,25 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Do you want change your username?";
             // 
-            // wiLBiTButton2
+            // btnChangeUsername
             // 
-            this.wiLBiTButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.wiLBiTButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.wiLBiTButton2.BorderRadius = 10;
-            this.wiLBiTButton2.BorderSize = 0;
-            this.wiLBiTButton2.FlatAppearance.BorderSize = 0;
-            this.wiLBiTButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.wiLBiTButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.wiLBiTButton2.ForeColor = System.Drawing.Color.White;
-            this.wiLBiTButton2.Location = new System.Drawing.Point(807, 10);
-            this.wiLBiTButton2.Name = "wiLBiTButton2";
-            this.wiLBiTButton2.Size = new System.Drawing.Size(215, 58);
-            this.wiLBiTButton2.TabIndex = 8;
-            this.wiLBiTButton2.Text = "Change username";
-            this.wiLBiTButton2.UseVisualStyleBackColor = false;
+            this.btnChangeUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnChangeUsername.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnChangeUsername.BorderRadius = 10;
+            this.btnChangeUsername.BorderSize = 0;
+            this.btnChangeUsername.FlatAppearance.BorderSize = 0;
+            this.btnChangeUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnChangeUsername.ForeColor = System.Drawing.Color.White;
+            this.btnChangeUsername.Location = new System.Drawing.Point(807, 10);
+            this.btnChangeUsername.Name = "btnChangeUsername";
+            this.btnChangeUsername.Size = new System.Drawing.Size(215, 58);
+            this.btnChangeUsername.TabIndex = 8;
+            this.btnChangeUsername.Text = "Change username";
+            this.btnChangeUsername.UseVisualStyleBackColor = false;
+            this.btnChangeUsername.Click += new System.EventHandler(this.btnChangeUsername_Click);
+            this.btnChangeUsername.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnChangeUsername.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // Settings
             // 
@@ -634,7 +651,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.wiLBiTPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.wiLBiTRoundedPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
             this.wiLBiTPanel3.ResumeLayout(false);
             this.wiLBiTPanel3.PerformLayout();
             this.wiLBiTPanel4.ResumeLayout(false);
@@ -659,7 +676,7 @@
         private WiLBiT.WiLBiTPanel wiLBiTPanel2;
         private WiLBiT.WiLBiTPanel wiLBiTPanel3;
         private WiLBiT.WiLBiTPanel wiLBiTPanel4;
-        private WiLBiT.WiLBiTRoundedPictureBox wiLBiTRoundedPictureBox1;
+        private WiLBiT.WiLBiTRoundedPictureBox pbPicture;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private WiLBiT.WiLBiTButton btnBrowseNewImage;
         private System.Windows.Forms.Label label6;
@@ -670,7 +687,7 @@
         private WiLBiT.WiLBiTTextBox tbNewEmail;
         private System.Windows.Forms.Label label8;
         private WiLBiT.WiLBiTTextBox tbCurrentEmail;
-        private WiLBiT.WiLBiTButton wiLBiTButton1;
+        private WiLBiT.WiLBiTButton btnChangeEmail;
         private WiLBiT.WiLBiTTextBox tbConfirmationPasswordEmail;
         private WiLBiT.WiLBiTButton btnChangePassword;
         private WiLBiT.WiLBiTTextBox tbNewPasswordAgain;
@@ -682,6 +699,6 @@
         private WiLBiT.WiLBiTPanel wiLBiTPanel5;
         private WiLBiT.WiLBiTTextBox tbNewUsername;
         private System.Windows.Forms.Label label5;
-        private WiLBiT.WiLBiTButton wiLBiTButton2;
+        private WiLBiT.WiLBiTButton btnChangeUsername;
     }
 }
