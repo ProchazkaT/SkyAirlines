@@ -185,6 +185,7 @@ namespace SkyAirlines
                         GlobalData.btnChat.Visible = true;
                         GlobalData.btnLeaveAirline.Enabled = true;
                         GlobalData.btnLeaveAirline.Visible = true;
+                        GlobalData.Departure = lblHeadquater.Text;
                         ChangeMainPanel(new AirlineBoss(panel));
                     }
                     else

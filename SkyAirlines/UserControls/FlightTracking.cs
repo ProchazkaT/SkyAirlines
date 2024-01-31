@@ -288,9 +288,11 @@ namespace SkyAirlines
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = connection;
 
+                        string[] airport = lblArrival.Text.Split('-');
 
-                        cmd.CommandText = "UPDATE Pilot SET Money = @money WHERE Username = @username";
+                        cmd.CommandText = "UPDATE Pilot SET Money = @money, Departure=@departure, Arrival=NULL WHERE Username = @username";
                         cmd.Parameters.AddWithValue("@money", moneyPilot);
+                        cmd.Parameters.AddWithValue("@departure", airport[0].Trim());
                         cmd.Parameters.AddWithValue("@username", GlobalData.Username);
                         cmd.ExecuteNonQuery();
 
@@ -300,6 +302,18 @@ namespace SkyAirlines
                         cmd.ExecuteNonQuery();
 
                         connection.Close();
+
+                        lblAirplane.Text = "";
+                        lblAltitude.Text = "";
+                        lblAltitudeMetres.Text = "";
+                        lblArrival.Text = "";
+                        lblDeparture.Text = "";
+                        lblDistance.Text = "";
+                        lblIAS.Text = "";
+                        lblLatitude.Text = "";
+                        lblLongitude.Text = "";
+                        lblSpeed.Text = "";
+                        lblStatus.Text = "";
                     }
                     catch (Exception)
                     {
