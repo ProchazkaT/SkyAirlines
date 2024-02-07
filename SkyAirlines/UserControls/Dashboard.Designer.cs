@@ -39,7 +39,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblFlights = new System.Windows.Forms.Label();
-            this.lblFlightHours = new System.Windows.Forms.Label();
+            this.lblRating = new System.Windows.Forms.Label();
             this.lblLandingRate = new System.Windows.Forms.Label();
             this.panelTop = new WiLBiT.WiLBiTPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -168,7 +168,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(317, 38);
             this.label6.TabIndex = 1;
-            this.label6.Text = "Flight hours";
+            this.label6.Text = "Rating";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -199,19 +199,19 @@
             this.lblFlights.Text = "0";
             this.lblFlights.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblFlightHours
+            // lblRating
             // 
-            this.lblFlightHours.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblRating.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFlightHours.AutoSize = true;
-            this.lblFlightHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblFlightHours.Location = new System.Drawing.Point(647, 38);
-            this.lblFlightHours.Name = "lblFlightHours";
-            this.lblFlightHours.Size = new System.Drawing.Size(317, 38);
-            this.lblFlightHours.TabIndex = 4;
-            this.lblFlightHours.Text = "0 hours";
-            this.lblFlightHours.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblRating.AutoSize = true;
+            this.lblRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblRating.Location = new System.Drawing.Point(647, 38);
+            this.lblRating.Name = "lblRating";
+            this.lblRating.Size = new System.Drawing.Size(317, 38);
+            this.lblRating.TabIndex = 4;
+            this.lblRating.Text = "100";
+            this.lblRating.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblLandingRate
             // 
@@ -247,7 +247,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.Controls.Add(this.lblLandingRate, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblFlightHours, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblRating, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblFlights, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label5, 1, 0);
@@ -321,7 +321,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblFlights;
-        private System.Windows.Forms.Label lblFlightHours;
+        private System.Windows.Forms.Label lblRating;
         private System.Windows.Forms.Label lblLandingRate;
         private WiLBiT.WiLBiTPanel panelTop;
         private GMap.NET.WindowsForms.GMapControl gMapControl;

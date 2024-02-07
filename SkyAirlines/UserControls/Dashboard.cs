@@ -23,7 +23,7 @@ namespace SkyAirlines
             InitializeComponent();
 
             lblFlights.Text = pilotSQLData.GetPilotFlights().ToString();
-            lblFlightHours.Text = pilotSQLData.GetPilotFlightHours().ToString() + " hours";
+            lblRating.Text = pilotSQLData.GetPilotRating().ToString();
             lblLandingRate.Text = pilotSQLData.GetPilotAverageLandingRate().ToString()  + " FPM";
             progressBar.Value = pilotSQLData.GetPilotXP();
             lblXP.Text = "XP" + pilotSQLData.GetPilotXP().ToString() + " / 1000";

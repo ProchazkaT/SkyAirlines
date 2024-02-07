@@ -291,9 +291,9 @@ namespace SkyAirlines.Classes
             return flights;
         }
 
-        public int GetPilotFlightHours()
+        public int GetPilotRating()
         {
-            int hours = 0;
+            int rating = 0;
 
             using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
             {
@@ -304,13 +304,13 @@ namespace SkyAirlines.Classes
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = connection;
 
-                    cmd.CommandText = "SELECT FlightHours FROM Pilot WHERE Username = @username";
+                    cmd.CommandText = "SELECT Rating FROM Pilot WHERE Username = @username";
                     cmd.Parameters.AddWithValue("@username", GlobalData.Username);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        hours = int.Parse(reader["FlightHours"].ToString().Trim());
+                        rating = int.Parse(reader["Rating"].ToString().Trim());
                     }
                     reader.Close();
 
@@ -322,7 +322,7 @@ namespace SkyAirlines.Classes
                     connection.Close();
                 }
             }
-            return hours;
+            return rating;
         }
 
         public string GetPilotSalary()

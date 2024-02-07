@@ -51,7 +51,7 @@ namespace SkyAirlines.Classes
                                 SqlCommand cmd = new SqlCommand();
                                 cmd.Connection = connection;
 
-                                string cmdString = "INSERT INTO Pilot(Username, Password, Email, Money, Picture, XP, Flights, FLightHours, AverageLandingRate) VALUES (@username, @password, @email, @money, @picture, @xp, @flights, @flighthours, @averagelandingrate)";
+                                string cmdString = "INSERT INTO Pilot(Username, Password, Email, Money, Picture, XP, Flights, Rating, AverageLandingRate) VALUES (@username, @password, @email, @money, @picture, @xp, @flights, @rating, @averagelandingrate)";
 
                                 string result = "";
                                 using (SHA512 hashovac = SHA512.Create())
@@ -68,7 +68,7 @@ namespace SkyAirlines.Classes
                                 cmd.Parameters.AddWithValue("@picture", imageData);
                                 cmd.Parameters.AddWithValue("@xp", 0);
                                 cmd.Parameters.AddWithValue("@flights", 0);
-                                cmd.Parameters.AddWithValue("@flighthours", 0);
+                                cmd.Parameters.AddWithValue("@rating", 100);
                                 cmd.Parameters.AddWithValue("@averagelandingrate", 0);
                                 cmd.CommandText = cmdString;
                                 cmd.ExecuteNonQuery();
