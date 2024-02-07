@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using WiLBiT;
@@ -22,5 +23,7 @@ namespace SkyAirlines
         public static string Arrival { get; set; }
         public static string AirplaneForFlight { get; set; }
         public static bool isFlown { get; set; }
+
+        public static Task flightTrackingThread { get; set;}
     }
 }

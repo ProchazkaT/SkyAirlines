@@ -111,31 +111,36 @@ namespace SkyAirlines
         {
             if (lblDestination.Text != "")
             {
-                using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+                if (cbFleet.Text != "")
                 {
-                    try
+                    using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
                     {
-                        connection.Open();
+                        try
+                        {
+                            connection.Open();
 
-                        SqlCommand cmd = new SqlCommand();
-                        cmd.Connection = connection;
+                            SqlCommand cmd = new SqlCommand();
+                            cmd.Connection = connection;
 
-                        cmd.CommandText = "UPDATE Pilot SET Arrival = @arrival, AirplaneForFlight=@airplaneForFlight WHERE Username = @username";
-                        cmd.Parameters.AddWithValue("@arrival", lblDestination.Text);
-                        cmd.Parameters.AddWithValue("@airplaneForFlight", cbFleet.Text);
-                        cmd.Parameters.AddWithValue("@username", GlobalData.Username);
-                        cmd.ExecuteNonQuery();
+                            cmd.CommandText = "UPDATE Pilot SET Arrival = @arrival, AirplaneForFlight=@airplaneForFlight WHERE Username = @username";
+                            cmd.Parameters.AddWithValue("@arrival", lblDestination.Text);
+                            cmd.Parameters.AddWithValue("@airplaneForFlight", cbFleet.Text);
+                            cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                            cmd.ExecuteNonQuery();
 
-                        GlobalData.Arrival = lblDestination.Text;
-                        GlobalData.AirplaneForFlight = cbFleet.Text;
+                            GlobalData.Arrival = lblDestination.Text;
+                            GlobalData.AirplaneForFlight = cbFleet.Text;
 
-                        MessageBox.Show("You successfully generate your flight and now you can go to 'Flight' and start your flight!", "Notification:");
-                    }
-                    catch (Exception)
-                    {
+                            MessageBox.Show("You successfully generate your flight and now you can go to 'Flight' and start your flight!", "Notification:");
+                        }
+                        catch (Exception)
+                        {
 
+                        }
                     }
                 }
+                else
+                    MessageBox.Show("You have to choose airplane!", "Notification:");
             }
             else
             {

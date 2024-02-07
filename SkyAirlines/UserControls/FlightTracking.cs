@@ -9,7 +9,6 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace SkyAirlines
@@ -43,6 +42,7 @@ namespace SkyAirlines
         private int ias = 0;
         private int distanceNmFromAircraft = 0;
         private int distanceNM = 0;
+        private bool isLanded = false;
 
         public FlightTracking(Panel panelMain)
         {
@@ -217,8 +217,9 @@ namespace SkyAirlines
                 lblSpeed.Text = speedGS.ToString() + " kts";
                 lblIAS.Text = speedTAS.ToString() + " kts";
 
-                if (landingRate > 0)
+                if (landingRate < 0 && isLanded == false)
                 {
+                    isLanded = true;
                     MessageBox.Show("Your landing rate: " + landingRate.ToString() + " FPM", "Landing rate:");
                 }
 
@@ -331,25 +332,46 @@ namespace SkyAirlines
 
         private void FlightTracking_Load(object sender, EventArgs e)
         {
-            CustomMarker departureMarker = (CustomMarker)markersOverlay.Markers[0];
-            CustomMarker arrivalMarker = (CustomMarker)markersOverlay.Markers[1];
-
-            int FlightDistanceNM = (int)Math.Round(CalculateDistanceNM(departureMarker.Position, arrivalMarker.Position));
-            distanceNM = FlightDistanceNM;
-            lblDistance.Text = FlightDistanceNM.ToString() + " nm";
-            lblDeparture.Text = departureMarker.ToolTipText;
-            lblArrival.Text = arrivalMarker.ToolTipText;
-            lblAirplane.Text = GlobalData.AirplaneForFlight;
-
-            try
+            if (markersOverlay.Markers.Count >= 2)
             {
-                FSUIPCConnection.Open();
+                CustomMarker departureMarker = (CustomMarker)markersOverlay.Markers[0];
+                CustomMarker arrivalMarker = (CustomMarker)markersOverlay.Markers[1];
 
-                if (FSUIPCConnection.IsOpen)
+                int FlightDistanceNM = (int)Math.Round(CalculateDistanceNM(departureMarker.Position, arrivalMarker.Position));
+                distanceNM = FlightDistanceNM;
+                lblDistance.Text = FlightDistanceNM.ToString() + " nm";
+                lblDeparture.Text = departureMarker.ToolTipText;
+                lblArrival.Text = arrivalMarker.ToolTipText;
+                lblAirplane.Text = GlobalData.AirplaneForFlight;
+
+                try
                 {
-                    lblStatus.Text = "Successfully connected to the simulator.";
+                    FSUIPCConnection.Open();
+
+                    if (FSUIPCConnection.IsOpen)
+                    {
+                        lblStatus.Text = "Successfully connected to the simulator.";
+                    }
+                    else
+                    {
+                        lblStatus.Text = "Not connected to FS.";
+
+                        gMapControl.Zoom = 4;
+                        gMapControl.Position = new PointLatLng(50.14, 14.26);
+
+                        FSUIPCConnection.Close();
+                        timer1.Stop();
+
+                        if (markersOverlay.Markers.Count < 2)
+                        {
+                            markersOverlay.Clear();
+                            MessageBox.Show("You have to generate flight in your Airline.", "Notification:");
+                        }
+                    }
+
+                    timer1.Start();
                 }
-                else
+                catch (Exception)
                 {
                     lblStatus.Text = "Not connected to FS.";
 
@@ -365,31 +387,12 @@ namespace SkyAirlines
                         MessageBox.Show("You have to generate flight in your Airline.", "Notification:");
                     }
                 }
-
-                timer1.Start();
             }
-            catch (Exception)
+            else
             {
-                lblStatus.Text = "Not connected to FS.";
-
                 gMapControl.Zoom = 4;
                 gMapControl.Position = new PointLatLng(50.14, 14.26);
-
-                FSUIPCConnection.Close();
-                timer1.Stop();
-
-                if (markersOverlay.Markers.Count < 2)
-                {
-                    markersOverlay.Clear();
-                    MessageBox.Show("You have to generate flight in your Airline.", "Notification:");
-                }
             }
-        }
-
-        private void FlightTracking_Leave(object sender, EventArgs e)
-        {
-            FSUIPCConnection.Close();
-            timer1.Stop();
         }
 
         private void btnSimbriefDispatch_Click(object sender, EventArgs e)

@@ -41,7 +41,6 @@
             this.lblDeparture = new System.Windows.Forms.Label();
             this.panelFlightplan = new WiLBiT.WiLBiTPanel();
             this.btnSubmitFlight = new WiLBiT.WiLBiTButton();
-            this.btnRestartFlight = new WiLBiT.WiLBiTButton();
             this.btnSimbriefOFP = new WiLBiT.WiLBiTButton();
             this.btnSimbriefDispatch = new WiLBiT.WiLBiTButton();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,8 +59,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelTop.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelFlightplan.SuspendLayout();
@@ -223,7 +222,6 @@
             this.panelFlightplan.BorderRadius = 20;
             this.panelFlightplan.BorderSize = 0;
             this.panelFlightplan.Controls.Add(this.btnSubmitFlight);
-            this.panelFlightplan.Controls.Add(this.btnRestartFlight);
             this.panelFlightplan.Controls.Add(this.btnSimbriefOFP);
             this.panelFlightplan.Controls.Add(this.btnSimbriefDispatch);
             this.panelFlightplan.Controls.Add(this.label6);
@@ -244,32 +242,13 @@
             this.btnSubmitFlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubmitFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnSubmitFlight.ForeColor = System.Drawing.Color.White;
-            this.btnSubmitFlight.Location = new System.Drawing.Point(789, 6);
+            this.btnSubmitFlight.Location = new System.Drawing.Point(705, 6);
             this.btnSubmitFlight.Name = "btnSubmitFlight";
             this.btnSubmitFlight.Size = new System.Drawing.Size(164, 60);
             this.btnSubmitFlight.TabIndex = 5;
             this.btnSubmitFlight.Text = "Submit flight";
             this.btnSubmitFlight.UseVisualStyleBackColor = false;
             this.btnSubmitFlight.Click += new System.EventHandler(this.btnSubmitFlight_Click);
-            // 
-            // btnRestartFlight
-            // 
-            this.btnRestartFlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.btnRestartFlight.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.btnRestartFlight.BorderRadius = 10;
-            this.btnRestartFlight.BorderSize = 0;
-            this.btnRestartFlight.FlatAppearance.BorderSize = 0;
-            this.btnRestartFlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestartFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnRestartFlight.ForeColor = System.Drawing.Color.White;
-            this.btnRestartFlight.Location = new System.Drawing.Point(619, 6);
-            this.btnRestartFlight.Name = "btnRestartFlight";
-            this.btnRestartFlight.Size = new System.Drawing.Size(164, 60);
-            this.btnRestartFlight.TabIndex = 4;
-            this.btnRestartFlight.Text = "Restart flight";
-            this.btnRestartFlight.UseVisualStyleBackColor = false;
-            this.btnRestartFlight.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
-            this.btnRestartFlight.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnSimbriefOFP
             // 
@@ -281,7 +260,7 @@
             this.btnSimbriefOFP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSimbriefOFP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnSimbriefOFP.ForeColor = System.Drawing.Color.White;
-            this.btnSimbriefOFP.Location = new System.Drawing.Point(449, 6);
+            this.btnSimbriefOFP.Location = new System.Drawing.Point(535, 6);
             this.btnSimbriefOFP.Name = "btnSimbriefOFP";
             this.btnSimbriefOFP.Size = new System.Drawing.Size(164, 60);
             this.btnSimbriefOFP.TabIndex = 3;
@@ -301,7 +280,7 @@
             this.btnSimbriefDispatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSimbriefDispatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnSimbriefDispatch.ForeColor = System.Drawing.Color.White;
-            this.btnSimbriefDispatch.Location = new System.Drawing.Point(279, 6);
+            this.btnSimbriefDispatch.Location = new System.Drawing.Point(365, 6);
             this.btnSimbriefDispatch.Name = "btnSimbriefDispatch";
             this.btnSimbriefDispatch.Size = new System.Drawing.Size(164, 60);
             this.btnSimbriefDispatch.TabIndex = 2;
@@ -387,9 +366,9 @@
             this.label19.ForeColor = System.Drawing.Color.Black;
             this.label19.Location = new System.Drawing.Point(896, 35);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(38, 20);
+            this.label19.Size = new System.Drawing.Size(44, 20);
             this.label19.TabIndex = 14;
-            this.label19.Text = "IAS";
+            this.label19.Text = "TAS";
             // 
             // lblAltitude
             // 
@@ -501,10 +480,6 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "Flight status";
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // gMapControl
             // 
             this.gMapControl.Bearing = 0F;
@@ -531,6 +506,11 @@
             this.gMapControl.TabIndex = 4;
             this.gMapControl.Zoom = 0D;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FlightTracking
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -544,7 +524,6 @@
             this.Name = "FlightTracking";
             this.Size = new System.Drawing.Size(1050, 655);
             this.Load += new System.EventHandler(this.FlightTracking_Load);
-            this.Leave += new System.EventHandler(this.FlightTracking_Leave);
             this.panelTop.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -565,7 +544,6 @@
         private System.Windows.Forms.Label label3;
         private WiLBiT.WiLBiTPanel panelFlightplan;
         private WiLBiT.WiLBiTPanel panelInformation;
-        private WiLBiT.WiLBiTButton btnRestartFlight;
         private WiLBiT.WiLBiTButton btnSimbriefOFP;
         private WiLBiT.WiLBiTButton btnSimbriefDispatch;
         private System.Windows.Forms.Label label6;
@@ -582,7 +560,6 @@
         private System.Windows.Forms.Label lblSpeed;
         private System.Windows.Forms.Label lblIAS;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Timer timer1;
         private WiLBiT.WiLBiTButton btnSubmitFlight;
         private GMap.NET.WindowsForms.GMapControl gMapControl;
         private System.Windows.Forms.Label lblAltitudeMetres;
@@ -591,5 +568,6 @@
         private System.Windows.Forms.Label lblAirplane;
         private System.Windows.Forms.Label lblDistance;
         private System.Windows.Forms.Label lblArrival;
+        private System.Windows.Forms.Timer timer1;
     }
 }
