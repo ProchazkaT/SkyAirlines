@@ -25,6 +25,7 @@ namespace SkyAirlines
         private Offset<long> latitudeOffset = new Offset<long>(0x560);
         private Offset<long> longitudeOffset = new Offset<long>(0x568);
         private Offset<int> speedOffset = new Offset<int>(0x02B8);
+        private Offset<int> groundSpeedOffset = new Offset<int>(0x02B4);
         private Offset<int> altitudeOffset = new Offset<int>(0x3324);
         private Offset<int> landingRateOffset = new Offset<int>(0x030C);
 
@@ -36,10 +37,9 @@ namespace SkyAirlines
 
         private long latitude = 0;
         private long longitude = 0;
-        private int speedGS = 0;
+        private double speedGS = 0;
         private int speedTAS = 0;
         private int altitudeFeet = 0;
-        private int ias = 0;
         private int distanceNmFromAircraft = 0;
         private int distanceNM = 0;
         private bool isLanded = false;
@@ -201,7 +201,7 @@ namespace SkyAirlines
 
                 latitude = latitudeOffset.Value;
                 longitude = longitudeOffset.Value;
-                speedGS = speedOffset.Value * 3600 / 65536 / 1852;
+                speedGS = groundSpeedOffset.Value * 1.94384449 / 65536;
                 speedTAS = speedOffset.Value / 128;
                 altitudeFeet = altitudeOffset.Value;
                 int altitudeMeters = (int)(altitudeFeet * 0.3048);
