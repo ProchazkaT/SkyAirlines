@@ -13,7 +13,7 @@ namespace SkyAirlines
     public partial class Main : Form
     {
         private GetPilotSQLData sqlData = new GetPilotSQLData();
-        private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private ConnectionToSQL connectionToSQL;
         private GetAirlineData getAirlineData = new GetAirlineData();
         private GetPilotSQLData getPilotData = new GetPilotSQLData();
 
@@ -21,10 +21,7 @@ namespace SkyAirlines
         {
             InitializeComponent();
 
-            sqlBuilder.DataSource = @"SkyAirlines.mssql.somee.com";
-            sqlBuilder.InitialCatalog = "SkyAirlines";
-            sqlBuilder.UserID = "TooM_SQLLogin_1";
-            sqlBuilder.Password = "li21a3sl6v";
+            connectionToSQL = new ConnectionToSQL();
 
             GlobalData.lblMoney = lblMoney;
             GlobalData.airlineID = getAirlineData.GetAirlineID(lblUsername.Text);
@@ -103,7 +100,7 @@ namespace SkyAirlines
 
         private void btnLeaveAirline_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -247,7 +244,7 @@ namespace SkyAirlines
             bool isNull = false;
             try
             {
-                using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+                using (SqlConnection connection = connectionToSQL.CreateConnection())
                 {
                     connection.Open();
                     SqlCommand cmd = new SqlCommand("SELECT Airline FROM Pilot WHERE Username = @username", connection);

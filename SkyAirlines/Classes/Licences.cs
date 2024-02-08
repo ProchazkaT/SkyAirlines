@@ -9,16 +9,13 @@ namespace SkyAirlines.Classes
 {
     internal class Licences
     {
-        private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private ConnectionToSQL connectionToSQL;
         private GetPilotSQLData pilotSQLData = new GetPilotSQLData();
         private Label lblMoney = GlobalData.lblMoney;
 
         public Licences()
         {
-            sqlBuilder.DataSource = @"SkyAirlines.mssql.somee.com";
-            sqlBuilder.InitialCatalog = "SkyAirlines";
-            sqlBuilder.UserID = "TooM_SQLLogin_1";
-            sqlBuilder.Password = "li21a3sl6v";
+            connectionToSQL = new ConnectionToSQL();
         }
 
         public void BuyLicence(string aircraftShort, string usernameOfPilot, int priceOfAircraftLicence)
@@ -26,7 +23,7 @@ namespace SkyAirlines.Classes
             string licences = GetPilotLicence(GlobalData.Username);
             int money = pilotSQLData.GetPilotMoney(GlobalData.Username);
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -45,16 +42,27 @@ namespace SkyAirlines.Classes
                             UpdatePilotLicencesAndMoney(cmd, licences, money, usernameOfPilot);
 
                             lblMoney.Text = pilotSQLData.GetPilotMoney(GlobalData.Username).ToString() + "$";
+
+                            MessageBox.Show("You have successfully bought a licence.", "Notification:");
+                            connection.Close();
                         }
                         else
+                        {
                             MessageBox.Show("You do not have enough money to buy a license.", "Notification:");
+                            connection.Close();
+                        }
                     }
                     else
+                    {
                         MessageBox.Show("You have already purchased this license", "Notification:");
+                        connection.Close();
+                    }
+                    
                 }
                 catch (Exception ex)
                 {
                     HandleError("An error occurred while purchasing the license.", ex);
+                    connection.Close();
                 }
             }
         }
@@ -90,7 +98,7 @@ namespace SkyAirlines.Classes
         {
             string licences = "";
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -123,6 +131,7 @@ namespace SkyAirlines.Classes
                 catch (Exception ex)
                 {
                     MessageBox.Show("An error occurred while checking for licence ownership.\n" + ex.ToString(), "Error:");
+                    connection.Close();
                 }
             }
             return false;
@@ -132,7 +141,7 @@ namespace SkyAirlines.Classes
         {
             string licences = null;
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {

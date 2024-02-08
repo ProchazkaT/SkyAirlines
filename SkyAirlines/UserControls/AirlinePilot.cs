@@ -12,7 +12,7 @@ namespace SkyAirlines
 {
     public partial class AirlinePilot : UserControl
     {
-        private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private ConnectionToSQL connectionToSQL;
         private GetAirlineData getAirlineData = new GetAirlineData();
         private Licences licences = new Licences();
 
@@ -31,10 +31,7 @@ namespace SkyAirlines
 
             this.panel = panel;
 
-            sqlBuilder.DataSource = @"SkyAirlines.mssql.somee.com";
-            sqlBuilder.InitialCatalog = "SkyAirlines";
-            sqlBuilder.UserID = "TooM_SQLLogin_1";
-            sqlBuilder.Password = "li21a3sl6v";
+            connectionToSQL = new ConnectionToSQL();
 
             lblAirlineName.Text = getAirlineData.GetAirlineName();
             lblMembers.Text = getAirlineData.GetAirlineMembers().ToString() + " / 20";
@@ -65,7 +62,7 @@ namespace SkyAirlines
 
         private void AirlinePilot_Load(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -113,7 +110,7 @@ namespace SkyAirlines
             {
                 if (cbFleet.Text != "")
                 {
-                    using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+                    using (SqlConnection connection = connectionToSQL.CreateConnection())
                     {
                         try
                         {
@@ -156,7 +153,7 @@ namespace SkyAirlines
 
             if (tbFlightUsername.Texts != "")
             {
-                using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+                using (SqlConnection connection = connectionToSQL.CreateConnection())
                 {
                     try
                     {
@@ -189,7 +186,7 @@ namespace SkyAirlines
 
                 if (arrival != "")
                 {
-                    using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+                    using (SqlConnection connection = connectionToSQL.CreateConnection())
                     {
                         try
                         {
@@ -272,7 +269,7 @@ namespace SkyAirlines
 
             if (!string.IsNullOrEmpty(departure))
             {
-                using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+                using (SqlConnection connection = connectionToSQL.CreateConnection())
                 {
                     try
                     {
@@ -318,7 +315,7 @@ namespace SkyAirlines
 
             var destinationsTuple = new List<Tuple<double, double, string>>();
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {

@@ -8,7 +8,7 @@ namespace SkyAirlines
 {
     public partial class AirlineRow : UserControl
     {
-        private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private ConnectionToSQL connectionToSQL;
         private GetPilotSQLData sqlData = new GetPilotSQLData();
 
         private Panel panel;
@@ -29,10 +29,7 @@ namespace SkyAirlines
             this.airlineID = airlineID;
             this.panel = panel;
 
-            sqlBuilder.DataSource = @"SkyAirlines.mssql.somee.com";
-            sqlBuilder.InitialCatalog = "SkyAirlines";
-            sqlBuilder.UserID = "TooM_SQLLogin_1";
-            sqlBuilder.Password = "li21a3sl6v";
+            connectionToSQL = new ConnectionToSQL();
         }
 
         private void AirlineRow_Load(object sender, EventArgs e)
@@ -53,7 +50,7 @@ namespace SkyAirlines
         {
             if (lblMembers.Text != "20 / 20")
             {
-                using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+                using (SqlConnection connection = connectionToSQL.CreateConnection())
                 {
                     try
                     {

@@ -10,7 +10,7 @@ namespace SkyAirlines
     public partial class Airlines : UserControl
     {
         private Panel panel;
-        private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private ConnectionToSQL connectionToSQL;
 
         public Airlines(Panel panel)
         {
@@ -18,10 +18,7 @@ namespace SkyAirlines
 
             this.panel = panel;
 
-            sqlBuilder.DataSource = @"SkyAirlines.mssql.somee.com";
-            sqlBuilder.InitialCatalog = "SkyAirlines";
-            sqlBuilder.UserID = "TooM_SQLLogin_1";
-            sqlBuilder.Password = "li21a3sl6v";
+            connectionToSQL = new ConnectionToSQL();
         }
 
         private void btnCreateOwnAirline_MouseEnter(object sender, EventArgs e)
@@ -47,7 +44,7 @@ namespace SkyAirlines
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -105,7 +102,7 @@ namespace SkyAirlines
 
         private void Airlines_Load(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -163,7 +160,7 @@ namespace SkyAirlines
         {
             int count = 0;
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {

@@ -11,7 +11,7 @@ namespace SkyAirlines
     public partial class ManagePilot : UserControl
     {
         private GetPilotSQLData pilotSQLData = new GetPilotSQLData();
-        private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private ConnectionToSQL connectionToSQL;
         private Licences licences = new Licences();
         private GetAirlineData airlineSQLData = new GetAirlineData();
 
@@ -27,10 +27,7 @@ namespace SkyAirlines
 
             InitializeMap();
 
-            sqlBuilder.DataSource = @"SkyAirlines.mssql.somee.com";
-            sqlBuilder.InitialCatalog = "SkyAirlines";
-            sqlBuilder.UserID = "TooM_SQLLogin_1";
-            sqlBuilder.Password = "li21a3sl6v";
+            connectionToSQL = new ConnectionToSQL();
         }
 
         private void InitializeMap()
@@ -88,7 +85,7 @@ namespace SkyAirlines
             double newPilotSalary = (double)nudPilotSalary.Value / 100;
             double newAirlineSalary = 1 - newPilotSalary;
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -128,7 +125,7 @@ namespace SkyAirlines
                 if (tbBonus.Texts != "0")
                 {
 
-                    using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+                    using (SqlConnection connection = connectionToSQL.CreateConnection())
                     {
                         try
                         {

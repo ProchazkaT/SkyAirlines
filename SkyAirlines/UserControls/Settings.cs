@@ -14,7 +14,7 @@ namespace SkyAirlines
 {
     public partial class Settings : UserControl
     {
-        private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private ConnectionToSQL connectionToSQL;
         private GetPilotSQLData pilotSQLData = new GetPilotSQLData();
 
         private WiLBiTRoundedPictureBox pictureBox = new WiLBiTRoundedPictureBox();
@@ -25,10 +25,7 @@ namespace SkyAirlines
         {
             InitializeComponent();
 
-            sqlBuilder.DataSource = @"SkyAirlines.mssql.somee.com";
-            sqlBuilder.InitialCatalog = "SkyAirlines";
-            sqlBuilder.UserID = "TooM_SQLLogin_1";
-            sqlBuilder.Password = "li21a3sl6v";
+            connectionToSQL = new ConnectionToSQL();
 
             this.pictureBox = pictureBox;
             lblUsername = UsernameLabel;
@@ -65,7 +62,7 @@ namespace SkyAirlines
                     pbPicture.Image = Image.FromFile(selectedImagePath);
                 }
 
-                using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+                using (SqlConnection connection = connectionToSQL.CreateConnection())
                 {
                     try
                     {
@@ -96,7 +93,7 @@ namespace SkyAirlines
         {
             bool passwordIsRight = false;
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -137,7 +134,7 @@ namespace SkyAirlines
                 }
             }
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 connection.Open();
 
@@ -193,7 +190,7 @@ namespace SkyAirlines
         {
             bool passwordIsRight = false;
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -237,7 +234,7 @@ namespace SkyAirlines
                 }
             }
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 connection.Open();
 
@@ -290,7 +287,7 @@ namespace SkyAirlines
 
         public void ChangeUsername()
         {
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 connection.Open();
 
@@ -331,7 +328,7 @@ namespace SkyAirlines
         {
             bool passwordIsRight = false;
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -375,7 +372,7 @@ namespace SkyAirlines
                 }
             }
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 connection.Open();
 

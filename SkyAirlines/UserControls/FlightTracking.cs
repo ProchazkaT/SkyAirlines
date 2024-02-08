@@ -15,7 +15,7 @@ namespace SkyAirlines
 {
     public partial class FlightTracking : UserControl
     {
-        private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private ConnectionToSQL connectionToSQL;
 
         private GetPilotSQLData pilotSqlData = new GetPilotSQLData();
         private GetAirlineData AirlineSqlData = new GetAirlineData();
@@ -49,10 +49,7 @@ namespace SkyAirlines
             InitializeComponent();
             panel = panelMain;
 
-            sqlBuilder.DataSource = @"SkyAirlines.mssql.somee.com";
-            sqlBuilder.InitialCatalog = "SkyAirlines";
-            sqlBuilder.UserID = "TooM_SQLLogin_1";
-            sqlBuilder.Password = "li21a3sl6v";
+            connectionToSQL = new ConnectionToSQL();
 
             InitializeMap();
         }
@@ -76,7 +73,7 @@ namespace SkyAirlines
 
         public void SetDepartureAndArrivalMarkers()
         {
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -280,7 +277,7 @@ namespace SkyAirlines
                 int moneyPilot = int.Parse(moneyPilotDouble.ToString());
                 int moneyAirline = int.Parse(moneyAirlineDouble.ToString());
 
-                using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+                using (SqlConnection connection = connectionToSQL.CreateConnection())
                 {
                     try
                     {

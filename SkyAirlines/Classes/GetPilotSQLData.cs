@@ -8,22 +8,19 @@ namespace SkyAirlines.Classes
 {
     internal class GetPilotSQLData
     {
-        private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private ConnectionToSQL connectionToSQL;
         private GetAirlineData getAirlineData = new GetAirlineData();
 
         public GetPilotSQLData()
         {
-            sqlBuilder.DataSource = @"SkyAirlines.mssql.somee.com";
-            sqlBuilder.InitialCatalog = "SkyAirlines";
-            sqlBuilder.UserID = "TooM_SQLLogin_1";
-            sqlBuilder.Password = "li21a3sl6v";
+            connectionToSQL = new ConnectionToSQL();
         }
 
         public int GetPilotMoney(string Username)
         {
             int money = 0;
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -57,7 +54,7 @@ namespace SkyAirlines.Classes
         {
             string email = "";
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -91,7 +88,7 @@ namespace SkyAirlines.Classes
         {
             string departure = "";
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -125,7 +122,7 @@ namespace SkyAirlines.Classes
         {
             string arrival = "";
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -159,7 +156,7 @@ namespace SkyAirlines.Classes
         {
             string airplaneForFlight = "";
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -193,7 +190,7 @@ namespace SkyAirlines.Classes
         {
             int id = 0;
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -227,7 +224,7 @@ namespace SkyAirlines.Classes
         {
             int xp = 0;
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -261,7 +258,7 @@ namespace SkyAirlines.Classes
         {
             int flights = 0;
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -295,7 +292,7 @@ namespace SkyAirlines.Classes
         {
             int rating = 0;
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -329,7 +326,7 @@ namespace SkyAirlines.Classes
         {
             string salary = "";
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -363,7 +360,7 @@ namespace SkyAirlines.Classes
         {
             int avgLandingRate = 0;
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -397,7 +394,7 @@ namespace SkyAirlines.Classes
         {
             Image img = null;
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -427,7 +424,7 @@ namespace SkyAirlines.Classes
             string id = "";
             bool isBoss = false;
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {

@@ -14,7 +14,7 @@ namespace SkyAirlines
 {
     public partial class CreateOwnAirline : UserControl
     {
-        private SqlConnectionStringBuilder sqlBuilder = new SqlConnectionStringBuilder();
+        private ConnectionToSQL connectionToSQL;
         private GMapOverlay markersOverlay;
         private CustomMarker clickedMarker;
 
@@ -35,10 +35,7 @@ namespace SkyAirlines
 
         public CreateOwnAirline(Panel panel)
         {
-            sqlBuilder.DataSource = @"SkyAirlines.mssql.somee.com";
-            sqlBuilder.InitialCatalog = "SkyAirlines";
-            sqlBuilder.UserID = "TooM_SQLLogin_1";
-            sqlBuilder.Password = "li21a3sl6v";
+            connectionToSQL = new ConnectionToSQL();
 
             InitializeComponent();
             InitializeMap();
@@ -102,7 +99,7 @@ namespace SkyAirlines
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+                using (SqlConnection connection = connectionToSQL.CreateConnection())
                 {
                     connection.Open();
 
@@ -138,7 +135,7 @@ namespace SkyAirlines
 
             Random random = new Random();
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
@@ -239,7 +236,7 @@ namespace SkyAirlines
         {
             var airportData = new List<Tuple<double, double, string>>();
 
-            using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try
                 {
