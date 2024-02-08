@@ -19,7 +19,7 @@ namespace SkyAirlines.Classes
             sqlBuilder.Password = "li21a3sl6v";
         }
 
-        public int GetPilotMoney()
+        public int GetPilotMoney(string Username)
         {
             int money = 0;
 
@@ -33,7 +33,7 @@ namespace SkyAirlines.Classes
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT Money FROM Pilot WHERE Username = @username";
-                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                    cmd.Parameters.AddWithValue("@username", Username);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
@@ -53,7 +53,7 @@ namespace SkyAirlines.Classes
             return money;
         }
 
-        public string GetPilotEmail()
+        public string GetPilotEmail(string Username)
         {
             string email = "";
 
@@ -67,7 +67,7 @@ namespace SkyAirlines.Classes
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT Email FROM Pilot WHERE Username = @username";
-                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                    cmd.Parameters.AddWithValue("@username", Username);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
@@ -87,7 +87,7 @@ namespace SkyAirlines.Classes
             return email;
         }
 
-        public string GetPilotDeparture()
+        public string GetPilotDeparture(string Username)
         {
             string departure = "";
 
@@ -101,7 +101,7 @@ namespace SkyAirlines.Classes
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT Departure FROM Pilot WHERE Username = @username";
-                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                    cmd.Parameters.AddWithValue("@username", Username);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
@@ -121,7 +121,7 @@ namespace SkyAirlines.Classes
             return departure;
         }
 
-        public string GetPilotArrival()
+        public string GetPilotArrival(string Username)
         {
             string arrival = "";
 
@@ -135,7 +135,7 @@ namespace SkyAirlines.Classes
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT Arrival FROM Pilot WHERE Username = @username";
-                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                    cmd.Parameters.AddWithValue("@username", Username);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
@@ -155,7 +155,7 @@ namespace SkyAirlines.Classes
             return arrival;
         }
 
-        public string GetPilotAirplaneForFlight()
+        public string GetPilotAirplaneForFlight(string Username)
         {
             string airplaneForFlight = "";
 
@@ -169,7 +169,7 @@ namespace SkyAirlines.Classes
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT AirplaneForFlight FROM Pilot WHERE Username = @username";
-                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                    cmd.Parameters.AddWithValue("@username", Username);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
@@ -189,7 +189,7 @@ namespace SkyAirlines.Classes
             return airplaneForFlight;
         }
 
-        public int GetPilotID()
+        public int GetPilotID(string Username)
         {
             int id = 0;
 
@@ -203,7 +203,7 @@ namespace SkyAirlines.Classes
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT ID FROM Pilot WHERE Username = @username";
-                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                    cmd.Parameters.AddWithValue("@username", Username);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
@@ -223,7 +223,7 @@ namespace SkyAirlines.Classes
             return id;
         }
 
-        public int GetPilotXP()
+        public int GetPilotXP(string Username)
         {
             int xp = 0;
 
@@ -237,7 +237,7 @@ namespace SkyAirlines.Classes
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT XP FROM Pilot WHERE Username = @username";
-                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                    cmd.Parameters.AddWithValue("@username", Username);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
@@ -257,7 +257,7 @@ namespace SkyAirlines.Classes
             return xp;
         }
 
-        public int GetPilotFlights()
+        public int GetPilotFlights(string Username)
         {
             int flights = 0;
 
@@ -271,7 +271,7 @@ namespace SkyAirlines.Classes
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT Flights FROM Pilot WHERE Username = @username";
-                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                    cmd.Parameters.AddWithValue("@username", Username);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
@@ -291,7 +291,7 @@ namespace SkyAirlines.Classes
             return flights;
         }
 
-        public int GetPilotRating()
+        public int GetPilotRating(string Username)
         {
             int rating = 0;
 
@@ -305,7 +305,7 @@ namespace SkyAirlines.Classes
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT Rating FROM Pilot WHERE Username = @username";
-                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                    cmd.Parameters.AddWithValue("@username", Username);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
@@ -325,7 +325,7 @@ namespace SkyAirlines.Classes
             return rating;
         }
 
-        public string GetPilotSalary()
+        public string GetPilotSalary(string Username)
         {
             string salary = "";
 
@@ -339,7 +339,7 @@ namespace SkyAirlines.Classes
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT Salary FROM Pilot WHERE Username = @username";
-                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                    cmd.Parameters.AddWithValue("@username", Username);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
@@ -359,7 +359,7 @@ namespace SkyAirlines.Classes
             return salary;
         }
 
-        public int GetPilotAverageLandingRate()
+        public int GetPilotAverageLandingRate(string Username)
         {
             int avgLandingRate = 0;
 
@@ -373,7 +373,7 @@ namespace SkyAirlines.Classes
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT AverageLandingRate FROM Pilot WHERE Username = @username";
-                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                    cmd.Parameters.AddWithValue("@username", Username);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
@@ -393,7 +393,7 @@ namespace SkyAirlines.Classes
             return avgLandingRate;
         }
 
-        public Image GetPilotPicture()
+        public Image GetPilotPicture(string Username)
         {
             Image img = null;
 
@@ -404,7 +404,7 @@ namespace SkyAirlines.Classes
                     connection.Open();
 
                     SqlCommand cmd = new SqlCommand("SELECT Picture FROM Pilot WHERE Username = @username", connection);
-                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                    cmd.Parameters.AddWithValue("@username", Username);
 
                     byte[] imageData = (byte[])cmd.ExecuteScalar();
 
@@ -422,7 +422,7 @@ namespace SkyAirlines.Classes
             return img;
         }
 
-        public bool IsPilotAirlineBoss()
+        public bool IsPilotAirlineBoss(string Username)
         {
             string id = "";
             bool isBoss = false;
@@ -437,7 +437,7 @@ namespace SkyAirlines.Classes
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT Boss FROM Pilot WHERE Username = @username";
-                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                    cmd.Parameters.AddWithValue("@username", Username);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
@@ -448,7 +448,7 @@ namespace SkyAirlines.Classes
 
                     connection.Close();
 
-                    if(id == getAirlineData.GetAirlineID(GlobalData.Username))
+                    if(id == getAirlineData.GetAirlineID(Username))
                     {
                         isBoss = true;
                     }

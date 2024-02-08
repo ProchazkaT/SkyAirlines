@@ -270,7 +270,7 @@ namespace SkyAirlines
             string fleetString = getAirlineData.GetAirlineFleet();
             List<string> fleet = new List<string>();
 
-            List<string> pilotLicences = licences.GetPilotLicencesAsList();
+            List<string> pilotLicences = licences.GetPilotLicencesAsList(GlobalData.Username);
 
             if (!string.IsNullOrEmpty(fleetString))
             {
@@ -350,7 +350,6 @@ namespace SkyAirlines
             }
         }
 
-
         private List<Tuple<double, double, string>> GetDatabaseData()
         {
             string destinationsString = getAirlineData.GetAirlineDestinations();
@@ -418,6 +417,59 @@ namespace SkyAirlines
                     MessageBox.Show("You cannot generate flight to your departure!", "Notification:");
                 }
             }
+        }
+
+        private void btnManagePilot_Click(object sender, EventArgs e)
+        {
+            if (tbManageUsername.Texts != "")
+            {
+                using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = connection;
+
+                        cmd.CommandText = "SELECT Username FROM Pilot WHERE Username = @username AND Airline = @airline";
+                        cmd.Parameters.AddWithValue("@username", tbManageUsername.Texts);
+                        cmd.Parameters.AddWithValue("@airline", GlobalData.airlineID);
+
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        if (reader.HasRows)
+                        {
+                            reader.Close();
+                            ChangeMainPanel(new ManagePilot(tbManageUsername.Texts));
+                        }
+                        else
+                        {
+                            reader.Close();
+                            MessageBox.Show("This pilot is not a member of your airline.", "Notification:");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred while managing the pilot. \n" + ex.ToString(), "Error:");
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+            else
+                MessageBox.Show("You have to write pilot username!", "Notification:");
+        }
+
+
+        public void ChangeMainPanel(UserControl userControl)
+        {
+            panel.Controls.Clear();
+            panel.Controls.Add(userControl);
+            userControl.Dock = DockStyle.Fill;
+            userControl.Anchor = AnchorStyles.None;
         }
     }
 }

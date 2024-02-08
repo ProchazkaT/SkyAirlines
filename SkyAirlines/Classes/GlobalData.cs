@@ -23,7 +23,5 @@ namespace SkyAirlines
         public static string Arrival { get; set; }
         public static string AirplaneForFlight { get; set; }
         public static bool isFlown { get; set; }
-
-        public static Task flightTrackingThread { get; set;}
     }
 }

@@ -44,7 +44,7 @@ namespace SkyAirlines
             InitializeMap();
 
             this.panel = panel;
-            cbFleet.DataSource = licences.GetPilotLicencesAsList();
+            cbFleet.DataSource = licences.GetPilotLicencesAsList(GlobalData.Username);
             cbFleet.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
@@ -133,7 +133,7 @@ namespace SkyAirlines
 
         public void CreateAirline()
         {
-            int money = pilot.GetPilotMoney();
+            int money = pilot.GetPilotMoney(GlobalData.Username);
             string airlineName = tbName.Texts;
 
             Random random = new Random();
@@ -151,7 +151,7 @@ namespace SkyAirlines
                     {
                         money -= 5000;
 
-                        GlobalData.lblMoney.Text = pilot.GetPilotMoney().ToString() + "$";
+                        GlobalData.lblMoney.Text = pilot.GetPilotMoney(GlobalData.Username).ToString() + "$";
 
                         List<string> possibleDestinations = airportIcaos.Where(code => code != lblHeadquater.Text).ToList();
                         List<string> randomIcaos = possibleDestinations.OrderBy(code => random.Next()).Take(3).ToList();
@@ -162,7 +162,7 @@ namespace SkyAirlines
                         cmd.Parameters.AddWithValue("@airlineMoney", 5000);
                         cmd.Parameters.AddWithValue("@airlineAirplanes", cbFleet.Text);
                         cmd.Parameters.AddWithValue("@headquater", lblHeadquater.Text);
-                        cmd.Parameters.AddWithValue("@airlineSalary", "0.8");
+                        cmd.Parameters.AddWithValue("@airlineSalary", "0.2");
                         cmd.Parameters.AddWithValue("@costPerMile", "0.5");
 
                         string icaosString = string.Join(",", randomIcaos);
@@ -175,7 +175,7 @@ namespace SkyAirlines
                         cmd.Parameters.AddWithValue("@boss", airlineID);
                         cmd.Parameters.AddWithValue("@money", money);
                         cmd.Parameters.AddWithValue("@departure", lblHeadquater.Text);
-                        cmd.Parameters.AddWithValue("@salary", "0.2");
+                        cmd.Parameters.AddWithValue("@salary", "0.8");
                         cmd.Parameters.AddWithValue("@usernameUpdate", GlobalData.Username);
                         cmd.ExecuteNonQuery();
 

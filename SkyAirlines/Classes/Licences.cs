@@ -23,8 +23,8 @@ namespace SkyAirlines.Classes
 
         public void BuyLicence(string aircraftShort, string usernameOfPilot, int priceOfAircraftLicence)
         {
-            string licences = GetPilotLicence();
-            int money = pilotSQLData.GetPilotMoney();
+            string licences = GetPilotLicence(GlobalData.Username);
+            int money = pilotSQLData.GetPilotMoney(GlobalData.Username);
 
             using (SqlConnection connection = new SqlConnection(sqlBuilder.ConnectionString))
             {
@@ -44,7 +44,7 @@ namespace SkyAirlines.Classes
 
                             UpdatePilotLicencesAndMoney(cmd, licences, money, usernameOfPilot);
 
-                            lblMoney.Text = pilotSQLData.GetPilotMoney().ToString() + "$";
+                            lblMoney.Text = pilotSQLData.GetPilotMoney(GlobalData.Username).ToString() + "$";
                         }
                         else
                             MessageBox.Show("You do not have enough money to buy a license.", "Notification:");
@@ -68,9 +68,9 @@ namespace SkyAirlines.Classes
             cmd.ExecuteNonQuery();
         }
 
-        public List<string> GetPilotLicencesAsList()
+        public List<string> GetPilotLicencesAsList(string Username)
         {
-            string licenceString = GetPilotLicence();
+            string licenceString = GetPilotLicence(Username);
             List<string> licences = new List<string>();
 
             if (!string.IsNullOrEmpty(licenceString))
@@ -128,7 +128,7 @@ namespace SkyAirlines.Classes
             return false;
         }
 
-        public string GetPilotLicence()
+        public string GetPilotLicence(string Username)
         {
             string licences = null;
 
@@ -142,7 +142,7 @@ namespace SkyAirlines.Classes
                     cmd.Connection = connection;
 
                     cmd.CommandText = "SELECT Licences FROM Pilot WHERE Username = @username";
-                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                    cmd.Parameters.AddWithValue("@username", Username);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())

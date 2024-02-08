@@ -62,15 +62,12 @@ namespace SkyAirlines
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = connection;
 
-                        cmd.CommandText = "UPDATE Pilot SET Airline = @airline WHERE Username = @username";
+                        cmd.CommandText = "UPDATE Pilot SET Airline = @airline, Departure = @departure, Salary = @salary WHERE Username = @username";
                         cmd.Parameters.Clear();
                         cmd.Parameters.AddWithValue("@airline", airlineID);
-                        cmd.Parameters.AddWithValue("@username", GlobalData.Username);
-                        cmd.ExecuteNonQuery();
-
-                        cmd.CommandText = "UPDATE Pilot SET Departure = @departure WHERE Username = @usernameDeparture";
                         cmd.Parameters.AddWithValue("@departure", lblHeadquater.Text);
-                        cmd.Parameters.AddWithValue("@usernameDeparture", GlobalData.Username);
+                        cmd.Parameters.AddWithValue("@salary", "0.8");
+                        cmd.Parameters.AddWithValue("@username", GlobalData.Username);
                         cmd.ExecuteNonQuery();
 
                         GlobalData.airlineID = airlineID;
@@ -82,7 +79,7 @@ namespace SkyAirlines
                         GlobalData.btnLeaveAirline.Enabled = true;
                         GlobalData.Departure = lblHeadquater.Text;
 
-                        if (sqlData.IsPilotAirlineBoss())
+                        if (sqlData.IsPilotAirlineBoss(GlobalData.Username))
                             ChangeMainPanel(new AirlineBoss(panel));
                         else
                             ChangeMainPanel(new AirlinePilot(panel));
@@ -91,7 +88,7 @@ namespace SkyAirlines
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("An error occurred while creating the airline.\n" + ex.ToString(), "Error:");
+                        MessageBox.Show("An error occurred while creating the airline.", "Error:");
                     }
                 }
             }

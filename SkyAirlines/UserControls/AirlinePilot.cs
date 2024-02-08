@@ -231,7 +231,7 @@ namespace SkyAirlines
             string fleetString = getAirlineData.GetAirlineFleet();
             List<string> fleet = new List<string>();
 
-            List<string> pilotLicences = licences.GetPilotLicencesAsList();
+            List<string> pilotLicences = licences.GetPilotLicencesAsList(GlobalData.Username);
 
             if (!string.IsNullOrEmpty(fleetString))
             {

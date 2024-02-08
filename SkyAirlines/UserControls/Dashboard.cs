@@ -22,11 +22,11 @@ namespace SkyAirlines
         {
             InitializeComponent();
 
-            lblFlights.Text = pilotSQLData.GetPilotFlights().ToString();
-            lblRating.Text = pilotSQLData.GetPilotRating().ToString();
-            lblLandingRate.Text = pilotSQLData.GetPilotAverageLandingRate().ToString()  + " FPM";
-            progressBar.Value = pilotSQLData.GetPilotXP();
-            lblXP.Text = "XP" + pilotSQLData.GetPilotXP().ToString() + " / 1000";
+            lblFlights.Text = pilotSQLData.GetPilotFlights(GlobalData.Username).ToString();
+            lblRating.Text = pilotSQLData.GetPilotRating(GlobalData.Username).ToString();
+            lblLandingRate.Text = pilotSQLData.GetPilotAverageLandingRate(GlobalData.Username).ToString()  + " FPM";
+            progressBar.Value = pilotSQLData.GetPilotXP(GlobalData.Username);
+            lblXP.Text = "XP" + pilotSQLData.GetPilotXP(GlobalData.Username).ToString() + " / 1000";
 
             InitializeMap();
         }

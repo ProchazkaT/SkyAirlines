@@ -38,8 +38,8 @@ namespace SkyAirlines
 
         public void InitializeCurrentInformation()
         {
-            tbCurrentEmail.Texts = pilotSQLData.GetPilotEmail();
-            pbPicture.Image = pilotSQLData.GetPilotPicture();
+            tbCurrentEmail.Texts = pilotSQLData.GetPilotEmail(GlobalData.Username);
+            pbPicture.Image = pilotSQLData.GetPilotPicture(GlobalData.Username);
         }
 
         public void ChangePicture()

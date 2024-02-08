@@ -28,14 +28,14 @@ namespace SkyAirlines
 
             GlobalData.lblMoney = lblMoney;
             GlobalData.airlineID = getAirlineData.GetAirlineID(lblUsername.Text);
-            GlobalData.Departure = getPilotData.GetPilotDeparture();
-            GlobalData.Arrival = getPilotData.GetPilotArrival();
-            GlobalData.AirplaneForFlight = getPilotData.GetPilotAirplaneForFlight();
+            GlobalData.Departure = getPilotData.GetPilotDeparture(GlobalData.Username);
+            GlobalData.Arrival = getPilotData.GetPilotArrival(GlobalData.Username);
+            GlobalData.AirplaneForFlight = getPilotData.GetPilotAirplaneForFlight(GlobalData.Username);
             GlobalData.isFlown = false;
 
             lblUsername.Text = GlobalData.Username;
-            lblMoney.Text = sqlData.GetPilotMoney() + "$";
-            pbPicture.Image = sqlData.GetPilotPicture();
+            lblMoney.Text = sqlData.GetPilotMoney(GlobalData.Username) + "$";
+            pbPicture.Image = sqlData.GetPilotPicture(GlobalData.Username);
 
             SetActiveButton(btnDashboard);
             ChangeMainPanel(new Dashboard());
@@ -83,7 +83,7 @@ namespace SkyAirlines
             }
             else
             {
-                if (sqlData.IsPilotAirlineBoss())
+                if (sqlData.IsPilotAirlineBoss(GlobalData.Username))
                     ChangeMainPanel(new AirlineBoss(panelMain));
                 else
                     ChangeMainPanel(new AirlinePilot(panelMain));

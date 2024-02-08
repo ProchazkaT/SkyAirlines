@@ -270,11 +270,11 @@ namespace SkyAirlines
                 timer1.Stop();
                 GlobalData.isFlown = false;
 
-                double salaryPilot = double.Parse(pilotSqlData.GetPilotSalary());
+                double salaryPilot = double.Parse(pilotSqlData.GetPilotSalary(GlobalData.Username));
                 double salaryAirline = double.Parse(AirlineSqlData.GetAirlineSalary());
                 double costPerMile = double.Parse(AirlineSqlData.GetAirlineCostPerMile());
 
-                double moneyPilotDouble = distanceNM * costPerMile * salaryPilot + pilotSqlData.GetPilotMoney();
+                double moneyPilotDouble = distanceNM * costPerMile * salaryPilot + pilotSqlData.GetPilotMoney(GlobalData.Username);
                 double moneyAirlineDouble = distanceNM * costPerMile * salaryAirline + int.Parse(AirlineSqlData.GetAirlineMoney());
 
                 int moneyPilot = int.Parse(moneyPilotDouble.ToString());

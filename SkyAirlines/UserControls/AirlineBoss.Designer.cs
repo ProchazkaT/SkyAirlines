@@ -497,6 +497,7 @@
             this.btnManagePilot.TabIndex = 7;
             this.btnManagePilot.Text = "Manage";
             this.btnManagePilot.UseVisualStyleBackColor = false;
+            this.btnManagePilot.Click += new System.EventHandler(this.btnManagePilot_Click);
             // 
             // tbManageUsername
             // 

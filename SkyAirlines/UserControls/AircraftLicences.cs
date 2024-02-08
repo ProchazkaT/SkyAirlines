@@ -23,7 +23,7 @@ namespace SkyAirlines.UserControls
         {
             InitializeComponent();
             panel = panelMain;
-            lblLicences.Text = licences.GetPilotLicence();
+            lblLicences.Text = licences.GetPilotLicence(GlobalData.Username);
         }
 
         private void btn_MouseEnter(object sender, EventArgs e)
