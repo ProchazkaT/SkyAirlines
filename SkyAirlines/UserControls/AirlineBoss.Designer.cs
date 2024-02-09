@@ -462,6 +462,7 @@
             this.btnManageAirline.TabIndex = 9;
             this.btnManageAirline.Text = "Manage airline";
             this.btnManageAirline.UseVisualStyleBackColor = false;
+            this.btnManageAirline.Click += new System.EventHandler(this.btnManageAirline_Click);
             // 
             // btnKick
             // 

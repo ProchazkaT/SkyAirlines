@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.wiLBiTPanel3 = new WiLBiT.WiLBiTPanel();
+            this.pbPicture = new WiLBiT.WiLBiTRoundedPictureBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.cbAirplaneLicences = new System.Windows.Forms.ComboBox();
             this.wiLBiTPanel5 = new WiLBiT.WiLBiTPanel();
             this.wiLBiTPanel4 = new WiLBiT.WiLBiTPanel();
@@ -58,16 +61,13 @@
             this.wiLBiTPanel9 = new WiLBiT.WiLBiTPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.nudPilotSalary = new System.Windows.Forms.NumericUpDown();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.pbPicture = new WiLBiT.WiLBiTRoundedPictureBox();
             this.wiLBiTPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRank)).BeginInit();
             this.wiLBiTPanel6.SuspendLayout();
             this.wiLBiTPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPilotSalary)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // wiLBiTPanel3
@@ -96,6 +96,49 @@
             this.wiLBiTPanel3.Name = "wiLBiTPanel3";
             this.wiLBiTPanel3.Size = new System.Drawing.Size(234, 649);
             this.wiLBiTPanel3.TabIndex = 1;
+            // 
+            // pbPicture
+            // 
+            this.pbPicture.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.pbPicture.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(116)))), ((int)(((byte)(245)))));
+            this.pbPicture.BorderColor2 = System.Drawing.Color.White;
+            this.pbPicture.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.pbPicture.BorderSize = 2;
+            this.pbPicture.GradientAngle = 50F;
+            this.pbPicture.Location = new System.Drawing.Point(67, 12);
+            this.pbPicture.Name = "pbPicture";
+            this.pbPicture.Size = new System.Drawing.Size(103, 103);
+            this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPicture.TabIndex = 21;
+            this.pbPicture.TabStop = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.lblUsername, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 125);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.34454F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(229, 42);
+            this.tableLayoutPanel1.TabIndex = 20;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblUsername.ForeColor = System.Drawing.Color.Black;
+            this.lblUsername.Location = new System.Drawing.Point(3, 0);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(223, 42);
+            this.lblUsername.TabIndex = 1;
+            this.lblUsername.Text = "Username";
+            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbAirplaneLicences
             // 
@@ -288,7 +331,7 @@
             this.gMapControl.GrayScaleMode = false;
             this.gMapControl.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gMapControl.LevelsKeepInMemory = 5;
-            this.gMapControl.Location = new System.Drawing.Point(241, 81);
+            this.gMapControl.Location = new System.Drawing.Point(253, 81);
             this.gMapControl.MarkersEnabled = true;
             this.gMapControl.MaxZoom = 2;
             this.gMapControl.MinZoom = 2;
@@ -302,7 +345,7 @@
             this.gMapControl.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl.ShowTileGridLines = false;
-            this.gMapControl.Size = new System.Drawing.Size(806, 421);
+            this.gMapControl.Size = new System.Drawing.Size(782, 421);
             this.gMapControl.TabIndex = 3;
             this.gMapControl.Zoom = 0D;
             // 
@@ -504,49 +547,6 @@
             0});
             this.nudPilotSalary.ValueChanged += new System.EventHandler(this.nudPilotSalary_ValueChanged);
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.lblUsername, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 125);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.34454F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(229, 42);
-            this.tableLayoutPanel1.TabIndex = 20;
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblUsername.ForeColor = System.Drawing.Color.Black;
-            this.lblUsername.Location = new System.Drawing.Point(3, 0);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(223, 42);
-            this.lblUsername.TabIndex = 1;
-            this.lblUsername.Text = "Username";
-            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pbPicture
-            // 
-            this.pbPicture.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.pbPicture.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(116)))), ((int)(((byte)(245)))));
-            this.pbPicture.BorderColor2 = System.Drawing.Color.White;
-            this.pbPicture.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.pbPicture.BorderSize = 2;
-            this.pbPicture.GradientAngle = 50F;
-            this.pbPicture.Location = new System.Drawing.Point(67, 12);
-            this.pbPicture.Name = "pbPicture";
-            this.pbPicture.Size = new System.Drawing.Size(103, 103);
-            this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPicture.TabIndex = 21;
-            this.pbPicture.TabStop = false;
-            // 
             // ManagePilot
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -562,15 +562,15 @@
             this.Load += new System.EventHandler(this.ManagePilot_Load);
             this.wiLBiTPanel3.ResumeLayout(false);
             this.wiLBiTPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRank)).EndInit();
             this.wiLBiTPanel6.ResumeLayout(false);
             this.wiLBiTPanel6.PerformLayout();
             this.wiLBiTPanel8.ResumeLayout(false);
             this.wiLBiTPanel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPilotSalary)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
             this.ResumeLayout(false);
 
         }

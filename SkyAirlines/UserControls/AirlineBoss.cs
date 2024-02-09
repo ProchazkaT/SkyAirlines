@@ -460,6 +460,10 @@ namespace SkyAirlines
                 MessageBox.Show("You have to write pilot username!", "Notification:");
         }
 
+        private void btnManageAirline_Click(object sender, EventArgs e)
+        {
+            ChangeMainPanel(new ManageAirline());
+        }
 
         public void ChangeMainPanel(UserControl userControl)
         {
