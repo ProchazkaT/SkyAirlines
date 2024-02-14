@@ -164,6 +164,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ConnectionToSQL.cs" />
+    <Compile Include="UserControls\ManageAirline.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ManageAirline.Designer.cs">
+      <DependentUpon>ManageAirline.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ManagePilot.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -263,6 +269,9 @@
     <Compile Include="UserControls\AircraftShowroom.Designer.cs">
       <DependentUpon>AircraftShowroom.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\ManageAirline.resx">
+      <DependentUpon>ManageAirline.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ManagePilot.resx">
       <DependentUpon>ManagePilot.cs</DependentUpon>
     </EmbeddedResource>

@@ -116,3 +116,4 @@ C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.Ai
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.AirlinePilot.resources
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.Settings.resources
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.ManagePilot.resources
+C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.ManageAirline.resources

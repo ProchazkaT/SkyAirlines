@@ -153,7 +153,7 @@ namespace SkyAirlines
                         List<string> possibleDestinations = airportIcaos.Where(code => code != lblHeadquater.Text).ToList();
                         List<string> randomIcaos = possibleDestinations.OrderBy(code => random.Next()).Take(3).ToList();
 
-                        cmd.CommandText = "INSERT INTO Airline(Logo, Name, AirlineMoney, AirlineAirplanes, Headquarter, Destinations, AirlineSalary, CostPerMile) OUTPUT INSERTED.ID VALUES (@logo, @name, @airlineMoney, @airlineAirplanes, @headquater, @destinations, @airlineSalary, @costPerMile)";
+                        cmd.CommandText = "INSERT INTO Airline(Logo, Name, AirlineMoney, AirlineAirplanes, Headquarter, Destinations, AirlineSalary, CostPerMile, Equipment) OUTPUT INSERTED.ID VALUES (@logo, @name, @airlineMoney, @airlineAirplanes, @headquater, @destinations, @airlineSalary, @costPerMile, @equipment)";
                         cmd.Parameters.AddWithValue("@logo", LogoToByteArray(pbLogo));
                         cmd.Parameters.AddWithValue("@name", tbName.Texts);
                         cmd.Parameters.AddWithValue("@airlineMoney", 5000);
@@ -161,6 +161,7 @@ namespace SkyAirlines
                         cmd.Parameters.AddWithValue("@headquater", lblHeadquater.Text);
                         cmd.Parameters.AddWithValue("@airlineSalary", "0.2");
                         cmd.Parameters.AddWithValue("@costPerMile", "0.5");
+                        cmd.Parameters.AddWithValue("@equipment", 0);
 
                         string icaosString = string.Join(",", randomIcaos);
                         cmd.Parameters.AddWithValue("@destinations", icaosString);

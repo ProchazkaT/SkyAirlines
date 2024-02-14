@@ -100,9 +100,9 @@
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(46, 62);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(145, 29);
+            this.label7.Size = new System.Drawing.Size(153, 29);
             this.label7.TabIndex = 7;
-            this.label7.Text = "Headquater:";
+            this.label7.Text = "Headquarter:";
             // 
             // lblHeadquater
             // 

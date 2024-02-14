@@ -1,9 +1,9 @@
-﻿using System.Data;
-using System;
-using System.Data.SqlClient;
-using SkyAirlines.Classes;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
+using System.Windows;
 
 namespace SkyAirlines
 {
@@ -97,12 +97,43 @@ namespace SkyAirlines
                 }
                 catch
                 {
-                   
+
                     connection.Close();
                 }
             }
 
             return count;
+        }
+
+        public string GetAirlineEquipment()
+        {
+            string equipment = "";
+
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    cmd.CommandText = "SELECT Equipment FROM Airline WHERE ID=@id";
+                    cmd.Parameters.AddWithValue("@id", GlobalData.airlineID);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        equipment = reader["Equipment"].ToString();
+                    }
+                    reader.Close();
+                    connection.Close();
+                }
+                catch { }
+                connection.Close();
+            }
+            return equipment;
         }
 
         public string GetAirlineMoney()
@@ -163,6 +194,23 @@ namespace SkyAirlines
                 }
                 catch { }
                 connection.Close();
+            }
+            return fleet;
+        }
+
+        public List<string> GetAirlineFleetAsList()
+        {
+            string fleetString = GetAirlineFleet();
+            List<string> fleet = new List<string>();
+
+            if (!string.IsNullOrEmpty(fleetString))
+            {
+                string[] licenceArray = fleetString.Split(',');
+
+                foreach (string licence in licenceArray)
+                {
+                    fleet.Add(licence.Trim());
+                }
             }
             return fleet;
         }
@@ -289,6 +337,35 @@ namespace SkyAirlines
                 connection.Close();
             }
             return costPerMile;
+        }
+
+        public Image GetAirlineLogo()
+        {
+            Image img = null;
+
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT Logo FROM Airline WHERE ID = @id", connection);
+                    cmd.Parameters.AddWithValue("@id", GlobalData.airlineID);
+
+                    byte[] imageData = (byte[])cmd.ExecuteScalar();
+
+                    using (MemoryStream ms = new MemoryStream(imageData))
+                    {
+                        img = Image.FromStream(ms);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while retrieving the image.\n" + ex.ToString(), "Error:");
+                }
+                connection.Close();
+            }
+            return img;
         }
     }
 }

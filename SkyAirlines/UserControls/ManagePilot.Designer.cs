@@ -46,8 +46,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pbRank = new System.Windows.Forms.PictureBox();
             this.wiLBiTPanel6 = new WiLBiT.WiLBiTPanel();
-            this.wiLBiTPanel7 = new WiLBiT.WiLBiTPanel();
-            this.label2 = new System.Windows.Forms.Label();
             this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
             this.wiLBiTPanel8 = new WiLBiT.WiLBiTPanel();
             this.btnGiveBonus = new WiLBiT.WiLBiTButton();
@@ -61,6 +59,9 @@
             this.wiLBiTPanel9 = new WiLBiT.WiLBiTPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.nudPilotSalary = new System.Windows.Forms.NumericUpDown();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.wiLBiTPanel7 = new WiLBiT.WiLBiTPanel();
             this.wiLBiTPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -68,6 +69,7 @@
             this.wiLBiTPanel6.SuspendLayout();
             this.wiLBiTPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPilotSalary)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // wiLBiTPanel3
@@ -289,39 +291,13 @@
             this.wiLBiTPanel6.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.wiLBiTPanel6.BorderRadius = 20;
             this.wiLBiTPanel6.BorderSize = 0;
+            this.wiLBiTPanel6.Controls.Add(this.tableLayoutPanel2);
             this.wiLBiTPanel6.Controls.Add(this.wiLBiTPanel7);
-            this.wiLBiTPanel6.Controls.Add(this.label2);
             this.wiLBiTPanel6.ForeColor = System.Drawing.Color.White;
             this.wiLBiTPanel6.Location = new System.Drawing.Point(241, 3);
             this.wiLBiTPanel6.Name = "wiLBiTPanel6";
             this.wiLBiTPanel6.Size = new System.Drawing.Size(806, 72);
             this.wiLBiTPanel6.TabIndex = 2;
-            // 
-            // wiLBiTPanel7
-            // 
-            this.wiLBiTPanel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.wiLBiTPanel7.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.wiLBiTPanel7.BorderRadius = 0;
-            this.wiLBiTPanel7.BorderSize = 0;
-            this.wiLBiTPanel7.ForeColor = System.Drawing.Color.White;
-            this.wiLBiTPanel7.Location = new System.Drawing.Point(149, 47);
-            this.wiLBiTPanel7.Name = "wiLBiTPanel7";
-            this.wiLBiTPanel7.Size = new System.Drawing.Size(515, 5);
-            this.wiLBiTPanel7.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(273, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(281, 32);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Destinations visited";
             // 
             // gMapControl
             // 
@@ -547,6 +523,45 @@
             0});
             this.nudPilotSalary.ValueChanged += new System.EventHandler(this.nudPilotSalary_ValueChanged);
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(24, 8);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(759, 47);
+            this.tableLayoutPanel2.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(753, 47);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Destinations visited";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // wiLBiTPanel7
+            // 
+            this.wiLBiTPanel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.wiLBiTPanel7.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.wiLBiTPanel7.BorderRadius = 0;
+            this.wiLBiTPanel7.BorderSize = 0;
+            this.wiLBiTPanel7.ForeColor = System.Drawing.Color.White;
+            this.wiLBiTPanel7.Location = new System.Drawing.Point(145, 60);
+            this.wiLBiTPanel7.Name = "wiLBiTPanel7";
+            this.wiLBiTPanel7.Size = new System.Drawing.Size(515, 5);
+            this.wiLBiTPanel7.TabIndex = 12;
+            // 
             // ManagePilot
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -567,10 +582,11 @@
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRank)).EndInit();
             this.wiLBiTPanel6.ResumeLayout(false);
-            this.wiLBiTPanel6.PerformLayout();
             this.wiLBiTPanel8.ResumeLayout(false);
             this.wiLBiTPanel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPilotSalary)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -591,8 +607,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbAirplaneLicences;
         private WiLBiT.WiLBiTPanel wiLBiTPanel6;
-        private System.Windows.Forms.Label label2;
-        private WiLBiT.WiLBiTPanel wiLBiTPanel7;
         private GMap.NET.WindowsForms.GMapControl gMapControl;
         private WiLBiT.WiLBiTPanel wiLBiTPanel8;
         private System.Windows.Forms.NumericUpDown nudPilotSalary;
@@ -609,5 +623,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblUsername;
         private WiLBiT.WiLBiTRoundedPictureBox pbPicture;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label2;
+        private WiLBiT.WiLBiTPanel wiLBiTPanel7;
     }
 }
