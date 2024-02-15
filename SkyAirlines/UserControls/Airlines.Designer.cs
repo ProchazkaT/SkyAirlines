@@ -94,7 +94,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(34, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(190, 29);
+            this.label2.Size = new System.Drawing.Size(232, 36);
             this.label2.TabIndex = 1;
             this.label2.Text = "and manage it?";
             // 
@@ -105,7 +105,7 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(34, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(485, 29);
+            this.label1.Size = new System.Drawing.Size(594, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Would you like to create your own airline";
             // 
@@ -228,13 +228,15 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(482, 3);
+            this.btnSearch.Location = new System.Drawing.Point(482, 4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(130, 40);
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnSearch.MouseEnter += new System.EventHandler(this.btnCreateOwnAirline_MouseEnter);
+            this.btnSearch.MouseLeave += new System.EventHandler(this.btnCreateOwnAirline_MouseLeave);
             // 
             // label8
             // 
@@ -243,7 +245,7 @@
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(36, 10);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(189, 25);
+            this.label8.Size = new System.Drawing.Size(233, 31);
             this.label8.TabIndex = 1;
             this.label8.Text = "Search by name:";
             // 
@@ -254,9 +256,9 @@
             this.tbSearch.BorderFocusColor = System.Drawing.Color.DeepSkyBlue;
             this.tbSearch.BorderRadius = 4;
             this.tbSearch.BorderSize = 2;
-            this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbSearch.Location = new System.Drawing.Point(251, 5);
+            this.tbSearch.Location = new System.Drawing.Point(276, 4);
             this.tbSearch.Margin = new System.Windows.Forms.Padding(4);
             this.tbSearch.Multiline = false;
             this.tbSearch.Name = "tbSearch";
@@ -264,7 +266,7 @@
             this.tbSearch.PasswordChar = false;
             this.tbSearch.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbSearch.PlaceholderText = "Airline name";
-            this.tbSearch.Size = new System.Drawing.Size(173, 38);
+            this.tbSearch.Size = new System.Drawing.Size(173, 41);
             this.tbSearch.TabIndex = 0;
             this.tbSearch.Texts = "";
             this.tbSearch.UnderlinedStyle = false;

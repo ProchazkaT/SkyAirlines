@@ -5,8 +5,10 @@ using SkyAirlines.Classes;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using WiLBiT;
 
 namespace SkyAirlines
 {
@@ -471,6 +473,22 @@ namespace SkyAirlines
             panel.Controls.Add(userControl);
             userControl.Dock = DockStyle.Fill;
             userControl.Anchor = AnchorStyles.None;
+        }
+
+        private void btn_MouseEnter(object sender, EventArgs e)
+        {
+            WiLBiTButton btn;
+            btn = (WiLBiTButton)sender;
+            btn.BorderSize = 3;
+            btn.BackColor = Color.FromArgb(16, 47, 82);
+        }
+
+        private void btn_MouseLeave(object sender, EventArgs e)
+        {
+            WiLBiTButton btn;
+            btn = (WiLBiTButton)sender;
+            btn.BorderSize = 1;
+            btn.BackColor = Color.FromArgb(16, 47, 82);
         }
     }
 }

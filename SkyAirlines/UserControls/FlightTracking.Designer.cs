@@ -242,13 +242,15 @@
             this.btnSubmitFlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubmitFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnSubmitFlight.ForeColor = System.Drawing.Color.White;
-            this.btnSubmitFlight.Location = new System.Drawing.Point(705, 6);
+            this.btnSubmitFlight.Location = new System.Drawing.Point(723, 6);
             this.btnSubmitFlight.Name = "btnSubmitFlight";
-            this.btnSubmitFlight.Size = new System.Drawing.Size(164, 60);
+            this.btnSubmitFlight.Size = new System.Drawing.Size(182, 60);
             this.btnSubmitFlight.TabIndex = 5;
             this.btnSubmitFlight.Text = "Submit flight";
             this.btnSubmitFlight.UseVisualStyleBackColor = false;
             this.btnSubmitFlight.Click += new System.EventHandler(this.btnSubmitFlight_Click);
+            this.btnSubmitFlight.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnSubmitFlight.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnSimbriefOFP
             // 
@@ -262,7 +264,7 @@
             this.btnSimbriefOFP.ForeColor = System.Drawing.Color.White;
             this.btnSimbriefOFP.Location = new System.Drawing.Point(535, 6);
             this.btnSimbriefOFP.Name = "btnSimbriefOFP";
-            this.btnSimbriefOFP.Size = new System.Drawing.Size(164, 60);
+            this.btnSimbriefOFP.Size = new System.Drawing.Size(182, 60);
             this.btnSimbriefOFP.TabIndex = 3;
             this.btnSimbriefOFP.Text = "Simbrief OFP";
             this.btnSimbriefOFP.UseVisualStyleBackColor = false;
@@ -280,9 +282,9 @@
             this.btnSimbriefDispatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSimbriefDispatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnSimbriefDispatch.ForeColor = System.Drawing.Color.White;
-            this.btnSimbriefDispatch.Location = new System.Drawing.Point(365, 6);
+            this.btnSimbriefDispatch.Location = new System.Drawing.Point(347, 6);
             this.btnSimbriefDispatch.Name = "btnSimbriefDispatch";
-            this.btnSimbriefDispatch.Size = new System.Drawing.Size(164, 60);
+            this.btnSimbriefDispatch.Size = new System.Drawing.Size(182, 60);
             this.btnSimbriefDispatch.TabIndex = 2;
             this.btnSimbriefDispatch.Text = "Simbrief dispatch";
             this.btnSimbriefDispatch.UseVisualStyleBackColor = false;

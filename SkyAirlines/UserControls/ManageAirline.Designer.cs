@@ -114,6 +114,8 @@
             this.btnChangeLogo.TabIndex = 27;
             this.btnChangeLogo.Text = "Change logo";
             this.btnChangeLogo.UseVisualStyleBackColor = false;
+            this.btnChangeLogo.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnChangeLogo.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnChangeName
             // 
@@ -131,6 +133,8 @@
             this.btnChangeName.TabIndex = 26;
             this.btnChangeName.Text = "Change name";
             this.btnChangeName.UseVisualStyleBackColor = false;
+            this.btnChangeName.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnChangeName.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // wiLBiTPanel4
             // 
@@ -182,9 +186,12 @@
             this.btnBuyNewAirplane.TabIndex = 22;
             this.btnBuyNewAirplane.Text = "Buy new airplane";
             this.btnBuyNewAirplane.UseVisualStyleBackColor = false;
+            this.btnBuyNewAirplane.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnBuyNewAirplane.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // pbPicture
             // 
+            this.pbPicture.BackColor = System.Drawing.Color.Silver;
             this.pbPicture.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
             this.pbPicture.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(116)))), ((int)(((byte)(245)))));
             this.pbPicture.BorderColor2 = System.Drawing.Color.White;
@@ -417,6 +424,8 @@
             this.btnBuyEquipment.TabIndex = 23;
             this.btnBuyEquipment.Text = "Buy equipment";
             this.btnBuyEquipment.UseVisualStyleBackColor = false;
+            this.btnBuyEquipment.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnBuyEquipment.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // lblPercentageEquipment
             // 

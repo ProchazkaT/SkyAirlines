@@ -349,6 +349,8 @@
             this.btnBuyLicence.Text = "Buy";
             this.btnBuyLicence.UseVisualStyleBackColor = false;
             this.btnBuyLicence.Click += new System.EventHandler(this.btnBuyLicence_Click);
+            this.btnBuyLicence.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnBuyLicence.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // AircraftShowroom
             // 

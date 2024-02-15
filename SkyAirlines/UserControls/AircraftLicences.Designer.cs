@@ -56,11 +56,11 @@
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.btnBeechcraft = new WiLBiT.WiLBiTButton();
             this.wiLBiTPanel1 = new WiLBiT.WiLBiTPanel();
-            this.wiLBiTPanel2 = new WiLBiT.WiLBiTPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblLicences = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblLicences = new System.Windows.Forms.Label();
+            this.wiLBiTPanel2 = new WiLBiT.WiLBiTPanel();
             this.panelBoeing.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelAirbus.SuspendLayout();
@@ -80,8 +80,8 @@
             this.wiLBiTPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.wiLBiTPanel1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBoeing
@@ -169,6 +169,8 @@
             this.btnAirbus.Text = "Show";
             this.btnAirbus.UseVisualStyleBackColor = false;
             this.btnAirbus.Click += new System.EventHandler(this.btnAirbus_Click);
+            this.btnAirbus.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnAirbus.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // panelATR
             // 
@@ -211,6 +213,8 @@
             this.btnATR.Text = "Show";
             this.btnATR.UseVisualStyleBackColor = false;
             this.btnATR.Click += new System.EventHandler(this.btnATR_Click);
+            this.btnATR.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnATR.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // panelCessna
             // 
@@ -253,6 +257,8 @@
             this.btnCessna.Text = "Show";
             this.btnCessna.UseVisualStyleBackColor = false;
             this.btnCessna.Click += new System.EventHandler(this.btnCessna_Click);
+            this.btnCessna.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnCessna.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // panelEmbraer
             // 
@@ -295,6 +301,8 @@
             this.btnEmbraer.Text = "Show";
             this.btnEmbraer.UseVisualStyleBackColor = false;
             this.btnEmbraer.Click += new System.EventHandler(this.btnEmbraer_Click);
+            this.btnEmbraer.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnEmbraer.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // panelAntonov
             // 
@@ -337,6 +345,8 @@
             this.btnAntonov.Text = "Show";
             this.btnAntonov.UseVisualStyleBackColor = false;
             this.btnAntonov.Click += new System.EventHandler(this.btnAntonov_Click);
+            this.btnAntonov.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnAntonov.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // panelMD
             // 
@@ -379,6 +389,8 @@
             this.btnMD.Text = "Show";
             this.btnMD.UseVisualStyleBackColor = false;
             this.btnMD.Click += new System.EventHandler(this.btnMD_Click);
+            this.btnMD.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnMD.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // wiLBiTPanel7
             // 
@@ -421,6 +433,8 @@
             this.btnCRJ.Text = "Show";
             this.btnCRJ.UseVisualStyleBackColor = false;
             this.btnCRJ.Click += new System.EventHandler(this.btnCRJ_Click);
+            this.btnCRJ.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnCRJ.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // wiLBiTPanel8
             // 
@@ -463,6 +477,8 @@
             this.btnBeechcraft.Text = "Show";
             this.btnBeechcraft.UseVisualStyleBackColor = false;
             this.btnBeechcraft.Click += new System.EventHandler(this.btnBeechcraft_Click);
+            this.btnBeechcraft.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnBeechcraft.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // wiLBiTPanel1
             // 
@@ -478,46 +494,6 @@
             this.wiLBiTPanel1.Name = "wiLBiTPanel1";
             this.wiLBiTPanel1.Size = new System.Drawing.Size(984, 138);
             this.wiLBiTPanel1.TabIndex = 15;
-            // 
-            // wiLBiTPanel2
-            // 
-            this.wiLBiTPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.wiLBiTPanel2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.wiLBiTPanel2.BorderRadius = 0;
-            this.wiLBiTPanel2.BorderSize = 0;
-            this.wiLBiTPanel2.ForeColor = System.Drawing.Color.White;
-            this.wiLBiTPanel2.Location = new System.Drawing.Point(191, 41);
-            this.wiLBiTPanel2.Name = "wiLBiTPanel2";
-            this.wiLBiTPanel2.Size = new System.Drawing.Size(622, 5);
-            this.wiLBiTPanel2.TabIndex = 2;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.lblLicences, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 49);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(978, 76);
-            this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // lblLicences
-            // 
-            this.lblLicences.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblLicences.AutoSize = true;
-            this.lblLicences.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblLicences.ForeColor = System.Drawing.Color.Black;
-            this.lblLicences.Location = new System.Drawing.Point(3, 0);
-            this.lblLicences.Name = "lblLicences";
-            this.lblLicences.Size = new System.Drawing.Size(972, 76);
-            this.lblLicences.TabIndex = 0;
-            this.lblLicences.Text = "B737, B787, B777, A350, A380";
-            this.lblLicences.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
             // 
@@ -547,6 +523,46 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Your owned licenses";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.lblLicences, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 49);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(978, 76);
+            this.tableLayoutPanel1.TabIndex = 3;
+            // 
+            // lblLicences
+            // 
+            this.lblLicences.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblLicences.AutoSize = true;
+            this.lblLicences.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblLicences.ForeColor = System.Drawing.Color.Black;
+            this.lblLicences.Location = new System.Drawing.Point(3, 0);
+            this.lblLicences.Name = "lblLicences";
+            this.lblLicences.Size = new System.Drawing.Size(972, 76);
+            this.lblLicences.TabIndex = 0;
+            this.lblLicences.Text = "B737, B787, B777, A350, A380";
+            this.lblLicences.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // wiLBiTPanel2
+            // 
+            this.wiLBiTPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.wiLBiTPanel2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.wiLBiTPanel2.BorderRadius = 0;
+            this.wiLBiTPanel2.BorderSize = 0;
+            this.wiLBiTPanel2.ForeColor = System.Drawing.Color.White;
+            this.wiLBiTPanel2.Location = new System.Drawing.Point(191, 41);
+            this.wiLBiTPanel2.Name = "wiLBiTPanel2";
+            this.wiLBiTPanel2.Size = new System.Drawing.Size(622, 5);
+            this.wiLBiTPanel2.TabIndex = 2;
             // 
             // AircraftLicences
             // 
@@ -585,10 +601,10 @@
             this.wiLBiTPanel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.wiLBiTPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }

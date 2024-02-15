@@ -68,7 +68,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(90, 3);
+            this.label5.Location = new System.Drawing.Point(90, 2);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(133, 31);
             this.label5.TabIndex = 0;
@@ -84,7 +84,7 @@
             this.wiLBiTPanel5.ForeColor = System.Drawing.Color.White;
             this.wiLBiTPanel5.Location = new System.Drawing.Point(15, 3);
             this.wiLBiTPanel5.Name = "wiLBiTPanel5";
-            this.wiLBiTPanel5.Size = new System.Drawing.Size(295, 30);
+            this.wiLBiTPanel5.Size = new System.Drawing.Size(295, 33);
             this.wiLBiTPanel5.TabIndex = 3;
             // 
             // gMapControl
@@ -120,7 +120,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAirlineName.AutoSize = true;
             this.lblAirlineName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblAirlineName.Location = new System.Drawing.Point(290, 6);
+            this.lblAirlineName.Location = new System.Drawing.Point(290, 4);
             this.lblAirlineName.Name = "lblAirlineName";
             this.lblAirlineName.Size = new System.Drawing.Size(90, 31);
             this.lblAirlineName.TabIndex = 0;
@@ -136,7 +136,7 @@
             this.wiLBiTPanel2.ForeColor = System.Drawing.Color.White;
             this.wiLBiTPanel2.Location = new System.Drawing.Point(184, 3);
             this.wiLBiTPanel2.Name = "wiLBiTPanel2";
-            this.wiLBiTPanel2.Size = new System.Drawing.Size(656, 36);
+            this.wiLBiTPanel2.Size = new System.Drawing.Size(656, 39);
             this.wiLBiTPanel2.TabIndex = 1;
             // 
             // lblMembers
@@ -147,7 +147,7 @@
             this.lblMembers.ForeColor = System.Drawing.Color.Black;
             this.lblMembers.Location = new System.Drawing.Point(3, 28);
             this.lblMembers.Name = "lblMembers";
-            this.lblMembers.Size = new System.Drawing.Size(107, 28);
+            this.lblMembers.Size = new System.Drawing.Size(137, 28);
             this.lblMembers.TabIndex = 7;
             this.lblMembers.Text = "1 / 20";
             this.lblMembers.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -158,9 +158,9 @@
             this.lblMoney.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblMoney.ForeColor = System.Drawing.Color.Black;
-            this.lblMoney.Location = new System.Drawing.Point(116, 28);
+            this.lblMoney.Location = new System.Drawing.Point(146, 28);
             this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(379, 28);
+            this.lblMoney.Size = new System.Drawing.Size(225, 28);
             this.lblMoney.TabIndex = 6;
             this.lblMoney.Text = "3000 $";
             this.lblMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -171,9 +171,9 @@
             this.lblFleet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblFleet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblFleet.ForeColor = System.Drawing.Color.Black;
-            this.lblFleet.Location = new System.Drawing.Point(501, 28);
+            this.lblFleet.Location = new System.Drawing.Point(377, 28);
             this.lblFleet.Name = "lblFleet";
-            this.lblFleet.Size = new System.Drawing.Size(355, 28);
+            this.lblFleet.Size = new System.Drawing.Size(446, 28);
             this.lblFleet.TabIndex = 5;
             this.lblFleet.Text = "B737";
             this.lblFleet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -184,9 +184,9 @@
             this.lblHeadquarter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblHeadquarter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblHeadquarter.ForeColor = System.Drawing.Color.Black;
-            this.lblHeadquarter.Location = new System.Drawing.Point(862, 28);
+            this.lblHeadquarter.Location = new System.Drawing.Point(829, 28);
             this.lblHeadquarter.Name = "lblHeadquarter";
-            this.lblHeadquarter.Size = new System.Drawing.Size(143, 28);
+            this.lblHeadquarter.Size = new System.Drawing.Size(176, 28);
             this.lblHeadquarter.TabIndex = 4;
             this.lblHeadquarter.Text = "LKPR";
             this.lblHeadquarter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -197,9 +197,9 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(862, 0);
+            this.label4.Location = new System.Drawing.Point(829, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(143, 28);
+            this.label4.Size = new System.Drawing.Size(176, 28);
             this.label4.TabIndex = 3;
             this.label4.Text = "Headquarter";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -210,9 +210,9 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(501, 0);
+            this.label3.Location = new System.Drawing.Point(377, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(355, 28);
+            this.label3.Size = new System.Drawing.Size(446, 28);
             this.label3.TabIndex = 2;
             this.label3.Text = "Fleet";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -223,9 +223,9 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(116, 0);
+            this.label2.Location = new System.Drawing.Point(146, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(379, 28);
+            this.label2.Size = new System.Drawing.Size(225, 28);
             this.label2.TabIndex = 1;
             this.label2.Text = "Money";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -238,7 +238,7 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 28);
+            this.label1.Size = new System.Drawing.Size(137, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Members";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -246,10 +246,10 @@
             // tableLayoutPanel
             // 
             this.tableLayoutPanel.ColumnCount = 4;
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.30952F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.19444F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.81349F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.68254F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.18651F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.91667F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.84127F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.95635F));
             this.tableLayoutPanel.Controls.Add(this.lblMembers, 0, 1);
             this.tableLayoutPanel.Controls.Add(this.lblMoney, 0, 1);
             this.tableLayoutPanel.Controls.Add(this.lblFleet, 0, 1);
@@ -303,9 +303,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FlowRow.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.FlowRow.Location = new System.Drawing.Point(3, 39);
+            this.FlowRow.Location = new System.Drawing.Point(15, 39);
             this.FlowRow.Name = "FlowRow";
-            this.FlowRow.Size = new System.Drawing.Size(322, 491);
+            this.FlowRow.Size = new System.Drawing.Size(295, 495);
             this.FlowRow.TabIndex = 4;
             // 
             // wiLBiTPanel4
@@ -386,6 +386,8 @@
             this.btnCopyFlight.Text = "Copy flight";
             this.btnCopyFlight.UseVisualStyleBackColor = false;
             this.btnCopyFlight.Click += new System.EventHandler(this.btnCopyFlight_Click);
+            this.btnCopyFlight.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnCopyFlight.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // label7
             // 
@@ -415,6 +417,8 @@
             this.btnGenerateFlight.Text = "Generate flight";
             this.btnGenerateFlight.UseVisualStyleBackColor = false;
             this.btnGenerateFlight.Click += new System.EventHandler(this.btnGenerateFlight_Click);
+            this.btnGenerateFlight.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnGenerateFlight.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // lblGenerateFlight
             // 

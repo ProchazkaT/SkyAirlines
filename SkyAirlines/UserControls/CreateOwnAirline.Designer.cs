@@ -140,6 +140,8 @@
             this.btnCreateOwnAirline.Text = "Create your own airline";
             this.btnCreateOwnAirline.UseVisualStyleBackColor = false;
             this.btnCreateOwnAirline.Click += new System.EventHandler(this.btnCreateOwnAirline_Click);
+            this.btnCreateOwnAirline.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnCreateOwnAirline.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // label5
             // 
@@ -199,6 +201,8 @@
             this.btnOpenLogoImg.Text = "Open";
             this.btnOpenLogoImg.UseVisualStyleBackColor = false;
             this.btnOpenLogoImg.Click += new System.EventHandler(this.btnOpenLogoImg_Click);
+            this.btnOpenLogoImg.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnOpenLogoImg.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // cbFleet
             // 

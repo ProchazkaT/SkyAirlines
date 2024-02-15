@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WiLBiT;
 
 namespace SkyAirlines.UserControls
 {
@@ -507,6 +508,22 @@ namespace SkyAirlines.UserControls
         private void btnBuyLicence_Click(object sender, EventArgs e)
         {
             licences.BuyLicence(aircraftShort, username, int.Parse(lblPrice.Text));
+        }
+
+        private void btn_MouseEnter(object sender, EventArgs e)
+        {
+            WiLBiTButton btn;
+            btn = (WiLBiTButton)sender;
+            btn.BorderSize = 3;
+            btn.BackColor = Color.FromArgb(16, 47, 82);
+        }
+
+        private void btn_MouseLeave(object sender, EventArgs e)
+        {
+            WiLBiTButton btn;
+            btn = (WiLBiTButton)sender;
+            btn.BorderSize = 1;
+            btn.BackColor = Color.FromArgb(16, 47, 82);
         }
     }
 }

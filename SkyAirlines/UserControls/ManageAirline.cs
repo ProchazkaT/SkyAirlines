@@ -3,6 +3,7 @@ using GMap.NET;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace SkyAirlines
 {
@@ -54,6 +55,22 @@ namespace SkyAirlines
             {
                 lblPercentageEquipment.Text = "+7.5%";
             }
+        }
+
+        private void btn_MouseEnter(object sender, EventArgs e)
+        {
+            Button btn;
+            btn = (Button)sender;
+            btn.FlatAppearance.BorderSize = 3;
+            btn.FlatAppearance.BorderColor = Color.RoyalBlue;
+        }
+
+        private void btn_MouseLeave(object sender, EventArgs e)
+        {
+            Button btn;
+            btn = (Button)sender;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.FlatAppearance.BorderColor = Color.FromArgb(16, 47, 82);
         }
 
         private void cbEquipment_SelectedIndexChanged(object sender, EventArgs e)
