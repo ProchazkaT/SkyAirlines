@@ -116,7 +116,7 @@
             this.linkLblHaveAcc.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.linkLblHaveAcc.ForeColor = System.Drawing.Color.DimGray;
             this.linkLblHaveAcc.LinkColor = System.Drawing.Color.Silver;
-            this.linkLblHaveAcc.Location = new System.Drawing.Point(223, 555);
+            this.linkLblHaveAcc.Location = new System.Drawing.Point(198, 555);
             this.linkLblHaveAcc.Name = "linkLblHaveAcc";
             this.linkLblHaveAcc.Size = new System.Drawing.Size(209, 22);
             this.linkLblHaveAcc.TabIndex = 8;

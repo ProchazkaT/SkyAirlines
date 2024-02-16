@@ -17,8 +17,10 @@ namespace SkyAirlines
         private ConnectionToSQL connectionToSQL;
         private GetAirlineData getAirlineData = new GetAirlineData();
         private Licences licences = new Licences();
+        private GetAirlineData airlineData = new GetAirlineData();
 
-        private GMapOverlay markersOverlay;
+        private GMapOverlay markersOverlay = new GMapOverlay("AirportMarkers");
+        private GMapOverlay departureOverlay = new GMapOverlay("DepartureOverlay");
         private CustomMarker clickedMarker;
         private string markerDescription = "";
 
@@ -56,6 +58,9 @@ namespace SkyAirlines
             gMapControl.Position = new PointLatLng(50.14, 14.26);
 
             Controls.Add(gMapControl);
+
+            gMapControl.Overlays.Add(markersOverlay);
+            gMapControl.Overlays.Add(departureOverlay);
 
             SetAirportsMarkers();
             gMapControl.OnMarkerClick += new MarkerClick(gMapControl_OnMarkerClick);
@@ -288,9 +293,6 @@ namespace SkyAirlines
 
         public void SetAirportsMarkers()
         {
-            markersOverlay = new GMapOverlay("AirportMarkers");
-            gMapControl.Overlays.Add(markersOverlay);
-
             SetDepartureMarker();
             List<Tuple<double, double, string>> dataFromDatabase = GetDatabaseData();
             foreach (var data in dataFromDatabase)
@@ -301,6 +303,41 @@ namespace SkyAirlines
 
                 CustomMarker marker = new CustomMarker(new PointLatLng(latitude, longitude), Properties.Resources.AirportMarker, description);
                 markersOverlay.Markers.Add(marker);
+            }
+
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    cmd.CommandText = "SELECT icao, name, lat, lon FROM Airports WHERE icao=@icao";
+                    cmd.Parameters.AddWithValue("@icao", airlineData.GetAirlineHeadquarter());
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string description = "Headquarter\n" + reader["icao"].ToString().Trim() + " - " + reader["name"].ToString().Trim();
+                        double latitude;
+                        double longitude;
+
+                        if (double.TryParse(reader["lat"].ToString().Trim().Replace(',', '.'), out latitude) &&
+                            double.TryParse(reader["lon"].ToString().Trim().Replace(',', '.'), out longitude))
+                        {
+                            CustomMarker marker = new CustomMarker(new PointLatLng(latitude, longitude), Properties.Resources.HomeMarker, description);
+                            markersOverlay.Markers.Add(marker);
+                        }
+                    }
+                    reader.Close();
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("The specified ICAO does not exist!\n" + ex.ToString(), "Notification:");
+                }
             }
         }
 
@@ -333,8 +370,8 @@ namespace SkyAirlines
                             if (double.TryParse(reader["lat"].ToString().Trim().Replace(',', '.'), out latitude) &&
                                 double.TryParse(reader["lon"].ToString().Trim().Replace(',', '.'), out longitude))
                             {
-                                CustomMarker marker = new CustomMarker(new PointLatLng(latitude, longitude), Properties.Resources.HomeMarker, description);
-                                markersOverlay.Markers.Add(marker);
+                                CustomMarker marker = new CustomMarker(new PointLatLng(latitude, longitude), Properties.Resources.HereMarker,"");
+                                departureOverlay.Markers.Add(marker);
                             }
                         }
                         reader.Close();

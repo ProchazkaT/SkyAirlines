@@ -48,6 +48,9 @@
             this.lblMembers = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.wiLBiTPanel6 = new WiLBiT.WiLBiTPanel();
+            this.btnBuyDestination = new WiLBiT.WiLBiTButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbICAO = new WiLBiT.WiLBiTTextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.wiLBiTPanel7 = new WiLBiT.WiLBiTPanel();
@@ -61,6 +64,7 @@
             this.wiLBiTPanel9 = new WiLBiT.WiLBiTPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
+            this.btnSelectDestination = new WiLBiT.WiLBiTButton();
             this.wiLBiTPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -339,13 +343,71 @@
             this.wiLBiTPanel6.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.wiLBiTPanel6.BorderRadius = 20;
             this.wiLBiTPanel6.BorderSize = 0;
+            this.wiLBiTPanel6.Controls.Add(this.btnSelectDestination);
+            this.wiLBiTPanel6.Controls.Add(this.btnBuyDestination);
+            this.wiLBiTPanel6.Controls.Add(this.label5);
+            this.wiLBiTPanel6.Controls.Add(this.tbICAO);
             this.wiLBiTPanel6.Controls.Add(this.tableLayoutPanel2);
             this.wiLBiTPanel6.Controls.Add(this.wiLBiTPanel7);
             this.wiLBiTPanel6.ForeColor = System.Drawing.Color.White;
             this.wiLBiTPanel6.Location = new System.Drawing.Point(241, 3);
             this.wiLBiTPanel6.Name = "wiLBiTPanel6";
-            this.wiLBiTPanel6.Size = new System.Drawing.Size(806, 72);
+            this.wiLBiTPanel6.Size = new System.Drawing.Size(806, 132);
             this.wiLBiTPanel6.TabIndex = 3;
+            // 
+            // btnBuyDestination
+            // 
+            this.btnBuyDestination.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnBuyDestination.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnBuyDestination.BorderRadius = 10;
+            this.btnBuyDestination.BorderSize = 0;
+            this.btnBuyDestination.Enabled = false;
+            this.btnBuyDestination.FlatAppearance.BorderSize = 0;
+            this.btnBuyDestination.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuyDestination.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnBuyDestination.ForeColor = System.Drawing.Color.White;
+            this.btnBuyDestination.Location = new System.Drawing.Point(629, 72);
+            this.btnBuyDestination.Name = "btnBuyDestination";
+            this.btnBuyDestination.Size = new System.Drawing.Size(156, 52);
+            this.btnBuyDestination.TabIndex = 24;
+            this.btnBuyDestination.Text = "Buy destination";
+            this.btnBuyDestination.UseVisualStyleBackColor = false;
+            this.btnBuyDestination.Click += new System.EventHandler(this.btnBuyDestination_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.Control;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(21, 86);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(285, 22);
+            this.label5.TabIndex = 15;
+            this.label5.Tag = "n";
+            this.label5.Text = "- Enter airport ICAO of destination:";
+            // 
+            // tbICAO
+            // 
+            this.tbICAO.BackColor = System.Drawing.SystemColors.Window;
+            this.tbICAO.BorderColor = System.Drawing.Color.DimGray;
+            this.tbICAO.BorderFocusColor = System.Drawing.Color.DimGray;
+            this.tbICAO.BorderRadius = 4;
+            this.tbICAO.BorderSize = 2;
+            this.tbICAO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbICAO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbICAO.Location = new System.Drawing.Point(313, 78);
+            this.tbICAO.Margin = new System.Windows.Forms.Padding(4);
+            this.tbICAO.Multiline = false;
+            this.tbICAO.Name = "tbICAO";
+            this.tbICAO.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbICAO.PasswordChar = false;
+            this.tbICAO.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbICAO.PlaceholderText = "";
+            this.tbICAO.Size = new System.Drawing.Size(120, 37);
+            this.tbICAO.TabIndex = 11;
+            this.tbICAO.Texts = "";
+            this.tbICAO.UnderlinedStyle = false;
             // 
             // tableLayoutPanel2
             // 
@@ -372,7 +434,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(753, 47);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Destinations";
+            this.label2.Text = "Airline destinations";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // wiLBiTPanel7
@@ -418,12 +480,13 @@
             this.btnBuyEquipment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuyEquipment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnBuyEquipment.ForeColor = System.Drawing.Color.White;
-            this.btnBuyEquipment.Location = new System.Drawing.Point(626, 86);
+            this.btnBuyEquipment.Location = new System.Drawing.Point(626, 72);
             this.btnBuyEquipment.Name = "btnBuyEquipment";
-            this.btnBuyEquipment.Size = new System.Drawing.Size(156, 52);
+            this.btnBuyEquipment.Size = new System.Drawing.Size(156, 69);
             this.btnBuyEquipment.TabIndex = 23;
             this.btnBuyEquipment.Text = "Buy equipment";
             this.btnBuyEquipment.UseVisualStyleBackColor = false;
+            this.btnBuyEquipment.Click += new System.EventHandler(this.btnBuyEquipment_Click);
             this.btnBuyEquipment.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnBuyEquipment.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
@@ -466,7 +529,7 @@
             this.cbEquipment.FormattingEnabled = true;
             this.cbEquipment.Location = new System.Drawing.Point(141, 97);
             this.cbEquipment.Name = "cbEquipment";
-            this.cbEquipment.Size = new System.Drawing.Size(155, 30);
+            this.cbEquipment.Size = new System.Drawing.Size(179, 30);
             this.cbEquipment.TabIndex = 15;
             this.cbEquipment.SelectedIndexChanged += new System.EventHandler(this.cbEquipment_SelectedIndexChanged);
             // 
@@ -516,7 +579,7 @@
             this.gMapControl.GrayScaleMode = false;
             this.gMapControl.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gMapControl.LevelsKeepInMemory = 5;
-            this.gMapControl.Location = new System.Drawing.Point(254, 81);
+            this.gMapControl.Location = new System.Drawing.Point(253, 141);
             this.gMapControl.MarkersEnabled = true;
             this.gMapControl.MaxZoom = 2;
             this.gMapControl.MinZoom = 2;
@@ -530,9 +593,27 @@
             this.gMapControl.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl.ShowTileGridLines = false;
-            this.gMapControl.Size = new System.Drawing.Size(780, 421);
+            this.gMapControl.Size = new System.Drawing.Size(781, 361);
             this.gMapControl.TabIndex = 5;
             this.gMapControl.Zoom = 0D;
+            // 
+            // btnSelectDestination
+            // 
+            this.btnSelectDestination.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnSelectDestination.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnSelectDestination.BorderRadius = 10;
+            this.btnSelectDestination.BorderSize = 0;
+            this.btnSelectDestination.FlatAppearance.BorderSize = 0;
+            this.btnSelectDestination.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelectDestination.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnSelectDestination.ForeColor = System.Drawing.Color.White;
+            this.btnSelectDestination.Location = new System.Drawing.Point(440, 72);
+            this.btnSelectDestination.Name = "btnSelectDestination";
+            this.btnSelectDestination.Size = new System.Drawing.Size(172, 52);
+            this.btnSelectDestination.TabIndex = 25;
+            this.btnSelectDestination.Text = "Select destination";
+            this.btnSelectDestination.UseVisualStyleBackColor = false;
+            this.btnSelectDestination.Click += new System.EventHandler(this.btnSelectDestination_Click);
             // 
             // ManageAirline
             // 
@@ -552,6 +633,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.wiLBiTPanel6.ResumeLayout(false);
+            this.wiLBiTPanel6.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.wiLBiTPanel8.ResumeLayout(false);
@@ -595,5 +677,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblPercentageEquipment;
         private WiLBiT.WiLBiTButton btnBuyEquipment;
+        private WiLBiT.WiLBiTTextBox tbICAO;
+        private System.Windows.Forms.Label label5;
+        private WiLBiT.WiLBiTButton btnBuyDestination;
+        private WiLBiT.WiLBiTButton btnSelectDestination;
     }
 }

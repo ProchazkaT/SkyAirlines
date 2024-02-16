@@ -77,10 +77,7 @@ namespace SkyAirlines
                         GlobalData.btnLeaveAirline.Enabled = true;
                         GlobalData.Departure = lblHeadquater.Text;
 
-                        if (sqlData.IsPilotAirlineBoss(GlobalData.Username))
-                            ChangeMainPanel(new AirlineBoss(panel));
-                        else
-                            ChangeMainPanel(new AirlinePilot(panel));
+                        ChangeMainPanel(new AirlinePilot(panel));
 
                         connection.Close();
                     }

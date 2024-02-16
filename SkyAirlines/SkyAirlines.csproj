@@ -352,6 +352,8 @@
     <Content Include="Images\tshadowright.png" />
     <Content Include="Images\tshadowtopright.png" />
     <None Include="Resources\AirplaneMarker.png" />
+    <None Include="Resources\AirportMarker.png" />
+    <None Include="Resources\HereMarker.png" />
     <Content Include="SkyAirlines2.ico" />
     <None Include="Resources\Departure.png" />
     <None Include="Resources\Arrival.png" />
@@ -359,7 +361,6 @@
     <None Include="Resources\LastArrivalMarker.png" />
     <None Include="Resources\leave.png" />
     <None Include="Resources\chat.png" />
-    <None Include="Resources\AirportMarker.png" />
     <None Include="Resources\AircraftMarker.png" />
     <None Include="Resources\settings.png" />
     <None Include="Resources\logout.png" />

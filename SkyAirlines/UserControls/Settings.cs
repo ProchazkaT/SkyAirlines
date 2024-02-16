@@ -93,96 +93,110 @@ namespace SkyAirlines
         {
             bool passwordIsRight = false;
 
-            using (SqlConnection connection = connectionToSQL.CreateConnection())
+            if (!string.IsNullOrEmpty(tbCurrentEmail.Texts) && !string.IsNullOrEmpty(tbNewEmail.Texts) && !string.IsNullOrEmpty(tbConfirmationPasswordEmail.Texts))
             {
-                try
+                if (tbCurrentEmail.Texts != tbNewEmail.Texts)
                 {
-                    connection.Open();
-
-                    string result = "";
-                    using (SHA512 hashovac = SHA512.Create())
+                    using (SqlConnection connection = connectionToSQL.CreateConnection())
                     {
-                        byte[] vypocitano = hashovac.ComputeHash(Encoding.UTF8.GetBytes(tbConfirmationPasswordEmail.Texts + "a7c3b1d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3q4r5s6t7u8v9w0x1y2z3a4b5c6d7e8f9g0h1i2j3k4l5m6n7o8p9q0r1s2t3u4v5w6x7y8z9a"));
-                        result = BitConverter.ToString(vypocitano);
-                        result = result.Replace("-", "").ToLower();
-                    }
-
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = connection;
-
-                    cmd.CommandText = "SELECT * FROM Pilot WHERE Username = @username AND Password = @password";
-                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
-                    cmd.Parameters.AddWithValue("@password", result);
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
-                    {
-                        passwordIsRight = true;
-                    }
-                    else
-                    {
-                        passwordIsRight = false;
-                        MessageBox.Show("You type wrong password.", "Notification:");
-                    }
-
-                    reader.Close();
-                    connection.Close();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("An error occurred. Try it again.", "Error:");
-                }
-            }
-
-            using (SqlConnection connection = connectionToSQL.CreateConnection())
-            {
-                connection.Open();
-
-                if (passwordIsRight)
-                {
-                    if (IsValidEmail(tbNewEmail.Texts))
-                    {
-                        string controlEmail = "SELECT COUNT(*) FROM Pilot WHERE Email = @email";
-                        SqlCommand controlCMD = new SqlCommand(controlEmail, connection);
-                        controlCMD.Parameters.AddWithValue("@email", tbNewEmail.Texts);
-                        int existEmail = (int)controlCMD.ExecuteScalar();
-
-                        if (existEmail == 0)
+                        try
                         {
-                            try
+                            connection.Open();
+
+                            string result = "";
+                            using (SHA512 hashovac = SHA512.Create())
                             {
-
-                                SqlCommand cmd = new SqlCommand();
-                                cmd.Connection = connection;
-
-                                cmd.CommandText = "UPDATE Pilot SET Email = @email WHERE Username = @username";
-                                cmd.Parameters.AddWithValue("@email", tbNewEmail.Texts);
-                                cmd.Parameters.AddWithValue("@username", GlobalData.Username);
-                                cmd.ExecuteNonQuery();
-
-
-                                tbCurrentEmail.Texts = tbNewEmail.Texts;
-                                tbNewEmail.Texts = "";
-                                MessageBox.Show("You successfully change the email.", "Notification:");
-                                connection.Close();
+                                byte[] vypocitano = hashovac.ComputeHash(Encoding.UTF8.GetBytes(tbConfirmationPasswordEmail.Texts + "a7c3b1d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3q4r5s6t7u8v9w0x1y2z3a4b5c6d7e8f9g0h1i2j3k4l5m6n7o8p9q0r1s2t3u4v5w6x7y8z9a"));
+                                result = BitConverter.ToString(vypocitano);
+                                result = result.Replace("-", "").ToLower();
                             }
-                            catch (Exception)
+
+                            SqlCommand cmd = new SqlCommand();
+                            cmd.Connection = connection;
+
+                            cmd.CommandText = "SELECT * FROM Pilot WHERE Username = @username AND Password = @password";
+                            cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                            cmd.Parameters.AddWithValue("@password", result);
+                            SqlDataReader reader = cmd.ExecuteReader();
+
+                            if (reader.Read())
                             {
-                                MessageBox.Show("An error occurred while changing image.", "Error:");
-                                connection.Close();
+                                passwordIsRight = true;
                             }
+                            else
+                            {
+                                passwordIsRight = false;
+                                MessageBox.Show("You type wrong password.", "Notification:");
+                            }
+
+                            reader.Close();
+                            connection.Close();
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("An error occurred. Try it again.", "Error:");
+                        }
+                    }
+
+                    using (SqlConnection connection = connectionToSQL.CreateConnection())
+                    {
+                        connection.Open();
+
+                        if (passwordIsRight)
+                        {
+                            if (IsValidEmail(tbNewEmail.Texts))
+                            {
+                                string controlEmail = "SELECT COUNT(*) FROM Pilot WHERE Email = @email";
+                                SqlCommand controlCMD = new SqlCommand(controlEmail, connection);
+                                controlCMD.Parameters.AddWithValue("@email", tbNewEmail.Texts);
+                                int existEmail = (int)controlCMD.ExecuteScalar();
+
+                                if (existEmail == 0)
+                                {
+                                    try
+                                    {
+
+                                        SqlCommand cmd = new SqlCommand();
+                                        cmd.Connection = connection;
+
+                                        cmd.CommandText = "UPDATE Pilot SET Email = @email WHERE Username = @username";
+                                        cmd.Parameters.AddWithValue("@email", tbNewEmail.Texts);
+                                        cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                                        cmd.ExecuteNonQuery();
+
+
+                                        tbCurrentEmail.Texts = tbNewEmail.Texts;
+                                        tbNewEmail.Texts = "";
+                                        MessageBox.Show("You successfully change the email.", "Notification:");
+                                        connection.Close();
+                                    }
+                                    catch (Exception)
+                                    {
+                                        MessageBox.Show("An error occurred while changing image.", "Error:");
+                                        connection.Close();
+                                    }
+                                }
+                                else
+                                    MessageBox.Show("Email is already registered!", "Error:");
+                            }
+                            else
+                                MessageBox.Show("Invalid email format!", "Notification:");
                         }
                         else
-                            MessageBox.Show("Email is already registered!", "Error:");
+                            MessageBox.Show("Password is not correct!", "Error:");
+
+                        tbNewEmail.Texts = "";
+                        tbConfirmationPasswordEmail.Texts = "";
                     }
-                    else
-                        MessageBox.Show("Invalid email format!", "Notification:");
                 }
                 else
-                    MessageBox.Show("Password is not correct!", "Error:");
-
-                tbNewEmail.Texts = "";
-                tbConfirmationPasswordEmail.Texts = "";
+                {
+                    MessageBox.Show("The new email cannot be the same as the current one!", "Notification");
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must enter the necessary information!", "Notification");
             }
         }
 
@@ -190,98 +204,112 @@ namespace SkyAirlines
         {
             bool passwordIsRight = false;
 
-            using (SqlConnection connection = connectionToSQL.CreateConnection())
+            if (!string.IsNullOrEmpty(tbCurrentPassword.Texts) && !string.IsNullOrEmpty(tbNewPassword.Texts) && !string.IsNullOrEmpty(tbNewPasswordAgain.Texts))
             {
-                try
+                if (tbCurrentPassword.Texts != tbNewPassword.Texts)
                 {
-                    connection.Open();
-
-                    string result = "";
-
-                    using (SHA512 hashovac = SHA512.Create())
-                    {
-                        byte[] vypocitano = hashovac.ComputeHash(Encoding.UTF8.GetBytes(tbCurrentPassword.Texts + "a7c3b1d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3q4r5s6t7u8v9w0x1y2z3a4b5c6d7e8f9g0h1i2j3k4l5m6n7o8p9q0r1s2t3u4v5w6x7y8z9a"));
-                        result = BitConverter.ToString(vypocitano).Replace("-", "").ToLower();
-                    }
-
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = connection;
-
-                    cmd.CommandText = "SELECT * FROM Pilot WHERE Username = @username AND Password = @password";
-                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
-                    cmd.Parameters.AddWithValue("@password", result);
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
-                    {
-                        passwordIsRight = true;
-                    }
-                    else
-                    {
-                        passwordIsRight = false;
-                    }
-
-                    reader.Close();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("An error occurred. Try again.", "Error");
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
-
-            using (SqlConnection connection = connectionToSQL.CreateConnection())
-            {
-                connection.Open();
-
-                if (passwordIsRight)
-                {
-                    if (tbNewPassword.Texts == tbNewPasswordAgain.Texts && !string.IsNullOrEmpty(tbNewPasswordAgain.Texts) && !string.IsNullOrEmpty(tbNewPassword.Texts))
+                    using (SqlConnection connection = connectionToSQL.CreateConnection())
                     {
                         try
                         {
-                            SqlCommand cmd = new SqlCommand();
-                            cmd.Connection = connection;
+                            connection.Open();
 
                             string result = "";
 
                             using (SHA512 hashovac = SHA512.Create())
                             {
-                                byte[] vypocitano = hashovac.ComputeHash(Encoding.UTF8.GetBytes(tbNewPasswordAgain.Texts + "a7c3b1d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3q4r5s6t7u8v9w0x1y2z3a4b5c6d7e8f9g0h1i2j3k4l5m6n7o8p9q0r1s2t3u4v5w6x7y8z9a"));
+                                byte[] vypocitano = hashovac.ComputeHash(Encoding.UTF8.GetBytes(tbCurrentPassword.Texts + "a7c3b1d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3q4r5s6t7u8v9w0x1y2z3a4b5c6d7e8f9g0h1i2j3k4l5m6n7o8p9q0r1s2t3u4v5w6x7y8z9a"));
                                 result = BitConverter.ToString(vypocitano).Replace("-", "").ToLower();
                             }
 
-                            cmd.CommandText = "UPDATE Pilot SET Password = @password WHERE Username = @username";
-                            cmd.Parameters.AddWithValue("@password", result);
+                            SqlCommand cmd = new SqlCommand();
+                            cmd.Connection = connection;
+
+                            cmd.CommandText = "SELECT * FROM Pilot WHERE Username = @username AND Password = @password";
                             cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                            cmd.Parameters.AddWithValue("@password", result);
 
-                            cmd.ExecuteNonQuery();
+                            SqlDataReader reader = cmd.ExecuteReader();
 
-                            MessageBox.Show("You have successfully changed the password.", "Notification");
+                            if (reader.Read())
+                            {
+                                passwordIsRight = true;
+                            }
+                            else
+                            {
+                                passwordIsRight = false;
+                            }
+
+                            reader.Close();
                         }
                         catch (Exception)
                         {
-                            MessageBox.Show("An error occurred while changing the password.", "Error");
+                            MessageBox.Show("An error occurred. Try again.", "Error");
+                        }
+                        finally
+                        {
+                            connection.Close();
                         }
                     }
-                    else
+
+                    using (SqlConnection connection = connectionToSQL.CreateConnection())
                     {
-                        MessageBox.Show("The new passwords do not match or are empty.", "Notification");
+                        connection.Open();
+
+                        if (passwordIsRight)
+                        {
+                            if (tbNewPassword.Texts == tbNewPasswordAgain.Texts)
+                            {
+                                try
+                                {
+                                    SqlCommand cmd = new SqlCommand();
+                                    cmd.Connection = connection;
+
+                                    string result = "";
+
+                                    using (SHA512 hashovac = SHA512.Create())
+                                    {
+                                        byte[] vypocitano = hashovac.ComputeHash(Encoding.UTF8.GetBytes(tbNewPasswordAgain.Texts + "a7c3b1d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p3q4r5s6t7u8v9w0x1y2z3a4b5c6d7e8f9g0h1i2j3k4l5m6n7o8p9q0r1s2t3u4v5w6x7y8z9a"));
+                                        result = BitConverter.ToString(vypocitano).Replace("-", "").ToLower();
+                                    }
+
+                                    cmd.CommandText = "UPDATE Pilot SET Password = @password WHERE Username = @username";
+                                    cmd.Parameters.AddWithValue("@password", result);
+                                    cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+
+                                    cmd.ExecuteNonQuery();
+
+                                    MessageBox.Show("You have successfully changed the password.", "Notification");
+                                }
+                                catch (Exception)
+                                {
+                                    MessageBox.Show("An error occurred while changing the password.", "Error");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("The new passwords do not match or are empty.", "Notification");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("The entered password is not correct.", "Notification");
+                        }
+
+                        tbCurrentPassword.Texts = "";
+                        tbNewPassword.Texts = "";
+                        tbNewPasswordAgain.Texts = "";
+                        connection.Close();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("The entered password is not correct.", "Notification");
+                    MessageBox.Show("The new password cannot be the same as the current one!", "Notification");
                 }
-
-                tbCurrentPassword.Texts = "";
-                tbNewPassword.Texts = "";
-                tbNewPasswordAgain.Texts = "";
-                connection.Close();
+            }
+            else
+            {
+                MessageBox.Show("You must enter the necessary information!", "Notification");
             }
         }
 
@@ -315,7 +343,7 @@ namespace SkyAirlines
                 }
                 else
                 {
-                    MessageBox.Show("The new username is empty.", "Notification");
+                    MessageBox.Show("You must enter the necessary information!", "Notification");
                     connection.Close();
                 }
             }
@@ -383,7 +411,7 @@ namespace SkyAirlines
                         try
                         {
                             SqlCommand cmd = new SqlCommand();
-                           
+
                             connection.Open();
                             cmd.Connection = connection;
 
@@ -469,7 +497,7 @@ namespace SkyAirlines
                     }
                     else
                     {
-                        MessageBox.Show("The password textbox is empty.", "Notification");
+                        MessageBox.Show("You must enter the necessary information!", "Notification");
                         connection.Close();
                     }
                 }

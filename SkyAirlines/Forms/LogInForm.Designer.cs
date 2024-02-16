@@ -90,7 +90,7 @@
             this.linkLblNewAcc.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.linkLblNewAcc.ForeColor = System.Drawing.Color.DimGray;
             this.linkLblNewAcc.LinkColor = System.Drawing.Color.Silver;
-            this.linkLblNewAcc.Location = new System.Drawing.Point(225, 486);
+            this.linkLblNewAcc.Location = new System.Drawing.Point(206, 486);
             this.linkLblNewAcc.Name = "linkLblNewAcc";
             this.linkLblNewAcc.Size = new System.Drawing.Size(193, 22);
             this.linkLblNewAcc.TabIndex = 8;
