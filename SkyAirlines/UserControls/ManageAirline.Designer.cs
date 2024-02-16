@@ -48,6 +48,7 @@
             this.lblMembers = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.wiLBiTPanel6 = new WiLBiT.WiLBiTPanel();
+            this.btnSelectDestination = new WiLBiT.WiLBiTButton();
             this.btnBuyDestination = new WiLBiT.WiLBiTButton();
             this.label5 = new System.Windows.Forms.Label();
             this.tbICAO = new WiLBiT.WiLBiTTextBox();
@@ -64,7 +65,6 @@
             this.wiLBiTPanel9 = new WiLBiT.WiLBiTPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
-            this.btnSelectDestination = new WiLBiT.WiLBiTButton();
             this.wiLBiTPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -112,12 +112,13 @@
             this.btnChangeLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnChangeLogo.ForeColor = System.Drawing.Color.White;
-            this.btnChangeLogo.Location = new System.Drawing.Point(32, 218);
+            this.btnChangeLogo.Location = new System.Drawing.Point(38, 228);
             this.btnChangeLogo.Name = "btnChangeLogo";
             this.btnChangeLogo.Size = new System.Drawing.Size(165, 42);
             this.btnChangeLogo.TabIndex = 27;
             this.btnChangeLogo.Text = "Change logo";
             this.btnChangeLogo.UseVisualStyleBackColor = false;
+            this.btnChangeLogo.Click += new System.EventHandler(this.btnChangeLogo_Click);
             this.btnChangeLogo.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnChangeLogo.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
@@ -131,12 +132,13 @@
             this.btnChangeName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnChangeName.ForeColor = System.Drawing.Color.White;
-            this.btnChangeName.Location = new System.Drawing.Point(32, 170);
+            this.btnChangeName.Location = new System.Drawing.Point(38, 180);
             this.btnChangeName.Name = "btnChangeName";
             this.btnChangeName.Size = new System.Drawing.Size(165, 42);
             this.btnChangeName.TabIndex = 26;
             this.btnChangeName.Text = "Change name";
             this.btnChangeName.UseVisualStyleBackColor = false;
+            this.btnChangeName.Click += new System.EventHandler(this.btnChangeName_Click);
             this.btnChangeName.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnChangeName.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
@@ -147,9 +149,9 @@
             this.wiLBiTPanel4.BorderRadius = 0;
             this.wiLBiTPanel4.BorderSize = 0;
             this.wiLBiTPanel4.ForeColor = System.Drawing.Color.White;
-            this.wiLBiTPanel4.Location = new System.Drawing.Point(10, 323);
+            this.wiLBiTPanel4.Location = new System.Drawing.Point(10, 342);
             this.wiLBiTPanel4.Name = "wiLBiTPanel4";
-            this.wiLBiTPanel4.Size = new System.Drawing.Size(119, 5);
+            this.wiLBiTPanel4.Size = new System.Drawing.Size(126, 5);
             this.wiLBiTPanel4.TabIndex = 23;
             // 
             // lblHeadquater
@@ -157,18 +159,18 @@
             this.lblHeadquater.AutoSize = true;
             this.lblHeadquater.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblHeadquater.ForeColor = System.Drawing.Color.Black;
-            this.lblHeadquater.Location = new System.Drawing.Point(6, 331);
+            this.lblHeadquater.Location = new System.Drawing.Point(6, 350);
             this.lblHeadquater.Name = "lblHeadquater";
-            this.lblHeadquater.Size = new System.Drawing.Size(133, 22);
+            this.lblHeadquater.Size = new System.Drawing.Size(57, 22);
             this.lblHeadquater.TabIndex = 25;
-            this.lblHeadquater.Text = "LKPR - Ruzyně";
+            this.lblHeadquater.Text = "LKPR";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(5, 295);
+            this.label8.Location = new System.Drawing.Point(5, 314);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(131, 25);
             this.label8.TabIndex = 24;
@@ -184,7 +186,7 @@
             this.btnBuyNewAirplane.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuyNewAirplane.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnBuyNewAirplane.ForeColor = System.Drawing.Color.White;
-            this.btnBuyNewAirplane.Location = new System.Drawing.Point(112, 563);
+            this.btnBuyNewAirplane.Location = new System.Drawing.Point(112, 582);
             this.btnBuyNewAirplane.Name = "btnBuyNewAirplane";
             this.btnBuyNewAirplane.Size = new System.Drawing.Size(116, 52);
             this.btnBuyNewAirplane.TabIndex = 22;
@@ -219,18 +221,17 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.34454F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(229, 42);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(229, 49);
             this.tableLayoutPanel1.TabIndex = 20;
             // 
             // lblAirlineName
             // 
-            this.lblAirlineName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblAirlineName.AutoSize = true;
-            this.lblAirlineName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblAirlineName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblAirlineName.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.lblAirlineName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblAirlineName.ForeColor = System.Drawing.Color.Black;
             this.lblAirlineName.Location = new System.Drawing.Point(3, 0);
+            this.lblAirlineName.MaximumSize = new System.Drawing.Size(223, 42);
             this.lblAirlineName.Name = "lblAirlineName";
             this.lblAirlineName.Size = new System.Drawing.Size(223, 42);
             this.lblAirlineName.TabIndex = 1;
@@ -241,7 +242,7 @@
             // 
             this.cbFleet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbFleet.FormattingEnabled = true;
-            this.cbFleet.Location = new System.Drawing.Point(10, 574);
+            this.cbFleet.Location = new System.Drawing.Point(10, 593);
             this.cbFleet.Name = "cbFleet";
             this.cbFleet.Size = new System.Drawing.Size(96, 30);
             this.cbFleet.TabIndex = 2;
@@ -253,7 +254,7 @@
             this.wiLBiTPanel5.BorderRadius = 0;
             this.wiLBiTPanel5.BorderSize = 0;
             this.wiLBiTPanel5.ForeColor = System.Drawing.Color.White;
-            this.wiLBiTPanel5.Location = new System.Drawing.Point(10, 563);
+            this.wiLBiTPanel5.Location = new System.Drawing.Point(10, 582);
             this.wiLBiTPanel5.Name = "wiLBiTPanel5";
             this.wiLBiTPanel5.Size = new System.Drawing.Size(55, 5);
             this.wiLBiTPanel5.TabIndex = 18;
@@ -263,7 +264,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(5, 535);
+            this.label6.Location = new System.Drawing.Point(5, 554);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 25);
             this.label6.TabIndex = 19;
@@ -276,7 +277,7 @@
             this.wiLBiTPanel2.BorderRadius = 0;
             this.wiLBiTPanel2.BorderSize = 0;
             this.wiLBiTPanel2.ForeColor = System.Drawing.Color.White;
-            this.wiLBiTPanel2.Location = new System.Drawing.Point(10, 483);
+            this.wiLBiTPanel2.Location = new System.Drawing.Point(10, 502);
             this.wiLBiTPanel2.Name = "wiLBiTPanel2";
             this.wiLBiTPanel2.Size = new System.Drawing.Size(72, 5);
             this.wiLBiTPanel2.TabIndex = 12;
@@ -286,7 +287,7 @@
             this.lblMoney.AutoSize = true;
             this.lblMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblMoney.ForeColor = System.Drawing.Color.Black;
-            this.lblMoney.Location = new System.Drawing.Point(6, 491);
+            this.lblMoney.Location = new System.Drawing.Point(6, 510);
             this.lblMoney.Name = "lblMoney";
             this.lblMoney.Size = new System.Drawing.Size(35, 22);
             this.lblMoney.TabIndex = 14;
@@ -297,7 +298,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(5, 455);
+            this.label3.Location = new System.Drawing.Point(5, 474);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 25);
             this.label3.TabIndex = 13;
@@ -310,7 +311,7 @@
             this.wiLBiTPanel1.BorderRadius = 0;
             this.wiLBiTPanel1.BorderSize = 0;
             this.wiLBiTPanel1.ForeColor = System.Drawing.Color.White;
-            this.wiLBiTPanel1.Location = new System.Drawing.Point(10, 402);
+            this.wiLBiTPanel1.Location = new System.Drawing.Point(10, 421);
             this.wiLBiTPanel1.Name = "wiLBiTPanel1";
             this.wiLBiTPanel1.Size = new System.Drawing.Size(96, 5);
             this.wiLBiTPanel1.TabIndex = 7;
@@ -320,7 +321,7 @@
             this.lblMembers.AutoSize = true;
             this.lblMembers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblMembers.ForeColor = System.Drawing.Color.Black;
-            this.lblMembers.Location = new System.Drawing.Point(6, 410);
+            this.lblMembers.Location = new System.Drawing.Point(6, 429);
             this.lblMembers.Name = "lblMembers";
             this.lblMembers.Size = new System.Drawing.Size(55, 22);
             this.lblMembers.TabIndex = 11;
@@ -331,7 +332,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(5, 374);
+            this.label1.Location = new System.Drawing.Point(5, 393);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 25);
             this.label1.TabIndex = 10;
@@ -354,6 +355,24 @@
             this.wiLBiTPanel6.Name = "wiLBiTPanel6";
             this.wiLBiTPanel6.Size = new System.Drawing.Size(806, 132);
             this.wiLBiTPanel6.TabIndex = 3;
+            // 
+            // btnSelectDestination
+            // 
+            this.btnSelectDestination.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnSelectDestination.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnSelectDestination.BorderRadius = 10;
+            this.btnSelectDestination.BorderSize = 0;
+            this.btnSelectDestination.FlatAppearance.BorderSize = 0;
+            this.btnSelectDestination.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelectDestination.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnSelectDestination.ForeColor = System.Drawing.Color.White;
+            this.btnSelectDestination.Location = new System.Drawing.Point(440, 72);
+            this.btnSelectDestination.Name = "btnSelectDestination";
+            this.btnSelectDestination.Size = new System.Drawing.Size(172, 52);
+            this.btnSelectDestination.TabIndex = 25;
+            this.btnSelectDestination.Text = "Select destination";
+            this.btnSelectDestination.UseVisualStyleBackColor = false;
+            this.btnSelectDestination.Click += new System.EventHandler(this.btnSelectDestination_Click);
             // 
             // btnBuyDestination
             // 
@@ -597,24 +616,6 @@
             this.gMapControl.TabIndex = 5;
             this.gMapControl.Zoom = 0D;
             // 
-            // btnSelectDestination
-            // 
-            this.btnSelectDestination.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.btnSelectDestination.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.btnSelectDestination.BorderRadius = 10;
-            this.btnSelectDestination.BorderSize = 0;
-            this.btnSelectDestination.FlatAppearance.BorderSize = 0;
-            this.btnSelectDestination.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelectDestination.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnSelectDestination.ForeColor = System.Drawing.Color.White;
-            this.btnSelectDestination.Location = new System.Drawing.Point(440, 72);
-            this.btnSelectDestination.Name = "btnSelectDestination";
-            this.btnSelectDestination.Size = new System.Drawing.Size(172, 52);
-            this.btnSelectDestination.TabIndex = 25;
-            this.btnSelectDestination.Text = "Select destination";
-            this.btnSelectDestination.UseVisualStyleBackColor = false;
-            this.btnSelectDestination.Click += new System.EventHandler(this.btnSelectDestination_Click);
-            // 
             // ManageAirline
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -631,7 +632,6 @@
             this.wiLBiTPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.wiLBiTPanel6.ResumeLayout(false);
             this.wiLBiTPanel6.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -647,7 +647,6 @@
         private WiLBiT.WiLBiTPanel wiLBiTPanel3;
         private WiLBiT.WiLBiTRoundedPictureBox pbPicture;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label lblAirlineName;
         private System.Windows.Forms.ComboBox cbFleet;
         private WiLBiT.WiLBiTPanel wiLBiTPanel5;
         private System.Windows.Forms.Label label6;
@@ -681,5 +680,6 @@
         private System.Windows.Forms.Label label5;
         private WiLBiT.WiLBiTButton btnBuyDestination;
         private WiLBiT.WiLBiTButton btnSelectDestination;
+        private System.Windows.Forms.Label lblAirlineName;
     }
 }

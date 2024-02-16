@@ -76,6 +76,9 @@ namespace SkyAirlines
                         cmd.Parameters.AddWithValue("@username", GlobalData.Username);
                         cmd.ExecuteNonQuery();
 
+                        pictureBox.Image = pbPicture.Image;
+                        MessageBox.Show("You successfully change the picture.", "Notification:");
+
                         connection.Close();
                     }
                     catch (Exception)
@@ -85,8 +88,6 @@ namespace SkyAirlines
                 }
             }
 
-            pictureBox.Image = pbPicture.Image;
-            MessageBox.Show("You successfully change the picture.", "Notification:");
         }
 
         public void ChangeEmail()

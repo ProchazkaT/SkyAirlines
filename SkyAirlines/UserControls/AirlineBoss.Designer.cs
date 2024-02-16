@@ -39,7 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.wiLBiTPanel2 = new WiLBiT.WiLBiTPanel();
-            this.lblAirlineName = new System.Windows.Forms.Label();
             this.panelMembers = new WiLBiT.WiLBiTPanel();
             this.FlowRow = new System.Windows.Forms.FlowLayoutPanel();
             this.wiLBiTPanel5 = new WiLBiT.WiLBiTPanel();
@@ -59,6 +58,8 @@
             this.btnManagePilot = new WiLBiT.WiLBiTButton();
             this.tbManageUsername = new WiLBiT.WiLBiTTextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblAirlineName = new System.Windows.Forms.Label();
             this.wiLBiTPanel1.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
             this.wiLBiTPanel2.SuspendLayout();
@@ -66,6 +67,7 @@
             this.wiLBiTPanel5.SuspendLayout();
             this.wiLBiTPanel4.SuspendLayout();
             this.wiLBiTPanel3.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // wiLBiTPanel1
@@ -215,25 +217,12 @@
             this.wiLBiTPanel2.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.wiLBiTPanel2.BorderRadius = 10;
             this.wiLBiTPanel2.BorderSize = 0;
-            this.wiLBiTPanel2.Controls.Add(this.lblAirlineName);
+            this.wiLBiTPanel2.Controls.Add(this.tableLayoutPanel1);
             this.wiLBiTPanel2.ForeColor = System.Drawing.Color.White;
             this.wiLBiTPanel2.Location = new System.Drawing.Point(184, 3);
             this.wiLBiTPanel2.Name = "wiLBiTPanel2";
             this.wiLBiTPanel2.Size = new System.Drawing.Size(656, 39);
             this.wiLBiTPanel2.TabIndex = 1;
-            // 
-            // lblAirlineName
-            // 
-            this.lblAirlineName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblAirlineName.AutoSize = true;
-            this.lblAirlineName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblAirlineName.Location = new System.Drawing.Point(290, 4);
-            this.lblAirlineName.Name = "lblAirlineName";
-            this.lblAirlineName.Size = new System.Drawing.Size(90, 31);
-            this.lblAirlineName.TabIndex = 0;
-            this.lblAirlineName.Text = "Name";
             // 
             // panelMembers
             // 
@@ -543,6 +532,32 @@
             this.label8.TabIndex = 5;
             this.label8.Text = "Manage member:";
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.lblAirlineName, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(631, 33);
+            this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // lblAirlineName
+            // 
+            this.lblAirlineName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblAirlineName.AutoSize = true;
+            this.lblAirlineName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblAirlineName.Location = new System.Drawing.Point(3, 0);
+            this.lblAirlineName.Name = "lblAirlineName";
+            this.lblAirlineName.Size = new System.Drawing.Size(625, 33);
+            this.lblAirlineName.TabIndex = 0;
+            this.lblAirlineName.Text = "Airline name";
+            this.lblAirlineName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AirlineBoss
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -561,7 +576,6 @@
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             this.wiLBiTPanel2.ResumeLayout(false);
-            this.wiLBiTPanel2.PerformLayout();
             this.panelMembers.ResumeLayout(false);
             this.wiLBiTPanel5.ResumeLayout(false);
             this.wiLBiTPanel5.PerformLayout();
@@ -569,6 +583,8 @@
             this.wiLBiTPanel4.PerformLayout();
             this.wiLBiTPanel3.ResumeLayout(false);
             this.wiLBiTPanel3.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -577,7 +593,6 @@
 
         private WiLBiT.WiLBiTPanel wiLBiTPanel1;
         private WiLBiT.WiLBiTPanel wiLBiTPanel2;
-        private System.Windows.Forms.Label lblAirlineName;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -606,5 +621,7 @@
         private WiLBiT.WiLBiTButton btnManageAirline;
         private System.Windows.Forms.Label lblDestination;
         private System.Windows.Forms.ComboBox cbFleet;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label lblAirlineName;
     }
 }

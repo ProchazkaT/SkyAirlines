@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Windows.Forms;
 
 namespace SkyAirlines
@@ -16,7 +17,6 @@ namespace SkyAirlines
         private GetAirlineData airlineData = new GetAirlineData();
         private List<string> equipmentList = new List<string> { "Economy", "Premium Economy", "Business", "First Class" };
         private GMapOverlay markersOverlay = new GMapOverlay("AirportMarkers");
-        private CustomMarker clickedMarker;
         private GMapOverlay routesOverlay = new GMapOverlay("routesOverlay");
 
         private int equipmentCost = 0;
@@ -39,7 +39,6 @@ namespace SkyAirlines
             pbPicture.Image = airlineData.GetAirlineLogo();
             SetPercentageForEquipment();
             InitializeMap();
-
         }
 
         private void InitializeMap()
@@ -242,63 +241,78 @@ namespace SkyAirlines
             return EarthRadiusNM * c;
         }
 
+        private byte[] LogoToByteArray(PictureBox pictureBox)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                return ms.ToArray();
+            }
+        }
+
         private void btnBuyEquipment_Click(object sender, EventArgs e)
         {
             int money = int.Parse(airlineData.GetAirlineMoney());
+            int selectedEquipmentIndex = cbEquipment.SelectedIndex;
+            int currentEquipmentIndex = int.Parse(airlineData.GetAirlineEquipment());
 
-            if (cbFleet.SelectedIndex < int.Parse(airlineData.GetAirlineEquipment()))
+            // Zobrazí aktuální index a vybavení pro testovací účely
+            MessageBox.Show(selectedEquipmentIndex.ToString() + "\n" + currentEquipmentIndex.ToString());
+
+            if (selectedEquipmentIndex > currentEquipmentIndex)
             {
-                if (cbFleet.SelectedIndex == int.Parse(airlineData.GetAirlineEquipment()))
+                double costPerMile = double.Parse(airlineData.GetAirlineCostPerMile()) + (1 + equipmentPercentage / 100);
+
+                if (money >= equipmentCost)
                 {
-                    if (money >= equipmentCost)
+                    money -= equipmentCost;
+
+                    using (SqlConnection connection = connectionToSQL.CreateConnection())
                     {
-                        using (SqlConnection connection = connectionToSQL.CreateConnection())
+                        try
                         {
-                            try
-                            {
-                                connection.Open();
+                            connection.Open();
 
-                                SqlCommand cmd = new SqlCommand();
-                                cmd.Connection = connection;
+                            SqlCommand cmd = new SqlCommand();
+                            cmd.Connection = connection;
 
-                                money -= equipmentCost;
-                                double costPerMile = double.Parse(airlineData.GetAirlineCostPerMile()) + (1 + equipmentPercentage / 100);
+                            // Opraveno: Použití správného názvu parametru
+                            cmd.CommandText = "UPDATE Airline SET Equipment = @equipment, AirlineMoney = @airlineMoney, CostPerMile = @costPerMile WHERE ID = @id";
+                            cmd.Parameters.AddWithValue("@equipment", selectedEquipmentIndex);
+                            cmd.Parameters.AddWithValue("@airlineMoney", money);
+                            cmd.Parameters.AddWithValue("@costPerMile", costPerMile.ToString());
+                            cmd.Parameters.AddWithValue("@id", GlobalData.airlineID);
+                            cmd.ExecuteNonQuery();
 
-                                cmd.CommandText = "UPDATE Airline SET Equipment = @airlineSalary, AirlineMoney = @airlineMoney, CostPerMile=@costPerMile WHERE ID = @id";
-                                cmd.Parameters.AddWithValue("@equipment", cbEquipment.SelectedIndex);
-                                cmd.Parameters.AddWithValue("@airlineMoney", money);
-                                cmd.Parameters.AddWithValue("@costPerMile", costPerMile);
-                                cmd.Parameters.AddWithValue("@id", GlobalData.airlineID);
-                                cmd.ExecuteNonQuery();
+                            MessageBox.Show("You have successfully bought the " + cbEquipment.SelectedItem + " equipment.", "Notification:");
 
-                                MessageBox.Show("You have successfully buy the " + cbFleet.SelectedItem + " equipment.", "Notification:");
+                            connection.Close();
 
-                                connection.Close();
-
-                                cbEquipment.DataSource = equipmentList;
-                                cbEquipment.SelectedIndex = int.Parse(airlineData.GetAirlineEquipment());
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("An error occurred while byuing the equipment. \n" + ex.ToString(), "Error:");
-                            }
+                            cbEquipment.DataSource = equipmentList;
+                            cbEquipment.SelectedIndex = selectedEquipmentIndex;
+                            lblMoney.Text = airlineData.GetAirlineMoney() + "$";
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("You don't have enough money to buy this equipment.", "Notification:");
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("An error occurred while buying the equipment. \n" + ex.ToString(), "Error:");
+                        }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("You have already purchased this equipment.", "Notification:");
+                    MessageBox.Show("You don't have enough money to buy this equipment.", "Notification:");
                 }
+            }
+            else if (selectedEquipmentIndex == currentEquipmentIndex)
+            {
+                MessageBox.Show("You have already purchased this equipment.", "Notification:");
             }
             else
             {
                 MessageBox.Show("You have already purchased better equipment.", "Notification:");
             }
         }
+
 
         private void btnBuyDestination_Click(object sender, EventArgs e)
         {
@@ -327,6 +341,12 @@ namespace SkyAirlines
                                 cmd.ExecuteNonQuery();
 
                                 MessageBox.Show("You have successfully bought the destination.", "Notification:");
+
+                                routesOverlay.Clear();
+                                markersOverlay.Clear();
+                                btnBuyDestination.Text = "Buy destination";
+                                btnBuyDestination.Enabled = false;
+                                tbICAO.Texts = "";
                                 SetAirportsMarkers();
 
                                 connection.Close();
@@ -468,6 +488,75 @@ namespace SkyAirlines
             {
                 MessageBox.Show("You must enter ICAO with 4 letters, e.g. LKPR.", "Notification:");
             }
+        }
+
+        private void btnChangeName_Click(object sender, EventArgs e)
+        {
+            ChangeAirlineName form = new ChangeAirlineName(lblAirlineName, lblAirlineName.Text, lblMoney);
+            form.Show();
+        }
+
+        private void btnChangeLogo_Click(object sender, EventArgs e)
+        {
+            int money = int.Parse(airlineData.GetAirlineMoney());
+            if (money >= 5000)
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Image Files (*.jpg, *.png, *.bmp)|*.jpg; *.png; *.bmp|All files (*.*)|*.*";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string selectedImagePath = openFileDialog.FileName;
+
+                    FileInfo fileInfo = new FileInfo(selectedImagePath);
+                    long fileSizeInBytes = fileInfo.Length;
+
+                    long fileSizeInKB = fileSizeInBytes / 1024;
+
+                    if (fileSizeInKB > 2048)
+                    {
+                        MessageBox.Show("Please select an image file with a size smaller than 2 MB.", "Notification:");
+                    }
+                    else
+                    {
+                        pbPicture.Image = Image.FromFile(selectedImagePath);
+                    }
+
+                    using (SqlConnection connection = connectionToSQL.CreateConnection())
+                    {
+                        try
+                        {
+                            connection.Open();
+
+                            SqlCommand cmd = new SqlCommand();
+                            cmd.Connection = connection;
+
+                            money -= 5000;
+
+                            cmd.CommandText = "UPDATE Airline SET Logo = @logo, AirlineMoney = @airlineMoney WHERE ID = @id";
+                            cmd.Parameters.AddWithValue("@logo", LogoToByteArray(pbPicture));
+                            cmd.Parameters.AddWithValue("@airlineMoney", money);
+                            cmd.Parameters.AddWithValue("@id", GlobalData.airlineID);
+                            cmd.ExecuteNonQuery();
+
+                            pbPicture.Image = pbPicture.Image;
+                            lblMoney.Text = airlineData.GetAirlineMoney() + "$";
+                            MessageBox.Show("You successfully change the picture.", "Notification:");
+
+                            connection.Close();
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("An error occurred while changing image.", "Error:");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("The airline does not have enough money to change airline logo.", "Notification:");
+            }
+
         }
     }
 }
