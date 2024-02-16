@@ -358,6 +358,8 @@ namespace SkyAirlines
             PointLatLng pointLatLngHeadquarter = new PointLatLng(0, 0);
             PointLatLng pointLatLngNewDestination = new PointLatLng(0, 0);
             routesOverlay.Clear();
+            markersOverlay.Clear();
+            SetAirportsMarkers();
 
             if (tbICAO.Texts.Length == 4)
             {
@@ -372,19 +374,43 @@ namespace SkyAirlines
                         SqlCommand cmd = new SqlCommand();
                         cmd.Connection = connection;
 
-                        cmd.CommandText = "SELECT icao, name, lat, lon FROM Airports WHERE icao=@icao";
-                        cmd.Parameters.AddWithValue("@icao", tbICAO.Texts);
+                        cmd.CommandText = "SELECT COUNT(*) FROM Airports WHERE icao=@icao";
+                        cmd.Parameters.AddWithValue("@icao", icaoYouWouldBuy);
 
+                        int airportCount = (int)cmd.ExecuteScalar();
+                        if (airportCount == 0)
+                        {
+                            MessageBox.Show("The specified ICAO does not exist in the database!", "Notification:");
+                            return;
+                        }
+
+                        cmd.CommandText = "SELECT Destinations FROM Airline";
                         SqlDataReader reader = cmd.ExecuteReader();
-                        while (reader.Read())
+                        if (reader.Read())
+                        {
+                            string destinations = reader["Destinations"].ToString();
+                            if (destinations.Contains(icaoYouWouldBuy))
+                            {
+                                MessageBox.Show("You already purchased this destination!", "Notification:");
+                                reader.Close();
+                                return;
+                            }
+                        }
+                        reader.Close();
+
+                        cmd.CommandText = "SELECT icao, name, lat, lon FROM Airports WHERE icao=@icao1";
+                        cmd.Parameters.AddWithValue("@icao1", tbICAO.Texts);
+
+                        SqlDataReader reader1 = cmd.ExecuteReader();
+                        while (reader1.Read())
                         {
                             double latitude;
                             double longitude;
 
-                            if (double.TryParse(reader["lat"].ToString().Trim().Replace(',', '.'), out latitude) &&
-                                double.TryParse(reader["lon"].ToString().Trim().Replace(',', '.'), out longitude))
+                            if (double.TryParse(reader1["lat"].ToString().Trim().Replace(',', '.'), out latitude) &&
+                                double.TryParse(reader1["lon"].ToString().Trim().Replace(',', '.'), out longitude))
                             {
-                                string description = reader["icao"].ToString().Trim() + " - " + reader["name"].ToString().Trim();
+                                string description = reader1["icao"].ToString().Trim() + " - " + reader1["name"].ToString().Trim();
 
                                 pointLatLngNewDestination = new PointLatLng(latitude, longitude);
 
@@ -392,10 +418,10 @@ namespace SkyAirlines
                                 markersOverlay.Markers.Add(marker);
                             }
                         }
-                        reader.Close();
+                        reader1.Close();
 
-                        cmd.CommandText = "SELECT lat, lon FROM Airports WHERE icao=@icao1";
-                        cmd.Parameters.AddWithValue("@icao1", airlineData.GetAirlineHeadquarter());
+                        cmd.CommandText = "SELECT lat, lon FROM Airports WHERE icao=@icao2";
+                        cmd.Parameters.AddWithValue("@icao2", airlineData.GetAirlineHeadquarter());
 
                         SqlDataReader reader2 = cmd.ExecuteReader();
                         while (reader2.Read())
