@@ -76,6 +76,37 @@ namespace SkyAirlines
             return name;
         }
 
+        public string GetAirlineDiscordLink()
+        {
+            string discordLink = "";
+
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    cmd.CommandText = "SELECT DiscordLink FROM Airline WHERE ID=@id";
+                    cmd.Parameters.AddWithValue("@id", GlobalData.airlineID);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        discordLink = reader["DiscordLink"].ToString();
+                    }
+                    reader.Close();
+                    connection.Close();
+                }
+                catch { }
+                connection.Close();
+            }
+            return discordLink;
+        }
+
         public int GetAirlineMembers()
         {
             int count = 0;

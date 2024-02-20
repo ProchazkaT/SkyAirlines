@@ -36,6 +36,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.wiLBiTRoundedPictureBox1 = new WiLBiT.WiLBiTRoundedPictureBox();
             this.panelMenu = new WiLBiT.WiLBiTPanel();
+            this.btnLeaveAirline = new System.Windows.Forms.Button();
+            this.btnChat = new System.Windows.Forms.Button();
+            this.btnAirline = new System.Windows.Forms.Button();
+            this.btnFlight = new System.Windows.Forms.Button();
+            this.btnLicences = new System.Windows.Forms.Button();
+            this.btnDashboard = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.panelUser = new WiLBiT.WiLBiTPanel();
@@ -47,12 +53,6 @@
             this.panel = new WiLBiT.WiLBiTPanel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.DragControl = new WiLBiT.WiLBiTDragControl();
-            this.btnLeaveAirline = new System.Windows.Forms.Button();
-            this.btnChat = new System.Windows.Forms.Button();
-            this.btnAirline = new System.Windows.Forms.Button();
-            this.btnFlight = new System.Windows.Forms.Button();
-            this.btnLicences = new System.Windows.Forms.Button();
-            this.btnDashboard = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.wiLBiTRoundedPictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -161,6 +161,122 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(255, 682);
             this.panelMenu.TabIndex = 1;
+            // 
+            // btnLeaveAirline
+            // 
+            this.btnLeaveAirline.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnLeaveAirline.FlatAppearance.BorderSize = 0;
+            this.btnLeaveAirline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeaveAirline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnLeaveAirline.Image = global::SkyAirlines.Properties.Resources.leave;
+            this.btnLeaveAirline.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLeaveAirline.Location = new System.Drawing.Point(5, 454);
+            this.btnLeaveAirline.Name = "btnLeaveAirline";
+            this.btnLeaveAirline.Size = new System.Drawing.Size(247, 46);
+            this.btnLeaveAirline.TabIndex = 19;
+            this.btnLeaveAirline.Text = "   Leave airline";
+            this.btnLeaveAirline.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLeaveAirline.UseVisualStyleBackColor = true;
+            this.btnLeaveAirline.Visible = false;
+            this.btnLeaveAirline.Click += new System.EventHandler(this.btnLeaveAirline_Click);
+            this.btnLeaveAirline.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnLeaveAirline.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
+            // 
+            // btnChat
+            // 
+            this.btnChat.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnChat.FlatAppearance.BorderSize = 0;
+            this.btnChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnChat.Image = global::SkyAirlines.Properties.Resources.chat;
+            this.btnChat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChat.Location = new System.Drawing.Point(5, 402);
+            this.btnChat.Name = "btnChat";
+            this.btnChat.Size = new System.Drawing.Size(247, 46);
+            this.btnChat.TabIndex = 18;
+            this.btnChat.Text = "  Airline discord";
+            this.btnChat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnChat.UseVisualStyleBackColor = true;
+            this.btnChat.Visible = false;
+            this.btnChat.Click += new System.EventHandler(this.btnChat_Click);
+            this.btnChat.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnChat.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
+            // 
+            // btnAirline
+            // 
+            this.btnAirline.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnAirline.FlatAppearance.BorderSize = 0;
+            this.btnAirline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAirline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAirline.Image = global::SkyAirlines.Properties.Resources.Airline;
+            this.btnAirline.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAirline.Location = new System.Drawing.Point(5, 350);
+            this.btnAirline.Name = "btnAirline";
+            this.btnAirline.Size = new System.Drawing.Size(247, 46);
+            this.btnAirline.TabIndex = 17;
+            this.btnAirline.Text = "   Airline";
+            this.btnAirline.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAirline.UseVisualStyleBackColor = true;
+            this.btnAirline.Click += new System.EventHandler(this.btnAirline_Click);
+            this.btnAirline.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnAirline.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
+            // 
+            // btnFlight
+            // 
+            this.btnFlight.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnFlight.FlatAppearance.BorderSize = 0;
+            this.btnFlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnFlight.Image = global::SkyAirlines.Properties.Resources.Flight;
+            this.btnFlight.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFlight.Location = new System.Drawing.Point(5, 298);
+            this.btnFlight.Name = "btnFlight";
+            this.btnFlight.Size = new System.Drawing.Size(247, 46);
+            this.btnFlight.TabIndex = 16;
+            this.btnFlight.Text = "   Flight";
+            this.btnFlight.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFlight.UseVisualStyleBackColor = true;
+            this.btnFlight.Click += new System.EventHandler(this.btnFlight_Click);
+            this.btnFlight.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnFlight.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
+            // 
+            // btnLicences
+            // 
+            this.btnLicences.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnLicences.FlatAppearance.BorderSize = 0;
+            this.btnLicences.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLicences.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnLicences.Image = global::SkyAirlines.Properties.Resources.Licence;
+            this.btnLicences.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLicences.Location = new System.Drawing.Point(5, 246);
+            this.btnLicences.Name = "btnLicences";
+            this.btnLicences.Size = new System.Drawing.Size(247, 46);
+            this.btnLicences.TabIndex = 15;
+            this.btnLicences.Text = "   Licences shop";
+            this.btnLicences.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLicences.UseVisualStyleBackColor = true;
+            this.btnLicences.Click += new System.EventHandler(this.btnLicences_Click);
+            this.btnLicences.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnLicences.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
+            // 
+            // btnDashboard
+            // 
+            this.btnDashboard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnDashboard.FlatAppearance.BorderSize = 0;
+            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDashboard.Image = global::SkyAirlines.Properties.Resources.Dashboard;
+            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashboard.Location = new System.Drawing.Point(5, 194);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(247, 46);
+            this.btnDashboard.TabIndex = 14;
+            this.btnDashboard.Text = "   Dashboard";
+            this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            this.btnDashboard.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
+            this.btnDashboard.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // btnSettings
             // 
@@ -301,122 +417,6 @@
             // DragControl
             // 
             this.DragControl.TargetControl = this.panelTop;
-            // 
-            // btnLeaveAirline
-            // 
-            this.btnLeaveAirline.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.btnLeaveAirline.FlatAppearance.BorderSize = 0;
-            this.btnLeaveAirline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeaveAirline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnLeaveAirline.Image = global::SkyAirlines.Properties.Resources.leave;
-            this.btnLeaveAirline.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLeaveAirline.Location = new System.Drawing.Point(5, 454);
-            this.btnLeaveAirline.Name = "btnLeaveAirline";
-            this.btnLeaveAirline.Size = new System.Drawing.Size(247, 46);
-            this.btnLeaveAirline.TabIndex = 19;
-            this.btnLeaveAirline.Text = "   Leave airline";
-            this.btnLeaveAirline.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLeaveAirline.UseVisualStyleBackColor = true;
-            this.btnLeaveAirline.Visible = false;
-            this.btnLeaveAirline.Click += new System.EventHandler(this.btnLeaveAirline_Click);
-            this.btnLeaveAirline.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
-            this.btnLeaveAirline.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
-            // btnChat
-            // 
-            this.btnChat.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.btnChat.FlatAppearance.BorderSize = 0;
-            this.btnChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnChat.Image = global::SkyAirlines.Properties.Resources.chat;
-            this.btnChat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChat.Location = new System.Drawing.Point(5, 402);
-            this.btnChat.Name = "btnChat";
-            this.btnChat.Size = new System.Drawing.Size(247, 46);
-            this.btnChat.TabIndex = 18;
-            this.btnChat.Text = "  Chat";
-            this.btnChat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnChat.UseVisualStyleBackColor = true;
-            this.btnChat.Visible = false;
-            this.btnChat.Click += new System.EventHandler(this.btnChat_Click);
-            this.btnChat.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
-            this.btnChat.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
-            // btnAirline
-            // 
-            this.btnAirline.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.btnAirline.FlatAppearance.BorderSize = 0;
-            this.btnAirline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAirline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAirline.Image = global::SkyAirlines.Properties.Resources.Airline;
-            this.btnAirline.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAirline.Location = new System.Drawing.Point(5, 350);
-            this.btnAirline.Name = "btnAirline";
-            this.btnAirline.Size = new System.Drawing.Size(247, 46);
-            this.btnAirline.TabIndex = 17;
-            this.btnAirline.Text = "   Airline";
-            this.btnAirline.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAirline.UseVisualStyleBackColor = true;
-            this.btnAirline.Click += new System.EventHandler(this.btnAirline_Click);
-            this.btnAirline.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
-            this.btnAirline.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
-            // btnFlight
-            // 
-            this.btnFlight.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.btnFlight.FlatAppearance.BorderSize = 0;
-            this.btnFlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnFlight.Image = global::SkyAirlines.Properties.Resources.Flight;
-            this.btnFlight.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFlight.Location = new System.Drawing.Point(5, 298);
-            this.btnFlight.Name = "btnFlight";
-            this.btnFlight.Size = new System.Drawing.Size(247, 46);
-            this.btnFlight.TabIndex = 16;
-            this.btnFlight.Text = "   Flight";
-            this.btnFlight.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFlight.UseVisualStyleBackColor = true;
-            this.btnFlight.Click += new System.EventHandler(this.btnFlight_Click);
-            this.btnFlight.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
-            this.btnFlight.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
-            // btnLicences
-            // 
-            this.btnLicences.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.btnLicences.FlatAppearance.BorderSize = 0;
-            this.btnLicences.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLicences.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnLicences.Image = global::SkyAirlines.Properties.Resources.Licence;
-            this.btnLicences.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLicences.Location = new System.Drawing.Point(5, 246);
-            this.btnLicences.Name = "btnLicences";
-            this.btnLicences.Size = new System.Drawing.Size(247, 46);
-            this.btnLicences.TabIndex = 15;
-            this.btnLicences.Text = "   Licences shop";
-            this.btnLicences.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLicences.UseVisualStyleBackColor = true;
-            this.btnLicences.Click += new System.EventHandler(this.btnLicences_Click);
-            this.btnLicences.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
-            this.btnLicences.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
-            // 
-            // btnDashboard
-            // 
-            this.btnDashboard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
-            this.btnDashboard.FlatAppearance.BorderSize = 0;
-            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDashboard.Image = global::SkyAirlines.Properties.Resources.Dashboard;
-            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(5, 194);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(247, 46);
-            this.btnDashboard.TabIndex = 14;
-            this.btnDashboard.Text = "   Dashboard";
-            this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDashboard.UseVisualStyleBackColor = true;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
-            this.btnDashboard.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
-            this.btnDashboard.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 
             // Main
             // 

@@ -166,6 +166,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\ChangeDiscordLink.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChangeDiscordLink.Designer.cs">
+      <DependentUpon>ChangeDiscordLink.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ChangeAirlineName.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +284,9 @@
     <Compile Include="UserControls\AircraftShowroom.Designer.cs">
       <DependentUpon>AircraftShowroom.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\ChangeDiscordLink.resx">
+      <DependentUpon>ChangeDiscordLink.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChangeAirlineName.resx">
       <DependentUpon>ChangeAirlineName.cs</DependentUpon>
     </EmbeddedResource>

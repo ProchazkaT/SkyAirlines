@@ -118,3 +118,4 @@ C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.Se
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.ManagePilot.resources
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.ManageAirline.resources
 C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.ChangeAirlineName.resources
+C:\Users\Proch\Documents\GitHub\SkyAirlines\SkyAirlines\obj\Debug\SkyAirlines.ChangeDiscordLink.resources

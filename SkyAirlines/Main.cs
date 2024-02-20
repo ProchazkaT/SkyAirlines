@@ -3,6 +3,7 @@ using SkyAirlines.UserControls;
 using System;
 using System.ComponentModel;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Security.Policy;
 using System.Windows.Documents;
@@ -95,7 +96,27 @@ namespace SkyAirlines
 
         private void btnChat_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("INOP", "Notification:");
+            if (!string.IsNullOrEmpty(getAirlineData.GetAirlineDiscordLink()))
+            {
+                string url = getAirlineData.GetAirlineDiscordLink();
+
+                try
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = url,
+                        UseShellExecute = true
+                    });
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Error opening web page.", "Notification:");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Your airline does not own a discord server.", "Notification:");
+            }
         }
 
         private void btnLeaveAirline_Click(object sender, EventArgs e)

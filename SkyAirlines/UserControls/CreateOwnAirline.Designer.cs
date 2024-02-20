@@ -44,6 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbDiscordLink = new WiLBiT.WiLBiTTextBox();
             this.wiLBiTPanel2.SuspendLayout();
             this.wiLBiTPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
@@ -81,6 +83,8 @@
             this.wiLBiTPanel2.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.wiLBiTPanel2.BorderRadius = 20;
             this.wiLBiTPanel2.BorderSize = 0;
+            this.wiLBiTPanel2.Controls.Add(this.tbDiscordLink);
+            this.wiLBiTPanel2.Controls.Add(this.label4);
             this.wiLBiTPanel2.Controls.Add(this.label7);
             this.wiLBiTPanel2.Controls.Add(this.lblHeadquater);
             this.wiLBiTPanel2.Controls.Add(this.label6);
@@ -96,11 +100,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(46, 62);
+            this.label7.Location = new System.Drawing.Point(25, 57);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(153, 29);
+            this.label7.Size = new System.Drawing.Size(126, 25);
             this.label7.TabIndex = 7;
             this.label7.Text = "Headquarter:";
             // 
@@ -133,7 +137,7 @@
             this.btnCreateOwnAirline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateOwnAirline.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCreateOwnAirline.ForeColor = System.Drawing.Color.White;
-            this.btnCreateOwnAirline.Location = new System.Drawing.Point(672, 18);
+            this.btnCreateOwnAirline.Location = new System.Drawing.Point(825, 18);
             this.btnCreateOwnAirline.Name = "btnCreateOwnAirline";
             this.btnCreateOwnAirline.Size = new System.Drawing.Size(198, 68);
             this.btnCreateOwnAirline.TabIndex = 4;
@@ -146,11 +150,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(45, 18);
+            this.label5.Location = new System.Drawing.Point(25, 18);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(396, 32);
+            this.label5.Size = new System.Drawing.Size(283, 25);
             this.label5.TabIndex = 2;
             this.label5.Text = "Select headquater on a map";
             // 
@@ -159,7 +163,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(700, 89);
+            this.label1.Location = new System.Drawing.Point(853, 89);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(143, 29);
             this.label1.TabIndex = 0;
@@ -279,6 +283,39 @@
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(405, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(346, 25);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Link to your airline\'s discord server";
+            // 
+            // tbDiscordLink
+            // 
+            this.tbDiscordLink.BackColor = System.Drawing.SystemColors.Window;
+            this.tbDiscordLink.BorderColor = System.Drawing.Color.DarkGray;
+            this.tbDiscordLink.BorderFocusColor = System.Drawing.Color.DeepSkyBlue;
+            this.tbDiscordLink.BorderRadius = 4;
+            this.tbDiscordLink.BorderSize = 2;
+            this.tbDiscordLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDiscordLink.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbDiscordLink.Location = new System.Drawing.Point(410, 50);
+            this.tbDiscordLink.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDiscordLink.Multiline = false;
+            this.tbDiscordLink.Name = "tbDiscordLink";
+            this.tbDiscordLink.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbDiscordLink.PasswordChar = false;
+            this.tbDiscordLink.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbDiscordLink.PlaceholderText = "You can then change it in manage airline";
+            this.tbDiscordLink.Size = new System.Drawing.Size(341, 32);
+            this.tbDiscordLink.TabIndex = 9;
+            this.tbDiscordLink.Texts = "";
+            this.tbDiscordLink.UnderlinedStyle = false;
+            // 
             // CreateOwnAirline
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -316,5 +353,7 @@
         private System.Windows.Forms.Label label3;
         private WiLBiT.WiLBiTButton btnOpenLogoImg;
         private System.Windows.Forms.ComboBox cbFleet;
+        private WiLBiT.WiLBiTTextBox tbDiscordLink;
+        private System.Windows.Forms.Label label4;
     }
 }

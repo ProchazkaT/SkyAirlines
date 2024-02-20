@@ -566,5 +566,11 @@ namespace SkyAirlines
             panel.Controls.Clear();
             panel.Controls.Add(new AircraftLicences(panel, "Airline"));
         }
+
+        private void btnChangeDiscordLink_Click(object sender, EventArgs e)
+        {
+            ChangeDiscordLink form = new ChangeDiscordLink(lblMoney);
+            form.Show();
+        }
     }
 }

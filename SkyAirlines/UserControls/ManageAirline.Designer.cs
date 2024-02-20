@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.wiLBiTPanel3 = new WiLBiT.WiLBiTPanel();
+            this.btnChangeDiscordLink = new WiLBiT.WiLBiTButton();
             this.btnChangeLogo = new WiLBiT.WiLBiTButton();
             this.btnChangeName = new WiLBiT.WiLBiTButton();
             this.wiLBiTPanel4 = new WiLBiT.WiLBiTPanel();
@@ -79,6 +80,7 @@
             this.wiLBiTPanel3.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.wiLBiTPanel3.BorderRadius = 20;
             this.wiLBiTPanel3.BorderSize = 0;
+            this.wiLBiTPanel3.Controls.Add(this.btnChangeDiscordLink);
             this.wiLBiTPanel3.Controls.Add(this.btnChangeLogo);
             this.wiLBiTPanel3.Controls.Add(this.btnChangeName);
             this.wiLBiTPanel3.Controls.Add(this.wiLBiTPanel4);
@@ -101,6 +103,24 @@
             this.wiLBiTPanel3.Name = "wiLBiTPanel3";
             this.wiLBiTPanel3.Size = new System.Drawing.Size(234, 649);
             this.wiLBiTPanel3.TabIndex = 2;
+            // 
+            // btnChangeDiscordLink
+            // 
+            this.btnChangeDiscordLink.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnChangeDiscordLink.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
+            this.btnChangeDiscordLink.BorderRadius = 10;
+            this.btnChangeDiscordLink.BorderSize = 0;
+            this.btnChangeDiscordLink.FlatAppearance.BorderSize = 0;
+            this.btnChangeDiscordLink.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeDiscordLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnChangeDiscordLink.ForeColor = System.Drawing.Color.White;
+            this.btnChangeDiscordLink.Location = new System.Drawing.Point(38, 276);
+            this.btnChangeDiscordLink.Name = "btnChangeDiscordLink";
+            this.btnChangeDiscordLink.Size = new System.Drawing.Size(165, 42);
+            this.btnChangeDiscordLink.TabIndex = 28;
+            this.btnChangeDiscordLink.Text = "Change discord";
+            this.btnChangeDiscordLink.UseVisualStyleBackColor = false;
+            this.btnChangeDiscordLink.Click += new System.EventHandler(this.btnChangeDiscordLink_Click);
             // 
             // btnChangeLogo
             // 
@@ -149,7 +169,7 @@
             this.wiLBiTPanel4.BorderRadius = 0;
             this.wiLBiTPanel4.BorderSize = 0;
             this.wiLBiTPanel4.ForeColor = System.Drawing.Color.White;
-            this.wiLBiTPanel4.Location = new System.Drawing.Point(10, 342);
+            this.wiLBiTPanel4.Location = new System.Drawing.Point(8, 354);
             this.wiLBiTPanel4.Name = "wiLBiTPanel4";
             this.wiLBiTPanel4.Size = new System.Drawing.Size(126, 5);
             this.wiLBiTPanel4.TabIndex = 23;
@@ -159,7 +179,7 @@
             this.lblHeadquater.AutoSize = true;
             this.lblHeadquater.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblHeadquater.ForeColor = System.Drawing.Color.Black;
-            this.lblHeadquater.Location = new System.Drawing.Point(6, 350);
+            this.lblHeadquater.Location = new System.Drawing.Point(4, 362);
             this.lblHeadquater.Name = "lblHeadquater";
             this.lblHeadquater.Size = new System.Drawing.Size(57, 22);
             this.lblHeadquater.TabIndex = 25;
@@ -170,7 +190,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(5, 314);
+            this.label8.Location = new System.Drawing.Point(3, 326);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(131, 25);
             this.label8.TabIndex = 24;
@@ -186,7 +206,7 @@
             this.btnBuyNewAirplane.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuyNewAirplane.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnBuyNewAirplane.ForeColor = System.Drawing.Color.White;
-            this.btnBuyNewAirplane.Location = new System.Drawing.Point(112, 582);
+            this.btnBuyNewAirplane.Location = new System.Drawing.Point(115, 577);
             this.btnBuyNewAirplane.Name = "btnBuyNewAirplane";
             this.btnBuyNewAirplane.Size = new System.Drawing.Size(116, 60);
             this.btnBuyNewAirplane.TabIndex = 22;
@@ -243,7 +263,7 @@
             // 
             this.cbFleet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbFleet.FormattingEnabled = true;
-            this.cbFleet.Location = new System.Drawing.Point(10, 593);
+            this.cbFleet.Location = new System.Drawing.Point(8, 605);
             this.cbFleet.Name = "cbFleet";
             this.cbFleet.Size = new System.Drawing.Size(96, 30);
             this.cbFleet.TabIndex = 2;
@@ -255,7 +275,7 @@
             this.wiLBiTPanel5.BorderRadius = 0;
             this.wiLBiTPanel5.BorderSize = 0;
             this.wiLBiTPanel5.ForeColor = System.Drawing.Color.White;
-            this.wiLBiTPanel5.Location = new System.Drawing.Point(10, 582);
+            this.wiLBiTPanel5.Location = new System.Drawing.Point(8, 594);
             this.wiLBiTPanel5.Name = "wiLBiTPanel5";
             this.wiLBiTPanel5.Size = new System.Drawing.Size(55, 5);
             this.wiLBiTPanel5.TabIndex = 18;
@@ -265,7 +285,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(5, 554);
+            this.label6.Location = new System.Drawing.Point(3, 566);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 25);
             this.label6.TabIndex = 19;
@@ -278,7 +298,7 @@
             this.wiLBiTPanel2.BorderRadius = 0;
             this.wiLBiTPanel2.BorderSize = 0;
             this.wiLBiTPanel2.ForeColor = System.Drawing.Color.White;
-            this.wiLBiTPanel2.Location = new System.Drawing.Point(10, 502);
+            this.wiLBiTPanel2.Location = new System.Drawing.Point(8, 514);
             this.wiLBiTPanel2.Name = "wiLBiTPanel2";
             this.wiLBiTPanel2.Size = new System.Drawing.Size(72, 5);
             this.wiLBiTPanel2.TabIndex = 12;
@@ -288,7 +308,7 @@
             this.lblMoney.AutoSize = true;
             this.lblMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblMoney.ForeColor = System.Drawing.Color.Black;
-            this.lblMoney.Location = new System.Drawing.Point(6, 510);
+            this.lblMoney.Location = new System.Drawing.Point(4, 522);
             this.lblMoney.Name = "lblMoney";
             this.lblMoney.Size = new System.Drawing.Size(35, 22);
             this.lblMoney.TabIndex = 14;
@@ -299,7 +319,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(5, 474);
+            this.label3.Location = new System.Drawing.Point(3, 486);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 25);
             this.label3.TabIndex = 13;
@@ -312,7 +332,7 @@
             this.wiLBiTPanel1.BorderRadius = 0;
             this.wiLBiTPanel1.BorderSize = 0;
             this.wiLBiTPanel1.ForeColor = System.Drawing.Color.White;
-            this.wiLBiTPanel1.Location = new System.Drawing.Point(10, 421);
+            this.wiLBiTPanel1.Location = new System.Drawing.Point(8, 433);
             this.wiLBiTPanel1.Name = "wiLBiTPanel1";
             this.wiLBiTPanel1.Size = new System.Drawing.Size(96, 5);
             this.wiLBiTPanel1.TabIndex = 7;
@@ -322,7 +342,7 @@
             this.lblMembers.AutoSize = true;
             this.lblMembers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblMembers.ForeColor = System.Drawing.Color.Black;
-            this.lblMembers.Location = new System.Drawing.Point(6, 429);
+            this.lblMembers.Location = new System.Drawing.Point(4, 441);
             this.lblMembers.Name = "lblMembers";
             this.lblMembers.Size = new System.Drawing.Size(55, 22);
             this.lblMembers.TabIndex = 11;
@@ -333,7 +353,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(5, 393);
+            this.label1.Location = new System.Drawing.Point(3, 405);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 25);
             this.label1.TabIndex = 10;
@@ -682,5 +702,6 @@
         private WiLBiT.WiLBiTButton btnBuyDestination;
         private WiLBiT.WiLBiTButton btnSelectDestination;
         private System.Windows.Forms.Label lblAirlineName;
+        private WiLBiT.WiLBiTButton btnChangeDiscordLink;
     }
 }
