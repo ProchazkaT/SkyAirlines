@@ -188,10 +188,11 @@
             this.btnBuyNewAirplane.ForeColor = System.Drawing.Color.White;
             this.btnBuyNewAirplane.Location = new System.Drawing.Point(112, 582);
             this.btnBuyNewAirplane.Name = "btnBuyNewAirplane";
-            this.btnBuyNewAirplane.Size = new System.Drawing.Size(116, 52);
+            this.btnBuyNewAirplane.Size = new System.Drawing.Size(116, 60);
             this.btnBuyNewAirplane.TabIndex = 22;
             this.btnBuyNewAirplane.Text = "Buy new airplane";
             this.btnBuyNewAirplane.UseVisualStyleBackColor = false;
+            this.btnBuyNewAirplane.Click += new System.EventHandler(this.btnBuyNewAirplane_Click);
             this.btnBuyNewAirplane.MouseEnter += new System.EventHandler(this.btn_MouseEnter);
             this.btnBuyNewAirplane.MouseLeave += new System.EventHandler(this.btn_MouseLeave);
             // 

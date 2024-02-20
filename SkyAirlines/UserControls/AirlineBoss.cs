@@ -501,7 +501,7 @@ namespace SkyAirlines
 
         private void btnManageAirline_Click(object sender, EventArgs e)
         {
-            ChangeMainPanel(new ManageAirline());
+            ChangeMainPanel(new ManageAirline(panel));
         }
 
         public void ChangeMainPanel(UserControl userControl)

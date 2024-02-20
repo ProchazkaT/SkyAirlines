@@ -69,7 +69,7 @@ namespace SkyAirlines
         private void btnLicences_Click(object sender, EventArgs e)
         {
             SetActiveButton((Button)sender);
-            ChangeMainPanel(new AircraftLicences(panelMain));
+            ChangeMainPanel(new AircraftLicences(panelMain, "Pilot"));
         }
         private void btnAirline_Click(object sender, EventArgs e)
         {

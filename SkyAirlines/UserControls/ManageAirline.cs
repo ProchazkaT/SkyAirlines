@@ -1,6 +1,7 @@
 ﻿using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
+using SkyAirlines.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -18,16 +19,18 @@ namespace SkyAirlines
         private List<string> equipmentList = new List<string> { "Economy", "Premium Economy", "Business", "First Class" };
         private GMapOverlay markersOverlay = new GMapOverlay("AirportMarkers");
         private GMapOverlay routesOverlay = new GMapOverlay("routesOverlay");
+        private Panel panel;
 
         private int equipmentCost = 0;
         private double equipmentPercentage = 0.0;
         private int cost = 0;
         private string icaoYouWouldBuy = "";
 
-        public ManageAirline()
+        public ManageAirline(Panel panel)
         {
             InitializeComponent();
             connectionToSQL = new ConnectionToSQL();
+            this.panel = panel;
 
             lblAirlineName.Text = airlineData.GetAirlineName();
             lblHeadquater.Text = airlineData.GetAirlineHeadquarter();
@@ -556,7 +559,12 @@ namespace SkyAirlines
             {
                 MessageBox.Show("The airline does not have enough money to change airline logo.", "Notification:");
             }
+        }
 
+        private void btnBuyNewAirplane_Click(object sender, EventArgs e)
+        {
+            panel.Controls.Clear();
+            panel.Controls.Add(new AircraftLicences(panel, "Airline"));
         }
     }
 }
