@@ -23,14 +23,6 @@ namespace SkyAirlines
             InitializeComponent();
 
             connectionToSQL = new ConnectionToSQL();
-
-            lblFlights.Text = pilotSQLData.GetPilotFlights(GlobalData.Username).ToString();
-            lblRating.Text = (int.Parse(pilotSQLData.GetPilotRating(GlobalData.Username).ToString()) / pilotSQLData.GetPilotFlights(GlobalData.Username)).ToString();
-            lblLandingRate.Text = (pilotSQLData.GetPilotAverageLandingRate(GlobalData.Username) / pilotSQLData.GetPilotFlights(GlobalData.Username)).ToString() + " FPM";
-            progressBar.Value = pilotSQLData.GetPilotXP(GlobalData.Username);
-            lblXP.Text = "XP " + pilotSQLData.GetPilotXP(GlobalData.Username).ToString() + " / 1000";
-
-            InitializeMap();
         }
 
         private void InitializeMap()
@@ -109,6 +101,82 @@ namespace SkyAirlines
                 }
             }
             return destinationsTuple;
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            lblFlights.Text = pilotSQLData.GetPilotFlights(GlobalData.Username).ToString();
+            lblRating.Text = (int.Parse(pilotSQLData.GetPilotRating(GlobalData.Username).ToString()) / pilotSQLData.GetPilotFlights(GlobalData.Username)).ToString();
+            lblLandingRate.Text = (pilotSQLData.GetPilotAverageLandingRate(GlobalData.Username) / pilotSQLData.GetPilotFlights(GlobalData.Username)).ToString() + " FPM";
+            progressBar.Value = pilotSQLData.GetPilotXP(GlobalData.Username);
+
+            InitializeMap();
+
+            SetPilotRank(pilotSQLData.GetPilotXP(GlobalData.Username));
+        }
+
+        public void SetPilotRank(int XP)
+        {
+            if (XP < 300)
+            {
+                progressBar.Maximum = 300;
+
+                lblCurrentRank.Text = "Newbie";
+                pbCurrentRank.Image = Properties.Resources.Newbie;
+                
+                lblNextRank.Text = "First Officer";
+                pbNextRank.Image = Properties.Resources.FirstOfficer;
+
+                lblXP.Text = "XP " + XP + " / 300";
+            }
+            else if (XP >= 300)
+            {
+                progressBar.Maximum = 600;
+
+                lblCurrentRank.Text = "First Officer";
+                pbCurrentRank.Image = Properties.Resources.FirstOfficer;
+
+                lblNextRank.Text = "Captain";
+                pbNextRank.Image = Properties.Resources.Captain;
+
+                lblXP.Text = "XP " + XP + " / 600";
+            }
+            else if (XP >= 600)
+            {
+                progressBar.Maximum = 900;
+
+                lblCurrentRank.Text = "Captain";
+                pbCurrentRank.Image = Properties.Resources.Captain;
+
+                lblNextRank.Text = "Senior Captain";
+                pbNextRank.Image = Properties.Resources.SeniorCaptain;
+
+                lblXP.Text = "XP " + XP + " / 900";
+            }
+            else if (XP >= 900)
+            {
+                progressBar.Maximum = 1200;
+
+                lblCurrentRank.Text = "Senior Captain";
+                pbCurrentRank.Image = Properties.Resources.SeniorCaptain;
+
+                lblNextRank.Text = "FlyingLegend";
+                pbNextRank.Image = Properties.Resources.FlyingLegend;
+
+                lblXP.Text = "XP " + XP + " / 1200";
+            }
+            else if (XP >= 1200)
+            {
+                progressBar.Maximum = 1500;
+
+                lblCurrentRank.Text = "Flying Legend";
+                pbCurrentRank.Image = Properties.Resources.FlyingLegend;
+
+                lblXP.Text = "XP " + "1500 / 1500";
+
+                lblNextRank.Visible = false;
+                pbNextRank.Visible = false;
+            }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangeDiscordLink));
             this.panelUdaje = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tbDiscordLink = new System.Windows.Forms.TextBox();
@@ -134,6 +135,7 @@
             this.ClientSize = new System.Drawing.Size(605, 312);
             this.Controls.Add(this.panelUdaje);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(605, 312);
             this.MinimumSize = new System.Drawing.Size(605, 312);
             this.Name = "ChangeDiscordLink";

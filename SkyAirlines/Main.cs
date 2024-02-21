@@ -23,32 +23,6 @@ namespace SkyAirlines
             InitializeComponent();
 
             connectionToSQL = new ConnectionToSQL();
-
-            GlobalData.lblMoney = lblMoney;
-            GlobalData.airlineID = getAirlineData.GetAirlineID(lblUsername.Text);
-            GlobalData.Departure = getPilotData.GetPilotDeparture(GlobalData.Username);
-            GlobalData.Arrival = getPilotData.GetPilotArrival(GlobalData.Username);
-            GlobalData.AirplaneForFlight = getPilotData.GetPilotAirplaneForFlight(GlobalData.Username);
-            GlobalData.isFlown = false;
-
-            lblUsername.Text = GlobalData.Username;
-            lblMoney.Text = sqlData.GetPilotMoney(GlobalData.Username) + "$";
-            pbPicture.Image = sqlData.GetPilotPicture(GlobalData.Username);
-
-            SetActiveButton(btnDashboard);
-            ChangeMainPanel(new Dashboard());
-
-            if (!IsAirlineNull())
-            {
-                btnChat.Enabled = true;
-                btnChat.Visible = true;
-
-                btnLeaveAirline.Enabled = true;
-                btnLeaveAirline.Visible = true;
-            }
-
-            GlobalData.btnChat = btnChat;
-            GlobalData.btnLeaveAirline = btnLeaveAirline;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -285,6 +259,66 @@ namespace SkyAirlines
                 MessageBox.Show("An error occurred while checking the Airline status.\n" + ex.ToString(), "Error:");
             }
             return isNull;
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            GlobalData.lblMoney = lblMoney;
+            GlobalData.airlineID = getAirlineData.GetAirlineID(lblUsername.Text);
+            GlobalData.Departure = getPilotData.GetPilotDeparture(GlobalData.Username);
+            GlobalData.Arrival = getPilotData.GetPilotArrival(GlobalData.Username);
+            GlobalData.AirplaneForFlight = getPilotData.GetPilotAirplaneForFlight(GlobalData.Username);
+            GlobalData.isFlown = false;
+
+            lblUsername.Text = GlobalData.Username;
+            lblMoney.Text = sqlData.GetPilotMoney(GlobalData.Username) + "$";
+            pbPicture.Image = sqlData.GetPilotPicture(GlobalData.Username);
+
+            SetActiveButton(btnDashboard);
+            ChangeMainPanel(new Dashboard());
+
+            if (!IsAirlineNull())
+            {
+                btnChat.Enabled = true;
+                btnChat.Visible = true;
+
+                btnLeaveAirline.Enabled = true;
+                btnLeaveAirline.Visible = true;
+            }
+
+            GlobalData.btnChat = btnChat;
+            GlobalData.btnLeaveAirline = btnLeaveAirline;
+
+            SetPilotRank(getPilotData.GetPilotXP(lblUsername.Text));
+        }
+
+        public void SetPilotRank(int XP)
+        {
+            if(XP < 300)
+            {
+                lblRank.Text = "Newbie";
+                pbRank.Image = Properties.Resources.Newbie;
+            }
+            else if (XP >= 300)
+            {
+                lblRank.Text = "First Officer";
+                pbRank.Image = Properties.Resources.FirstOfficer;
+            }
+            else if (XP >= 600)
+            {
+                lblRank.Text = "Captain";
+                pbRank.Image = Properties.Resources.Captain;
+            }
+            else if (XP >= 900)
+            {
+                lblRank.Text = "Senior Captain";
+                pbRank.Image = Properties.Resources.SeniorCaptain;
+            }
+            else if (XP >= 1200)
+            {
+                lblRank.Text = "Flying Legend";
+                pbRank.Image = Properties.Resources.FlyingLegend;
+            }
         }
     }
 }

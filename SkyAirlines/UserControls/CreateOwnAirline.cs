@@ -38,11 +38,8 @@ namespace SkyAirlines
             connectionToSQL = new ConnectionToSQL();
 
             InitializeComponent();
-            InitializeMap();
 
             this.panel = panel;
-            cbFleet.DataSource = licences.GetPilotLicencesAsList(GlobalData.Username);
-            cbFleet.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void InitializeMap()
@@ -331,6 +328,13 @@ namespace SkyAirlines
             panel.Controls.Add(userControl);
             userControl.Dock = DockStyle.Fill;
             userControl.Anchor = AnchorStyles.None;
+        }
+
+        private void CreateOwnAirline_Load(object sender, EventArgs e)
+        {
+            InitializeMap();
+            cbFleet.DataSource = licences.GetPilotLicencesAsList(GlobalData.Username);
+            cbFleet.DropDownStyle = ComboBoxStyle.DropDownList;
         }
     }
 }

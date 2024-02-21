@@ -363,6 +363,16 @@ namespace SkyAirlines.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Captain {
+            get {
+                object obj = ResourceManager.GetObject("Captain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cessna {
             get {
                 object obj = ResourceManager.GetObject("Cessna", resourceCulture);
@@ -483,6 +493,16 @@ namespace SkyAirlines.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FlyingLegend {
+            get {
+                object obj = ResourceManager.GetObject("FlyingLegend", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HereMarker {
             get {
                 object obj = ResourceManager.GetObject("HereMarker", resourceCulture);
@@ -563,9 +583,29 @@ namespace SkyAirlines.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Newbie {
+            get {
+                object obj = ResourceManager.GetObject("Newbie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Passenger {
             get {
                 object obj = ResourceManager.GetObject("Passenger", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SeniorCaptain {
+            get {
+                object obj = ResourceManager.GetObject("SeniorCaptain", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

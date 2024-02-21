@@ -16,9 +16,9 @@ namespace SkyAirlines
         private string role;
         public MemberRow(string name, string role)
         {
+            InitializeComponent();
             this.name = name;
             this.role = role;
-            InitializeComponent();
         }
 
         private void MemberRow_Load(object sender, EventArgs e)

@@ -649,6 +649,7 @@
             this.MinimumSize = new System.Drawing.Size(1050, 655);
             this.Name = "ManageAirline";
             this.Size = new System.Drawing.Size(1050, 655);
+            this.Load += new System.EventHandler(this.ManageAirline_Load);
             this.wiLBiTPanel3.ResumeLayout(false);
             this.wiLBiTPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();

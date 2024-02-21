@@ -30,6 +30,8 @@
         {
             this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
             this.wiLBiTPanel2 = new WiLBiT.WiLBiTPanel();
+            this.tbDiscordLink = new WiLBiT.WiLBiTTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblHeadquater = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -44,8 +46,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbDiscordLink = new WiLBiT.WiLBiTTextBox();
             this.wiLBiTPanel2.SuspendLayout();
             this.wiLBiTPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
@@ -96,6 +96,39 @@
             this.wiLBiTPanel2.Name = "wiLBiTPanel2";
             this.wiLBiTPanel2.Size = new System.Drawing.Size(1043, 136);
             this.wiLBiTPanel2.TabIndex = 1;
+            // 
+            // tbDiscordLink
+            // 
+            this.tbDiscordLink.BackColor = System.Drawing.SystemColors.Window;
+            this.tbDiscordLink.BorderColor = System.Drawing.Color.DarkGray;
+            this.tbDiscordLink.BorderFocusColor = System.Drawing.Color.DeepSkyBlue;
+            this.tbDiscordLink.BorderRadius = 4;
+            this.tbDiscordLink.BorderSize = 2;
+            this.tbDiscordLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDiscordLink.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbDiscordLink.Location = new System.Drawing.Point(410, 50);
+            this.tbDiscordLink.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDiscordLink.Multiline = false;
+            this.tbDiscordLink.Name = "tbDiscordLink";
+            this.tbDiscordLink.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbDiscordLink.PasswordChar = false;
+            this.tbDiscordLink.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbDiscordLink.PlaceholderText = "You can then change it in manage airline";
+            this.tbDiscordLink.Size = new System.Drawing.Size(341, 32);
+            this.tbDiscordLink.TabIndex = 9;
+            this.tbDiscordLink.Texts = "";
+            this.tbDiscordLink.UnderlinedStyle = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(405, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(346, 25);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Link to your airline\'s discord server";
             // 
             // label7
             // 
@@ -283,39 +316,6 @@
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(405, 18);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(346, 25);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Link to your airline\'s discord server";
-            // 
-            // tbDiscordLink
-            // 
-            this.tbDiscordLink.BackColor = System.Drawing.SystemColors.Window;
-            this.tbDiscordLink.BorderColor = System.Drawing.Color.DarkGray;
-            this.tbDiscordLink.BorderFocusColor = System.Drawing.Color.DeepSkyBlue;
-            this.tbDiscordLink.BorderRadius = 4;
-            this.tbDiscordLink.BorderSize = 2;
-            this.tbDiscordLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDiscordLink.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbDiscordLink.Location = new System.Drawing.Point(410, 50);
-            this.tbDiscordLink.Margin = new System.Windows.Forms.Padding(4);
-            this.tbDiscordLink.Multiline = false;
-            this.tbDiscordLink.Name = "tbDiscordLink";
-            this.tbDiscordLink.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.tbDiscordLink.PasswordChar = false;
-            this.tbDiscordLink.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.tbDiscordLink.PlaceholderText = "You can then change it in manage airline";
-            this.tbDiscordLink.Size = new System.Drawing.Size(341, 32);
-            this.tbDiscordLink.TabIndex = 9;
-            this.tbDiscordLink.Texts = "";
-            this.tbDiscordLink.UnderlinedStyle = false;
-            // 
             // CreateOwnAirline
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -327,6 +327,7 @@
             this.MinimumSize = new System.Drawing.Size(1050, 655);
             this.Name = "CreateOwnAirline";
             this.Size = new System.Drawing.Size(1050, 655);
+            this.Load += new System.EventHandler(this.CreateOwnAirline_Load);
             this.wiLBiTPanel2.ResumeLayout(false);
             this.wiLBiTPanel2.PerformLayout();
             this.wiLBiTPanel1.ResumeLayout(false);

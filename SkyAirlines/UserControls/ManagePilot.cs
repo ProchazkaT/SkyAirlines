@@ -25,8 +25,6 @@ namespace SkyAirlines
 
             username = Username;
 
-            InitializeMap();
-
             connectionToSQL = new ConnectionToSQL();
         }
 
@@ -41,6 +39,30 @@ namespace SkyAirlines
             gMapControl.Position = new PointLatLng(50.14, 14.26);
 
             Controls.Add(gMapControl);
+        }
+
+        public void SetPilotRank(int XP)
+        {
+            if (XP < 300)
+            {
+                pbRank.Image = Properties.Resources.Newbie;
+            }
+            else if (XP >= 300)
+            {
+                pbRank.Image = Properties.Resources.FirstOfficer;
+            }
+            else if (XP >= 600)
+            {
+                pbRank.Image = Properties.Resources.Captain;
+            }
+            else if (XP >= 900)
+            {
+                pbRank.Image = Properties.Resources.SeniorCaptain;
+            }
+            else if (XP >= 1200)
+            {
+                pbRank.Image = Properties.Resources.FlyingLegend;
+            }
         }
 
         private void btn_MouseEnter(object sender, EventArgs e)
@@ -61,6 +83,7 @@ namespace SkyAirlines
 
         private void ManagePilot_Load(object sender, EventArgs e)
         {
+            InitializeMap();
             lblAverageLandings.Text = pilotSQLData.GetPilotAverageLandingRate(username).ToString();
             lblFlights.Text = pilotSQLData.GetPilotFlights(username).ToString();
             lblRating.Text = pilotSQLData.GetPilotRating(username).ToString();
@@ -71,6 +94,7 @@ namespace SkyAirlines
             airlineSalary = 100 - pilotSalary;
             lblAirlineSalary.Text = "- " + airlineSalary + "% to airline.";
             cbAirplaneLicences.DataSource = licences.GetPilotLicencesAsList(username);
+            SetPilotRank(pilotSQLData.GetPilotXP(username));
         }
 
         private void nudPilotSalary_ValueChanged(object sender, EventArgs e)

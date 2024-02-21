@@ -30,10 +30,10 @@
         {
             this.panelRank = new WiLBiT.WiLBiTPanel();
             this.lblXP = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblNextRank = new System.Windows.Forms.Label();
+            this.lblCurrentRank = new System.Windows.Forms.Label();
+            this.pbNextRank = new System.Windows.Forms.PictureBox();
+            this.pbCurrentRank = new System.Windows.Forms.PictureBox();
             this.progressBar = new WiLBiT.WiLBiTProgressBar();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,8 +45,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
             this.panelRank.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNextRank)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCurrentRank)).BeginInit();
             this.panelTop.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -58,10 +58,10 @@
             this.panelRank.BorderRadius = 20;
             this.panelRank.BorderSize = 0;
             this.panelRank.Controls.Add(this.lblXP);
-            this.panelRank.Controls.Add(this.label2);
-            this.panelRank.Controls.Add(this.label1);
-            this.panelRank.Controls.Add(this.pictureBox2);
-            this.panelRank.Controls.Add(this.pictureBox1);
+            this.panelRank.Controls.Add(this.lblNextRank);
+            this.panelRank.Controls.Add(this.lblCurrentRank);
+            this.panelRank.Controls.Add(this.pbNextRank);
+            this.panelRank.Controls.Add(this.pbCurrentRank);
             this.panelRank.Controls.Add(this.progressBar);
             this.panelRank.ForeColor = System.Drawing.Color.White;
             this.panelRank.Location = new System.Drawing.Point(5, 548);
@@ -81,49 +81,49 @@
             this.lblXP.TabIndex = 5;
             this.lblXP.Text = "XP 0 / 1000";
             // 
-            // label2
+            // lblNextRank
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(878, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 29);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Captain";
+            this.lblNextRank.AutoSize = true;
+            this.lblNextRank.BackColor = System.Drawing.Color.Transparent;
+            this.lblNextRank.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblNextRank.ForeColor = System.Drawing.Color.Black;
+            this.lblNextRank.Location = new System.Drawing.Point(878, 49);
+            this.lblNextRank.Name = "lblNextRank";
+            this.lblNextRank.Size = new System.Drawing.Size(102, 29);
+            this.lblNextRank.TabIndex = 4;
+            this.lblNextRank.Text = "Captain";
             // 
-            // label1
+            // lblCurrentRank
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(34, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 29);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "First Officer";
+            this.lblCurrentRank.AutoSize = true;
+            this.lblCurrentRank.BackColor = System.Drawing.Color.Transparent;
+            this.lblCurrentRank.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblCurrentRank.ForeColor = System.Drawing.Color.Black;
+            this.lblCurrentRank.Location = new System.Drawing.Point(34, 49);
+            this.lblCurrentRank.Name = "lblCurrentRank";
+            this.lblCurrentRank.Size = new System.Drawing.Size(150, 29);
+            this.lblCurrentRank.TabIndex = 3;
+            this.lblCurrentRank.Text = "First Officer";
             // 
-            // pictureBox2
+            // pbNextRank
             // 
-            this.pictureBox2.Image = global::SkyAirlines.Properties.Resources.FirstOfficer;
-            this.pictureBox2.Location = new System.Drawing.Point(828, 16);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(192, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
+            this.pbNextRank.Image = global::SkyAirlines.Properties.Resources.FirstOfficer;
+            this.pbNextRank.Location = new System.Drawing.Point(828, 16);
+            this.pbNextRank.Name = "pbNextRank";
+            this.pbNextRank.Size = new System.Drawing.Size(192, 30);
+            this.pbNextRank.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbNextRank.TabIndex = 2;
+            this.pbNextRank.TabStop = false;
             // 
-            // pictureBox1
+            // pbCurrentRank
             // 
-            this.pictureBox1.Image = global::SkyAirlines.Properties.Resources.FirstOfficer;
-            this.pictureBox1.Location = new System.Drawing.Point(19, 16);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(192, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pbCurrentRank.Image = global::SkyAirlines.Properties.Resources.FirstOfficer;
+            this.pbCurrentRank.Location = new System.Drawing.Point(19, 16);
+            this.pbCurrentRank.Name = "pbCurrentRank";
+            this.pbCurrentRank.Size = new System.Drawing.Size(192, 30);
+            this.pbCurrentRank.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCurrentRank.TabIndex = 1;
+            this.pbCurrentRank.TabStop = false;
             // 
             // progressBar
             // 
@@ -136,7 +136,7 @@
             this.progressBar.BorderSize = 0;
             this.progressBar.ForeColor = System.Drawing.Color.White;
             this.progressBar.Location = new System.Drawing.Point(240, 16);
-            this.progressBar.Maximum = 1000;
+            this.progressBar.Maximum = 300;
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(568, 34);
             this.progressBar.TabIndex = 0;
@@ -297,10 +297,11 @@
             this.MinimumSize = new System.Drawing.Size(1050, 655);
             this.Name = "Dashboard";
             this.Size = new System.Drawing.Size(1050, 655);
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panelRank.ResumeLayout(false);
             this.panelRank.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNextRank)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCurrentRank)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -312,10 +313,10 @@
 
         private WiLBiT.WiLBiTPanel panelRank;
         private WiLBiT.WiLBiTProgressBar progressBar;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCurrentRank;
+        private System.Windows.Forms.PictureBox pbNextRank;
+        private System.Windows.Forms.PictureBox pbCurrentRank;
+        private System.Windows.Forms.Label lblNextRank;
         private System.Windows.Forms.Label lblXP;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;

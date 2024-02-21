@@ -35,16 +35,6 @@ namespace SkyAirlines
             connectionToSQL = new ConnectionToSQL();
 
             this.panel = panel;
-
-            lblAirlineName.Text = getAirlineData.GetAirlineName();
-            lblMembers.Text = getAirlineData.GetAirlineMembers().ToString() + " / 20";
-            lblMoney.Text = getAirlineData.GetAirlineMoney() + " $";
-            lblFleet.Text = getAirlineData.GetAirlineFleet();
-            lblHeadquarter.Text = getAirlineData.GetAirlineHeadquarter();
-
-            cbFleet.DataSource = GetCommonLicencesWithPilot();
-            cbFleet.DropDownStyle = ComboBoxStyle.DropDownList;
-            InitializeMap();
         }
 
         private void InitializeMap()
@@ -67,6 +57,16 @@ namespace SkyAirlines
 
         private void AirlinePilot_Load(object sender, EventArgs e)
         {
+            lblAirlineName.Text = getAirlineData.GetAirlineName();
+            lblMembers.Text = getAirlineData.GetAirlineMembers().ToString() + " / 20";
+            lblMoney.Text = getAirlineData.GetAirlineMoney() + " $";
+            lblFleet.Text = getAirlineData.GetAirlineFleet();
+            lblHeadquarter.Text = getAirlineData.GetAirlineHeadquarter();
+
+            cbFleet.DataSource = GetCommonLicencesWithPilot();
+            cbFleet.DropDownStyle = ComboBoxStyle.DropDownList;
+            InitializeMap();
+
             using (SqlConnection connection = connectionToSQL.CreateConnection())
             {
                 try

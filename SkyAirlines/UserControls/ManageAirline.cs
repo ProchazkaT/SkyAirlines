@@ -31,17 +31,6 @@ namespace SkyAirlines
             InitializeComponent();
             connectionToSQL = new ConnectionToSQL();
             this.panel = panel;
-
-            lblAirlineName.Text = airlineData.GetAirlineName();
-            lblHeadquater.Text = airlineData.GetAirlineHeadquarter();
-            lblMembers.Text = airlineData.GetAirlineMembers().ToString() + " / 20";
-            lblMoney.Text = airlineData.GetAirlineMoney() + "$";
-            cbFleet.DataSource = airlineData.GetAirlineFleetAsList();
-            cbEquipment.DataSource = equipmentList;
-            cbEquipment.SelectedIndex = int.Parse(airlineData.GetAirlineEquipment());
-            pbPicture.Image = airlineData.GetAirlineLogo();
-            SetPercentageForEquipment();
-            InitializeMap();
         }
 
         private void InitializeMap()
@@ -571,6 +560,20 @@ namespace SkyAirlines
         {
             ChangeDiscordLink form = new ChangeDiscordLink(lblMoney);
             form.Show();
+        }
+
+        private void ManageAirline_Load(object sender, EventArgs e)
+        {
+            lblAirlineName.Text = airlineData.GetAirlineName();
+            lblHeadquater.Text = airlineData.GetAirlineHeadquarter();
+            lblMembers.Text = airlineData.GetAirlineMembers().ToString() + " / 20";
+            lblMoney.Text = airlineData.GetAirlineMoney() + "$";
+            cbFleet.DataSource = airlineData.GetAirlineFleetAsList();
+            cbEquipment.DataSource = equipmentList;
+            cbEquipment.SelectedIndex = int.Parse(airlineData.GetAirlineEquipment());
+            pbPicture.Image = airlineData.GetAirlineLogo();
+            SetPercentageForEquipment();
+            InitializeMap();
         }
     }
 }

@@ -372,6 +372,11 @@
     <None Include="Resources\AirplaneMarker.png" />
     <None Include="Resources\AirportMarker.png" />
     <None Include="Resources\HereMarker.png" />
+    <None Include="Resources\Captain.png" />
+    <None Include="Resources\FirstOfficer.png" />
+    <None Include="Resources\FlyingLegend.png" />
+    <None Include="Resources\Newbie.png" />
+    <None Include="Resources\SeniorCaptain.png" />
     <Content Include="SkyAirlines2.ico" />
     <None Include="Resources\Departure.png" />
     <None Include="Resources\Arrival.png" />
@@ -423,7 +428,6 @@
     <None Include="Resources\SkyAirlines3.png" />
     <None Include="Resources\Licence.png" />
     <None Include="Resources\Dashboard.png" />
-    <None Include="Resources\FirstOfficer.png" />
     <None Include="Resources\minimaze.png" />
     <None Include="Resources\Close.png" />
     <None Include="Resources\SkyAirlines2.png" />

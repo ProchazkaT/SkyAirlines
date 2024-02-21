@@ -51,8 +51,6 @@ namespace SkyAirlines
             panel = panelMain;
 
             connectionToSQL = new ConnectionToSQL();
-
-            InitializeMap();
         }
 
         private void InitializeMap()
@@ -369,6 +367,8 @@ namespace SkyAirlines
 
         private void FlightTracking_Load(object sender, EventArgs e)
         {
+            InitializeMap();
+
             if (markersOverlay.Markers.Count >= 2)
             {
                 CustomMarker departureMarker = (CustomMarker)markersOverlay.Markers[0];
