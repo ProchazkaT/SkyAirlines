@@ -205,6 +205,20 @@ namespace SkyAirlines
             return (int)Math.Round(rating);
         }
 
+        public int CalculateXP(int landingRate)
+        {
+            int minLandingRate = -500;
+            int maxLandingRate = -150;
+            int minXP = 0;
+            int maxXP = 20;
+
+            landingRate = Math.Max(minLandingRate, Math.Min(maxLandingRate, landingRate));
+
+            double xp = ((double)(landingRate - minLandingRate) / (maxLandingRate - minLandingRate)) * (maxXP - minXP) + minXP;
+
+            return (int)Math.Round(xp);
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             try
@@ -296,13 +310,7 @@ namespace SkyAirlines
                 int pilotFlights = pilotSqlData.GetPilotFlights(GlobalData.Username) + 1;
                 int landingRate = pilotSqlData.GetPilotAverageLandingRate(GlobalData.Username) + (finalLandingRate);
                 int pilotRating = pilotSqlData.GetPilotRating(GlobalData.Username) + CalculateFlightRating(finalLandingRate);
-
-                //XP
-                int xp = 0;
-                if (finalLandingRate > 200)
-                    xp = pilotSqlData.GetPilotXP(GlobalData.Username) + 10;
-                else
-                    xp = pilotSqlData.GetPilotXP(GlobalData.Username) + 20;
+                int xp = pilotSqlData.GetPilotXP(GlobalData.Username) + CalculateXP(finalLandingRate);
 
                 using (SqlConnection connection = connectionToSQL.CreateConnection())
                 {
