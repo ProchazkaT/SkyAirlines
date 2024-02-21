@@ -106,8 +106,17 @@ namespace SkyAirlines
         private void Dashboard_Load(object sender, EventArgs e)
         {
             lblFlights.Text = pilotSQLData.GetPilotFlights(GlobalData.Username).ToString();
-            lblRating.Text = (int.Parse(pilotSQLData.GetPilotRating(GlobalData.Username).ToString()) / pilotSQLData.GetPilotFlights(GlobalData.Username)).ToString();
-            lblLandingRate.Text = (pilotSQLData.GetPilotAverageLandingRate(GlobalData.Username) / pilotSQLData.GetPilotFlights(GlobalData.Username)).ToString() + " FPM";
+            if (pilotSQLData.GetPilotFlights(GlobalData.Username) != 0)
+            {
+
+                lblLandingRate.Text = (pilotSQLData.GetPilotAverageLandingRate(GlobalData.Username) / pilotSQLData.GetPilotFlights(GlobalData.Username)).ToString() + " FPM";
+                lblRating.Text = (int.Parse(pilotSQLData.GetPilotRating(GlobalData.Username).ToString()) / pilotSQLData.GetPilotFlights(GlobalData.Username)).ToString();
+            }
+            else
+            {
+                lblLandingRate.Text = "0 FPM";
+                lblRating.Text = "0";
+            }
             progressBar.Value = pilotSQLData.GetPilotXP(GlobalData.Username);
 
             InitializeMap();
