@@ -186,6 +186,40 @@ namespace SkyAirlines.Classes
             return airplaneForFlight;
         }
 
+        public string GetPilotDestinations(string Username)
+        {
+            string destinations = "";
+
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    cmd.CommandText = "SELECT Destinations FROM Pilot WHERE Username = @username";
+                    cmd.Parameters.AddWithValue("@username", Username);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        destinations = reader["Destinations"].ToString().Trim();
+                    }
+                    reader.Close();
+
+                    connection.Close();
+                }
+                catch (Exception chyba)
+                {
+                    MessageBox.Show(chyba.ToString(), "Error:");
+                    connection.Close();
+                }
+            }
+            return destinations;
+        }
+
         public int GetPilotID(string Username)
         {
             int id = 0;

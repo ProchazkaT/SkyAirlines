@@ -43,6 +43,7 @@ namespace SkyAirlines
         private int distanceNmFromAircraft = 0;
         private int distanceNM = 0;
         private bool isLanded = false;
+        private int finalLandingRate = 0;
 
         public FlightTracking(Panel panelMain)
         {
@@ -190,6 +191,20 @@ namespace SkyAirlines
             gMapControl.Position = new PointLatLng(latitude, longitude);
         }
 
+        public int CalculateFlightRating(int landingRate)
+        {
+            int minLandingRate = -500;
+            int maxLandingRate = -150;
+            int minRating = 0;
+            int maxRating = 100;
+
+            landingRate = Math.Max(minLandingRate, Math.Min(maxLandingRate, landingRate));
+
+            double rating = ((double)(landingRate - minLandingRate) / (maxLandingRate - minLandingRate)) * (maxRating - minRating) + minRating;
+
+            return (int)Math.Round(rating);
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             try
@@ -218,6 +233,7 @@ namespace SkyAirlines
                 {
                     isLanded = true;
                     MessageBox.Show("Your landing rate: " + landingRate.ToString() + " FPM", "Landing rate:");
+                    finalLandingRate = (int)landingRate;
                 }
 
                 UpdateAirplanePosition(latitudeDeg, longitudeDeg);
@@ -260,7 +276,7 @@ namespace SkyAirlines
 
         private void btnSubmitFlight_Click(object sender, EventArgs e)
         {
-            if (GlobalData.isFlown == true && distanceNmFromAircraft <= 3)
+            if (GlobalData.isFlown == true && distanceNmFromAircraft <= 1)
             {
 
                 FSUIPCConnection.Close();
@@ -277,6 +293,17 @@ namespace SkyAirlines
                 int moneyPilot = int.Parse(moneyPilotDouble.ToString());
                 int moneyAirline = int.Parse(moneyAirlineDouble.ToString());
 
+                int pilotFlights = pilotSqlData.GetPilotFlights(GlobalData.Username) + 1;
+                int landingRate = pilotSqlData.GetPilotAverageLandingRate(GlobalData.Username) + (finalLandingRate);
+                int pilotRating = pilotSqlData.GetPilotRating(GlobalData.Username) + CalculateFlightRating(finalLandingRate);
+
+                //XP
+                int xp = 0;
+                if (finalLandingRate > 200)
+                    xp = pilotSqlData.GetPilotXP(GlobalData.Username) + 10;
+                else
+                    xp = pilotSqlData.GetPilotXP(GlobalData.Username) + 20;
+
                 using (SqlConnection connection = connectionToSQL.CreateConnection())
                 {
                     try
@@ -288,9 +315,14 @@ namespace SkyAirlines
 
                         string[] airport = lblArrival.Text.Split('-');
 
-                        cmd.CommandText = "UPDATE Pilot SET Money = @money, Departure=@departure, Arrival=NULL WHERE Username = @username";
+                        cmd.CommandText = "UPDATE Pilot SET Money = @money, Departure=@departure, Arrival=NULL, Destinations=@destinations, Flights=@flights, AverageLandingRate=@averageLandingRate, XP=@xp, Rating=@rating WHERE Username = @username";
                         cmd.Parameters.AddWithValue("@money", moneyPilot);
                         cmd.Parameters.AddWithValue("@departure", airport[0].Trim());
+                        cmd.Parameters.AddWithValue("@destinations", airport[0].Trim() + ",");
+                        cmd.Parameters.AddWithValue("@flights", pilotFlights);
+                        cmd.Parameters.AddWithValue("@averageLandingRate", landingRate);
+                        cmd.Parameters.AddWithValue("@xp", xp);
+                        cmd.Parameters.AddWithValue("@rating", pilotRating);
                         cmd.Parameters.AddWithValue("@username", GlobalData.Username);
                         cmd.ExecuteNonQuery();
 
