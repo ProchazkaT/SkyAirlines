@@ -162,6 +162,8 @@ namespace SkyAirlines
 
                         if (!string.IsNullOrEmpty(tbDiscordLink.Texts))
                             cmd.Parameters.AddWithValue("@discordLink", tbDiscordLink.Texts);
+                        else
+                            cmd.Parameters.AddWithValue("@discordLink", "NULL");
 
                         string icaosString = string.Join(",", randomIcaos);
                         cmd.Parameters.AddWithValue("@destinations", icaosString);

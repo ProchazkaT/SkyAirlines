@@ -22,6 +22,13 @@ namespace SkyAirlines
 
         private Panel panel = new Panel();
 
+        /*
+        Toto jsou offsety, které určují UIPC, co přesně chceš tahat za data z leteckého simulátoru.
+        Co přesně za data taháš určuje kód, co je v kulatých závorkách př. (0x560)
+        Offsety se udávají ve FSUnits, které se potom musí převádět na hodnotu, kterou potřebuješ.
+        Např. Taháš rychlost ze simulátoru, FSUnits ti vytáhne hodnotu 24567, tak to potom musíš přepočítat, 
+        aby ti to ukazovalo knoty.
+        */
         private Offset<long> latitudeOffset = new Offset<long>(0x560);
         private Offset<long> longitudeOffset = new Offset<long>(0x568);
         private Offset<int> speedOffset = new Offset<int>(0x02B8);
@@ -253,10 +260,17 @@ namespace SkyAirlines
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            FlightTrackingSystem();
+        }
+
+        private void FlightTrackingSystem()
+        {
             try
             {
+                //Zapne se komunikace mezi aplikací a leteckým simulátorem
                 FSUIPCConnection.Process();
 
+                //Zde se z FSUnits, které jsou získány pomocí offsetů, převádí na reálné čísla.
                 latitude = latitudeOffset.Value;
                 longitude = longitudeOffset.Value;
                 speedGS = groundSpeedOffset.Value * 1.94384449 / 65536;
@@ -268,13 +282,18 @@ namespace SkyAirlines
                 double longitudeDeg = longitude * 360.0 / (65536.0 * 65536.0 * 65536.0 * 65536.0);
                 double landingRate = (double)landingRateOffset.Value;
 
+                //Zde se dosazují převedené hodnoty do labelů, které ukazují tyto údaje ve 'Flight'
                 lblLatitude.Text = latitudeDeg.ToString() + "°";
                 lblLongitude.Text = longitudeDeg.ToString() + "°";
                 lblAltitude.Text = altitudeFeet.ToString() + " ft";
                 lblAltitudeMetres.Text = altitudeMeters.ToString() + " m";
-                lblSpeed.Text = speedGS.ToString() + " kts";
+                lblSpeed.Text = int.Parse(speedGS.ToString()) + " kts";
                 lblIAS.Text = speedTAS.ToString() + " kts";
 
+                /*
+                Zde, když pilot přistane, tak to zaznamená přistání a ukáže, jak dobře přistál.
+                Je to ošetřené, aby se to ukázalo pouze jednou a nespamovalo to uživatele.
+                */
                 if (landingRate < 0 && isLanded == false)
                 {
                     isLanded = true;
@@ -282,19 +301,28 @@ namespace SkyAirlines
                     finalLandingRate = (int)landingRate;
                 }
 
+                //Toto je metoda aktualizující pozici letadla na mapě.
                 UpdateAirplanePosition(latitudeDeg, longitudeDeg);
 
+                //Nadefinové markery letišť, odkud kam pilot letí.
                 CustomMarker arrivalMarker = (CustomMarker)markersOverlay.Markers[1];
                 CustomMarker airplaneMarker = (CustomMarker)airplaneOverlay.Markers[0];
 
+                //Výpočet na vzdálenost mezi letištěm a letadlem.
                 distanceNmFromAircraft = (int)Math.Round(CalculateDistanceNM(airplaneMarker.Position, arrivalMarker.Position));
                 lblDistance.Text = distanceNmFromAircraft.ToString() + " nm";
 
+                /*
+                 Pojistka, jestli hráč letí let, tak jak má.
+                 Takovéto rychlosti většinou dosahuje při letu, takže když se spawne na přistání, 
+                 při této rychlosti se nepřistává.
+                */
                 if (lblSpeed.Text == "350")
                 {
                     GlobalData.isFlown = true;
                 }
 
+                //Zde se ukládájí body, které vykreslují trajektorii letu za letadlem.
                 if (airplaneRoute == null)
                 {
                     List<PointLatLng> points = new List<PointLatLng>();
@@ -310,6 +338,7 @@ namespace SkyAirlines
             }
             catch (Exception)
             {
+                //Toto se vrátí, když letecký simulátor není připojený.
                 lblStatus.Text = "Error reading data from FSUIPC.";
 
                 gMapControl.Zoom = 4;
