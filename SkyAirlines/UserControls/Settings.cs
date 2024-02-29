@@ -324,16 +324,30 @@ namespace SkyAirlines
                 {
                     try
                     {
-                        SqlCommand cmd = new SqlCommand();
-                        cmd.Connection = connection;
+                        SqlCommand checkCmd = new SqlCommand();
+                        checkCmd.Connection = connection;
+                        checkCmd.CommandText = "SELECT COUNT(*) FROM Pilot WHERE LOWER(Username) = LOWER(@username)";
+                        checkCmd.Parameters.AddWithValue("@username", tbNewUsername.Texts.ToLower());
+                        int count = (int)checkCmd.ExecuteScalar();
 
-                        cmd.CommandText = "UPDATE Pilot SET Username = @usernameNew WHERE Username = @username";
-                        cmd.Parameters.AddWithValue("@usernameNew", tbNewUsername.Texts);
-                        cmd.Parameters.AddWithValue("@username", GlobalData.Username);
-                        cmd.ExecuteNonQuery();
+                        if (count == 0)
+                        {
+                            SqlCommand cmd = new SqlCommand();
+                            cmd.Connection = connection;
 
-                        GlobalData.Username = tbNewUsername.Texts;
-                        MessageBox.Show("You have successfully changed the username.", "Notification");
+                            cmd.CommandText = "UPDATE Pilot SET Username = @usernameNew WHERE Username = @username";
+                            cmd.Parameters.AddWithValue("@usernameNew", tbNewUsername.Texts);
+                            cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+                            cmd.ExecuteNonQuery();
+
+                            GlobalData.Username = tbNewUsername.Texts;
+                            MessageBox.Show("You have successfully changed the username.", "Notification");
+                        }
+                        else
+                        {
+                            MessageBox.Show("The username already exists. Please choose a different one.", "Notification");
+                        }
+
                         connection.Close();
                     }
                     catch (Exception)

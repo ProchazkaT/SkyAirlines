@@ -191,29 +191,63 @@ namespace SkyAirlines
 
         public int CalculateFlightRating(int landingRate)
         {
+            //Zde si nadefinujeme nejhorší akceptovatelné přistání
             int minLandingRate = -500;
-            int maxLandingRate = -150;
+
+            //Zde si nadefinujeme nejlepší přistání
+            int maxLandingRate = 0;
+
+            //Zde si nadefinujeme ohodnocení - nejmenší a největší ohodnocení
             int minRating = 0;
             int maxRating = 100;
 
+            /*
+            Zde je výpočet na rozsah, který je omezen mezi 'minLandingRate' a 'maxLandingRate' pomocí funkce 'Math.Min' a 'Math.Max'
+            Když je 'landingRate' menší než 'minLandingRate', bude nastaveno na 'minLandingRate', 
+            a pokud je větší než 'maxLandingRate', bude nastaveno na 'maxLandingRate'.
+            */
             landingRate = Math.Max(minLandingRate, Math.Min(maxLandingRate, landingRate));
 
+            /*
+            Zde se vypočítá hodnota 'rating' pomocí lineární interpolace. 
+            To znamená, že se 'landingRate' normalizuje do rozsahu 0 až 1 vzhledem k rozsahu mezi 'minLandingRate' a 'maxLandingRate'. 
+            Pak se tato normalizovaná hodnota vynásobí rozdílem mezi 'maxRating' a 'minRating' a přičte se 'minRating', což umožňuje převést normalizovanou 
+            hodnotu 'landingRate' na odpovídající hodnotu 'rating' v rozsahu mezi 'minRating' a 'maxRating'.
+            */
             double rating = ((double)(landingRate - minLandingRate) / (maxLandingRate - minLandingRate)) * (maxRating - minRating) + minRating;
 
+            //Vrátí hodnotu 'rating', kterou zaokrouhlí a převede na int
             return (int)Math.Round(rating);
         }
 
         public int CalculateXP(int landingRate)
         {
+            //Zde si nadefinujeme nejhorší akceptovatelné přistání
             int minLandingRate = -500;
-            int maxLandingRate = -150;
+
+            //Zde si nadefinujeme nejlepší přistání
+            int maxLandingRate = 0;
+
+            //Zde si nadefinujeme udělování zkušeností - nejmenší a největší počet zkušeností
             int minXP = 0;
             int maxXP = 20;
 
+            /*
+            Zde je výpočet na rozsah, který je omezen mezi 'minLandingRate' a 'maxLandingRate' pomocí funkce 'Math.Min' a 'Math.Max'
+            Když je 'landingRate' menší než 'minLandingRate', bude nastaveno na 'minLandingRate', 
+            a pokud je větší než 'maxLandingRate', bude nastaveno na 'maxLandingRate'.
+            */
             landingRate = Math.Max(minLandingRate, Math.Min(maxLandingRate, landingRate));
 
+            /*
+            Zde se vypočítá hodnota 'xp' pomocí lineární interpolace. 
+            To znamená, že se 'landingRate' normalizuje do rozsahu 0 až 1 vzhledem k rozsahu mezi 'minLandingRate' a 'maxLandingRate'. 
+            Pak se tato normalizovaná hodnota vynásobí rozdílem mezi 'maxXP' a 'minXP' a přičte se 'minXP', což umožňuje převést normalizovanou 
+            hodnotu 'landingRate' na odpovídající hodnotu 'xp' v rozsahu mezi 'minXP' a 'maxXP'.
+            */
             double xp = ((double)(landingRate - minLandingRate) / (maxLandingRate - minLandingRate)) * (maxXP - minXP) + minXP;
 
+            //Vrátí hodnotu 'xp', kterou zaokrouhlí a převede na int
             return (int)Math.Round(xp);
         }
 
