@@ -238,6 +238,7 @@
             this.btnSubmitFlight.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(47)))), ((int)(((byte)(82)))));
             this.btnSubmitFlight.BorderRadius = 10;
             this.btnSubmitFlight.BorderSize = 0;
+            this.btnSubmitFlight.Enabled = false;
             this.btnSubmitFlight.FlatAppearance.BorderSize = 0;
             this.btnSubmitFlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubmitFlight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -299,7 +300,7 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(20, 35);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(211, 20);
+            this.label6.Size = new System.Drawing.Size(178, 17);
             this.label6.TabIndex = 1;
             this.label6.Text = "Select an action to perform";
             // 
@@ -310,7 +311,7 @@
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(19, 10);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 20);
+            this.label5.Size = new System.Drawing.Size(53, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "Action";
             // 
@@ -346,7 +347,7 @@
             this.lblAltitudeMetres.ForeColor = System.Drawing.Color.Black;
             this.lblAltitudeMetres.Location = new System.Drawing.Point(705, 35);
             this.lblAltitudeMetres.Name = "lblAltitudeMetres";
-            this.lblAltitudeMetres.Size = new System.Drawing.Size(37, 20);
+            this.lblAltitudeMetres.Size = new System.Drawing.Size(31, 17);
             this.lblAltitudeMetres.TabIndex = 15;
             this.lblAltitudeMetres.Text = "0 m";
             // 
@@ -357,7 +358,7 @@
             this.lblIAS.ForeColor = System.Drawing.Color.Black;
             this.lblIAS.Location = new System.Drawing.Point(940, 35);
             this.lblIAS.Name = "lblIAS";
-            this.lblIAS.Size = new System.Drawing.Size(45, 20);
+            this.lblIAS.Size = new System.Drawing.Size(38, 17);
             this.lblIAS.TabIndex = 13;
             this.lblIAS.Text = "0 kts";
             // 
@@ -368,7 +369,7 @@
             this.label19.ForeColor = System.Drawing.Color.Black;
             this.label19.Location = new System.Drawing.Point(896, 35);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(44, 20);
+            this.label19.Size = new System.Drawing.Size(38, 17);
             this.label19.TabIndex = 14;
             this.label19.Text = "TAS";
             // 
@@ -379,7 +380,7 @@
             this.lblAltitude.ForeColor = System.Drawing.Color.Black;
             this.lblAltitude.Location = new System.Drawing.Point(705, 10);
             this.lblAltitude.Name = "lblAltitude";
-            this.lblAltitude.Size = new System.Drawing.Size(33, 20);
+            this.lblAltitude.Size = new System.Drawing.Size(28, 17);
             this.lblAltitude.TabIndex = 11;
             this.lblAltitude.Text = "0 ft";
             // 
@@ -390,7 +391,7 @@
             this.label15.ForeColor = System.Drawing.Color.Black;
             this.label15.Location = new System.Drawing.Point(626, 10);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(73, 20);
+            this.label15.Size = new System.Drawing.Size(63, 17);
             this.label15.TabIndex = 12;
             this.label15.Text = "Altitude";
             // 
@@ -401,7 +402,7 @@
             this.lblLongitude.ForeColor = System.Drawing.Color.Black;
             this.lblLongitude.Location = new System.Drawing.Point(415, 35);
             this.lblLongitude.Name = "lblLongitude";
-            this.lblLongitude.Size = new System.Drawing.Size(25, 20);
+            this.lblLongitude.Size = new System.Drawing.Size(22, 17);
             this.lblLongitude.TabIndex = 10;
             this.lblLongitude.Text = "0°";
             // 
@@ -412,7 +413,7 @@
             this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(318, 35);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(91, 20);
+            this.label12.Size = new System.Drawing.Size(80, 17);
             this.label12.TabIndex = 9;
             this.label12.Text = "Longitude";
             // 
@@ -423,7 +424,7 @@
             this.lblLatitude.ForeColor = System.Drawing.Color.Black;
             this.lblLatitude.Location = new System.Drawing.Point(415, 10);
             this.lblLatitude.Name = "lblLatitude";
-            this.lblLatitude.Size = new System.Drawing.Size(25, 20);
+            this.lblLatitude.Size = new System.Drawing.Size(22, 17);
             this.lblLatitude.TabIndex = 7;
             this.lblLatitude.Text = "0°";
             // 
@@ -434,7 +435,7 @@
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(318, 10);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(77, 20);
+            this.label11.Size = new System.Drawing.Size(67, 17);
             this.label11.TabIndex = 8;
             this.label11.Text = "Latitude";
             // 
@@ -445,7 +446,7 @@
             this.lblSpeed.ForeColor = System.Drawing.Color.Black;
             this.lblSpeed.Location = new System.Drawing.Point(940, 10);
             this.lblSpeed.Name = "lblSpeed";
-            this.lblSpeed.Size = new System.Drawing.Size(45, 20);
+            this.lblSpeed.Size = new System.Drawing.Size(38, 17);
             this.lblSpeed.TabIndex = 5;
             this.lblSpeed.Text = "0 kts";
             // 
@@ -456,7 +457,7 @@
             this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(817, 10);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(126, 20);
+            this.label9.Size = new System.Drawing.Size(111, 17);
             this.label9.TabIndex = 6;
             this.label9.Text = "Ground speed";
             // 
@@ -467,7 +468,7 @@
             this.lblStatus.ForeColor = System.Drawing.Color.Black;
             this.lblStatus.Location = new System.Drawing.Point(20, 35);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(273, 20);
+            this.lblStatus.Size = new System.Drawing.Size(230, 17);
             this.lblStatus.TabIndex = 5;
             this.lblStatus.Text = "Offline - you need to start simulator";
             // 
@@ -478,7 +479,7 @@
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(19, 10);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(114, 20);
+            this.label7.Size = new System.Drawing.Size(97, 17);
             this.label7.TabIndex = 1;
             this.label7.Text = "Flight status";
             // 

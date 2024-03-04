@@ -49,7 +49,6 @@ namespace SkyAirlines
         private int altitudeFeet = 0;
         private int distanceNmFromAircraft = 0;
         private int distanceNM = 0;
-        private bool isLanded = false;
         private int finalLandingRate = 0;
 
         public FlightTracking(Panel panelMain)
@@ -287,18 +286,18 @@ namespace SkyAirlines
                 lblLongitude.Text = longitudeDeg.ToString() + "°";
                 lblAltitude.Text = altitudeFeet.ToString() + " ft";
                 lblAltitudeMetres.Text = altitudeMeters.ToString() + " m";
-                lblSpeed.Text = int.Parse(speedGS.ToString()) + " kts";
+                lblSpeed.Text = ((int)speedGS).ToString() + " kts";
                 lblIAS.Text = speedTAS.ToString() + " kts";
 
                 /*
                 Zde, když pilot přistane, tak to zaznamená přistání a ukáže, jak dobře přistál.
                 Je to ošetřené, aby se to ukázalo pouze jednou a nespamovalo to uživatele.
                 */
-                if (landingRate < 0 && isLanded == false)
+                if (landingRate < 0)
                 {
-                    isLanded = true;
-                    MessageBox.Show("Your landing rate: " + landingRate.ToString() + " FPM", "Landing rate:");
+                    //MessageBox.Show("Your landing rate: " + landingRate.ToString() + " FPM", "Landing rate:");
                     finalLandingRate = (int)landingRate;
+                    btnSubmitFlight.Enabled = true;
                 }
 
                 //Toto je metoda aktualizující pozici letadla na mapě.
@@ -343,6 +342,7 @@ namespace SkyAirlines
 
                 gMapControl.Zoom = 4;
                 gMapControl.Position = new PointLatLng(50.14, 14.26);
+                //MessageBox.Show(ex.ToString());
 
                 FSUIPCConnection.Close();
                 timer1.Stop();
