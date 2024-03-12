@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GMap.NET;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
@@ -23,5 +24,6 @@ namespace SkyAirlines
         public static string Arrival { get; set; }
         public static string AirplaneForFlight { get; set; }
         public static bool isFlown { get; set; }
+        public static List<PointLatLng> pointsOfPositionOfAirplane {get; set;}
     }
 }

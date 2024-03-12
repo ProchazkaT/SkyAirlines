@@ -297,7 +297,6 @@ namespace SkyAirlines
                 {
                     //MessageBox.Show("Your landing rate: " + landingRate.ToString() + " FPM", "Landing rate:");
                     finalLandingRate = (int)landingRate;
-                    btnSubmitFlight.Enabled = true;
                 }
 
                 //Toto je metoda aktualizující pozici letadla na mapě.
@@ -316,17 +315,22 @@ namespace SkyAirlines
                  Takovéto rychlosti většinou dosahuje při letu, takže když se spawne na přistání, 
                  při této rychlosti se nepřistává.
                 */
-                if (lblSpeed.Text == "350")
+                if ((int)speedGS == 350)
                 {
                     GlobalData.isFlown = true;
+                }
+
+                if(GlobalData.isFlown == true && distanceNmFromAircraft <= 1 && landingRate != 0)
+                {
+                    btnSubmitFlight.Enabled = true;
                 }
 
                 //Zde se ukládájí body, které vykreslují trajektorii letu za letadlem.
                 if (airplaneRoute == null)
                 {
-                    List<PointLatLng> points = new List<PointLatLng>();
-                    points.Add(airplaneMarker.Position);
-                    airplaneRoute = new GMapRoute(points, "AirplaneRoute");
+                    GlobalData.pointsOfPositionOfAirplane = new List<PointLatLng>();
+                    GlobalData.pointsOfPositionOfAirplane.Add(airplaneMarker.Position);
+                    airplaneRoute = new GMapRoute(GlobalData.pointsOfPositionOfAirplane, "AirplaneRoute");
                     routeOverlay.Routes.Add(airplaneRoute);
                 }
                 else
