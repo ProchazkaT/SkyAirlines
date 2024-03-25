@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace SkyAirlines
@@ -315,12 +316,12 @@ namespace SkyAirlines
                  Takovéto rychlosti většinou dosahuje při letu, takže když se spawne na přistání, 
                  při této rychlosti se nepřistává.
                 */
-                if ((int)speedGS == 350)
+                if ((int)speedGS >= 350)
                 {
                     GlobalData.isFlown = true;
                 }
 
-                if(GlobalData.isFlown == true && distanceNmFromAircraft <= 1 && landingRate != 0)
+                if (GlobalData.isFlown == true && distanceNmFromAircraft <= 1 && landingRate != 0)
                 {
                     btnSubmitFlight.Enabled = true;
                 }
@@ -355,82 +356,119 @@ namespace SkyAirlines
 
         private void btnSubmitFlight_Click(object sender, EventArgs e)
         {
-            if (GlobalData.isFlown == true && distanceNmFromAircraft <= 1)
+            try
             {
-
+                // Zastavení spojení s FSUIPC a zastavení časovače
                 FSUIPCConnection.Close();
                 timer1.Stop();
+
+                // Nastavení indikátoru, že let byl dokončen
                 GlobalData.isFlown = false;
 
-                double salaryPilot = double.Parse(pilotSqlData.GetPilotSalary(GlobalData.Username));
-                double salaryAirline = double.Parse(AirlineSqlData.GetAirlineSalary());
-                double costPerMile = double.Parse(AirlineSqlData.GetAirlineCostPerMile());
+                // Získání hodnot z databáze a jejich zobrazení v MessageBoxu pro ověření
+                string pilotSalaryString = pilotSqlData.GetPilotSalary(GlobalData.Username);
+                string airlineSalaryString = AirlineSqlData.GetAirlineSalary();
+                string costPerMileString = AirlineSqlData.GetAirlineCostPerMile();
 
-                double moneyPilotDouble = distanceNM * costPerMile * salaryPilot + pilotSqlData.GetPilotMoney(GlobalData.Username);
-                double moneyAirlineDouble = distanceNM * costPerMile * salaryAirline + int.Parse(AirlineSqlData.GetAirlineMoney());
+                MessageBox.Show(pilotSalaryString + "\n" + airlineSalaryString + "\n" + costPerMileString);
 
-                int moneyPilot = int.Parse(moneyPilotDouble.ToString());
-                int moneyAirline = int.Parse(moneyAirlineDouble.ToString());
+                // Převod řetězců na čísla
+                double salaryPilot;
+                double salaryAirline;
+                double costPerMile;
 
-                int pilotFlights = pilotSqlData.GetPilotFlights(GlobalData.Username) + 1;
-                int landingRate = pilotSqlData.GetPilotAverageLandingRate(GlobalData.Username) + (finalLandingRate);
-                int pilotRating = pilotSqlData.GetPilotRating(GlobalData.Username) + CalculateFlightRating(finalLandingRate);
-                int xp = pilotSqlData.GetPilotXP(GlobalData.Username) + CalculateXP(finalLandingRate);
-
-                using (SqlConnection connection = connectionToSQL.CreateConnection())
+                if (!double.TryParse(pilotSalaryString, NumberStyles.Any, CultureInfo.InvariantCulture, out salaryPilot) ||
+                    !double.TryParse(airlineSalaryString, NumberStyles.Any, CultureInfo.InvariantCulture, out salaryAirline) ||
+                    !double.TryParse(costPerMileString, NumberStyles.Any, CultureInfo.InvariantCulture, out costPerMile))
                 {
-                    try
-                    {
-                        connection.Open();
-
-                        SqlCommand cmd = new SqlCommand();
-                        cmd.Connection = connection;
-
-                        string[] airport = lblArrival.Text.Split('-');
-
-                        cmd.CommandText = "UPDATE Pilot SET Money = @money, Departure=@departure, Arrival=NULL, Destinations=@destinations, Flights=@flights, AverageLandingRate=@averageLandingRate, XP=@xp, Rating=@rating WHERE Username = @username";
-                        cmd.Parameters.AddWithValue("@money", moneyPilot);
-                        cmd.Parameters.AddWithValue("@departure", airport[0].Trim());
-                        cmd.Parameters.AddWithValue("@destinations", airport[0].Trim() + ",");
-                        cmd.Parameters.AddWithValue("@flights", pilotFlights);
-                        cmd.Parameters.AddWithValue("@averageLandingRate", landingRate);
-                        cmd.Parameters.AddWithValue("@xp", xp);
-                        cmd.Parameters.AddWithValue("@rating", pilotRating);
-                        cmd.Parameters.AddWithValue("@username", GlobalData.Username);
-                        cmd.ExecuteNonQuery();
-
-                        cmd.CommandText = "UPDATE Airline SET AirlineMoney = @moneyAirline WHERE ID = @id";
-                        cmd.Parameters.AddWithValue("@moneyAirline", moneyAirline);
-                        cmd.Parameters.AddWithValue("@id", GlobalData.airlineID);
-                        cmd.ExecuteNonQuery();
-
-                        connection.Close();
-
-                        lblAirplane.Text = "";
-                        lblAltitude.Text = "";
-                        lblAltitudeMetres.Text = "";
-                        lblArrival.Text = "";
-                        lblDeparture.Text = "";
-                        lblDistance.Text = "";
-                        lblIAS.Text = "";
-                        lblLatitude.Text = "";
-                        lblLongitude.Text = "";
-                        lblSpeed.Text = "";
-                        lblStatus.Text = "";
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("An error occurred while submitting the flight.", "Error:");
-                    }
+                    MessageBox.Show("Invalid salary or cost per mile format.", "Error");
+                    return; // Ukončení metody v případě neplatného formátu
                 }
 
-                MessageBox.Show("You have successfully flown your flight!\n\nYou earned: " + moneyPilot + "\nYou earned for the airline: " + moneyAirline, "Notification:");
+                // Výpočet finančních hodnot
+                double moneyPilot = distanceNM * costPerMile * salaryPilot + pilotSqlData.GetPilotMoney(GlobalData.Username);
+                double moneyAirline = distanceNM * costPerMile * salaryAirline + double.Parse(AirlineSqlData.GetAirlineMoney(), CultureInfo.InvariantCulture);
+
+                // Aktualizace hodnot v databázi
+                UpdatePilotData(moneyPilot);
+                UpdateAirlineData(moneyAirline);
+
+                // Zobrazení úspěšného dokončení letu
+                MessageBox.Show($"You have successfully flown your flight!\n\nYou earned: {(distanceNM * costPerMile * salaryPilot)}$\nYou earned for the airline: {distanceNM * costPerMile * salaryAirline}$", "Notification");
+
+                // Vyčištění zobrazených údajů
+                ClearDisplayedData();
+
+                // Aktualizace zobrazeného množství peněz
+                GlobalData.lblMoney.Text = int.Parse(moneyPilot.ToString()) + "$";
+
+                // Zakázání tlačítka pro odeslání letu
+                btnSubmitFlight.Enabled = false;
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("You did not fly the generated flight!", "Notification:");
+                MessageBox.Show($"An error occurred while submitting the flight: {ex.Message}", "Error");
             }
         }
+
+        private void UpdatePilotData(double moneyPilot)
+        {
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                string[] airport = lblArrival.Text.Split('-');
+                string departureNew = airport[0].Trim();
+
+                cmd.CommandText = "UPDATE Pilot SET Money=@money, Departure=@departure, Arrival=NULL, Destinations=@destinations, Flights=@flights, AverageLandingRate=@averageLandingRate, XP=@xp, Rating=@rating WHERE Username = @username";
+                cmd.Parameters.AddWithValue("@money", moneyPilot);
+                cmd.Parameters.AddWithValue("@departure", departureNew);
+                cmd.Parameters.AddWithValue("@destinations", departureNew + ",");
+                cmd.Parameters.AddWithValue("@flights", pilotSqlData.GetPilotFlights(GlobalData.Username) + 1);
+                cmd.Parameters.AddWithValue("@averageLandingRate", pilotSqlData.GetPilotAverageLandingRate(GlobalData.Username) + finalLandingRate);
+                cmd.Parameters.AddWithValue("@xp", pilotSqlData.GetPilotXP(GlobalData.Username) + CalculateXP(finalLandingRate));
+                cmd.Parameters.AddWithValue("@rating", pilotSqlData.GetPilotRating(GlobalData.Username) + CalculateFlightRating(finalLandingRate));
+                cmd.Parameters.AddWithValue("@username", GlobalData.Username);
+
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+
+        private void UpdateAirlineData(double moneyAirline)
+        {
+            using (SqlConnection connection = connectionToSQL.CreateConnection())
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "UPDATE Airline SET AirlineMoney = @moneyAirline WHERE ID = @id";
+                cmd.Parameters.AddWithValue("@moneyAirline", moneyAirline);
+                cmd.Parameters.AddWithValue("@id", GlobalData.airlineID);
+
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+
+        private void ClearDisplayedData()
+        {
+            lblAirplane.Text = "";
+            lblAltitude.Text = "";
+            lblAltitudeMetres.Text = "";
+            lblArrival.Text = "";
+            lblDeparture.Text = "";
+            lblDistance.Text = "";
+            lblIAS.Text = "";
+            lblLatitude.Text = "";
+            lblLongitude.Text = "";
+            lblSpeed.Text = "";
+            lblStatus.Text = "";
+        }
+
 
         private void FlightTracking_Load(object sender, EventArgs e)
         {
