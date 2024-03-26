@@ -370,8 +370,6 @@ namespace SkyAirlines
                 string airlineSalaryString = AirlineSqlData.GetAirlineSalary();
                 string costPerMileString = AirlineSqlData.GetAirlineCostPerMile();
 
-                MessageBox.Show(pilotSalaryString + "\n" + airlineSalaryString + "\n" + costPerMileString);
-
                 // Převod řetězců na čísla
                 double salaryPilot;
                 double salaryAirline;
