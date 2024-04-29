@@ -34,44 +34,44 @@ to fly for the airline.
 
 ## Screenshots
 
-![App Screenshot](https://img.tpx.cz/uploads/11714415740.png)
+![App Screenshot](https://img.tpx.cz/uploads/11714415740.png)<br />
 Picture 1 - Login Form
 
-![App Screenshot](https://img.tpx.cz/uploads/21714481087.png)
+![App Screenshot](https://img.tpx.cz/uploads/21714481087.png)<br />
 Picture 2 - Register Form
 
-![App Screenshot](https://img.tpx.cz/uploads/31714441503.png)
+![App Screenshot](https://img.tpx.cz/uploads/31714441503.png)<br />
 Picture 3 - Dashboard
 
-![App Screenshot](https://img.tpx.cz/uploads/41714431344.png)
+![App Screenshot](https://img.tpx.cz/uploads/41714431344.png)<br />
 Picture 4 - Licences shop
 
-![App Screenshot](https://img.tpx.cz/uploads/51714477156.png)
+![App Screenshot](https://img.tpx.cz/uploads/51714477156.png)<br />
 Picture 5 - Aircraft licence choose
 
-![App Screenshot](https://img.tpx.cz/uploads/61714416200.png)
+![App Screenshot](https://img.tpx.cz/uploads/61714416200.png)<br />
 Picture 6 - "Flight" (App not connected to flight simulator.)
 
-![App Screenshot](https://img.tpx.cz/uploads/71714446835.png)
+![App Screenshot](https://img.tpx.cz/uploads/71714446835.png)<br />
 Picture 7 - "Flight" (App connected to flight simulator.)
 
-![App Screenshot](https://img.tpx.cz/uploads/81714495209.png)
+![App Screenshot](https://img.tpx.cz/uploads/81714495209.png)<br />
 Picture 8 - List of created virtual airlines.
 
-![App Screenshot](https://img.tpx.cz/uploads/91714465472.png)
+![App Screenshot](https://img.tpx.cz/uploads/91714465472.png)<br />
 Picture 9 - Creating virtual airline.
 
-![App Screenshot](https://img.tpx.cz/uploads/101714460995.png)
+![App Screenshot](https://img.tpx.cz/uploads/101714460995.png)<br />
 Picture 10 - "Airline" (From a pilot's perspective.)
 
-![App Screenshot](https://img.tpx.cz/uploads/111714396108.png)
+![App Screenshot](https://img.tpx.cz/uploads/111714396108.png)<br />
 Picture 11 - "Airline" (From a CEO's perspective.)
 
-![App Screenshot](https://img.tpx.cz/uploads/121714491333.png)
+![App Screenshot](https://img.tpx.cz/uploads/121714491333.png)<br />
 Picture 12 - Managing a pilot in a virtual airline.
 
-![App Screenshot](https://img.tpx.cz/uploads/131714427347.png)
+![App Screenshot](https://img.tpx.cz/uploads/131714427347.png)<br />
 Picture 13 - Virtual airline management.
 
-![App Screenshot](https://img.tpx.cz/uploads/141714411189.png)
+![App Screenshot](https://img.tpx.cz/uploads/141714411189.png)<br />
 Picture 14 - Settings
