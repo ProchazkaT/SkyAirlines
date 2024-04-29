@@ -75,9 +75,3 @@ Picture 13 - Virtual airline management.
 
 ![App Screenshot](https://img.tpx.cz/uploads/141714411189.png)
 Picture 14 - Settings
-
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
