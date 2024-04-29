@@ -14,10 +14,10 @@ namespace SkyAirlines
         public ConnectionToSQL()
         {
             sqlBuilder = new SqlConnectionStringBuilder();
-            sqlBuilder.DataSource = @"SkyAirlines.mssql.somee.com";
-            sqlBuilder.InitialCatalog = "SkyAirlines";
-            sqlBuilder.UserID = "TooM_SQLLogin_1";
-            sqlBuilder.Password = "li21a3sl6v";
+            sqlBuilder.DataSource = @"SQL Server";
+            sqlBuilder.InitialCatalog = "Database Name";
+            sqlBuilder.UserID = "User";
+            sqlBuilder.Password = "Password";
         }
 
         public SqlConnection CreateConnection()
