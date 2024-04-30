@@ -31,6 +31,18 @@ to fly for the airline.
 
 - UIPC
 
+## How to install and run this application
+
+- You need to download .NET Desktop Runtime and FSUIPC
+
+- Download this application
+
+- On your Microsoft SQL Server import "SkyAirlines.bacpac"
+
+- Edit in  "Classes\ConnectionToSQL.cs" server, where the database is, database name and password.
+
+- Run Application -> "SkyAirlines\bin\Debug\SkyAirlines.exe"
+
 
 ## Screenshots
 
